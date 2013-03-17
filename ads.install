@@ -1,0 +1,633 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the ads profile.
+ *
+ * With inspriations from Recruiter:
+ *  http://drupalcode.org/project/recruiter.git/blob/refs/heads/7.x-1.x:/recruiter.install
+ */
+
+/**
+ * Implements hook_install_tasks().
+ */
+function ads_install_tasks() {
+  // Increase maximum function nesting level to prevent install errors.
+  $max_nesting_level = ini_get('xdebug.max_nesting_level');
+  if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
+    ini_set('xdebug.max_nesting_level', 200);
+  }
+
+  // Remove any status messages that might have been set. They are unneeded.
+  // drupal_get_messages('status', TRUE);
+
+  $tasks = array(
+    /*
+    'ads_install_additional_modules' => array(
+      'display_name' => st('Install additional modules'),
+      'type' => 'batch',
+    ),
+    */
+    'ads_cleanup' => array(
+      'display_name' => st('Post-install cleanup'),
+      'type' => 'batch',
+    ),
+    /*
+    'ads_import_vocabularies_batch' => array(
+      'display_name' => st('Import terms'),
+      'type' => 'batch',
+    ),
+    */
+    /*
+    'ads_import_content' => array(
+      'display_name' => st('Import demo content'),
+      'type' => 'batch',
+    ),
+    */
+  );
+
+  return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks_alter().
+ */
+function ads_install_tasks_alter(&$tasks, $install_state) {
+  /*
+  // Skip the profile selection, and use the 'exclusive' property to directly
+  // install the ads distribution. Requires core patch: #1727430.
+  $tasks['install_select_profile']['display'] = FALSE;
+
+  // Exchange the logo that is used in the installer.
+  $theme_settings = array(
+    'toggle_logo' => 1,
+    'default_logo' => 0,
+    'logo_path' => 'profiles/ads/themes/cloudy/images/ads-logo.png',
+    'logo_upload' => '',
+  );
+  $GLOBALS['conf']['theme_seven_settings'] = $theme_settings;
+  */
+}
+
+/**
+ * Task callback: uses Batch API to install additional modules that should
+ * be enabled by default but shouldn't be considered profile dependencies.
+ *
+ * Also installs demo content if selected.
+ */
+/*
+function ads_install_additional_modules() {
+  $modules = array(
+
+    // Install default core modules.
+    'contextual',
+    'dashboard',
+    'dblog',
+    'shortcut',
+    'overlay',
+    'field_ui',
+
+    // Install default contrib modules.
+    'admin_menu_toolbar',
+    'rules_admin',
+    'views_ui',
+    'taxonomy_manager',
+    'colorbox',
+    'context_ui',
+    'pathauto',
+    'facetapi_pretty_paths',
+    'colorbox',
+    'context_ui',
+    'rules_admin',
+    'views_ui',
+    'wysiwyg',
+
+    // Install requirements for the ads cloudy base theme.
+    'omega_tools',
+    'block_class',
+    'ads_cloudy',
+    'ads_menu',
+    'ads_front',
+  );
+
+  if (variable_get('ads_install_demo_content', FALSE)) {
+    $modules[] = 'ads_demo';
+  }
+
+  // Resolve the dependencies now, so that module_enable() doesn't need
+  // to do it later for each individual module (which kills performance).
+  $files = system_rebuild_module_data();
+  $modules_sorted = array();
+  foreach ($modules as $module) {
+    if ($files[$module]->requires) {
+      // Create a list of dependencies that haven't been installed yet.
+      $dependencies = array_keys($files[$module]->requires);
+      $dependencies = array_filter($dependencies, '_ads_filter_dependencies');
+      // Add them to the module list.
+      $modules = array_merge($modules, $dependencies);
+    }
+  }
+  $modules = array_unique($modules);
+  foreach ($modules as $module) {
+    $modules_sorted[$module] = $files[$module]->sort;
+  }
+  arsort($modules_sorted);
+
+  $operations = array();
+  // Enable the selected modules.
+  foreach ($modules_sorted as $module => $weight) {
+    $operations[] = array('_ads_enable_module', array($module, $files[$module]->info['name']));
+  }
+
+  $batch = array(
+    'title' => t('Installing additional modules'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+*/
+
+/**
+ * array_filter() callback used to filter out already installed dependencies.
+ */
+/*
+function _ads_filter_dependencies($dependency) {
+  return !module_exists($dependency);
+}
+*/
+
+/**
+ * Defines batch operation for importing vocabularies.
+ */
+/*
+function ads_import_vocabularies_batch() {
+  $batch = array(
+    'title' => t('Importing taxonomy terms'),
+    'operations' => array(
+      array('ads_import_vocabularies', array()),
+    ),
+    'finished' => 'ads_import_vocabularies_finished',
+    'title' => t('Import terms'),
+    'init_message' => t('Starting import.'),
+    'progress_message' => t('Processed @current out of @total.'),
+    'error_message' => t('ads vocabularies import batch has encountered an error.'),
+    'file' => drupal_get_path('profile', 'ads') . '/ads.install_vocabularies.inc',
+  );
+  return $batch;
+}
+*/
+
+
+/**
+ * Task callback: return a batch API array with content migrations to import.
+ */
+/*
+function ads_import_content() {
+  if (variable_get('ads_install_demo_content', FALSE)) {
+    module_enable(array('ads_demo'));
+    $operations = array();
+
+    // Run all available migrations.
+    $migrations = migrate_migrations();
+    foreach ($migrations as $machine_name => $migration) {
+      $operations[] = array('_ads_import', array($machine_name, t('Importing demo content.')));
+    }
+
+    $batch = array(
+      'title' => t('Importing demo content'),
+      'operations' => $operations,
+      'finished' => 'ads_import_content_finished',
+      'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+    );
+
+    return $batch;
+  }
+
+  variable_del('ads_install_demo_content');
+}
+*/
+
+/**
+ * Task callback: performs final post-installation cleanup.
+ */
+function ads_cleanup() {
+  /*
+  $operations = array();
+
+  // Revert all features.
+  $operations[] = array('_ads_revert_all_features', array(t('Revert all features.')));
+
+  // Flush caches before we do anything.
+  $operations[] = array('_ads_flush_caches', array(t('Flushed caches.')));
+
+  // Rename FacetAPI block titles.
+  // For now let's only bother renaming the blocks we show by default.
+  $facet_blocks = array(
+    // Resume facet blocks.
+    '20lwlBykNTHsiVDNAjG1STlcNs5ZOkAd' => 'Career status',
+    '0E13X9GxANL1YrsKm6GzqUBvUn9dwwKX' => 'Field of study',
+    'Npc9qPmJF0Z7K11E3oY7p0Z1dHoH0Rpr' => 'Desired region',
+    'Z1OEEIJTmFLiH0khl0e9VwNxTjr1km0o' => 'Desired occupation',
+    'MCIaDpM84mEXHKio1Bs8HcYiueQECFo8' => 'IT Skills',
+    'xETXZbrE5MuFZJhqCQ361R0xPQQIUoDH' => 'General Skills',
+    'PvSkNRl00z4DVBGE2G0g0wziYXD2YPFO' => 'Language',
+    // Job facet blocks.
+    'PE57RfU6JaWBJC3FFCu7iidegBzDJCMx' => 'Field of study',
+    'v3NKwi4cgrJI5BhGVl3K6y1dktYkhuo8' => 'Occupational field',
+    'IzmJzjOerbieKFXpXetvXQNCqhkAH8GM' => 'Employment type',
+    'fknTj1lNko0YBn9qkfWwlhCx0XCi0niU' => 'Required IT skills',
+    'plRdR3L5yjuALKnX3l09E70IsBWbyyiY' => 'Required general skills',
+    'GPKIRB6X2D0QOMoO6ldpQS739bPh6Zru' => 'Required languages',
+    'SZ9qoxuugBBvUZ39HNC99AUUIkZtp592' => 'Location',
+  );
+
+  foreach ($facet_blocks as $delta => $title) {
+    $operations[] = array('_ads_facet_block_titles', array($delta, $title, t('Setting FacetAPI block titles.')));
+  }
+
+  // Flush caches again for good measure.
+  $operations[] = array('_ads_flush_caches', array(t('Flushed caches one last time.')));
+
+  $batch = array(
+    'title' => t('Performing post-install cleanup'),
+    'operations' => $operations,
+    'finished' => 'ads_cleanup_finished',
+    'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+  );
+  */
+
+  return $batch;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function ads_install() {
+  // Add text formats.
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  // Enable some standard blocks.
+  $default_theme = 'cloudy';
+  $admin_theme = 'seven';
+  $values = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'powered-by',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'footer',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // Insert default pre-defined node types into the database. For a complete
+  // list of available node type attributes, refer to the node type API
+  // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+  $types = array(
+    array(
+      'type' => 'page',
+      'name' => st('Basic page'),
+      'base' => 'node_content',
+      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+    ),
+    array(
+      'type' => 'article',
+      'name' => st('Article'),
+      'base' => 'node_content',
+      'description' => st('Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+    ),
+  );
+
+  foreach ($types as $type) {
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
+
+  // Insert default pre-defined RDF mapping into the database.
+  $rdf_mappings = array(
+    array(
+      'type' => 'node',
+      'bundle' => 'page',
+      'mapping' => array(
+        'rdftype' => array('foaf:Document'),
+      ),
+    ),
+    array(
+      'type' => 'node',
+      'bundle' => 'article',
+      'mapping' => array(
+        'rdftype' => array('sioc:Item', 'foaf:Document'),
+        'field_image' => array(
+          'predicates' => array('og:image', 'rdfs:seeAlso'),
+          'type' => 'rel',
+        ),
+        'field_tags' => array(
+          'predicates' => array('dc:subject'),
+          'type' => 'rel',
+        ),
+      ),
+    ),
+  );
+  foreach ($rdf_mappings as $rdf_mapping) {
+    rdf_mapping_save($rdf_mapping);
+  }
+
+  // Default "Basic page" to not be promoted.
+  variable_set('node_options_page', array('status'));
+
+  // Don't display date and author information for "Basic page" nodes by default.
+  variable_set('node_submitted_page', FALSE);
+
+  // By default, disable user picture support.
+  variable_set('user_pictures', '0');
+
+  // Allow visitor account creation with administrative approval.
+  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+
+  // Create a default vocabulary named "Tags", enabled for the 'article' content type.
+  $description = st('Use tags to group articles on similar topics into categories.');
+  $help = st('Enter a comma-separated list of words to describe your content.');
+  $vocabulary = (object) array(
+    'name' => 'Tags',
+    'description' => $description,
+    'machine_name' => 'tags',
+    'help' => $help,
+
+  );
+  taxonomy_vocabulary_save($vocabulary);
+
+  $field = array(
+    'field_name' => 'field_' . $vocabulary->machine_name,
+    'type' => 'taxonomy_term_reference',
+    // Set cardinality to unlimited for tagging.
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+    'settings' => array(
+      'allowed_values' => array(
+        array(
+          'vocabulary' => $vocabulary->machine_name,
+          'parent' => 0,
+        ),
+      ),
+    ),
+  );
+  field_create_field($field);
+
+  $instance = array(
+    'field_name' => 'field_' . $vocabulary->machine_name,
+    'entity_type' => 'node',
+    'label' => $vocabulary->name,
+    'bundle' => 'article',
+    'description' => $vocabulary->help,
+    'widget' => array(
+      'type' => 'taxonomy_autocomplete',
+      'weight' => -4,
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+      ),
+    ),
+  );
+  field_create_instance($instance);
+
+
+  // Create an image field named "Image", enabled for the 'article' content type.
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_field/7
+
+  $field = array(
+    'field_name' => 'field_image',
+    'type' => 'image',
+    'cardinality' => 1,
+    'translatable' => TRUE,
+    'locked' => FALSE,
+    'indexes' => array('fid' => array('fid')),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => FALSE,
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+    ),
+  );
+  field_create_field($field);
+
+
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_instance/7
+  $instance = array(
+    'field_name' => 'field_image',
+    'entity_type' => 'node',
+    'label' => 'Image',
+    'bundle' => 'article',
+    'description' => st('Upload an image to go with this article.'),
+    'required' => FALSE,
+
+    'settings' => array(
+      'file_directory' => 'field/image',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => TRUE,
+      'title_field' => '',
+    ),
+
+    'widget' => array(
+      'type' => 'image_image',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail',
+      ),
+      'weight' => -1,
+    ),
+
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array('image_style' => 'large', 'image_link' => ''),
+        'weight' => -1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array('image_style' => 'medium', 'image_link' => 'content'),
+        'weight' => -1,
+      ),
+    ),
+  );
+  field_create_instance($instance);
+
+  // Enable default permissions for system roles.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+  // Create a default role for site administrators (if it does not yet exist),
+  // and assign all available permissions.
+  if (!$admin_role = user_role_load_by_name('administrator')) {
+    $admin_role = new stdClass();
+    $admin_role->name = 'administrator';
+    $admin_role->weight = 2;
+    user_role_save($admin_role);
+  }
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  // Create a Home link in the main menu.
+  $item = array(
+    'link_title' => 'Home',
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
+
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'seven')
+    ->execute();
+  variable_set('admin_theme', 'seven');
+
+  // Enable omega base theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'omega')
+    ->execute();
+
+  // Enable cloudy default theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'cloudy')
+    ->execute();
+  variable_set('theme_default', 'cloudy');
+  variable_set('node_admin_theme', '1');
+
+  $theme_settings = variable_get('theme_cloudy_settings', array());
+  $theme_settings['toggle_slogan'] = FALSE;
+  variable_set('theme_cloudy_settings', $theme_settings);
+
+  // Create resume for user 1.
+  profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
+}
+
