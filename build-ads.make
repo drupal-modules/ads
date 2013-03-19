@@ -14,10 +14,16 @@
 ;
 ;  DRUPAL CORE
 ;___________________________________________________
-core = 7.21
+
+core = 7.x
 api  = 2
 
-projects[drupal][version] = "7.21"
+;projects[drupal][version] = "7.21"
+
+; Include the definition for how to build Drupal core directly, including patches:
+includes[] = drupal-org-core.make
+
+; Specify directory for contrib modules
 defaults[projects][subdir] = contrib
 
 ;___________________________________________________
