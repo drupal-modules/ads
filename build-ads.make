@@ -78,17 +78,13 @@ projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fie
 projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
 
 ; LINK
-; The link module can be count to the top 50 modules in Drupal installations and provides a standard custom content field for links. With this module links can
-; be added easily to any content types and profiles and include advanced validating and different ways of storing internal or external links and URLs. It also
-; supports additional link text title, site wide tokens for titles and title attributes, target attributes, css class attribution, static repeating values,
-; input conversion, and many more.
+; Provides a standard custom content field for links.
 projects[link][version] = "1.0"
-; LINK
-; The link module can be count to the top 50 modules in Drupal installations and provides a standard custom content field for links. With this module links can
-; be added easily to any content types and profiles and include advanced validating and different ways of storing internal or external links and URLs. It also
-; supports additional link text title, site wide tokens for titles and title attributes, target attributes, css class attribution, static repeating values,
-; input conversion, and many more.
-projects[link][version] = "1.0"
+
+; DOUBLE FIELD
+; Double field is a small module written to provide extensions to Drupal's core Fields.
+; By this module you can divide your fields into two seporate parts.
+projects[double_field][version] = "2.3"
 
 ;___________________________________________________
 ;
