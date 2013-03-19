@@ -28,28 +28,8 @@ defaults[projects][subdir] = contrib
 
 ;___________________________________________________
 ;
-;  COMMON MODULES
+;  FIELDS MODULES
 ;___________________________________________________
-
-; GOOGLE ANALYTICS
-; Adds the Google Analytics web statistics tracking system to your website.
-projects[google_analytics][version] = "1.3"
-
-; SERVICES
-; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
-; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
-projects[services][version] = "3.3"
-
-; CLAM AV
-; Drupal integration with the ClamAV virus scanner. This module will verify that files uploaded to a site are not infected with a virus, and prevent infected
-; files from being saved.
-projects[clamav][version] = "1.0-alpha2"
-
-; @REMOVE CONTEXT
-; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
-; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
-; should react to this active context.
-projects[context][version] = "3.0-beta6"
 
 ; DATE
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
@@ -70,19 +50,6 @@ projects[phone][download][type] = git
 projects[phone][download][branch] = "7.x-2.x"
 projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 
-; COUNTRIES
-; This module provides many country related tasks. Country fields, token support, et al.
-projects[countries] = "2.1"
-
-; I18N
-; This is a collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
-projects[i18n] = "1.7"
-
-; ENTITY
-; This module extends the entity API of Drupal core in order to provide a unified way to deal with entities and their properties. Additionally, it provides an
-; entity CRUD controller, which helps simplifying the creation of new entity types.
-projects[entity][version] = "1.0"
-
 ; FIELD GROUP
 ; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
 ; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
@@ -98,10 +65,6 @@ projects[field_collection][version] = "1.0-beta5"
 ; the D6 counterparts. See http://drupal.org/node/533222 for details.
 projects[references][version] = "2.0"
 
-; FEEDS
-; Import or aggregate data as nodes, users, taxonomy terms or simple database records.
-projects[feeds][version] = "2.0-alpha7"
-
 ; CONDITIONAL FIELDS
 ; Define dependencies between fields based on their states and values. Conditional Fields for Drupal 7 is an user interface to the new States API, plus the
 ; ability to modify fields appearance and behavior on certain conditions when viewing content.
@@ -114,15 +77,12 @@ projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fie
 ; @Patch: Add capapcity to use conditional_fields on field_collection item with multiple values.
 projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
 
-; FLAG
-; Flag is a flexible flagging system that is completely customizable by the administrator. Using this module, the site administrator can provide any number of
-; flags for nodes, comments, users, and any other type of entity. Some possibilities include bookmarks, marking important, friends, or flag as offensive. With
-; extensive views integration, you can create custom lists of popular content or keep tabs on important content.
-projects[flag][version] = "3.x-dev"
-projects[flag][download][type] = git
-projects[flag][download][branch] = "7.x-3.x"
-projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
-
+; LINK
+; The link module can be count to the top 50 modules in Drupal installations and provides a standard custom content field for links. With this module links can
+; be added easily to any content types and profiles and include advanced validating and different ways of storing internal or external links and URLs. It also
+; supports additional link text title, site wide tokens for titles and title attributes, target attributes, css class attribution, static repeating values,
+; input conversion, and many more.
+projects[link][version] = "1.0"
 ; LINK
 ; The link module can be count to the top 50 modules in Drupal installations and provides a standard custom content field for links. With this module links can
 ; be added easily to any content types and profiles and include advanced validating and different ways of storing internal or external links and URLs. It also
@@ -130,20 +90,29 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ; input conversion, and many more.
 projects[link][version] = "1.0"
 
-; MESSAGE
-; Message module is Drupal 7's answer to activity-streams and a flexible Messaging & Notifications system.
-projects[message][version] = "1.7"
+;___________________________________________________
+;
+;  ENTITY MODULES
+;___________________________________________________
 
-; PATH AUTO
-; The Pathauto module automatically generates URL/path aliases for various kinds of content (nodes, taxonomy terms, users) without requiring the user to
-; manually specify the path alias. This allows you to have URL aliases like /category/my-node-title instead of /node/123. The aliases are based upon a "pattern"
-; system that uses tokens which the administrator can change.
-projects[pathauto][version] = "1.1"
+; ENTITY
+; This module extends the entity API of Drupal core in order to provide a unified way to deal with entities and their properties. Additionally, it provides an
+; entity CRUD controller, which helps simplifying the creation of new entity types.
+projects[entity][version] = "1.0"
+
+; ENTITY REFERENCE
+; Provides a field type that can reference arbitrary entities.
+projects[entityreference][version] = "1.0"
 
 ; PROFILE2
 ; Designed to be the successor of the core profile module, which is deprecated for Drupal 7. In contrast to the deprecated module this module provides a new,
 ; fieldable 'profile' entity - leverage the power of fields!
 projects[profile2][version] = "1.3"
+
+;___________________________________________________
+;
+;  USER MODULES
+;___________________________________________________
 
 ; LOGINTOBOGGAN
 ; The LoginToboggan module offers several modifications of the Drupal login system in an external module by offering many features and usability improvements.
@@ -153,17 +122,62 @@ projects[logintoboggan][version] = "1.3"
 ; Allow users to register and login using only an email address. Users can then log-in using their email address and password for authentication.
 projects[email_registration][version] = "1.1"
 
-; CLIENTSIDE VALIDATION
-; This module adds clientside validation (aka "Ajax form validation") for all forms and webforms using jquery.validate. The included jquery.validate.js file is
-; patched because we needed to be able to hide empty messages.
-projects[clientside_validation][download][type] = get
-projects[clientside_validation][download][directory_name] = "clientside_validation"
-projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
+;___________________________________________________
+;
+;  MENU MODULES
+;___________________________________________________
 
-; WORKFLOW
-; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
-; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-projects[workflow][version] = "1.0"
+; PATH AUTO
+; The Pathauto module automatically generates URL/path aliases for various kinds of content (nodes, taxonomy terms, users) without requiring the user to
+; manually specify the path alias. This allows you to have URL aliases like /category/my-node-title instead of /node/123. The aliases are based upon a "pattern"
+; system that uses tokens which the administrator can change.
+projects[pathauto][version] = "1.1"
+
+; SITEMAP
+; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
+projects[site_map][version] = "1.0"
+
+;___________________________________________________
+;
+;  TRANSLATION MODULES
+;___________________________________________________
+
+; I18N
+; This is a collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
+projects[i18n] = "1.7"
+
+;___________________________________________________
+;
+;  FEEDS MODULES
+;___________________________________________________
+
+; FEEDS
+; Import or aggregate data as nodes, users, taxonomy terms or simple database records.
+projects[feeds][version] = "2.0-alpha7"
+
+;___________________________________________________
+;
+;  FLAG MODULES
+;___________________________________________________
+
+; FLAG
+; Flag is a flexible flagging system that is completely customizable by the administrator. Using this module, the site administrator can provide any number of
+; flags for nodes, comments, users, and any other type of entity. Some possibilities include bookmarks, marking important, friends, or flag as offensive. With
+; extensive views integration, you can create custom lists of popular content or keep tabs on important content.
+projects[flag][version] = "3.x-dev"
+projects[flag][download][type] = git
+projects[flag][download][branch] = "7.x-3.x"
+projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
+
+;___________________________________________________
+;
+;  COMMON MODULES
+;___________________________________________________
+
+;___________________________________________________
+;
+;  RULES MODULES
+;___________________________________________________
 
 ; RULES
 ; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
@@ -227,13 +241,52 @@ projects[smtp] = "1.0-beta2"
 ;  CONTENT MODULES
 ;___________________________________________________
 
-; ENTITY REFERENCE
-; Provides a field type that can reference arbitrary entities.
-projects[entityreference][version] = "1.0"
+; WORKFLOW
+; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
+; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
+projects[workflow][version] = "1.0"
+
+; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
+; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
+; should react to this active context.
+; projects[context][version] = "3.0-beta6"
+
+; COUNTRIES
+; This module provides many country related tasks. Country fields, token support, et al.
+projects[countries] = "2.1"
 
 ;___________________________________________________
 ;
-;  SEARCH, FACETS & SOLR MODULES
+;  TAXONOMY MODULES
+;___________________________________________________
+
+; TAXONOMY CSV
+; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
+projects[taxonomy_csv][version] = "5.10"
+
+; CONTENT TAXONOMY
+; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
+projects[content_taxonomy][version] = "1.0-beta2"
+
+; TERM LEVEL
+; This module provides a field type for referencing terms with a level to an entity, e.g. someone can add the term "Java" with the level "Expert" to a node.
+; The levels can be defined in the field settings and consist of a numeric level key and a human readable level label. The structure of the specified vocabulary
+; either has to be a flat-list or a single hierarchy with two hierarchy-levels, where the parents act as grouping terms.
+projects[term_level][version] = "1.1"
+
+;___________________________________________________
+;
+;  FORMS MODULES
+;___________________________________________________
+
+; IFE
+; IFE or Inline Form Errors allows you to place form submission error inline with the form elements. Three options are provided for setting your inline error
+; behaviour. You can configure the default behaviour or override the behaviour on a per form basis. You can add as many forms as you like.
+projects[ife] = "2.0-alpha2"
+
+;___________________________________________________
+;
+;  SEARCH, FACET & SOLR MODULES
 ;___________________________________________________
 
 ; SEARCH API
@@ -276,13 +329,69 @@ projects[facetapi][version] = "1.2"
 
 ;___________________________________________________
 ;
-;  FORMS
+;  FEATURE MODULES
 ;___________________________________________________
 
-; IFE
-; IFE or Inline Form Errors allows you to place form submission error inline with the form elements. Three options are provided for setting your inline error
-; behaviour. You can configure the default behaviour or override the behaviour on a per form basis. You can add as many forms as you like.
-projects[ife] = "2.0-alpha2"
+; STRONGARM
+projects[strongarm][version] = "2.0"
+
+;___________________________________________________
+;
+;  MESSAGING MODULES
+;___________________________________________________
+
+; MESSAGE
+; Message module is Drupal 7's answer to activity-streams and a flexible Messaging & Notifications system.
+projects[message][version] = "1.7"
+
+;___________________________________________________
+;
+;  SOCIAL MODULES
+;___________________________________________________
+
+; SHARETHIS
+; Integration with the ShareThis social bookmarking utility on selected node types.
+projects[sharethis][version] = "2.5"
+
+;___________________________________________________
+;
+;  IMPORT/EXPORT MODULES
+;___________________________________________________
+
+;___________________________________________________
+;
+;  CLIENTSIDE MODULES
+;___________________________________________________
+
+; CLIENTSIDE VALIDATION
+; This module adds clientside validation (aka "Ajax form validation") for all forms and webforms using jquery.validate. The included jquery.validate.js file is
+; patched because we needed to be able to hide empty messages.
+projects[clientside_validation][download][type] = get
+projects[clientside_validation][download][directory_name] = "clientside_validation"
+projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
+
+;___________________________________________________
+;
+;  3rd PARTY INTEGRATION MODULES
+;___________________________________________________
+
+; WYSIWYG
+; Allows to use client-side editors to edit content. It simplifies the installation and integration of the editor of your choice. This module replaces all other
+; editor integration modules. No other Drupal module is required.
+projects[wysiwyg][version] = "2.2"
+
+; GOOGLE ANALYTICS
+; Adds the Google Analytics web statistics tracking system to your website.
+projects[google_analytics][version] = "1.3"
+
+; CLAM AV
+; Drupal integration with the ClamAV virus scanner. This module will verify that files uploaded to a site are not infected with a virus, and prevent infected
+; files from being saved.
+projects[clamav][version] = "1.0-alpha2"
+
+; LESS
+; This is a preprocessor for LESS (http://lesscss.org/) files.
+projects[less][version] = "2.6"
 
 ;___________________________________________________
 ;
@@ -294,31 +403,10 @@ projects[ife] = "2.0-alpha2"
 ; pages. In particular it manages panel pages, but as it grows it will be able to manage far more than just Panels.
 projects[ctools][version] = "1.2"
 
-; CONTENT TAXONOMY
-; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
-projects[content_taxonomy][version] = "1.0-beta2"
-
 ;___________________________________________________
 ;
 ;  OTHER
 ;___________________________________________________
-
-; STRONGARM
-projects[strongarm][version] = "2.0"
-
-; SHARETHIS
-; Integration with the ShareThis social bookmarking utility on selected node types.
-projects[sharethis][version] = "2.5"
-
-; TAXONOMY CSV
-; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
-projects[taxonomy_csv][version] = "5.10"
-
-; TERM LEVEL
-; This module provides a field type for referencing terms with a level to an entity, e.g. someone can add the term "Java" with the level "Expert" to a node.
-; The levels can be defined in the field settings and consist of a numeric level key and a human readable level label. The structure of the specified vocabulary
-; either has to be a flat-list or a single hierarchy with two hierarchy-levels, where the parents act as grouping terms.
-projects[term_level][version] = "1.1"
 
 ; TOKEN
 ; Tokens are small bits of text that can be placed into larger documents via simple placeholders, like %site-name or [user]. The Token module provides a central
@@ -336,11 +424,6 @@ projects[libraries][version] = "2.0"
 ; for migrating other kinds of content. Content is imported and rolled back using a bundled web interface (Migrate UI module) or included Drush commands
 ; (strongly recommended).
 projects[migrate][version] = "2.5"
-
-; WYSIWYG
-; Allows to use client-side editors to edit content. It simplifies the installation and integration of the editor of your choice. This module replaces all other
-; editor integration modules. No other Drupal module is required.
-projects[wysiwyg][version] = "2.2"
 
 ;___________________________________________________
 ;
@@ -360,14 +443,6 @@ projects[panels][version] = "3.3"
 
 ; VIEWS
 projects[views][version] = "3.5"
-
-; LESS
-; This is a preprocessor for LESS (http://lesscss.org/) files.
-projects[less][version] = "2.6"
-
-; SITEMAP
-; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
-projects[site_map][version] = "1.0"
 
 ;___________________________________________________
 ;
@@ -400,6 +475,11 @@ projects[local_tasks_blocks] = "2.1"
 ; ADMIN TOOLS
 ; Admin Tools is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
 projects[admin_tools] = "1.1"
+
+; SERVICES
+; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
+; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
+projects[services][version] = "3.3"
 
 ; CODER
 ; The Coder project includes two developer modules that assist with code review (Coder Review maintained by douggreen and stella) and code manipulation (Coder
