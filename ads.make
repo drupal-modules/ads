@@ -196,7 +196,7 @@ projects[features_extra][version] = "1.0-alpha1"
 
 ; MENU BLOCK
 ; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
-; that’s what this module does. It provides configurable blocks of menu trees starting with any level of any menu. And more!
+; thatï¿½s what this module does. It provides configurable blocks of menu trees starting with any level of any menu. And more!
 projects[menu_block] = "2.3"
 
 ; MENU ATTRIBUTES
@@ -246,7 +246,7 @@ projects[search_api_saved_searches][version] = "1.0"
 
 ; SEARCH API AUTOCOMPLETE
 ; This module provides autocomplete functionality for Search API searches, similar to the Apache Solr autocomplete module. Autocompletion can be activated and
-; configured for each search (all search views and pages) individually, so you have fine-grained control over where autocompletion can be used – and by whom.
+; configured for each search (all search views and pages) individually, so you have fine-grained control over where autocompletion can be used ï¿½ and by whom.
 projects[search_api_autocomplete][version] = "1.0-beta2"
 
 ; SEARCH API SOLR
@@ -457,14 +457,14 @@ projects[ads_custom][type] = module
 projects[ads_custom][download][type] = git
 projects[ads_custom][download][branch] = master
 projects[ads_custom][download][url] = git@github.com:mycognitive/ads_custom.git
-projects[ads_custom][subdir] = custom
+;projects[ads_custom][subdir] = custom
 
 ; ADS CUSTOM FEATURES
 projects[ads_features][type] = module
 projects[ads_features][download][type] = git
 projects[ads_features][download][branch] = master
 projects[ads_features][download][url] = git@github.com:mycognitive/ads_features.git
-projects[ads_features][subdir] = custom
+;projects[ads_features][subdir] = custom
 
 ;___________________________________________________
 ;
