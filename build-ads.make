@@ -18,6 +18,8 @@
 core = 7.x
 api  = 2
 
+projects[drupal][type] = core
+
 ;projects[drupal][version] = "7.21"
 
 ; Include the definition for how to build Drupal core directly, including patches:
