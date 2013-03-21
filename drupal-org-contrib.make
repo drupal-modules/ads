@@ -236,7 +236,10 @@ projects[countries] = "2.1"
 
 ; TAXONOMY CSV
 ; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
-projects[taxonomy_csv][version] = "5.10"
+projects[taxonomy_csv][version] = "5.x-dev"
+projects[taxonomy_csv][download][type] = git
+projects[taxonomy_csv][download][branch] = 7.x-5.x
+projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
 
 ; CONTENT TAXONOMY
 ; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
