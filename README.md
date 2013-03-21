@@ -1,4 +1,4 @@
-ads Drupal distribution
+ADS Drupal distribution
 ===
 
 This is an installation profile for building a Drupal based ads platform.
@@ -41,7 +41,7 @@ Ads is distributed with several .make files and one .profile file. The
 responsible for configuring all those modules. See also the "Make files" section
 at the end of this document.
 
-Before building the recruiter distribution you need Drush (version 5+):
+Before building the distribution you need Drush (at least version 5+):
 
  * http://drupal.org/project/drush
 
@@ -50,21 +50,28 @@ documentation. Then continue with the following steps:
 
 Make files
 ----------
+
 * build-ads.make
-  Main make build a fully functional website that includes core, the profile code itself, and all of its dependencies.
+
+Main make build a fully functional website that includes core, the profile code itself, and all of its dependencies.
 
 * build-ads-custom.make
-  It contains custom ads modules.
+
+It contains custom ads modules.
 
 * drupal-org-contrib.make
-  This make file defines Drupal contributed modules.
+
+This make file defines Drupal contributed modules.
 
 * drupal-org-core.make
-  Drupal core make file.
-  Include the definition for how to build Drupal core directly, including Drupal core patches.
+
+Drupal core make file.
+Include the definition for how to build Drupal core directly, including Drupal core patches.
 
 * drupal-org-libraries.make
-  This file defines 3rd party libraries for Drupal.
+
+This file defines 3rd party libraries for Drupal.
 
 * drupal-org-themes.make
-  This make file defines Drupal themes.
+
+This make file defines Drupal themes.
