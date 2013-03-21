@@ -1,4 +1,5 @@
 ; Drupal core make file.
+; Include the definition for how to build Drupal core directly, including Drupal core patches.
 
 api = 2
 
