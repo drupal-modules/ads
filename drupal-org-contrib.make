@@ -370,6 +370,10 @@ projects[less][version] = "2.6"
 ; pages. In particular it manages panel pages, but as it grows it will be able to manage far more than just Panels.
 projects[ctools][version] = "1.2"
 
+; FORMAT NUMBER
+; Provides a method to configure number formats (site default and user defined) with configurable decimal point and thousand separators
+projects[format_number][version] = "1.6"
+
 ; CURRENCY
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
 projects[currency][version] = "2.0"
