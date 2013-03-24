@@ -129,6 +129,15 @@ projects[site_map][version] = "1.0"
 ; jQuery plugin for all browsers, with an option to disable JS, and falls back to CSS-only for browsers that can handle it.)
 projects[nice_menus][version] = "2.1"
 
+; MENU BLOCK
+; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
+; that�s what this module does. It provides configurable blocks of menu trees starting with any level of any menu. And more!
+projects[menu_block] = "2.3"
+
+; MENU ATTRIBUTES
+; This simple module allows you to specify some additional attributes for menu items such as id, name, class, style, and rel.
+projects[menu_attributes][version] = "1.0-rc2"
+
 ;___________________________________________________
 ;
 ;  TRANSLATION MODULES
@@ -163,11 +172,6 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 
 ;___________________________________________________
 ;
-;  COMMON MODULES
-;___________________________________________________
-
-;___________________________________________________
-;
 ;  RULES MODULES
 ;___________________________________________________
 
@@ -190,7 +194,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 
 ;___________________________________________________
 ;
-;  FEATURES
+;  FEATURE MODULES
 ;___________________________________________________
 
 ; FEATURES
@@ -201,19 +205,8 @@ projects[features][patch][] = "http://drupal.org/files/927566-50-multiple-link_p
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-alpha1"
 
-;___________________________________________________
-;
-;  MENU
-;___________________________________________________
-
-; MENU BLOCK
-; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
-; that�s what this module does. It provides configurable blocks of menu trees starting with any level of any menu. And more!
-projects[menu_block] = "2.3"
-
-; MENU ATTRIBUTES
-; This simple module allows you to specify some additional attributes for menu items such as id, name, class, style, and rel.
-projects[menu_attributes][version] = "1.0-rc2"
+; STRONGARM
+projects[strongarm][version] = "2.0"
 
 ;___________________________________________________
 ;
@@ -321,14 +314,6 @@ projects[facetapi][version] = "1.2"
 
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
-
-;___________________________________________________
-;
-;  FEATURE MODULES
-;___________________________________________________
-
-; STRONGARM
-projects[strongarm][version] = "2.0"
 
 ;___________________________________________________
 ;
@@ -485,67 +470,6 @@ projects[coder] = "1.2"
 ; DIFF
 ; Extends Features and node revision functionality.
 projects[diff][version] = "2.0"
-
-;___________________________________________________
-;
-;  COMMENTED OUT
-;___________________________________________________
-
-; TAXONOMY MANAGER
-; projects[taxonomy_manager][version] = "1.0-rc1"
-
-; ENVIRONMENT MODULES
-; Allows a list of modules to be enabled in $conf['environment_modules'].
-; projects[environment_modules] = "1.1"
-
-; ADMIN THEME
-; Drupal allows you to define a different theme for administration pages (Administer -> Site configuration -> Administration theme). By default this only
-; applies to pages with a path starting with 'admin' and content editing pages. The Administration theme module allows you to use this theme on more pages like:
-; batch processing pages, devel node load and render pages, coder code review pages, pages you define yourself in the provided textarea.
-; projects[admin_theme] = "1.0"
-
-; JOB SCHEDULER
-; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
-; projects[job_scheduler][version] = "2.0-alpha3"
-
-; FIELD PERMISSIONS
-; The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.
-; projects[field_permissions][version] = "1.0-beta2"
-
-; ROLE EXPORT
-; the Role Export module allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name. Roles can be exported with
-; Features and get the exact same rid if imported on other sites. Because of this unique rid there is no need to create plugins per contrib module that use the
-; rid in their export code, such as Views, Ctools, Rules, etc. References to this role id will not break on other sites.
-; projects[role_export][version] = "1.0"
-
-; WEBFORM
-; Webform is the module for making surveys in Drupal. After a submission, users may be sent an e-mail "receipt" as well as sending a notification to
-; administrators. Results can be exported into Excel or other spreadsheet applications. Webform also provides some basic statistical review and has and
-; extensive API for expanding its features.
-; projects[webform] = "3.18"
-
-; SEARCH API DATABASE SEARCH
-; This module provides a backend for the Search API that uses a normal database to index data. It is therefore a cheap and simple alternative to backends like
-; Solr, suited for test environments or smaller sites.
-; projects[search_api_db][version] = "1.x-dev"
-; projects[search_api_db][download][type] = git
-; projects[search_api_db][download][branch] = 7.x-1.x
-; projects[search_api_db][download][revision] = a6203a3ec3be86b455478f8fb38ee6f39bcab715
-
-; SYNONYMS
-; Synonyms is a small module that makes it possible to search for taxonomy term synonyms via the built-in search module.
-; projects[synonyms][version] = "1.x-dev"
-; projects[synonyms][download][type] = git
-; projects[synonyms][download][branch] = 7.x-1.x
-; projects[synonyms][download][revision] = 949472be5d105f12d89350271e07e2c56e1a92f8
-
-; VIEWS BULK OPERATIONS
-; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
-; adding a select box containing operations that can be applied. Drupal Core or Rules actions can be used.
-; projects[views_bulk_operations][version] = "3.x-dev"
-; projects[views_bulk_operations][download][type] = git
-; projects[views_bulk_operations][download][branch] = 7.x-3.x
-; projects[views_bulk_operations][download][revision] = 50be134537e7f7151d15670ee7d9e1099fb1f565
 
 ;___________________________________________________
 ;
