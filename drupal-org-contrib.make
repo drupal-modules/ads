@@ -389,7 +389,11 @@ projects[ctools][version] = "1.2"
 
 ; FORMAT NUMBER
 ; Provides a method to configure number formats (site default and user defined) with configurable decimal point and thousand separators
-projects[format_number][version] = "1.6"
+; Note: Currently there is no any stable release, so we've to use a development version.
+projects[format_number][version] = "1.x-dev"
+projects[format_number][download][type] = git
+projects[format_number][download][branch] = "7.x-1.x"
+projects[format_number][download][revision] = e844ce9c3dcc6162dfb5f9ec96dcac7995c282b0
 
 ; CURRENCY
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
