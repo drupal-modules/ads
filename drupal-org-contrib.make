@@ -366,6 +366,10 @@ projects[less][version] = "2.6"
 ; pages. In particular it manages panel pages, but as it grows it will be able to manage far more than just Panels.
 projects[ctools][version] = "1.2"
 
+; CURRENCY
+; Provides currency conversion, currency information & metadata, and amount/price display functionality.
+projects[currency][version] = "2.0"
+
 ;___________________________________________________
 ;
 ;  OTHER
