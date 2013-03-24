@@ -64,6 +64,10 @@ projects[link][version] = "1.0"
 ; By this module you can divide your fields into two seporate parts.
 projects[double_field][version] = "2.3"
 
+; FIELD VALIDATION
+; This module allowing you to specify validation rules for your field instances.
+projects[field_validation][version] = "2.3"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
