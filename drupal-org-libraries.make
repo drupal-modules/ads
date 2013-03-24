@@ -35,3 +35,10 @@ libraries[colorbox][destination] = "libraries"
 libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.4/ckeditor_3.6.4.tar.gz"
 
+; libphonenumber-for-php
+; PHP version of Google's phone number handling library 
+libraries[libphonenumber-for-php][download][type] = "get"
+libraries[libphonenumber-for-php][download][url] = "https://github.com/chipperstudios/libphonenumber-for-php/archive/master.zip"
+libraries[libphonenumber-for-php][directory_name] = "libphonenumber-for-php"
+libraries[libphonenumber-for-php][destination] = "libraries"
+
