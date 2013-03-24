@@ -77,6 +77,10 @@ projects[double_field][version] = "2.3"
 ; This module allowing you to specify validation rules for your field instances.
 projects[field_validation][version] = "2.3"
 
+; MEASURED VALUE FIELD
+; Implements a field type that has number and unit of measurement
+; projects[mvf][version] = "1.0-alpha2"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
@@ -386,6 +390,14 @@ projects[ctools][version] = "1.2"
 ; CURRENCY
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
 projects[currency][version] = "2.0"
+
+; UNITS OF MEASUREMENT
+; Provides very simple API for working with unit types collections.
+; projects[units][version] = "1.0-alpha1"
+
+; UNITS API
+; Units API converts between various weights and measurements.
+; projects[unitsapi][version] = "1.0"
 
 ;___________________________________________________
 ;
