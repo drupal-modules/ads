@@ -111,11 +111,10 @@ projects[pathauto][version] = "1.1"
 ; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
 projects[site_map][version] = "1.0"
 
-; METRO MENUS
-; This module like "Nice menus" but without old solutions in code. CSS-Menu only (working in IE7+ and other modern browsers). WIth this module you can select
-; any sub items with any depth from menu or taxonomy. Compatibility with touch screen (iPad, iPhone and etc.). Menu skins was realized (web-developers can:
-; create own skins, define wrappers for first and second+ levels, create specific styles for IE).
-projects[ntm][version] = "1.8"
+; NICE MENUS
+; Nice Menus enables drop-down/right/left expandable menus. It uses only CSS for most browsers, with minimal Javascript for IE6. (Version 2 uses the Superfish
+; jQuery plugin for all browsers, with an option to disable JS, and falls back to CSS-only for browsers that can handle it.)
+projects[nice_menus][version] = "2.1"
 
 ;___________________________________________________
 ;
