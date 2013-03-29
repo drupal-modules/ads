@@ -9,6 +9,15 @@ core = 7.x
 ;  FIELDS MODULES
 ;___________________________________________________
 
+; MONEY
+; Money CCK field. This module defines the "money" CCK field. It uses the Currency API, which is included in the Currency module, to get a list of existing
+; currencies and their symbols.
+;projects[money][type] = module
+;projects[money][download][type] = get
+;projects[money][download][directory_name] = "money"
+;projects[money][download][url] = http://ftp.drupal.org/files/projects/money-6.x-1.x-dev.zip
+;projects[money][patch][] = "http://drupal.org/files/money-7_0.patch"
+
 ; DATE
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
 projects[date][version] = "2.6"
