@@ -138,10 +138,9 @@ projects[pathauto][version] = "1.1"
 ; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
 projects[site_map][version] = "1.0"
 
-; NICE MENUS
-; Nice Menus enables drop-down/right/left expandable menus. It uses only CSS for most browsers, with minimal Javascript for IE6. (Version 2 uses the Superfish
-; jQuery plugin for all browsers, with an option to disable JS, and falls back to CSS-only for browsers that can handle it.)
-projects[nice_menus][version] = "2.1"
+; TAXONOMY MENU
+; Transform any of your taxonomy vocabularies into existing menus easily!
+projects[taxonomy_menu][version] = "1.4	"
 
 ; MENU BLOCK
 ; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
