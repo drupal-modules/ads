@@ -76,6 +76,7 @@ projects[field_validation][version] = "2.3"
 ; This module defines the "money" field.
 ; It uses the Currency API, which is included in the Currency module, to get a list of existing currencies and their symbols.
 ; Note: Currently there is no any 7.x release, so using 6.x with a custom patch
+projects[money][type] = module
 projects[money][version] = "1.x-dev"
 projects[money][download][type] = git
 projects[money][download][branch] = "master"
@@ -128,6 +129,10 @@ projects[pathauto][version] = "1.1"
 ; SITEMAP
 ; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
 projects[site_map][version] = "1.0"
+
+; TAXONOMY MENU
+; Transform any of your taxonomy vocabularies into existing menus easily!
+projects[taxonomy_menu][version] = "1.4	"
 
 ; MENU BLOCK
 ; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
@@ -247,7 +252,10 @@ projects[countries] = "2.1"
 
 ; TAXONOMY CSV
 ; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
-projects[taxonomy_csv][version] = "5.10"
+projects[taxonomy_csv][version] = "5.x-dev"
+projects[taxonomy_csv][download][type] = git
+projects[taxonomy_csv][download][branch] = 7.x-5.x
+projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
 
 ; CONTENT TAXONOMY
 ; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
