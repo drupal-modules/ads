@@ -75,13 +75,11 @@ projects[field_validation][version] = "2.3"
 ; MONEY
 ; This module defines the "money" field.
 ; It uses the Currency API, which is included in the Currency module, to get a list of existing currencies and their symbols.
-; Note: Currently there is no any 7.x release, so using 6.x with a custom patch
 projects[money][type] = module
 projects[money][version] = "1.x-dev"
 projects[money][download][type] = git
-projects[money][download][branch] = "master"
-projects[money][download][revision] = 5db6954dbaa5a5680bd3096b2a0be2d3df70bef3
-projects[money][patch][] = "http://drupal.org/files/money-7_0.patch"
+projects[money][download][branch] = "7.x-1.x"
+projects[money][download][url] = git@github.com:kenorb/money.git
 
 ;___________________________________________________
 ;
