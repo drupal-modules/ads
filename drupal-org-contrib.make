@@ -75,10 +75,10 @@ projects[field_validation][version] = "2.3"
 ; MONEY
 ; This module defines the "money" field.
 ; It uses the Currency API, which is included in the Currency module, to get a list of existing currencies and their symbols.
+; projects[money][version] = "1.x-dev"
 projects[money][type] = module
-projects[money][version] = "1.x-dev"
 projects[money][download][type] = git
-projects[money][download][branch] = "7.x-1.x"
+projects[money][download][branch] = 7.x-1.x
 projects[money][download][url] = git@github.com:kenorb/money.git
 
 ;___________________________________________________
