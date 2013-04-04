@@ -159,6 +159,10 @@ projects[i18n] = "1.7"
 ; Import or aggregate data as nodes, users, taxonomy terms or simple database records.
 projects[feeds][version] = "2.0-alpha7"
 
+; JOB SCHEDULER (Required by FEEDS)
+; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
+projects[job_scheduler][version] = "2.0-alpha3"
+
 ;___________________________________________________
 ;
 ;  FLAG MODULES
