@@ -81,6 +81,10 @@ projects[money][download][type] = git
 projects[money][download][branch] = 7.x-1.x
 projects[money][download][url] = git@github.com:kenorb/money.git
 
+; Bundle Name Reference
+; Provides a Bundle Name Reference field type
+projects[bundle_name_reference][version] = "1.x-dev"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
