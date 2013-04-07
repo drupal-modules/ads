@@ -183,12 +183,13 @@ projects[panels][version] = "3.3"
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
 projects[i18n] = "1.7"
 
+; Language icons
+; Provides icons for language links.
+; projects[languageicons] = "1.0"
+
 ; Synonyms
 ; Provides search for taxonomy term synonyms via the built-in search module.
-; projects[synonyms][version] = "1.x-dev"
-; projects[synonyms][download][type] = git
-; projects[synonyms][download][branch] = 7.x-1.x
-; projects[synonyms][download][revision] = 949472be5d105f12d89350271e07e2c56e1a92f8
+; projects[synonyms] = "1.1"
 
 ;___________________________________________________
 ;
@@ -500,6 +501,10 @@ projects[currency][version] = "2.0"
 ; Variable
 ; Provides a registry for meta-data about Drupal variables.
 projects[variable][version] = "2.2"
+
+; Advanced help
+; Allows module developers to store their help outside the module system, in pure .html files.
+; projects[advanced_help][version] = "1.0"
 
 ;___________________________________________________
 ;
