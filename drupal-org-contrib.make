@@ -398,41 +398,41 @@ projects[less][version] = "2.6"
 ;  LIBRARY MODULES
 ;___________________________________________________
 
-; CTOOLS (Chaos tool suite)
+; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
 projects[ctools][version] = "1.2"
 
-; FORMAT NUMBER
-; Provides a method to configure number formats (site default and user defined) with configurable decimal point and thousand separators
+; Format Number
+; Provides a method to configure number formats with configurable decimal point and thousand separators.
 ; Note: Currently there is no any stable release, so we've to use a development version.
 projects[format_number][version] = "1.x-dev"
-projects[format_number][download][type] = git
-projects[format_number][download][branch] = "7.x-1.x"
-projects[format_number][download][revision] = e844ce9c3dcc6162dfb5f9ec96dcac7995c282b0
 
-; CURRENCY
+; Currency
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
 projects[currency][version] = "2.0"
 
-; UNITS OF MEASUREMENT
+; Units of Measurement
 ; Provides very simple API for working with unit types collections.
 ; projects[units][version] = "1.0-alpha1"
 
-; UNITS API
-; Units API converts between various weights and measurements.
+; Units API
+; Converts between various weights and measurements.
 ; projects[unitsapi][version] = "1.0"
+
+; Variable
+; Provides a registry for meta-data about Drupal variables.
+projects[variable][version] = "2.2"
 
 ;___________________________________________________
 ;
 ;  OTHER
 ;___________________________________________________
 
-; TOKEN
-; Tokens are small bits of text that can be placed into larger documents via simple placeholders, like %site-name or [user]. The Token module provides a central
-; API for modules to use these tokens, and expose their own token values.
-projects[token][version] = "1.1"
+; Token
+; Provides API for modules to use these tokens, and expose their own token values.
+projects[token][version] = "1.5"
 
-; LIBRARIES
+; Libraries
 ; The common denominator for all Drupal modules/profiles/themes that integrate with external libraries. This module introduces a common repository for libraries
 ; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
 projects[libraries][version] = "2.0"
@@ -449,10 +449,8 @@ projects[migrate][version] = "2.5"
 ;  PANEL MODULES
 ;___________________________________________________
 
-; PANELS
-; The Panels module allows a site administrator to create customized layouts for multiple uses. At its core it is a drag and drop content manager that lets you
-; visually design a layout and place content within that layout. Integration with other systems allows you to create nodes that use this, landing pages that use
-; this, and even override system pages such as taxonomy and the node page so that you can customize the layout of your site with very fine grained permissions.
+; Panels
+; Allows a site administrator to create customized layouts for multiple uses.
 projects[panels][version] = "3.3"
 
 ;___________________________________________________
@@ -460,8 +458,9 @@ projects[panels][version] = "3.3"
 ;  VIEWS MODULES
 ;___________________________________________________
 
-; VIEWS
-projects[views][version] = "3.5"
+; Views
+; Provides a flexible method to control how lists and tables of content are presented.
+projects[views][version] = "3.6"
 
 ;___________________________________________________
 ;
