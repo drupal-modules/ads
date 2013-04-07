@@ -55,9 +55,9 @@ projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fie
 ; @Patch: Add capapcity to use conditional_fields on field_collection item with multiple values.
 projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
 
-; LINK
+; Link
 ; Provides a standard custom content field for links.
-projects[link][version] = "1.0"
+projects[link][version] = "1.1"
 
 ; DOUBLE FIELD
 ; Double field is a small module written to provide extensions to Drupal's core Fields.
@@ -259,7 +259,7 @@ projects[features][version] = "1.0"
 projects[features][patch][] = "http://drupal.org/files/927566-50-multiple-link_path.patch"
 
 ; FEATURES EXTRA
-projects[features_extra][version] = "1.0-alpha1"
+projects[features_extra][version] = "1.0-alpha2"
 
 ; STRONGARM
 projects[strongarm][version] = "2.0"
@@ -470,7 +470,7 @@ projects[less][version] = "2.6"
 ; Libraries
 ; This module introduces a common repository for libraries.
 ; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
-projects[libraries][version] = "2.0"
+projects[libraries][version] = "2.1"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
