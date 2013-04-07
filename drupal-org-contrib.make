@@ -106,10 +106,6 @@ projects[entityreference][version] = "1.0"
 ; Provides a new, fieldable 'profile' entity.
 projects[profile2][version] = "1.3"
 
-; EVA: Entity Views Attachment
-; Provides a Views display plugin that allows the output of a View to be attached to the content of any Drupal entity.
-projects[eva][version] = "1.2"
-
 ;___________________________________________________
 ;
 ;  USER MODULES
@@ -150,12 +146,49 @@ projects[menu_attributes][version] = "1.0-rc2"
 
 ;___________________________________________________
 ;
-;  TRANSLATION MODULES
+;  VIEWS MODULES
+;___________________________________________________
+
+; Views
+; Provides a flexible method to control how lists and tables of content are presented.
+projects[views][version] = "3.6"
+
+; Views Bulk Operations
+; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
+; adding a select box containing operations that can be applied. Drupal Core or Rules actions can be used.
+; projects[views_bulk_operations][version] = "3.x-dev"
+; projects[views_bulk_operations][download][type] = git
+; projects[views_bulk_operations][download][branch] = 7.x-3.x
+; projects[views_bulk_operations][download][revision] = 50be134537e7f7151d15670ee7d9e1099fb1f565
+
+; EVA: Entity Views Attachment
+; Provides a Views display plugin that allows the output of a View to be attached to the content of any Drupal entity.
+projects[eva][version] = "1.2"
+
+;___________________________________________________
+;
+;  PANEL MODULES
+;___________________________________________________
+
+; Panels
+; Allows a site administrator to create customized layouts for multiple uses.
+projects[panels][version] = "3.3"
+
+;___________________________________________________
+;
+;  LANGUAGE MODULES
 ;___________________________________________________
 
 ; Internationalization
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
 projects[i18n] = "1.7"
+
+; Synonyms
+; Provides search for taxonomy term synonyms via the built-in search module.
+; projects[synonyms][version] = "1.x-dev"
+; projects[synonyms][download][type] = git
+; projects[synonyms][download][branch] = 7.x-1.x
+; projects[synonyms][download][revision] = 949472be5d105f12d89350271e07e2c56e1a92f8
 
 ;___________________________________________________
 ;
@@ -205,6 +238,15 @@ projects[rules_link][version] = "1.0-beta4"
 projects[rules_link][download][type] = git
 projects[rules_link][download][branch] = "7.x-1.0"
 projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff10b
+
+;___________________________________________________
+;
+;  ACCESS MODULES
+;___________________________________________________
+
+; Field Permissions
+; The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.
+; projects[field_permissions][version] = "1.0-beta2"
 
 ;___________________________________________________
 ;
@@ -259,13 +301,6 @@ projects[countries] = "2.1"
 ;  TAXONOMY MODULES
 ;___________________________________________________
 
-; TAXONOMY CSV
-; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
-projects[taxonomy_csv][version] = "5.x-dev"
-projects[taxonomy_csv][download][type] = git
-projects[taxonomy_csv][download][branch] = 7.x-5.x
-projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
-
 ; CONTENT TAXONOMY
 ; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
 projects[content_taxonomy][version] = "1.0-beta2"
@@ -276,6 +311,9 @@ projects[content_taxonomy][version] = "1.0-beta2"
 ; either has to be a flat-list or a single hierarchy with two hierarchy-levels, where the parents act as grouping terms.
 projects[term_level][version] = "1.1"
 
+; Taxonomy Manager
+; projects[taxonomy_manager][version] = "1.0-rc1"
+
 ;___________________________________________________
 ;
 ;  FORMS MODULES
@@ -285,6 +323,12 @@ projects[term_level][version] = "1.1"
 ; IFE or Inline Form Errors allows you to place form submission error inline with the form elements. Three options are provided for setting your inline error
 ; behaviour. You can configure the default behaviour or override the behaviour on a per form basis. You can add as many forms as you like.
 projects[ife] = "2.0-alpha2"
+
+; Webform
+; Webform is the module for making surveys in Drupal. After a submission, users may be sent an e-mail "receipt" as well as sending a notification to
+; administrators. Results can be exported into Excel or other spreadsheet applications. Webform also provides some basic statistical review and has and
+; extensive API for expanding its features.
+; projects[webform] = "3.18"
 
 ;___________________________________________________
 ;
@@ -329,6 +373,14 @@ projects[facetapi][version] = "1.2"
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
 
+; Search API Database Search
+; This module provides a backend for the Search API that uses a normal database to index data. It is therefore a cheap and simple alternative to backends like
+; Solr, suited for test environments or smaller sites.
+; projects[search_api_db][version] = "1.x-dev"
+; projects[search_api_db][download][type] = git
+; projects[search_api_db][download][branch] = 7.x-1.x
+; projects[search_api_db][download][revision] = a6203a3ec3be86b455478f8fb38ee6f39bcab715
+
 ;___________________________________________________
 ;
 ;  MESSAGING MODULES
@@ -351,6 +403,26 @@ projects[sharethis][version] = "2.5"
 ;
 ;  IMPORT/EXPORT MODULES
 ;___________________________________________________
+
+; TAXONOMY CSV
+; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
+projects[taxonomy_csv][version] = "5.x-dev"
+projects[taxonomy_csv][download][type] = git
+projects[taxonomy_csv][download][branch] = 7.x-5.x
+projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
+
+; Role Export
+; the Role Export module allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name. Roles can be exported with
+; Features and get the exact same rid if imported on other sites. Because of this unique rid there is no need to create plugins per contrib module that use the
+; rid in their export code, such as Views, Ctools, Rules, etc. References to this role id will not break on other sites.
+; projects[role_export][version] = "1.0"
+
+; MIGRATE
+; The migrate module provides a flexible framework for migrating content into Drupal from other sources (e.g., when converting a web site from another CMS to
+; Drupal). Out-of-the-box, support for creating core Drupal objects such as nodes, users, files, terms, and comments are included - it can easily be extended
+; for migrating other kinds of content. Content is imported and rolled back using a bundled web interface (Migrate UI module) or included Drush commands
+; (strongly recommended).
+projects[migrate][version] = "2.5"
 
 ;___________________________________________________
 ;
@@ -398,9 +470,18 @@ projects[less][version] = "2.6"
 ;  LIBRARY MODULES
 ;___________________________________________________
 
+; Libraries
+; This module introduces a common repository for libraries.
+; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
+projects[libraries][version] = "2.0"
+
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
 projects[ctools][version] = "1.2"
+
+; Token
+; Provides API for modules to use these tokens, and expose their own token values.
+projects[token][version] = "1.5"
 
 ; Format Number
 ; Provides a method to configure number formats with configurable decimal point and thousand separators.
@@ -425,45 +506,6 @@ projects[variable][version] = "2.2"
 
 ;___________________________________________________
 ;
-;  OTHER
-;___________________________________________________
-
-; Token
-; Provides API for modules to use these tokens, and expose their own token values.
-projects[token][version] = "1.5"
-
-; Libraries
-; The common denominator for all Drupal modules/profiles/themes that integrate with external libraries. This module introduces a common repository for libraries
-; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
-projects[libraries][version] = "2.0"
-
-; MIGRATE
-; The migrate module provides a flexible framework for migrating content into Drupal from other sources (e.g., when converting a web site from another CMS to
-; Drupal). Out-of-the-box, support for creating core Drupal objects such as nodes, users, files, terms, and comments are included - it can easily be extended
-; for migrating other kinds of content. Content is imported and rolled back using a bundled web interface (Migrate UI module) or included Drush commands
-; (strongly recommended).
-projects[migrate][version] = "2.5"
-
-;___________________________________________________
-;
-;  PANEL MODULES
-;___________________________________________________
-
-; Panels
-; Allows a site administrator to create customized layouts for multiple uses.
-projects[panels][version] = "3.3"
-
-;___________________________________________________
-;
-;  VIEWS MODULES
-;___________________________________________________
-
-; Views
-; Provides a flexible method to control how lists and tables of content are presented.
-projects[views][version] = "3.6"
-
-;___________________________________________________
-;
 ;  ADMINISTRATION MODULES
 ;___________________________________________________
 
@@ -473,17 +515,17 @@ projects[devel] = "1.3"
 ; @Patch: Use devel_create_greeking for text field instead of user_password - http://drupal.org/node/1010394
 projects[devel][patch][] = "http://drupal.org/files/issues/devel-greeking-text-field-1010394.patch"
 
-; Backup and Migrate
-; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
-; gzip, bzip and zip compression as well as automatic scheduled backups.
-projects[backup_migrate] = "2.4"
-
 ; Admin
 ; The admin module provides UI improvements to the standard Drupal admin interface.
 ; projects[admin] = "2.0-beta3"
 
 ; Admin Menu
 projects[admin_menu] = "3.0-rc3"
+
+; Backup and Migrate
+; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
+; gzip, bzip and zip compression as well as automatic scheduled backups.
+projects[backup_migrate] = "2.4"
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
@@ -506,17 +548,13 @@ projects[coder] = "1.2"
 ; Extends Features and node revision functionality.
 projects[diff][version] = "2.0"
 
-;___________________________________________________
-;
-;  COMMENTED OUT
-;___________________________________________________
-
-; Taxonomy Manager
-; projects[taxonomy_manager][version] = "1.0-rc1"
-
 ; Environment Modules
 ; Allows a list of modules to be enabled in $conf['environment_modules'].
 ; projects[environment_modules] = "1.1"
+
+; Job Scheduler
+; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
+; projects[job_scheduler][version] = "2.0-alpha3"
 
 ; Admin Theme
 ; Drupal allows you to define a different theme for administration pages (Administer -> Site configuration -> Administration theme). By default this only
@@ -524,45 +562,8 @@ projects[diff][version] = "2.0"
 ; batch processing pages, devel node load and render pages, coder code review pages, pages you define yourself in the provided textarea.
 ; projects[admin_theme] = "1.0"
 
-; Job Scheduler
-; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
-; projects[job_scheduler][version] = "2.0-alpha3"
+;___________________________________________________
+;
+;  OTHER
+;___________________________________________________
 
-; Field Permissions
-; The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.
-; projects[field_permissions][version] = "1.0-beta2"
-
-; Role Export
-; the Role Export module allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name. Roles can be exported with
-; Features and get the exact same rid if imported on other sites. Because of this unique rid there is no need to create plugins per contrib module that use the
-; rid in their export code, such as Views, Ctools, Rules, etc. References to this role id will not break on other sites.
-; projects[role_export][version] = "1.0"
-
-; Webform
-; Webform is the module for making surveys in Drupal. After a submission, users may be sent an e-mail "receipt" as well as sending a notification to
-; administrators. Results can be exported into Excel or other spreadsheet applications. Webform also provides some basic statistical review and has and
-; extensive API for expanding its features.
-; projects[webform] = "3.18"
-
-; Search API Database Search
-; This module provides a backend for the Search API that uses a normal database to index data. It is therefore a cheap and simple alternative to backends like
-; Solr, suited for test environments or smaller sites.
-; projects[search_api_db][version] = "1.x-dev"
-; projects[search_api_db][download][type] = git
-; projects[search_api_db][download][branch] = 7.x-1.x
-; projects[search_api_db][download][revision] = a6203a3ec3be86b455478f8fb38ee6f39bcab715
-
-; Synonyms
-; Synonyms is a small module that makes it possible to search for taxonomy term synonyms via the built-in search module.
-; projects[synonyms][version] = "1.x-dev"
-; projects[synonyms][download][type] = git
-; projects[synonyms][download][branch] = 7.x-1.x
-; projects[synonyms][download][revision] = 949472be5d105f12d89350271e07e2c56e1a92f8
-
-; Views Bulk Operations
-; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
-; adding a select box containing operations that can be applied. Drupal Core or Rules actions can be used.
-; projects[views_bulk_operations][version] = "3.x-dev"
-; projects[views_bulk_operations][download][type] = git
-; projects[views_bulk_operations][download][branch] = 7.x-3.x
-; projects[views_bulk_operations][download][revision] = 50be134537e7f7151d15670ee7d9e1099fb1f565
