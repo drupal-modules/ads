@@ -374,20 +374,25 @@ projects[google_analytics][version] = "1.3"
 ; CLAM AV
 ; Drupal integration with the ClamAV virus scanner. This module will verify that files uploaded to a site are not infected with a virus, and prevent infected
 ; files from being saved.
-projects[clamav][version] = "1.0-alpha2"
+; projects[clamav][version] = "1.0-alpha2"
 
 ; LESS
 ; This is a preprocessor for LESS (http://lesscss.org/) files.
 projects[less][version] = "2.6"
+
+; AWS SDK for PHP
+; Library, code samples, and documentation for developers to build PHP applications
+; that tap into the cost-effective, scalable, and reliable AWS cloud.
+; projects[awssdk][version] = "5.4"
+
 
 ;___________________________________________________
 ;
 ;  LIBRARY MODULES
 ;___________________________________________________
 
-; CTOOLS
-; This suite is primarily a set of APIs and tools to improve the developer experience. It also contains a module called the Page Manager whose job is to manage
-; pages. In particular it manages panel pages, but as it grows it will be able to manage far more than just Panels.
+; CTOOLS (Chaos tool suite)
+; Set of APIs and tools to improve the developer experience.
 projects[ctools][version] = "1.2"
 
 ; FORMAT NUMBER
