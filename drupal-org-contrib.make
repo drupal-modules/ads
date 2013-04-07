@@ -462,6 +462,9 @@ projects[less][version] = "2.6"
 ; that tap into the cost-effective, scalable, and reliable AWS cloud.
 ; projects[awssdk][version] = "5.4"
 
+; Booking.com API
+; 3rd party integration with Booking.com service.
+projects[booking_com_api] = "1.x-dev"
 
 ;___________________________________________________
 ;
