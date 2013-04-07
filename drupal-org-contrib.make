@@ -365,7 +365,9 @@ projects[search_api_ranges] = "1.4"
 ; @Patch: Fixes problem with Range slider
 projects[search_api_ranges][patch][] = "http://drupal.org/files/search_api_ranges.module.minmax-alter.patch"
 
-; FACET API (ALSO CONTAINS CURRENT SEARCH MODULE)
+; Facet API FACET API
+; Allows site builders to easily create and manage faceted search interfaces.
+; Sub-modules: facetapi, current_search
 projects[facetapi][version] = "1.2"
 ; @Patch: Fixes Warning: array_search() expects parameter 2 to be array, null given
 ; projects[facetapi][patch][] = "http://drupal.org/files/1900974-1-facetapi-rebuild_delta_map_cache.patch"
@@ -374,12 +376,8 @@ projects[facetapi][version] = "1.2"
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
 
 ; Search API Database Search
-; This module provides a backend for the Search API that uses a normal database to index data. It is therefore a cheap and simple alternative to backends like
-; Solr, suited for test environments or smaller sites.
-; projects[search_api_db][version] = "1.x-dev"
-; projects[search_api_db][download][type] = git
-; projects[search_api_db][download][branch] = 7.x-1.x
-; projects[search_api_db][download][revision] = a6203a3ec3be86b455478f8fb38ee6f39bcab715
+; Provides a backend for the Search API that uses a normal database to index data.
+projects[search_api_db][version] = "1.0-beta4"
 
 ;___________________________________________________
 ;
