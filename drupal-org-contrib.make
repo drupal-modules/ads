@@ -138,7 +138,7 @@ projects[site_map][version] = "1.0"
 
 ; Taxonomy Menu
 ; Transform any of your taxonomy vocabularies into existing menus easily!
-projects[taxonomy_menu][version] = "1.4	"
+projects[taxonomy_menu][version] = "1.4"
 
 ; Menu Block
 ; It provides configurable blocks of menu trees starting with any level of any menu.
@@ -467,45 +467,42 @@ projects[views][version] = "3.6"
 ;  ADMINISTRATION MODULES
 ;___________________________________________________
 
-; DEVEL
+; Devel
 ; A suite of modules containing fun for module developers and themers
 projects[devel] = "1.3"
 ; @Patch: Use devel_create_greeking for text field instead of user_password - http://drupal.org/node/1010394
 projects[devel][patch][] = "http://drupal.org/files/issues/devel-greeking-text-field-1010394.patch"
 
-; BACKUP AND MIGRATE
-; Backup and Migrate simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
+; Backup and Migrate
+; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
 ; gzip, bzip and zip compression as well as automatic scheduled backups.
 projects[backup_migrate] = "2.4"
 
-; ADMIN
+; Admin
 ; The admin module provides UI improvements to the standard Drupal admin interface.
 ; projects[admin] = "2.0-beta3"
 
-; ADMIN MENU
+; Admin Menu
 projects[admin_menu] = "3.0-rc3"
 
-; LOCAL TASK BLOCKS
-; Local tasks blocks turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer. It provides 2 variations,
-; each representing a different presentation of the tasks on a page.
+; Local Task Blocks
+; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
 projects[local_tasks_blocks] = "2.1"
 
-; ADMIN TOOLS
-; Admin Tools is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
+; Admin Tools
+; Is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
 projects[admin_tools] = "1.1"
 
-; SERVICES
+; Services
 ; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
 ; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
 projects[services][version] = "3.3"
 
-; CODER
-; The Coder project includes two developer modules that assist with code review (Coder Review maintained by douggreen and stella) and code manipulation (Coder
-; Upgrade maintained by solotandem). Each of the modules supports a plug-in extensible hook system so contributed modules can define additional review standards
-; and upgrade routines.
+; Coder
+; Utilizes regular expressions to review source code and version upgrade.
 projects[coder] = "1.2"
 
-; DIFF
+; Diff
 ; Extends Features and node revision functionality.
 projects[diff][version] = "2.0"
 
@@ -514,40 +511,40 @@ projects[diff][version] = "2.0"
 ;  COMMENTED OUT
 ;___________________________________________________
 
-; TAXONOMY MANAGER
+; Taxonomy Manager
 ; projects[taxonomy_manager][version] = "1.0-rc1"
 
-; ENVIRONMENT MODULES
+; Environment Modules
 ; Allows a list of modules to be enabled in $conf['environment_modules'].
 ; projects[environment_modules] = "1.1"
 
-; ADMIN THEME
+; Admin Theme
 ; Drupal allows you to define a different theme for administration pages (Administer -> Site configuration -> Administration theme). By default this only
 ; applies to pages with a path starting with 'admin' and content editing pages. The Administration theme module allows you to use this theme on more pages like:
 ; batch processing pages, devel node load and render pages, coder code review pages, pages you define yourself in the provided textarea.
 ; projects[admin_theme] = "1.0"
 
-; JOB SCHEDULER
+; Job Scheduler
 ; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
 ; projects[job_scheduler][version] = "2.0-alpha3"
 
-; FIELD PERMISSIONS
+; Field Permissions
 ; The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.
 ; projects[field_permissions][version] = "1.0-beta2"
 
-; ROLE EXPORT
+; Role Export
 ; the Role Export module allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name. Roles can be exported with
 ; Features and get the exact same rid if imported on other sites. Because of this unique rid there is no need to create plugins per contrib module that use the
 ; rid in their export code, such as Views, Ctools, Rules, etc. References to this role id will not break on other sites.
 ; projects[role_export][version] = "1.0"
 
-; WEBFORM
+; Webform
 ; Webform is the module for making surveys in Drupal. After a submission, users may be sent an e-mail "receipt" as well as sending a notification to
 ; administrators. Results can be exported into Excel or other spreadsheet applications. Webform also provides some basic statistical review and has and
 ; extensive API for expanding its features.
 ; projects[webform] = "3.18"
 
-; SEARCH API DATABASE SEARCH
+; Search API Database Search
 ; This module provides a backend for the Search API that uses a normal database to index data. It is therefore a cheap and simple alternative to backends like
 ; Solr, suited for test environments or smaller sites.
 ; projects[search_api_db][version] = "1.x-dev"
@@ -555,14 +552,14 @@ projects[diff][version] = "2.0"
 ; projects[search_api_db][download][branch] = 7.x-1.x
 ; projects[search_api_db][download][revision] = a6203a3ec3be86b455478f8fb38ee6f39bcab715
 
-; SYNONYMS
+; Synonyms
 ; Synonyms is a small module that makes it possible to search for taxonomy term synonyms via the built-in search module.
 ; projects[synonyms][version] = "1.x-dev"
 ; projects[synonyms][download][type] = git
 ; projects[synonyms][download][branch] = 7.x-1.x
 ; projects[synonyms][download][revision] = 949472be5d105f12d89350271e07e2c56e1a92f8
 
-; VIEWS BULK OPERATIONS
+; Views Bulk Operations
 ; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
 ; adding a select box containing operations that can be applied. Drupal Core or Rules actions can be used.
 ; projects[views_bulk_operations][version] = "3.x-dev"
