@@ -85,35 +85,41 @@ projects[money][download][url] = git@github.com:kenorb/money.git
 ; Provides a Bundle Name Reference field type
 projects[bundle_name_reference][version] = "1.x-dev"
 
+; Field Delimiter
+; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
+projects[field_delimiter][version] = "1.0"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
 ;___________________________________________________
 
-; ENTITY
-; This module extends the entity API of Drupal core in order to provide a unified way to deal with entities and their properties. Additionally, it provides an
-; entity CRUD controller, which helps simplifying the creation of new entity types.
+; Entity
+; Extends the entity API in order to provide a unified way to deal with entities and their properties.
 projects[entity][version] = "1.0"
 
-; ENTITY REFERENCE
+; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
 projects[entityreference][version] = "1.0"
 
-; PROFILE2
-; Designed to be the successor of the core profile module, which is deprecated for Drupal 7. In contrast to the deprecated module this module provides a new,
-; fieldable 'profile' entity - leverage the power of fields!
+; Profile 2
+; Provides a new, fieldable 'profile' entity.
 projects[profile2][version] = "1.3"
+
+; EVA: Entity Views Attachment
+; Provides a Views display plugin that allows the output of a View to be attached to the content of any Drupal entity.
+projects[eva][version] = "1.2"
 
 ;___________________________________________________
 ;
 ;  USER MODULES
 ;___________________________________________________
 
-; LOGINTOBOGGAN
-; The LoginToboggan module offers several modifications of the Drupal login system in an external module by offering many features and usability improvements.
+; LoginToboggan
+; Offers several modifications of the Drupal login system in an external module by offering many features and usability improvements.
 projects[logintoboggan][version] = "1.3"
 
-; EMAIL REGISTRATION
+; Email Registration
 ; Allow users to register and login using only an email address. Users can then log-in using their email address and password for authentication.
 projects[email_registration][version] = "1.1"
 
@@ -122,27 +128,24 @@ projects[email_registration][version] = "1.1"
 ;  MENU MODULES
 ;___________________________________________________
 
-; PATH AUTO
-; The Pathauto module automatically generates URL/path aliases for various kinds of content (nodes, taxonomy terms, users) without requiring the user to
-; manually specify the path alias. This allows you to have URL aliases like /category/my-node-title instead of /node/123. The aliases are based upon a "pattern"
-; system that uses tokens which the administrator can change.
+; Path Auto
+; Automatically generates URL/path aliases for various kinds of content (nodes, taxonomy terms, users).
 projects[pathauto][version] = "1.1"
 
-; SITEMAP
-; This module provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
+; Sitemap
+; Provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
 projects[site_map][version] = "1.0"
 
-; TAXONOMY MENU
+; Taxonomy Menu
 ; Transform any of your taxonomy vocabularies into existing menus easily!
 projects[taxonomy_menu][version] = "1.4	"
 
-; MENU BLOCK
-; Have you ever used the Main and Secondary menu links feature on your theme and wondered "how the hell do I display any menu items deeper than that?" Well,
-; that�s what this module does. It provides configurable blocks of menu trees starting with any level of any menu. And more!
+; Menu Block
+; It provides configurable blocks of menu trees starting with any level of any menu.
 projects[menu_block] = "2.3"
 
-; MENU ATTRIBUTES
-; This simple module allows you to specify some additional attributes for menu items such as id, name, class, style, and rel.
+; Menu Attributes
+; Allows you to specify some additional attributes for menu items such as id, name, class, style, and rel.
 projects[menu_attributes][version] = "1.0-rc2"
 
 ;___________________________________________________
@@ -150,8 +153,8 @@ projects[menu_attributes][version] = "1.0-rc2"
 ;  TRANSLATION MODULES
 ;___________________________________________________
 
-; I18N
-; This is a collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
+; Internationalization
+; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
 projects[i18n] = "1.7"
 
 ;___________________________________________________
