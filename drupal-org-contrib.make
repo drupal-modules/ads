@@ -410,9 +410,8 @@ projects[taxonomy_csv][download][branch] = 7.x-5.x
 projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
 
 ; Role Export
-; the Role Export module allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name. Roles can be exported with
-; Features and get the exact same rid if imported on other sites. Because of this unique rid there is no need to create plugins per contrib module that use the
-; rid in their export code, such as Views, Ctools, Rules, etc. References to this role id will not break on other sites.
+; Roles can be exported with Features and get the exact same rid if imported on other sites
+; Allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name.
 ; projects[role_export][version] = "1.0"
 
 ; MIGRATE
@@ -475,7 +474,7 @@ projects[libraries][version] = "2.0"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
-projects[ctools][version] = "1.2"
+projects[ctools][version] = "1.3"
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
