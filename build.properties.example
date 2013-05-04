@@ -1,0 +1,25 @@
+# Configuration file for Phing build script
+
+# Database Credentials
+project.db.database=  ads
+project.db.username=  root
+project.db.password=  root
+project.db.host=      localhost
+project.db.prefix=    ads_
+project.db.driver=    mysqli
+project.db.port=      3306
+
+# Drupal Credentials
+project.drupal.admin.user=  admin
+project.drupal.admin.pass=  admin
+
+# GitHub Credentials
+github.user=<github-username>
+
+# DEBUGGING
+# If set to 1, project will build with the origin repository changes applied
+project.debug.build_with_mine=1
+
+# DELETE ME (ACTION REQUIRED)
+# Please remove this section after editing this file.
+properties.notset=true
