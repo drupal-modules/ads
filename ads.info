@@ -64,7 +64,9 @@ dependencies[] = rules
 ; dependencies[] = local_tasks_blocks
 ; dependencies[] = admin_theme
 
-; Install custom modules.
+; Install ADS features modules.
+dependencies[] = ads_content_types
+dependencies[] = ads_menu
 
 ; Install custom features.
 
