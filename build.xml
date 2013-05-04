@@ -14,7 +14,7 @@
   ## Build
   -->
   <target name="build-ads" depends="
-                init,
+                build-init,
                 build-drupal,
                 install-drupal,
                 set-dir-permissions,
@@ -25,16 +25,16 @@
   <!--
   ## Initialise
   --> 
-  <target name="init" depends="load-properties"/>
+  <target name="build-init" depends="build-load-properties"/>
 
   <!--
   ## Load Properties
   -->
-  <target name="load-properties">
+  <target name="build-load-properties">
 
     <echo message="Assigning project directories and files to phing properties..." level="debug"/>
-      <property name="project.dir" value="${phing.dir}"/>
-      <property name="project.dir.profile" value="${phing.dir}"/>
+      <property name="project.dir.dist" value="${phing.dir.build_ads}"/>
+      <property name="project.dir.profile" value="${phing.dir.dist}"/>
       <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
       <property name="project.dir.src" value="${project.dir.profile}/src"/>
       <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
@@ -47,21 +47,21 @@
       <property name="project.drush.make.args2"   value="-y --no-core --no-clean --working-copy --no-gitinfofile --concurrency=8 --verbose"/>
 
     <echo message="Loading configuration file..." level="debug"/>
-      <available file="${project.dir}/build.properties" property="project.properties.exist" />
+      <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
       <if>
        <not><isset property="project.properties.exist"/></not>
        <then>
           <copy 
-            file="${project.dir}/build.properties.example" 
-            tofile="${project.dir}/build.properties" 
+            file="${project.dir.dist}/build.properties.example" 
+            tofile="${project.dir.dist}/build.properties" 
             overwrite="true"/>
-          <!-- or: <exec command="cp -v ${project.dir}/build.properties.example ${project.dir}/build.properties" 
-            dir="${project.dir}" checkreturn="true" /> -->
+          <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties" 
+            dir="${project.dir.dist}" checkreturn="true" /> -->
 
         <echo message="" />
         <echo message="Hello :)" />
         <echo message="Thank you for installing ADS distribution." />
-        <echo message="I have created a build.properties in ${project.dir}." />
+        <echo message="I have created a build.properties in ${project.dir.dist}." />
         <echo message="" />
         <echo message="ACTION REQUIRED" />
         <echo message="Please edit this file with your settings." />
@@ -69,12 +69,12 @@
         <fail message="See you again in a moment..." />
        </then>
        <else>
-         <property file="${project.dir}/build.properties" />
+         <property file="${project.dir.dist}/build.properties" />
          <if>
          <isset property="properties.notset"/>
          <then>
           <echo message="ACTION REQUIRED!" />
-          <echo message="Please edit ${project.dir}/build.properties" />
+          <echo message="Please edit ${project.dir.dist}/build.properties" />
           <echo message="After you finish, please delete properties.notset section." />
           <fail />
          </then>
@@ -98,12 +98,12 @@
   -->
   <target name="build-drupal">
     <echo message="Downloading and building Drupal sources..."/>
-      <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args}" dir="${project.dir}" outputProperty="project.drupal.exists" passthru="1" LogOutput="true" />
+      <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args}" dir="${project.dir.dist}" outputProperty="project.drupal.exists" passthru="1" LogOutput="true" />
       <!--
         <if><not><equals arg1="${project.drupal.exists}" arg2="0" /></not>
           <then>
             <echo message="Drupal instance exists, updating the existing sources..." />
-            <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args2}" dir="${project.dir}" LogOutput="true" />
+            <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args2}" dir="${project.dir.dist}" LogOutput="true" />
           </then>
         </if>
         -->
@@ -149,7 +149,7 @@
 
         <echo message="Creating Drupal private files directory..."/>
           <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
-          <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir}" /> -->
+          <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
           <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" /> 
 
       </then>
