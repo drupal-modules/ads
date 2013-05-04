@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+## Phing build script
+## See: http://www.phing.info/
+##
+## Quick PEAR installation:
+##  $> pear channel-discover pear.phing.info
+##  $> pear install phing/phing
+-->
+
+<project name="build-ads" basedir="." default="build-ads">
+
+  <!--
+  ## Build
+  -->
+  <target name="build-ads" depends="
+                init,
+                build-drupal,
+                install-drupal,
+                import-taxonomies,
+                post-install-drupal
+                "/>
+
+  <!--
+  ## Initialise
+  --> 
+  <target name="init" depends="load-properties"/>
+
+  <!--
+  ## Load Properties
+  -->
+  <target name="load-properties">
+
+    <echo message="Assigning project directories and files to phing properties..." level="debug"/>
+      <property name="project.dir" value="${phing.dir}"/>
+      <property name="project.dir.profile" value="${phing.dir}"/>
+      <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
+      <property name="project.dir.src" value="${project.dir.profile}/src"/>
+      <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
+      <property name="project.file.makefile" value="build-ads.make"/>
+
+    <echo message="Assigning drush properties..." level="debug"/>
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.drush.make.args"    value="-y --working-copy --no-clean --no-gitinfofile --concurrency=8 --verbose"/>
+      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --working-copy --no-gitinfofile --concurrency=8 --verbose"/>
+
+    <echo message="Loading configuration file..." level="debug"/>
+      <available file="${project.dir}/build.properties" property="project.properties.exist" />
+      <if>
+       <not><isset property="project.properties.exist"/></not>
+       <then>
+          <copy 
+            file="${project.dir}/build.properties.example" 
+            tofile="${project.dir}/build.properties" 
+            overwrite="true"/>
+          <!-- or: <exec command="cp -v ${project.dir}/build.properties.example ${project.dir}/build.properties" 
+            dir="${project.dir}" checkreturn="true" /> -->
+
+        <echo message="" />
+        <echo message="Hello :)" />
+        <echo message="Thank you for installing ADS distribution." />
+        <echo message="I have created a build.properties in ${project.dir}." />
+        <echo message="" />
+        <echo message="ACTION REQUIRED" />
+        <echo message="Please edit this file with your settings." />
+        <echo message="Thank You :)" />
+        <fail message="See you again in a moment..." />
+       </then>
+       <else>
+         <property file="${project.dir}/build.properties" />
+         <if>
+         <isset property="properties.notset"/>
+         <then>
+          <echo message="ACTION REQUIRED!" />
+          <echo message="Please edit ${project.dir}/build.properties" />
+          <fail/>
+         </then>
+         </if>
+       </else>
+      </if>
+      
+      <!-- Enable the pulling from other forks -->
+      <if>
+         <isset property="pullfrom" />
+         <then>
+            <!-- <echo message"Overriding gihub.user with ${pullfrom}" />
+            <property name="github.user" value="${pullfrom}"/>-->
+         </then>
+      </if>
+
+  </target>
+
+  <!--
+  ## Build Drupal code using drush make
+  -->
+  <target name="build-drupal">
+    <echo message="Downloading and building Drupal sources..."/>
+      <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args}" dir="${project.dir}" outputProperty="project.drupal.exists" passthru="1" LogOutput="true" />
+      <!--
+        <if><not><equals arg1="${project.drupal.exists}" arg2="0" /></not>
+          <then>
+            <echo message="Drupal instance exists, updating the existing sources..." />
+            <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args2}" dir="${project.dir}" LogOutput="true" />
+          </then>
+        </if>
+        -->
+
+  </target>
+
+  <!--
+  ## Install Drupal code using drush make
+  -->
+  <target name="install-drupal">
+    <echo message="Installing Drupal from the profile..."/>
+      <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
+      <exec command="${project.drush.cmd} site-install --db-url=${project.db.url}" 
+        dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
+        <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
+          <then>
+            <fail msg="Can't install Drupal! Check your database connection at ${project.db.url}!" />
+          </then>
+        </if>
+
+    <echo message="Changing admin password to '${project.drupal.admin.pass}'..."/>
+      <exec command="${project.drush.cmd} upwd --password=&quot;${project.drupal.admin.pass}&quot; ${project.drupal.admin.user}" 
+        dir="${project.dir.src}" returnProperty="cmd.return" />
+        <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
+          <then>
+            <fail msg="Drupal was not installed properly, please check manually or re-run build with -debug option!" />
+          </then>
+        </if>
+
+  </target>
+
+  <!--
+  ## Import taxonomies
+  -->
+  <target name="import-taxonomies">
+
+    <!-- Importing taxonomy terms to already created taxonomies -->
+    <echo message="Importing taxonomies..." />
+
+      <exec command="${project.drush.cmd} en taxonomy_csv" dir="${project.dir.src}" /> 
+      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=categories --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Categories.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
+      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=locations --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Locations.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
+      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=places --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Places.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
+      <exec command="${project.drush.cmd} dis taxonomy_csv" dir="${project.dir.src}" /> 
+
+  </target>
+
+  <!--
+  ## Finalize Drupal installation
+  -->
+  <target name="post-install-drupal">
+
+    <!-- Enabling custom modules -->
+    <echo message="Enabling custom modules" />
+    <exec command="${project.drush.cmd} en ads_content_types ads_menu ads_feeds" dir="${project.dir.src}" /> 
+
+    <!-- Update Database and Features -->
+    <echo message="Updating DB..." />
+      <exec command="${project.drush.cmd} updb" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+    <!-- Clear cache and make sure!! -->
+    <echo message="Clearing Drupal cache..." />
+      <exec command="${project.drush.cmd} cc all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" /> 
+
+    <!-- Revert configuration from features -->
+    <!-- <echo message="Reverting features..." /> -->
+      <!-- <exec command="${project.drush.cmd} features-revert-all" dir="${project.dir.src}" LogOutput="true" /> -->
+
+    <!-- Run cron -->
+    <echo message="Running Drupal cron..." />
+      <exec command="${project.drush.cmd} core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+  </target>
+
+</project>
+
