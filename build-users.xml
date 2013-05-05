@@ -1,0 +1,19 @@
+<project name="build-users" basedir="." default="build-users">
+
+  <target name="build-users">
+
+    <!-- Enabling devel_generate module -->
+      <exec command="${project.drush.cmd} en devel_generate" dir="${project.git.dir.src}" />
+
+    <echo message="Generating example users..."/>
+      <exec command="${project.drush.cmd} generate-users 20" dir="${project.git.dir.src}" LogOutput="true" />
+
+    <echo message="Generating custom user asdf/asdf..."/>
+      <exec command="${project.drush.cmd} user-create --password=asdf --mail=asdf@example.com asdf" dir="${project.git.dir.src}" LogOutput="true" />
+
+    <!-- Disabling devel_generate module -->
+      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.git.dir.src}" />
+
+  </target>
+
+</project>
