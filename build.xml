@@ -34,7 +34,7 @@
 
     <echo message="Assigning project directories and files to phing properties..." level="debug"/>
       <property name="project.dir.dist" value="${phing.dir.build_ads}"/>
-      <property name="project.dir.profile" value="${phing.dir.dist}"/>
+      <property name="project.dir.profile" value="${project.dir.dist}"/>
       <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
       <property name="project.dir.src" value="${project.dir.profile}/src"/>
       <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
