@@ -1,5 +1,9 @@
 # Configuration file for Phing build script
 
+# DELETE ME (ACTION REQUIRED!)
+# Please remove below line after editing this file.
+properties.notset=true
+
 # Database Credentials
 project.db.database=  ads
 project.db.username=  root
@@ -15,17 +19,17 @@ project.drupal.admin.user=  admin
 project.drupal.admin.pass=  admin
 
 # Drupal Settings
-project.drupal.private.dir= "private-files"
-project.drupal.public.dir=  "sites/default/files"
+project.drupal.private.dir=     "private-files"
+project.drupal.public.dir=      "sites/default/files"
 
-# GITHUB
-# GitHub Credentials
+# Drupal Build Settings
+project.drupal.generate.users=  true
+project.drupal.generate.ads=    true
+
+# Repository Credentials
 github.user=<github-username>
+drupal.user=<drupal-username>
 
 # DEBUGGING
 # If set to 1, project will build with the origin repository changes applied
 project.debug.build_with_mine=1
-
-# DELETE ME (ACTION REQUIRED)
-# Please remove this section after editing this file.
-properties.notset=true
