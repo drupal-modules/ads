@@ -81,6 +81,9 @@ includes[] = build-ads-services.make
 ; Provides common Travel features for ADS Drupal distribution.
 includes[] = build-ads-travel.make
 
+; Provides common Vehicles features for ADS Drupal distribution.
+includes[] = build-ads-vehicles.make
+
 ; Restricted ADS packages
 
 ; Internal custom code
