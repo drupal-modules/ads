@@ -26,10 +26,52 @@ projects[drupal][type] = core
 ; Specify directory for contrib modules
 defaults[projects][subdir] = contrib
 
-; Include the definition for how to build Drupal
+; Include the core definition for how to build Drupal
 includes[] = drupal-org-core.make
 includes[] = drupal-org-contrib.make
 includes[] = drupal-org-themes.make
 includes[] = drupal-org-libraries.make
-includes[] = build-ads-custom.make
+
+;_____________
+; ADS packages
+;_____________
+
+; REQUIRED ADS packages
+; Provides features for ads distribution.
+includes[] = build-ads-features.make
+
+; OPTIONAL ADS packages (PLEASE CHANGE according to your needs)
+
+; Provides common Animals features for ADS Drupal distribution.
+includes[] = build-ads-animals.make
+
+; Provides common Auctions features for ADS Drupal distribution.
+includes[] = build-ads-auctions.make
+
+; Provides common Community features for ADS Drupal distribution.
+includes[] = build-ads-community.make
+
+; Provides common Dating features for ADS Drupal distribution.
+includes[] = build-ads-dating.make
+
+; Provides common Items features for ADS Drupal distribution.
+includes[] = build-ads-items.make
+
+; Provides common Jobs features for ADS Drupal distribution.
+includes[] = build-ads-jobs.make
+
+; Provides common Music features for ADS Drupal distribution.
+includes[] = build-ads-music.make
+
+; Provides common Properties features for ADS Drupal distribution.
+includes[] = build-ads-properties.make
+
+; Provides common Services features for ADS Drupal distribution.
+includes[] = build-ads-services.make
+
+; Provides common Travel features for ADS Drupal distribution.
+includes[] = build-ads-travel.make
+
+; Internal custom code
+; includes[] = build-ads-custom.make
 
