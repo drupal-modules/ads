@@ -45,6 +45,9 @@ includes[] = build-ads-features.make
 ; Provides common Animals features for ADS Drupal distribution.
 includes[] = build-ads-animals.make
 
+; Provides common Art features for ADS Drupal distribution.
+includes[] = build-ads-art.make
+
 ; Provides common Auctions features for ADS Drupal distribution.
 includes[] = build-ads-auctions.make
 
@@ -53,6 +56,9 @@ includes[] = build-ads-business.make
 
 ; Provides common Community features for ADS Drupal distribution.
 includes[] = build-ads-community.make
+
+; Provides common Education features for ADS Drupal distribution.
+includes[] = build-ads-education.make
 
 ; Provides common Dating features for ADS Drupal distribution.
 includes[] = build-ads-dating.make
