@@ -8,8 +8,33 @@ Requirements
 
 Same as Drupal 7: http://drupal.org/requirements
 
-Installation
-------------
+Recommended Installation
+------------------------
+
+1. First of all, please install Phing as the current full installation can be built by Phing build script.
+   The easiest way to install Phing is by the following commands:
+
+    ```
+    $> pear channel-discover pear.phing.info
+    $> pear install phing/phing
+    ```
+
+2. Run phing command inside the distribution directory:
+
+    ```
+    $> phing
+    ```
+
+   If you have any errors during this point, please install missing phing dependencies.
+   
+   Note: You'll be asked to edit build.properties.
+         After editing the file, please remove properties.notset section
+         and make sure that your LAMP environment is up and running.
+         
+3. Your code is built and ready in src directory.
+
+Manual Installation
+-------------------
 
 1. Make sure your ads download is placed in the webroot and configure
    your webserver accordingly.
@@ -75,3 +100,11 @@ This file defines 3rd party libraries for Drupal.
 * drupal-org-themes.make
 
 This make file defines Drupal themes.
+
+Support
+-------
+Please find the support at:
+http://drupal.org/project/issues/ads?status=All
+
+Feel free to ask any questions at:
+http://drupal.org/node/add/project-issue/ads
