@@ -32,9 +32,9 @@ includes[] = drupal-org-contrib.make
 includes[] = drupal-org-themes.make
 includes[] = drupal-org-libraries.make
 
-;_____________
-; ADS packages
-;_____________
+;____________________
+; Common ADS packages
+;____________________
 
 ; REQUIRED ADS packages
 ; Provides features for ads distribution.
@@ -63,6 +63,12 @@ includes[] = build-ads-education.make
 ; Provides common Dating features for ADS Drupal distribution.
 includes[] = build-ads-dating.make
 
+; Provides common Finance features for ADS Drupal distribution.
+includes[] = build-ads-finance.make
+
+; Provides common IT features for ADS Drupal distribution.
+includes[] = build-ads-it.make
+
 ; Provides common Items features for ADS Drupal distribution.
 includes[] = build-ads-items.make
 
@@ -83,6 +89,13 @@ includes[] = build-ads-travel.make
 
 ; Provides common Vehicles features for ADS Drupal distribution.
 includes[] = build-ads-vehicles.make
+
+;-------------------
+; Extra ADS packages
+;-------------------
+
+; Provides common Development features for ADS Drupal distribution.
+includes[] = build-ads-devel.make
 
 ; Restricted ADS packages
 
