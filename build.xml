@@ -194,7 +194,7 @@
         <contains string="${project.cmd.avail.grep}" substring="grep" />
         <then>
           <!-- Checking if "features" module is enabled -->
-          <exec command="${project.drush.cmd} pm-info ads_feeds | grep -ci --regexp='Status\s+:\s:(not installed\|installed\|enabled)'" dir="${project.dir.src}" outputProperty="project.enabledmodules.features" />
+          <exec command="${project.drush.cmd} pm-info features | grep -ci --regexp='Status\s+:\s:(enabled)'" dir="${project.dir.src}" outputProperty="project.enabledmodules.features" />
             <if>
               <equals arg1="${project.enabledmodules.features}" arg2="1" />
               <then>
