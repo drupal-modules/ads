@@ -103,5 +103,5 @@ includes[] = includes\build-ads-devel.make
 ; includes[] = includes\build-ads-premium.make
 
 ; Internal custom code
-; includes[] = includes\build-ads-custom.make
+includes[] = includes\build-ads-custom.make
 
