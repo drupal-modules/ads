@@ -10,6 +10,8 @@
 
 <project name="build-ads" basedir="." default="build-ads">
 
+  <property file="build.properties"/>
+
   <!--
   ## Build
   -->
