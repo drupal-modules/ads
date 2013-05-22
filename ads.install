@@ -12,6 +12,10 @@
  * Implements hook_install_tasks().
  */
 function ads_install_tasks() {
+
+  echo "ads_install_tasks ads_install\n";
+  exit;
+
   // Increase maximum function nesting level to prevent install errors.
   $max_nesting_level = ini_get('xdebug.max_nesting_level');
   if ($max_nesting_level > 0 && $max_nesting_level <= '200') {

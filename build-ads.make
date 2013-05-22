@@ -33,6 +33,18 @@ includes[] = includes\drupal-org-themes.make
 includes[] = includes\drupal-org-libraries.make
 
 ;____________________
+;
+; ADS PROFILE
+;____________________
+
+; Download the ADS install profile and recursively build all its dependencies
+projects[ads][type] = profile
+projects[ads][download][type] = git
+projects[ads][download][url] = git@github.com:nseam/ads.git
+projects[ads][download][branch] = master
+
+;____________________
+;
 ; Common ADS packages
 ;____________________
 
