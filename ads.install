@@ -13,9 +13,6 @@
  */
 function ads_install_tasks() {
 
-  echo "ads_install_tasks ads_install\n";
-  exit;
-
   // Increase maximum function nesting level to prevent install errors.
   $max_nesting_level = ini_get('xdebug.max_nesting_level');
   if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
@@ -32,6 +29,10 @@ function ads_install_tasks() {
       'type' => 'batch',
     ),
     */
+    'ads_generate_users' => array(
+      'display_name' => st('Generate example users'),
+      'type' => 'batch',
+    ),
     'ads_cleanup' => array(
       'display_name' => st('Post-install cleanup'),
       'type' => 'batch',
@@ -51,6 +52,14 @@ function ads_install_tasks() {
   );
 
   return $tasks;
+}
+
+/**
+ * Task callback: Generates example users.
+ */
+function ads_generate_example_users() {
+  module_load_include('inc', 'devel', 'devel_generate/devel_generate');
+  devel_create_users(5, NULL, 0, array());
 }
 
 /**

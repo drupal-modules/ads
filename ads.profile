@@ -112,18 +112,6 @@ function ads_custom_setting(&$form, &$form_state) {
  * Implements hook_install_tasks().
  */
 function ads_install_tasks(&$install_state) {
-
-  echo "ADS Installation Tasks.\n";
-
-  exit;
-
-  // Generating example users.
-
-  module_load_include('inc', 'devel', 'devel_generate/devel_generate');
-
-  devel_create_users(5, NULL, 0, array());
-
-
 //  $tasks = array(
 //    'recruiter_import_vocabularies_batch' => array(
 //      'display_name' => st('Import terms'),
