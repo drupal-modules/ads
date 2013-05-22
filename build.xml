@@ -126,7 +126,7 @@
   <target name="install-drupal" depends="build-init">
     <echo message="Installing Drupal from the profile..."/>
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
-      <exec command="${project.drush.cmd} site-install --db-url=${project.db.url}"
+      <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url}"
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
         <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
           <then>
