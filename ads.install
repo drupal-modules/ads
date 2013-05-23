@@ -638,6 +638,9 @@ function ads_install() {
     ->condition('name', 'omega')
     ->execute();
 
+/*
+  @COMMENTED
+
   // Enable cloudy default theme.
   db_update('system')
     ->fields(array('status' => 1))
@@ -648,8 +651,10 @@ function ads_install() {
   variable_set('node_admin_theme', '1');
 
   $theme_settings = variable_get('theme_cloudy_settings', array());
-  $theme_settings['toggle_slogan'] = FALSE;
   variable_set('theme_cloudy_settings', $theme_settings);
+*/
+
+  $theme_settings['toggle_slogan'] = FALSE;
 
   // Create resume for user 1.
   // @COMMENTED
