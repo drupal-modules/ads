@@ -29,14 +29,16 @@ function ads_install_tasks() {
       'type' => 'batch',
     ),
     */
-    'ads_generate_users' => array(
+    'ads_generate_example_users' => array(
       'display_name' => st('Generate example users'),
-      'type' => 'batch',
+      'type' => 'normal',
     ),
+    /*
     'ads_cleanup' => array(
       'display_name' => st('Post-install cleanup'),
       'type' => 'batch',
     ),
+    */
     /*
     'ads_import_vocabularies_batch' => array(
       'display_name' => st('Import terms'),
@@ -59,7 +61,7 @@ function ads_install_tasks() {
  */
 function ads_generate_example_users() {
   module_load_include('inc', 'devel', 'devel_generate/devel_generate');
-  devel_create_users(5, NULL, 0, array());
+  devel_create_users(5, FALSE, 0, array(), 'asdf');
 }
 
 /**
@@ -581,8 +583,12 @@ function ads_install() {
 
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+  // @COMMENTED
+  // user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+
+  // @COMMENTED
+  // user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
 
   // Create a default role for site administrators (if it does not yet exist),
   // and assign all available permissions.
@@ -641,6 +647,7 @@ function ads_install() {
   variable_set('theme_cloudy_settings', $theme_settings);
 
   // Create resume for user 1.
-  profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
+  // @COMMENTED
+  // profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
 }
 

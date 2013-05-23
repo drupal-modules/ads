@@ -107,19 +107,3 @@ function ads_custom_setting(&$form, &$form_state) {
   }
   */
 }
-
-/**
- * Implements hook_install_tasks().
- */
-function ads_install_tasks(&$install_state) {
-//  $tasks = array(
-//    'recruiter_import_vocabularies_batch' => array(
-//      'display_name' => st('Import terms'),
-//      'display' => TRUE,
-//      'type' => 'batch',
-//      'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
-//    ),
-//  );
-//  return $tasks;
-}
-
