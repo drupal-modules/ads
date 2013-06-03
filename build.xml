@@ -214,7 +214,7 @@
 
     <!-- Run cron -->
     <echo message="Running Drupal cron..." />
-      <exec command="${project.drush.cmd} --php=&quot;&apos; which php&apos; -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
   </target>
 
