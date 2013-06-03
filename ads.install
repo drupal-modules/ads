@@ -60,8 +60,10 @@ function ads_install_tasks() {
  * Task callback: Generates example users.
  */
 function ads_generate_example_users() {
-  module_load_include('inc', 'devel', 'devel_generate/devel_generate');
-  devel_create_users(5, FALSE, 0, array(), 'asdf');
+  if (module_exists('devel')) {
+    module_load_include('inc', 'devel', 'devel_generate/devel_generate');
+    devel_create_users(5, FALSE, 0, array(), 'asdf');
+  }
 }
 
 /**
