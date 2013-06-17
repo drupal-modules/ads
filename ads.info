@@ -22,8 +22,8 @@ dependencies[] = file
 dependencies[] = rdf
 
 ; Install stable contributed modules.
-dependencies[] = views_ui
-dependencies[] = rules
+;dependencies[] = views_ui
+;dependencies[] = rules
 
 ; Install unstable contributed modules.
 ; dependencies[] = rules_admin
@@ -65,8 +65,8 @@ dependencies[] = rules
 ; dependencies[] = admin_theme
 
 ; Install ADS features modules.
-dependencies[] = ads_content_types
-dependencies[] = ads_menu
+;dependencies[] = ads_content_types
+;dependencies[] = ads_menu
 
 ; Install custom features.
 

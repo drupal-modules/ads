@@ -10,21 +10,31 @@
 
 <project name="build-ads" basedir="." default="build-ads">
 
+  <property file="build.properties"/>
+
   <!--
   ## Build
   -->
   <target name="build-ads" depends="
+                build-ads-make,
+                build-ads-install
+                "/>
+
+  <target name="build-ads-make" depends="
                 build-init,
-                build-drupal,
+                build-drupal
+                "/>
+
+  <target name="build-ads-install" depends="
+                build-init,
                 install-drupal,
                 set-dir-permissions,
-                import-taxonomies,
                 post-install-drupal
                 "/>
 
   <!--
   ## Initialise
-  --> 
+  -->
   <target name="build-init" depends="build-load-properties"/>
 
   <!--
@@ -51,11 +61,11 @@
       <if>
        <not><isset property="project.properties.exist"/></not>
        <then>
-          <copy 
-            file="${project.dir.dist}/build.properties.example" 
-            tofile="${project.dir.dist}/build.properties" 
+          <copy
+            file="${project.dir.dist}/build.properties.example"
+            tofile="${project.dir.dist}/build.properties"
             overwrite="true"/>
-          <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties" 
+          <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties"
             dir="${project.dir.dist}" checkreturn="true" /> -->
 
         <echo message="" />
@@ -81,7 +91,7 @@
          </if>
        </else>
       </if>
-      
+
       <!-- Enable the pulling from other forks -->
       <if>
          <isset property="pullfrom" />
@@ -96,7 +106,7 @@
   <!--
   ## Build Drupal code using drush make
   -->
-  <target name="build-drupal">
+  <target name="build-drupal" depends="build-init">
     <echo message="Downloading and building Drupal sources..."/>
       <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args}" dir="${project.dir.dist}" outputProperty="project.drupal.exists" passthru="1" LogOutput="true" />
       <!--
@@ -113,10 +123,10 @@
   <!--
   ## Install Drupal code using drush make
   -->
-  <target name="install-drupal">
+  <target name="install-drupal" depends="build-init">
     <echo message="Installing Drupal from the profile..."/>
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
-      <exec command="${project.drush.cmd} site-install --db-url=${project.db.url}" 
+      <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url}"
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
         <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
           <then>
@@ -125,7 +135,7 @@
         </if>
 
     <echo message="Changing admin password to '${project.drupal.admin.pass}'..."/>
-      <exec command="${project.drush.cmd} upwd --password=&quot;${project.drupal.admin.pass}&quot; ${project.drupal.admin.user}" 
+      <exec command="${project.drush.cmd} upwd --password=&quot;${project.drupal.admin.pass}&quot; ${project.drupal.admin.user}"
         dir="${project.dir.src}" returnProperty="cmd.return" />
         <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
           <then>
@@ -138,26 +148,26 @@
   <!--
   ## Set proper system permissions
   -->
-  <target name="set-dir-permissions">
+  <target name="set-dir-permissions" depends="build-init">
     <!-- Unix filesystem -->
     <if><equals arg1="${host.fstype}" arg2="UNIX" />
       <then>
         <echo message="Creating Drupal default files directory..."/>
           <exec command="mkdir -vp ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.dir.src}/sites/default" dir="${project.drupal.public.dir}" /> -->
-          <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" /> 
+          <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
 
         <echo message="Creating Drupal private files directory..."/>
           <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
-          <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" /> 
+          <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
 
       </then>
     <!-- Windows filesystem -->
     <elseif><equals arg1="${host.fstype}" arg2="WINNT" />
       <then>
         <echo message="Creating Drupal default files directory..."/>
-          <exec command="mkdir {project.drupal.public.dir}" dir="${project.dir.src}" />
+          <exec command="mkdir ${project.drupal.public.dir}" dir="${project.dir.src}" />
 
         <echo message="Creating Drupal private files directory..."/>
           <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
@@ -167,25 +177,9 @@
   </target>
 
   <!--
-  ## Import taxonomies
-  -->
-  <target name="import-taxonomies">
-
-    <!-- Importing taxonomy terms to already created taxonomies -->
-    <echo message="Importing taxonomies..." />
-
-      <exec command="${project.drush.cmd} en taxonomy_csv" dir="${project.dir.src}" /> 
-      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=categories --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Categories.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
-      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=locations --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Locations.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
-      <exec command="${project.drush.cmd} taxocsv-import --vocabulary_id=places --vocabulary_target=existing &quot;${project.dir.src.ads_features}/ads_migrate/taxonomies/Places.csv&quot; tree" dir="${project.dir.src}" checkreturn="true" /> 
-      <exec command="${project.drush.cmd} dis taxonomy_csv" dir="${project.dir.src}" /> 
-
-  </target>
-
-  <!--
   ## Finalize Drupal installation
   -->
-  <target name="post-install-drupal">
+  <target name="post-install-drupal" depends="build-init">
 
     <!-- Update Database and Features -->
     <echo message="Updating DB..." />
@@ -193,16 +187,16 @@
 
     <!-- Clear cache and make sure!! -->
     <echo message="Clearing Drupal cache..." />
-      <exec command="${project.drush.cmd} cc all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" /> 
+      <exec command="${project.drush.cmd} cc all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Revert configuration from features -->
     <!-- Check if grep command is available -->
-    <exec command="grep --version" dir="${project.dir.src}" outputProperty="project.cmd.avail.grep" /> 
+    <exec command="grep --version" dir="${project.dir.src}" outputProperty="project.cmd.avail.grep" />
       <if>
         <contains string="${project.cmd.avail.grep}" substring="grep" />
         <then>
           <!-- Checking if "features" module is enabled -->
-          <exec command="${project.drush.cmd} pm-info features | grep -ci --regexp='Status[ \t:]*enabled'" dir="${project.dir.src}" outputProperty="project.enabledmodules.features" /> 
+          <exec command="${project.drush.cmd} pm-info features | grep -ci --regexp=&quot;Status\s+:\s:(enabled)&quot;" dir="${project.dir.src}" outputProperty="project.enabledmodules.features" />
             <if>
               <equals arg1="${project.enabledmodules.features}" arg2="1" />
               <then>
@@ -220,7 +214,7 @@
 
     <!-- Run cron -->
     <echo message="Running Drupal cron..." />
-      <exec command="${project.drush.cmd} core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
   </target>
 

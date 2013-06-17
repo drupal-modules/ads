@@ -12,6 +12,7 @@
  * Implements hook_install_tasks().
  */
 function ads_install_tasks() {
+
   // Increase maximum function nesting level to prevent install errors.
   $max_nesting_level = ini_get('xdebug.max_nesting_level');
   if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
@@ -28,10 +29,16 @@ function ads_install_tasks() {
       'type' => 'batch',
     ),
     */
+    'ads_generate_example_users' => array(
+      'display_name' => st('Generate example users'),
+      'type' => 'normal',
+    ),
+    /*
     'ads_cleanup' => array(
       'display_name' => st('Post-install cleanup'),
       'type' => 'batch',
     ),
+    */
     /*
     'ads_import_vocabularies_batch' => array(
       'display_name' => st('Import terms'),
@@ -47,6 +54,16 @@ function ads_install_tasks() {
   );
 
   return $tasks;
+}
+
+/**
+ * Task callback: Generates example users.
+ */
+function ads_generate_example_users() {
+  if (module_exists('devel')) {
+    module_load_include('inc', 'devel', 'devel_generate/devel_generate');
+    devel_create_users(5, FALSE, 0, array(), 'asdf');
+  }
 }
 
 /**
@@ -323,6 +340,9 @@ function ads_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
+/*
+  @COMMENTED
+
   // Enable some standard blocks.
   $default_theme = 'cloudy';
   $admin_theme = 'seven';
@@ -373,6 +393,8 @@ function ads_install() {
     $query->values($record);
   }
   $query->execute();
+
+*/
 
   // Insert default pre-defined node types into the database. For a complete
   // list of available node type attributes, refer to the node type API
@@ -568,8 +590,12 @@ function ads_install() {
 
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+  // @COMMENTED
+  // user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+
+  // @COMMENTED
+  // user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
 
   // Create a default role for site administrators (if it does not yet exist),
   // and assign all available permissions.
@@ -614,6 +640,9 @@ function ads_install() {
     ->condition('name', 'omega')
     ->execute();
 
+/*
+  @COMMENTED
+
   // Enable cloudy default theme.
   db_update('system')
     ->fields(array('status' => 1))
@@ -624,10 +653,13 @@ function ads_install() {
   variable_set('node_admin_theme', '1');
 
   $theme_settings = variable_get('theme_cloudy_settings', array());
-  $theme_settings['toggle_slogan'] = FALSE;
   variable_set('theme_cloudy_settings', $theme_settings);
+*/
+
+  $theme_settings['toggle_slogan'] = FALSE;
 
   // Create resume for user 1.
-  profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
+  // @COMMENTED
+  // profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
 }
 
