@@ -26,9 +26,8 @@ project.drupal.public.dir=      "sites/default/files"
 project.drupal.generate.users=  true
 project.drupal.generate.ads=    true
 
-# Repository Credentials
+# Fork Repository Credentials
 github.user=<github-username>
-drupal.user=<drupal-username>
 
 # DEBUGGING
 # If set to 1, project will build with the origin repository changes applied
