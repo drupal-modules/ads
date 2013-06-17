@@ -43,9 +43,7 @@ includes[] = includes/drupal-org-libraries.make
 ; Download the ADS install profile and recursively build all its dependencies
 projects[ads][type] = profile
 projects[ads][download][type] = git
-; ! It's a temporary solution for testing purpose.
-; ! Later we'll need to change the URL to: git://git.drupalcode.org/project/ads.git
-projects[ads][download][url] = git@github.com:nseam/ads.git
+projects[ads][download][url] = git://git.drupalcode.org/project/ads.git
 projects[ads][download][branch] = master
 
 ;____________________
