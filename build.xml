@@ -53,8 +53,8 @@
     <echo message="Assigning drush properties..." level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.drush.make.args"    value="-y --working-copy --no-clean --no-gitinfofile --concurrency=8 --verbose"/>
-      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --working-copy --no-gitinfofile --concurrency=8 --verbose"/>
+      <property name="project.drush.make.args"    value="-y --working-copy --no-clean --no-gitinfofile --concurrency=12 --verbose"/>
+      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --working-copy --no-gitinfofile --concurrency=12 --verbose"/>
 
     <echo message="Loading configuration file..." level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
