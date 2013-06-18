@@ -1,0 +1,9 @@
+# Ignore drush generated files.
+src
+
+# Ignore configuration files that may contain sensitive information.
+build.properties
+
+# Ignore Finder metadata files on Mac
+.DS_Store
+
