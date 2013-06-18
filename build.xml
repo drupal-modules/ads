@@ -10,7 +10,7 @@
 
 <project name="build-ads" basedir="." default="build-ads">
 
-  <property file="build.properties"/>
+  <property file="phing/build.properties"/>
 
   <!--
   ## Build
@@ -62,7 +62,7 @@
        <not><isset property="project.properties.exist"/></not>
        <then>
           <copy
-            file="${project.dir.dist}/build.properties.example"
+            file="${project.dir.dist}/phing/build.properties.example"
             tofile="${project.dir.dist}/build.properties"
             overwrite="true"/>
           <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties"
