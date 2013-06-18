@@ -4,7 +4,7 @@
 # Please remove below line after editing this file.
 properties.notset=true
 
-# Database Credentials
+# Database Credentials.
 project.db.database=  ads
 project.db.username=  root
 project.db.password=  root
@@ -14,7 +14,7 @@ project.db.driver=    mysqli
 project.db.port=      3306
 
 # DRUPAL
-# Drupal Credentials
+# Drupal Credentials.
 project.drupal.admin.user=  admin
 project.drupal.admin.pass=  admin
 
@@ -22,13 +22,16 @@ project.drupal.admin.pass=  admin
 project.drupal.private.dir=     "private-files"
 project.drupal.public.dir=      "sites/default/files"
 
-# Drupal Build Settings
+# Drupal Build Settings.
 project.drupal.generate.users=  true
 project.drupal.generate.ads=    true
 
-# Fork Repository Credentials
+# Required. Fork Repository Credentials.
 github.user=<github-username>
 
+# Optional. Drupal Repository Credentials.
+drupal.user=<drupal-username>
+
 # DEBUGGING
-# If set to 1, project will build with the origin repository changes applied
-project.debug.build_with_mine=1
+# If set to 1, project will build with the fork repository changes applied.
+project.debug.build_with_mine=0
