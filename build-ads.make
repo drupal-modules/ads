@@ -44,7 +44,7 @@ includes[] = includes/drupal-org-libraries.make
 projects[ads][type] = profile
 projects[ads][download][type] = git
 projects[ads][download][url] = git://git.drupalcode.org/project/ads.git
-projects[ads][download][branch] = master
+projects[ads][download][branch] = 7.x-1.x
 
 ;____________________
 ;
