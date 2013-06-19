@@ -25,8 +25,8 @@ project.drupal.private.dir=     "private-files"
 project.drupal.public.dir=      "sites/default/files"
 #
 # Drupal Build Settings.
-project.drupal.build.stable=    true
-project.drupal.build.type=      full      # min, full, dev
+project.drupal.build.stable=    false
+project.drupal.build.type=      dev      # min, full, dev
 
 #
 # DEVELOPMENT
@@ -36,8 +36,8 @@ github.user=<github-username>
 drupal.user=<drupal-username>
 #
 # Devel
-project.drupal.generate.users=  false
-project.drupal.generate.ads=    false
+project.drupal.generate.users=  true
+project.drupal.generate.ads=    true
 #
 # Debugging
 # If set to 1, project will build with the fork repository changes applied.
