@@ -21,10 +21,12 @@ project.drupal.admin.pass=  admin
 # Drupal Settings
 project.drupal.private.dir=     "private-files"
 project.drupal.public.dir=      "sites/default/files"
-
-# Drupal Build Settings.
 project.drupal.generate.users=  true
 project.drupal.generate.ads=    true
+
+# Drupal Build Settings.
+project.drupal.build.stable=    true
+project.drupal.build.type=      full      # min, full, dev
 
 # Required. Fork Repository Credentials.
 github.user=<github-username>
