@@ -31,7 +31,7 @@ projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 ; FIELD GROUP
 ; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
 ; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
-projects[field_group][version] = "1.1"
+projects[field_group][version] = "1.x-dev"
 
 ; FIELD COLLECTION
 ; Provides a field-collection field, to which any number of fields can be attached. A field collection is internally represented as an entity, which is embedded
