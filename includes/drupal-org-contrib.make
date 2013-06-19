@@ -31,6 +31,8 @@ projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 ; FIELD GROUP
 ; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
 ; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
+; NOTE: Changed field_group dependency from version 1.1 to 1.x-dev as we need at least https://drupal.org/node/1324860 functionality (hiding of field groups
+; NOTE: including children).
 projects[field_group][version] = "1.x-dev"
 
 ; FIELD COLLECTION
