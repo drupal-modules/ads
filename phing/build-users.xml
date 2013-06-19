@@ -1,18 +1,37 @@
-<project name="build-users" basedir="." default="build-users">
+<project name="build-users" basedir="." default="build-users-init">
 
+  <!--
+  ## Initialize build
+  -->
+  <target name="build-users-init">
+    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.dir.src"            value="${phing.dir}"/>
+    <phingcall target="build-users"/>
+  </target>
+
+  <!--
+  ## Generate random users
+  -->
   <target name="build-users">
 
     <!-- Enabling devel_generate module -->
-      <exec command="${project.drush.cmd} en devel_generate" dir="${project.git.dir.src}" />
+    <echo message="Enabling Devel Generate module..."/>
+      <exec command="${project.drush.cmd} en devel_generate" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <echo message="Generating example users..."/>
-      <exec command="${project.drush.cmd} generate-users 20" dir="${project.git.dir.src}" LogOutput="true" />
+      <exec command="${project.drush.cmd} generate-users 20" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <echo message="Generating custom user asdf/asdf..."/>
-      <exec command="${project.drush.cmd} user-create --password=asdf --mail=asdf@example.com asdf" dir="${project.git.dir.src}" LogOutput="true" />
+      <exec command="${project.drush.cmd} user-create --password=asdf --mail=asdf@example.com asdf" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Disabling devel_generate module -->
-      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.git.dir.src}" />
+    <echo message="Disabling Devel Generate module..."/>
+      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.dir.src}" />
 
   </target>
 
