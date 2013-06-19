@@ -53,8 +53,8 @@
     <echo message="Assigning drush properties..." level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.drush.make.args"    value="-y --working-copy --no-clean --no-gitinfofile --concurrency=12 --verbose"/>
-      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --working-copy --no-gitinfofile --concurrency=12 --verbose"/>
+      <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-clean --no-gitinfofile --concurrency=12 --verbose"/>
+      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --prepare-install --working-copy --no-gitinfofile --concurrency=12 --verbose"/>
 
     <echo message="Loading configuration file..." level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
@@ -217,6 +217,10 @@
     <!-- Run cron -->
     <echo message="Running Drupal cron..." />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
+    <!-- Done -->
+    <echo message="Done." />
+    <echo message="Distribution can be found in the directory: ${project.dir.src}" />
 
   </target>
 
