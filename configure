@@ -1,4 +1,5 @@
 #!/bin/sh
+PEAR_CMD=`which pear`
 PHING_CMD=`which phing`
 
 if [ ! -n "$PHING_CMD" ]; then
