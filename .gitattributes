@@ -39,7 +39,7 @@
 *.sql     drupaltext
 *.test    drupaltext diff=php
 *.txt     drupaltext
-*.xml     drupaltext
+*.xml     drupaltext ident
 *.yml     drupaltext
 
 # Define binary file attributes.

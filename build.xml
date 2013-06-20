@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-## Phing build script
-## See: http://www.phing.info/
+## @file
+##   ADS Phing build script
+## @version
+##   $Id$
+##
+## Read more:
+##  http://www.phing.info/
 ##
 ## Quick PEAR installation:
 ##  $> pear channel-discover pear.phing.info
