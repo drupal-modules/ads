@@ -32,6 +32,7 @@
   <!--
   ## Initialise
   -->
+  <import file="phing/includes/build.import.xml" />
   <target name="build-init" depends="build-load-properties"/>
 
   <!--
@@ -180,6 +181,16 @@
   </target>
 
   <!--
+  ## Run phing scripts if required
+  -->
+  <target name="run-phing-scripts" depends="build-init">
+    <!-- Generate random users -->
+    <!-- @todo: if ${project.drupal.generate.users} is TRUE --> 
+      <import-file path="phing/build-users.xml" />
+      <execute-import-file-target name="build-users" />
+  </target>
+
+  <!--
   ## Finalize Drupal installation
   -->
   <target name="post-install-drupal" depends="build-init">
@@ -221,11 +232,15 @@
     <echo message="Running Drupal cron...${line.separator}" />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
-      <!-- Done -->
-      <echo message="Done.${line.separator}" />
-      <echo message="NOTE:" />
-      <echo message="You can move your newly installed distribution to your webroot." />
-      <echo message="Or you should point your webroot at the '${project.dir.src}' folder." />
+    <!-- Run cron -->
+    <echo message="Checking phing scripts...${line.separator}" />
+      <phingcall target="run-phing-scripts" />
+
+    <!-- Done -->
+    <echo message="Done.${line.separator}" />
+    <echo message="NOTE:" />
+    <echo message="You can move your newly installed distribution to your webroot." />
+    <echo message="Or you should point your webroot at the '${project.dir.src}' folder." />
 
   </target>
 

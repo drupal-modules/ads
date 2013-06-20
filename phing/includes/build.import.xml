@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="ads-build-import" phingVersion="2.4.11" basedir=".">
+
+  <adhoc-task name="import-file"><![CDATA[
+
+    class ImportFileTask extends Task {
+
+        private $path;
+
+        function setPath($value) {
+          $this->path = $value;
+        }
+
+      /**
+       * Parse a Phing build file and copy the properties, tasks, data types and
+       * targets it defines into the current project.
+       *
+       * @return void
+       */
+      public function main () {
+        $task = new ImportTask();
+        $task->setProject($this->project);
+        $task->init();
+        $task->setFile($this->file = $this->getProject()->getBaseDir() . FileSystem::getFileSystem()->getSeparator() . $this->path);
+        $task->main();
+
+      } //end main
+
+    } //end ImportFileTask
+
+  ]]></adhoc-task>
+
+  <adhoc-task name="execute-import-file-target"><![CDATA[
+
+    class ExecuteImportFileTargetTask extends Task {
+
+        private $name;
+
+        function setName($value) {
+          $this->name = $value;
+        }
+
+      public function main () {
+        $this->project->executeTarget($this->name);
+      } //end main
+
+    } //end ExecuteImportFileTargetTask
+
+  ]]></adhoc-task>
+
+</project>
