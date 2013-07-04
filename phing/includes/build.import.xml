@@ -7,9 +7,14 @@
     class ImportFileTask extends Task {
 
         private $path;
+        private $absolute;
 
         function setPath($value) {
           $this->path = $value;
+        }
+        
+        function setAbsolute($value) {
+          $this->absolute = $value;
         }
 
       /**
@@ -22,7 +27,7 @@
         $task = new ImportTask();
         $task->setProject($this->project);
         $task->init();
-        $task->setFile($this->file = $this->getProject()->getBaseDir() . FileSystem::getFileSystem()->getSeparator() . $this->path);
+        $task->setFile($this->file = ($this->absolute ? '' : ($this->getProject()->getBaseDir() . FileSystem::getFileSystem()->getSeparator())) . $this->path);
         $task->main();
 
       } //end main
