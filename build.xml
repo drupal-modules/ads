@@ -37,7 +37,7 @@
   <!--
   ## Initialise
   -->
-  <import file="phing/includes/build.import.xml" />
+  <import file="${phing.dir.build_ads}/phing/includes/build.import.xml" />
   <target name="build-init" depends="build-load-properties"/>
 
   <!--
@@ -109,6 +109,22 @@
   -->
   <target name="build-drupal" depends="build-init">
     <echo message="Downloading and building Drupal sources...${line.separator}"/>
+
+    <!-- Detection of makefile variant -->
+      <if>
+        <equals arg1="${project.drupal.build.stable}" arg2="true"/>
+        <then>
+          <property name="project.drupal.build.option.stable" value="stable" override="true"/>
+        </then>
+        <else>
+          <property name="project.drupal.build.option.stable" value="latest" override="true"/>
+        </else>
+      </if>
+
+      <property name="project.drupal.build.option.type" value="${project.drupal.build.type}" override="true"/>
+
+      <property name="project.file.makefile" value="build-ads-${project.drupal.build.option.stable}-${project.drupal.build.option.type}.make" override="true"/>
+
       <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args}" dir="${project.dir.dist}" outputProperty="project.drupal.exists" passthru="1" LogOutput="true" />
       <!--
         <if><not><equals arg1="${project.drupal.exists}" arg2="0" /></not>
@@ -135,20 +151,11 @@
   <target name="install-drupal" depends="build-init">
     <echo message="Installing Drupal from the profile...${line.separator}"/>
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
-      <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url}"
+      <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url} --account-name=${project.drupal.admin.user} --account-mail=&quot;${project.drupal.admin.email}&quot; --account-pass=&quot;${project.drupal.admin.pass}&quot; --site-mail=&quot;${project.drupal.site.email}&quot; --site-name=&quot;${project.drupal.site.name}&quot; install_configure_form.site_default_country=&quot;${project.drupal.site.default_country}&quot; install_configure_form.date_default_timezone=&quot;${project.drupal.site.default_time_zone}&quot; update_notifications.update_status_module=&quot;${project.drupal.site.check_for_updates}&quot;"
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
         <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
           <then>
             <fail msg="Can't install Drupal! Check your database connection at ${project.db.url}!" />
-          </then>
-        </if>
-
-    <echo message="Changing admin password to '${project.drupal.admin.pass}'...${line.separator}"/>
-      <exec command="${project.drush.cmd} upwd --password=&quot;${project.drupal.admin.pass}&quot; ${project.drupal.admin.user}"
-        dir="${project.dir.src}" returnProperty="cmd.return" spawn="true" />
-        <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
-          <then>
-            <fail msg="Drupal was not installed properly, please check manually or re-run build with -debug option!" />
           </then>
         </if>
 
@@ -190,8 +197,8 @@
   -->
   <target name="run-phing-scripts" depends="build-init">
     <!-- Generate random users -->
-    <!-- @todo: if ${project.drupal.generate.users} is TRUE --> 
-      <import-file path="phing/build-users.xml" />
+    <!-- @todo: if ${project.drupal.generate.users} is TRUE -->
+      <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
       <execute-import-file-target name="build-users" />
   </target>
 
@@ -239,7 +246,7 @@
 
     <!-- Run cron -->
     <echo message="Checking phing scripts...${line.separator}" />
-      <phingcall target="run-phing-scripts" />
+      <execute-import-file-target name="run-phing-scripts" />
 
     <!-- Done -->
     <echo message="Done.${line.separator}" />

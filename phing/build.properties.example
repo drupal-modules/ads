@@ -17,12 +17,20 @@ project.db.port=      3306
 # DRUPAL
 #
 # Drupal Credentials.
-project.drupal.admin.user=  admin
-project.drupal.admin.pass=  admin
+project.drupal.admin.user=              admin
+project.drupal.admin.pass=              admin
+project.drupal.admin.email=             ads@niepodam.pl
+
 #
 # Drupal Settings
-project.drupal.private.dir=     "private-files"
-project.drupal.public.dir=      "sites/default/files"
+project.drupal.site.name=               ADS
+project.drupal.site.email=              ads@niepodam.pl
+project.drupal.site.default_country=    GB
+project.drupal.site.default_time_zone=  Europe/London
+project.drupal.site.check_for_updates=  1 # 1 for "Check for updates automatically", 2 for "Receive e-mail notifications"
+project.drupal.private.dir=             "private-files"
+project.drupal.public.dir=              "sites/default/files"
+
 #
 # Drupal Build Settings.
 project.drupal.build.stable=    true
