@@ -18,12 +18,12 @@
 
     <!-- Enabling common core development modules -->
     <echo message="Enabling common development modules..."/>
-      <exec command="${project.drush.cmd} en toolbar dashboard toolbar" 
+      <exec command="${project.drush.cmd} en toolbar toolbar" 
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Enabling common contrib development modules -->
     <echo message="Enabling common development modules..."/>
-      <exec command="${project.drush.cmd} en devel views_ui" 
+      <exec command="${project.drush.cmd} en devel views_ui admin_menu_toolbar" 
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Enabling ADS modules -->
