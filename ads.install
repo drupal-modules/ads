@@ -23,12 +23,10 @@ function ads_install_tasks() {
   // drupal_get_messages('status', TRUE);
 
   $tasks = array(
-    /*
     'ads_install_additional_modules' => array(
       'display_name' => st('Install additional modules'),
       'type' => 'batch',
     ),
-    */
     'ads_generate_example_users' => array(
       'display_name' => st('Generate example users'),
       'type' => 'normal',
@@ -92,7 +90,6 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
  *
  * Also installs demo content if selected.
  */
-/*
 function ads_install_additional_modules() {
   $modules = array(
 
@@ -159,12 +156,11 @@ function ads_install_additional_modules() {
   $batch = array(
     'title' => t('Installing additional modules'),
     'operations' => $operations,
-    'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+    'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_callbacks.inc',
   );
 
   return $batch;
 }
-*/
 
 /**
  * array_filter() callback used to filter out already installed dependencies.
@@ -190,7 +186,7 @@ function ads_import_vocabularies_batch() {
     'init_message' => t('Starting import.'),
     'progress_message' => t('Processed @current out of @total.'),
     'error_message' => t('ads vocabularies import batch has encountered an error.'),
-    'file' => drupal_get_path('profile', 'ads') . '/ads.install_vocabularies.inc',
+    'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_vocabularies.inc',
   );
   return $batch;
 }
@@ -216,7 +212,7 @@ function ads_import_content() {
       'title' => t('Importing demo content'),
       'operations' => $operations,
       'finished' => 'ads_import_content_finished',
-      'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+      'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_callbacks.inc',
     );
 
     return $batch;
@@ -271,7 +267,7 @@ function ads_cleanup() {
     'title' => t('Performing post-install cleanup'),
     'operations' => $operations,
     'finished' => 'ads_cleanup_finished',
-    'file' => drupal_get_path('profile', 'ads') . '/ads.install_callbacks.inc',
+    'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_callbacks.inc',
   );
   */
 
