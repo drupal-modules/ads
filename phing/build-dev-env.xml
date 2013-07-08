@@ -1,0 +1,38 @@
+<project name="build-dev-env" basedir="." default="build-dev-env-init">
+
+  <!--
+  ## Initialize build
+  -->
+  <target name="build-dev-env-init">
+    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+    <phingcall target="build-dev-env"/>
+  </target>
+
+  <!--
+  ## Set up standard development environment
+  -->
+  <target name="build-dev-env">
+
+    <!-- Enabling common core development modules -->
+    <echo message="Enabling common development modules..."/>
+      <exec command="${project.drush.cmd} en toolbar dashboard toolbar" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
+    <!-- Enabling common contrib development modules -->
+    <echo message="Enabling common development modules..."/>
+      <exec command="${project.drush.cmd} en devel views_ui admin_menu" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
+    <!-- Enabling ADS modules -->
+    <!--
+    <echo message="Enabling ADS development modules..."/>
+      <exec command="${project.drush.cmd} en views_ui" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+        -->
+
+  </target>
+
+</project>
