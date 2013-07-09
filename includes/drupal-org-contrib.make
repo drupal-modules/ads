@@ -383,6 +383,7 @@ projects[facetapi][version] = "1.2"
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
+; NOTE: Changed version from 1.0-beta4 to 1.0-rc1 due to https://drupal.org/node/1347438
 projects[search_api_db][version] = "1.0-beta4"
 
 ;___________________________________________________
