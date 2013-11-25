@@ -53,9 +53,9 @@ projects[conditional_fields][download][type] = git
 projects[conditional_fields][download][branch] = "7.x-3.x"
 projects[conditional_fields][download][revision] = cd29b003a592d375f3fdb4c46f5639d0f26ed0be
 ; @Patch: Add capacity to use conditional_fields on field_collection item.
-projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fields-fix_for_collections_11.patch"
+projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields-fix_for_collections_11.patch"
 ; @Patch: Add capapcity to use conditional_fields on field_collection item with multiple values.
-projects[conditional_fields][patch][] = "http://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
+projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
 
 ; Link
 ; Provides a standard custom content field for links.
@@ -262,7 +262,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 ; FEATURES
 projects[features][version] = "2.0-beta2"
 ; @Patch: Add capacity to define more than one term with the same path.
-projects[features][patch][] = "http://drupal.org/files/927566-50-multiple-link_path.patch"
+projects[features][patch][] = "https://drupal.org/files/927566-50-multiple-link_path.patch"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-alpha2"
@@ -369,21 +369,20 @@ projects[search_api_solr][version] = "1.0-rc3"
 ; SEARCH API RANGES
 projects[search_api_ranges] = "1.4"
 ; @Patch: Fixes problem with Range slider
-projects[search_api_ranges][patch][] = "http://drupal.org/files/search_api_ranges.module.minmax-alter.patch"
+projects[search_api_ranges][patch][] = "https://drupal.org/files/search_api_ranges.module.minmax-alter.patch"
 
 ; Facet API FACET API
 ; Allows site builders to easily create and manage faceted search interfaces.
 ; Sub-modules: facetapi, current_search
 projects[facetapi][version] = "1.2"
 ; @Patch: Fixes Warning: array_search() expects parameter 2 to be array, null given
-; projects[facetapi][patch][] = "http://drupal.org/files/1900974-1-facetapi-rebuild_delta_map_cache.patch"
+; projects[facetapi][patch][] = "https://drupal.org/files/1900974-1-facetapi-rebuild_delta_map_cache.patch"
 
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
-; NOTE: Changed version from 1.0-beta4 to 1.0-rc1 due to https://drupal.org/node/1347438
 projects[search_api_db][version] = "1.0-beta4"
 
 ;___________________________________________________
@@ -523,7 +522,7 @@ projects[variable][version] = "2.2"
 ; A suite of modules containing fun for module developers and themers
 projects[devel] = "1.3"
 ; @Patch: Use devel_create_greeking for text field instead of user_password - http://drupal.org/node/1010394
-projects[devel][patch][] = "http://drupal.org/files/issues/devel-greeking-text-field-1010394.patch"
+projects[devel][patch][] = "https://drupal.org/files/issues/devel-greeking-text-field-1010394.patch"
 
 ; Admin
 ; The admin module provides UI improvements to the standard Drupal admin interface.

@@ -8,6 +8,13 @@ Requirements
 
 Same as Drupal 7: http://drupal.org/requirements
 
+You also need to enable "fileinfo" PHP extension in CLI's php.ini (required by Drush).
+
+Troubleshooting
+---------------
+
+If wget fails to download files from the https protocol (happens to Cygwin's wget), please ensure that you have ca-certificates package installed in your system.
+
 Recommended Installation
 ------------------------
 
@@ -26,12 +33,12 @@ Recommended Installation
     ```
 
    If you have any errors during this point, please install missing phing dependencies.
-   
+
    Note: You'll be asked to edit build.properties.
          After editing the file, please remove properties.notset section
          and make sure that your LAMP environment is up and running.
-         
-3. Your code is built and ready in src directory.
+
+  3. Your code is built and ready in src directory.
 
 Manual Installation
 -------------------
