@@ -33,8 +33,9 @@ project.drupal.public.dir=              "sites/default/files"
 
 #
 # Drupal Build Settings.
+project.drupal.build.site=      true     # Build the site by enabling modules
 project.drupal.build.stable=    true
-project.drupal.build.type=      full      # min, full, dev
+project.drupal.build.type=      full     # min, full, dev
 
 #
 # DEVELOPMENT

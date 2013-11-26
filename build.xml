@@ -193,13 +193,17 @@
   </target>
 
   <!--
-  ## Run phing scripts if required
+  ## Run phing scripts
   -->
   <target name="run-phing-scripts" depends="build-init">
     <!-- Generate random users -->
     <!-- @todo: if ${project.drupal.generate.users} is TRUE -->
       <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
       <execute-import-file-target name="build-users" />
+    <!-- Build site -->
+    <!-- @todo: if ${project.drupal.build.site} is TRUE -->
+      <import-file path="${phing.dir.build_ads}/phing/build-site.xml" absolute="true" />
+      <execute-import-file-target name="build-site" />
   </target>
 
   <!--
@@ -244,7 +248,7 @@
     <echo message="Running Drupal cron...${line.separator}" />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
-    <!-- Run cron -->
+    <!-- Run additional phing scripts -->
     <echo message="Checking phing scripts...${line.separator}" />
       <execute-import-file-target name="run-phing-scripts" />
 
