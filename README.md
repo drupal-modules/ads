@@ -26,6 +26,18 @@ Recommended Installation
     $> pear install phing/phing
     ```
 
+    If PEAR ends up with the message "No releases available for package "pear.phing.info/phing"", you may need to clear its cache and try again:
+
+    ```
+    $> pear clear-cache
+    ```
+
+    Installation process requires also the VersionControl_Git PEAR package:
+
+    ```
+    $> pear install VersionControl_Git-0.4.4
+    ```
+
 2. Run phing command inside the distribution directory:
 
     ```
