@@ -71,22 +71,26 @@
           <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties"
             dir="${project.dir.dist}" checkreturn="true" /> -->
 
-        <echo message="${line.separator}Hello :)" />
-        <echo message="Thank you for installing ADS distribution." />
-        <echo message="I have created a build.properties in ${project.dir.dist}.${line.separator}" />
-        <echo message="ACTION REQUIRED" />
-        <echo message="Please edit this file with your settings." />
-        <echo message="Thank You :)" />
+        <log message="" />
+        <log message="Hello :)" />
+        <log message="Thank you for installing ADS distribution." />
+        <log message="I have created a build.properties in ${project.dir.dist}.${line.separator}" />
+        <log message="ACTION REQUIRED" />
+        <log message="Please edit this file with your settings." />
+        <log message="Thank You :)" />
         <fail message="See you again in a moment...${line.separator}" />
+        <log message="" />
        </then>
        <else>
          <property file="${project.dir.dist}/build.properties" />
          <if>
          <isset property="properties.notset"/>
          <then>
-          <echo message="ACTION REQUIRED!" />
-          <echo message="Please edit ${project.dir.dist}/build.properties" />
-          <echo message="After you finish, please delete properties.notset section." />
+          <log message="" />
+          <log message="ACTION REQUIRED!" />
+          <log message="Please edit ${project.dir.dist}/build.properties" />
+          <log message="After you finish, please delete properties.notset section." />
+          <log message="" />
           <fail />
          </then>
          </if>
@@ -108,7 +112,7 @@
   ## Build Drupal code using drush make
   -->
   <target name="build-drupal" depends="build-init">
-    <echo message="Downloading and building Drupal sources...${line.separator}"/>
+    <log message="Downloading and building Drupal sources" />
 
     <!-- Detection of makefile variant -->
       <if>
@@ -136,12 +140,15 @@
         -->
 
       <!-- Done -->
-      <echo message="Done.${line.separator}" />
-      <echo message="NOTE:" />
-      <echo message="Distribution can be found in the directory: ${project.dir.src}" />
-      <echo message="You can move your newly created distribution to your webroot." />
-      <echo message="Or you can install it by the following command:" />
-      <echo message="    phing ads-install" />
+      <log message="" />
+      <log message="Done" />
+      <log message="" />
+      <log message="NOTE:" />
+      <log message="Distribution can be found in the directory: ${project.dir.src}" />
+      <log message="You can move your newly created distribution to your webroot." />
+      <log message="Or you can install it by the following command:" />
+      <log message="    phing ads-install" />
+      <log message="" />
 
   </target>
 
@@ -149,7 +156,8 @@
   ## Install Drupal code using drush make
   -->
   <target name="install-drupal" depends="build-init">
-    <echo message="Installing Drupal from the profile...${line.separator}"/>
+    <log message="Installing Drupal from the profile"/>
+    <log message=""/>
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
       <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url} --account-name=${project.drupal.admin.user} --account-mail=&quot;${project.drupal.admin.email}&quot; --account-pass=&quot;${project.drupal.admin.pass}&quot; --site-mail=&quot;${project.drupal.site.email}&quot; --site-name=&quot;${project.drupal.site.name}&quot; install_configure_form.site_default_country=&quot;${project.drupal.site.default_country}&quot; install_configure_form.date_default_timezone=&quot;${project.drupal.site.default_time_zone}&quot; update_notifications.update_status_module=&quot;${project.drupal.site.check_for_updates}&quot;"
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
@@ -168,12 +176,12 @@
     <!-- Unix filesystem -->
     <if><equals arg1="${host.fstype}" arg2="UNIX" />
       <then>
-        <echo message="Creating Drupal default files directory...${line.separator}"/>
+        <log message="Creating Drupal default files directory"/>
           <exec command="mkdir -vp ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.dir.src}/sites/default" dir="${project.drupal.public.dir}" /> -->
           <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
 
-        <echo message="Creating Drupal private files directory...${line.separator}"/>
+        <log message="Creating Drupal private files directory"/>
           <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
           <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
@@ -182,10 +190,10 @@
     <!-- Windows filesystem -->
     <elseif><equals arg1="${host.fstype}" arg2="WINNT" />
       <then>
-        <echo message="Creating Drupal default files directory...${line.separator}"/>
+        <log message="Creating Drupal default files directory"/>
           <exec command="mkdir ${project.drupal.public.dir}" dir="${project.dir.src}" />
 
-        <echo message="Creating Drupal private files directory...${line.separator}"/>
+        <log message="Creating Drupal private files directory"/>
           <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
       </then>
       </elseif>
@@ -212,7 +220,7 @@
   <target name="post-install-drupal" depends="build-init">
 
     <!-- Update Database and Features -->
-    <echo message="Updating DB...${line.separator}" />
+    <log message="Updating database" />
       <exec command="${project.drush.cmd} updb" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Clear cache -->
@@ -233,30 +241,32 @@
               <equals arg1="${project.enabledmodules.features}" arg2="1" />
               <then>
                 <!-- Pull new configuration from features -->
-                <echo message="Features module is enabled." />
-                <echo message="Reverting features...${line.separator}" />
+                <log message="Features module is enabled, reverting features" />
                   <exec command="${project.drush.cmd} features-revert-all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
               </then>
               <else>
-                <echo message="Features are not enabled. No revert will take place." />
+                <log message="Features are not enabled. No revert will take place" />
               </else>
             </if>
         </then>
       </if>
 
     <!-- Run cron -->
-    <echo message="Running Drupal cron...${line.separator}" />
+    <log message="Running Drupal cron" />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Run additional phing scripts -->
-    <echo message="Checking phing scripts...${line.separator}" />
+    <log message="Checking phing scripts" />
       <execute-import-file-target name="run-phing-scripts" />
 
     <!-- Done -->
-    <echo message="Done.${line.separator}" />
-    <echo message="NOTE:" />
-    <echo message="You can move your newly installed distribution to your webroot." />
-    <echo message="Or you should point your webroot at the '${project.dir.src}' folder." />
+    <log message="" />
+    <log message="Done" />
+    <log message="" />
+    <log message="NOTE:" />
+    <log message="You can move your newly installed distribution to your webroot" />
+    <log message="Or you should point your webroot at the '${project.dir.src}' folder" />
+    <log message="" />
 
   </target>
 
