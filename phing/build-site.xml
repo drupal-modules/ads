@@ -1,4 +1,4 @@
-<project name="ads123" basedir="." default="build-site">
+<project name="ads123" basedir=".">
 
   <!--
   ## Initialize build
