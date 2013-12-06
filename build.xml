@@ -207,13 +207,22 @@
   -->
   <target name="run-phing-scripts" depends="build-init">
     <!-- Generate random users -->
-    <!-- @todo: if ${project.drupal.generate.users} is TRUE -->
-      <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
-      <execute-import-file-target name="build-users" />
+      <if><equals arg1="${project.drupal.generate.users}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.generate.users = true, executing build-users.xml"/>
+            <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
+            <execute-import-file-target name="build-users" />
+        </then>
+      </if>
+
     <!-- Build site -->
-    <!-- @todo: if ${project.drupal.build.site} is TRUE -->
-      <import-file path="${phing.dir.build_ads}/phing/build-site.xml" absolute="true" />
-      <execute-import-file-target name="build-site" />
+      <if><equals arg1="${project.drupal.build.site}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.build.site = true, executing build-site.xml"/>
+            <import-file path="${phing.dir.build_ads}/phing/build-site.xml" absolute="true" />
+            <execute-import-file-target name="build-site" />
+        </then>
+      </if>
   </target>
 
   <!--
