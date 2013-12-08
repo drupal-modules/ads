@@ -132,8 +132,9 @@ function ads_install_additional_modules() {
   // to do it later for each individual module (which kills performance).
   $files = system_rebuild_module_data();
   $modules_sorted = array();
+
   foreach ($modules as $module) {
-    if ($files[$module]->requires) {
+    if (array_key_exists($module, $files) && $files[$module]->requires) {
       // Create a list of dependencies that haven't been installed yet.
       $dependencies = array_keys($files[$module]->requires);
       $dependencies = array_filter($dependencies, '_ads_filter_dependencies');
@@ -143,7 +144,9 @@ function ads_install_additional_modules() {
   }
   $modules = array_unique($modules);
   foreach ($modules as $module) {
-    $modules_sorted[$module] = $files[$module]->sort;
+    if (array_key_exists($module, $files)) {
+      $modules_sorted[$module] = $files[$module]->sort;
+    }
   }
   arsort($modules_sorted);
 
@@ -165,11 +168,10 @@ function ads_install_additional_modules() {
 /**
  * array_filter() callback used to filter out already installed dependencies.
  */
-/*
+
 function _ads_filter_dependencies($dependency) {
   return !module_exists($dependency);
 }
-*/
 
 /**
  * Defines batch operation for importing vocabularies.

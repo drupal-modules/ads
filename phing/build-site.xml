@@ -1,4 +1,4 @@
-<project name="build-site" basedir="." default="build-site-init">
+<project name="ads123" basedir=".">
 
   <!--
   ## Initialize build
@@ -7,18 +7,17 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${phing.dir}/../src"/>
-    <phingcall target="build-site"/>
+      <property name="project.dir.src"            value="${project.git.dir.src}"/>
   </target>
 
   <!--
   ## Set up standard feature site
   -->
-  <target name="build-site">
+  <target name="build-site" depends="build-site-init">
 
     <!-- Enabling ADS modules -->
     <echo message="Enabling ADS common modules..."/>
-      <exec command="${project.drush.cmd} en ads_homepage ads_search_db ads_advert" 
+      <exec command="${project.drush.cmd} en ads_homepage ads_search_db ads_advert ads_menu"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Run cron -->

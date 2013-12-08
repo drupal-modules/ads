@@ -26,8 +26,8 @@ libraries[SolrPhpClient][destination] = "libraries"
 
 ; COLORBOX LIBRARY.
 ; A lightweight customizable lightbox plugin for jQuery.
-libraries[colorbox][download][type] = "get"
-libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/master.zip"
+libraries[colorbox][download][type] = "git"
+libraries[colorbox][download][url] = "git://github.com/jackmoore/colorbox.git"
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][destination] = "libraries"
 

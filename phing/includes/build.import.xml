@@ -6,6 +6,8 @@
 
     class ImportFileTask extends Task {
 
+        static private $alreadyImportedList = array();
+
         private $path;
         private $absolute;
 
@@ -27,7 +29,14 @@
         $task = new ImportTask();
         $task->setProject($this->project);
         $task->init();
-        $task->setFile($this->file = ($this->absolute ? '' : ($this->getProject()->getBaseDir() . FileSystem::getFileSystem()->getSeparator())) . $this->path);
+        $task->setFile($path = $this->file = ($this->absolute ? '' : ($this->getProject()->getBaseDir() . FileSystem::getFileSystem()->getSeparator())) . $this->path);
+
+        if (array_key_exists($path, self::$alreadyImportedList)) {
+          return;
+        }
+
+        self::$alreadyImportedList[$path] = TRUE;
+
         $task->main();
 
       } //end main
