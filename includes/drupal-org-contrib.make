@@ -95,7 +95,7 @@ projects[field_delimiter][version] = "1.0"
 
 ; Entity
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
-projects[entity][version] = "1.0"
+projects[entity][version] = "1.2"
 
 ; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
@@ -231,7 +231,7 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ; RULES
 ; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
 ; replacement with more features for the trigger module in core and the successor of the Drupal 5 workflow-ng module.
-projects[rules][version] = "2.2"
+projects[rules][version] = "2.6"
 
 ; RULES AUTO TAG
 ; The Rules Autotag module takes a light-weight approach for autotagging full-text content by matching taxonomy terms (and optional Synonyms). Rules Autotag
