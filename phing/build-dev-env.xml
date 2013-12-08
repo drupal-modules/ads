@@ -1,4 +1,4 @@
-<project name="ads123" basedir="." default="build-dev-env">
+<project name="ads" basedir="." default="build-dev-env">
 
   <!--
   ## Initialize build

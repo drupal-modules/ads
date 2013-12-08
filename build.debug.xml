@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<project name="ads123" phingVersion="2.4.11" basedir=".">
+<project name="ads" phingVersion="2.4.11" basedir=".">
 
   <adhoc-task name="log"><![CDATA[
 
