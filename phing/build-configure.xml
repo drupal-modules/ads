@@ -1,0 +1,68 @@
+<project name="ads" basedir=".">
+
+  <!--
+  ## Initialize build
+  -->
+  <target name="build-configure-init">
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.dir.src"            value="${project.git.dir.src}"/>
+  </target>
+
+  <!--
+  ## Set up standard feature site
+  -->
+  <target name="run-ads-configure" depends="build-configure-init">
+
+    <log message="Executing drush ads-configure for all the ads modules" />
+
+    <log message="Enabling ads_setup module" indent="1" />
+      <exec command="${project.drush.cmd} -y en ads_setup" dir="${project.dir.src}" LogOutput="true" />
+
+    <property file="${project.dir.dist}/build.properties" />
+
+    <log message="Configuring modules" indent="1" />
+      <parse-properties-file-configure />
+      <exec command="${project.drush.cmd} ads-configure ${parsed_path}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+  </target>
+
+  <adhoc-task name="parse-properties-file-configure"><![CDATA[
+
+    class ParsePropertiesFileConfigureTask extends Task {
+
+      public function main () {
+        $properties = array();
+
+        foreach ($this->getProject()->getProperties() as $name => $value) {
+          if (substr($name, 0, 25) === 'project.drupal.configure.') {
+
+            $nest = &$properties;
+            $keys = explode('.', substr($name, 25));
+
+            while ($key = array_shift($keys)) {
+              $nest = &$nest[$key];
+            }
+
+            if ($key !== NULL) {
+              $nest[$key] = $value;
+            }
+            else {
+              $nest = $value;
+            }
+          }
+        }
+
+        $temp_path = sys_get_temp_dir() . '/ads-configure.properties.json';
+
+        file_put_contents($temp_path, json_encode($properties));
+
+        $this->getProject()->setProperty('parsed_path', $temp_path);
+
+      } //end main
+
+    } //end ExecuteImportFileTargetTask
+
+  ]]></adhoc-task>
+
+</project>

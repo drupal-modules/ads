@@ -225,6 +225,11 @@
       </if>
   </target>
 
+  <target name="configure" depends="build-init">
+    <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
+      <execute-import-file-target name="run-ads-configure" />
+  </target>
+
   <!--
   ## Finalize Drupal installation
   -->
@@ -269,6 +274,10 @@
     <!-- Run additional phing scripts -->
     <log message="Checking phing scripts" />
       <execute-import-file-target name="run-phing-scripts" />
+
+    <!-- Drupal modules auto-configuration -->
+    <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
+      <execute-import-file-target name="run-ads-configure" />
 
     <!-- Done -->
     <log message="" />
