@@ -8,13 +8,7 @@ regions[content]        = 'Content'
 regions[footer]         = 'Footer'
 
 ; Stylesheets
-stylesheets[all][] = less/style.less
+stylesheets[all][] = less/page.less
 
 ; Scripts
 scripts[] = 'js/main.js'
- 
-; Settings inherited by base theme, uncomment to override.
-settings[toggle_name] = 0
-settings[toggle_search] = 1
-; Disable the CDN as we are using our own source files.
-settings[cdn_bootstrap] = 0
