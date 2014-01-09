@@ -513,6 +513,10 @@ projects[variable][version] = "2.2"
 ; Allows module developers to store their help outside the module system, in pure .html files.
 ; projects[advanced_help][version] = "1.0"
 
+; Sassy
+; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
+projects[sassy][version] = "2.13"
+
 ;___________________________________________________
 ;
 ;  ADMINISTRATION MODULES

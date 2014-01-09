@@ -42,3 +42,10 @@ libraries[libphonenumber-for-php][download][url] = "https://github.com/chipperst
 libraries[libphonenumber-for-php][directory_name] = "libphonenumber-for-php"
 libraries[libphonenumber-for-php][destination] = "libraries"
 
+// PHPSass
+// A compiler for SASS/SCSS written in PHP.
+libraries[phpsass][directory_name] = "phpsass"
+libraries[phpsass][type] = "library"
+libraries[phpsass][destination] = "libraries"
+libraries[phpsass][download][type] = "get"
+libraries[phpsass][download][url] = "https://github.com/richthegeek/phpsass/archive/master.zip"
