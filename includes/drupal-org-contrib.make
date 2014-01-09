@@ -513,6 +513,11 @@ projects[variable][version] = "2.2"
 ; Allows module developers to store their help outside the module system, in pure .html files.
 ; projects[advanced_help][version] = "1.0"
 
+; Prepro
+; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
+; to registered preprocessor modules (such as Sassy)
+projects[prepro][version] = "1.2"
+
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
 projects[sassy][version] = "2.13"
