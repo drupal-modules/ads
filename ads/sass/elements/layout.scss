@@ -1,0 +1,33 @@
+// Body
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $fontDefaultFamily;
+  font-size: $fontNormalSize;
+  line-height: $fontNormalSize + 3px;
+  color: $textColor;
+  background-color: $bodyBackground;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+// Links
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: $linkColorHover;
+  text-decoration: underline;
+}
+
+.page-header {
+  padding: 12px 0px;
+}
+
+.page-content {
+	padding: 12px 0px;
+}

@@ -1,0 +1,8 @@
+// Note that we don't use h1-h6 as we don't want to define global rules.
+
+@import ../mixings/typography;
+
+.page-title {
+  @include font-huge;
+  margin: 20px 0;
+}

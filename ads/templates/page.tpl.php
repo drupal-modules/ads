@@ -1,9 +1,9 @@
-<header>
+<div class="page-header">
   <?php print render($page['header']); ?>
-</header>
-<content>
+</div>
+<div class="page-content">
   <?php print render($page['content']); ?>
-</content>
-<footer>
+</div>
+<div class="page-footer">
   <?php print render($page['footer']); ?>
-</footer>
+</div>footer

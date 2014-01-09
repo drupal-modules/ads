@@ -1,0 +1,16 @@
+@mixin image-float-right($url, $width, $height, $margin-top, $margin-right = 6px) {
+  display: block;
+  position: absolute;
+  right: $margin-right;
+  top: $margin-top;
+  background: url($url) no-repeat;
+  width: $width;
+  height: $height;
+}
+
+@mixin image-float-normal($url, $width, $height, $margin-top, $margin-left = 6px) {
+  display: inline;
+  padding: 0 $width/2 0 $height/2;
+  background: url($url) no-repeat;
+  margin-left: $margin-left;
+}
