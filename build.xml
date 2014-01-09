@@ -36,6 +36,12 @@
                 post-install-drupal
                 "/>
 
+  <target name="ads-install-skip-post-install-drupal" depends="
+                build-init,
+                install-drupal,
+                set-dir-permissions
+                "/>
+
   <!--
   ## Initialise
   -->
