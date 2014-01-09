@@ -527,6 +527,7 @@ libraries[masonry][type] = "library"
 libraries[masonry][destination] = "libraries"
 libraries[masonry][download][type] = "get"
 libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"
+libraries[masonry][download][filename] = "jquery.masonry.min.js"
 
 ; Advanced help
 ; Allows module developers to store their help outside the module system, in pure .html files.
