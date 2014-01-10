@@ -519,15 +519,15 @@ projects[jquery_update][version] = "2.x-dev"
 
 ; Masonry
 ; Masonry is a dynamic grid layout plugin for jQuery.
-projects[masonry][version] = "2.0"
-; projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
+projects[masonry][version] = "2.x-dev"
+projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
 
 ; Masonry Library
 libraries[masonry][directory_name] = "masonry"
 libraries[masonry][type] = "library"
 libraries[masonry][destination] = "libraries"
 libraries[masonry][download][type] = "get"
-libraries[masonry][download][url] = "http://desandro.github.io/masonry/jquery.masonry.min.js"
+libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"
 
 ; Advanced help
 ; Allows module developers to store their help outside the module system, in pure .html files.
