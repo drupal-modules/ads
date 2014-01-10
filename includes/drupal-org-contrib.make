@@ -509,9 +509,38 @@ projects[currency][version] = "2.0"
 ; Provides a registry for meta-data about Drupal variables.
 projects[variable][version] = "2.2"
 
+; MemCache
+; Integration between Drupal and Memcached.
+projects[memcache][version] = "1.0"
+
+; jQuery Update
+; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
+projects[jquery_update][version] = "2.x-dev"
+
+; Masonry
+; Masonry is a dynamic grid layout plugin for jQuery.
+projects[masonry][version] = "2.x-dev"
+projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
+
+; Masonry Library
+libraries[masonry][directory_name] = "masonry"
+libraries[masonry][type] = "library"
+libraries[masonry][destination] = "libraries"
+libraries[masonry][download][type] = "get"
+libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"
+
 ; Advanced help
 ; Allows module developers to store their help outside the module system, in pure .html files.
 ; projects[advanced_help][version] = "1.0"
+
+; Prepro
+; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
+; to registered preprocessor modules (such as Sassy)
+projects[prepro][version] = "1.2"
+
+; Sassy
+; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
+projects[sassy][version] = "2.13"
 
 ;___________________________________________________
 ;
