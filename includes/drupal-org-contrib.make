@@ -374,9 +374,10 @@ projects[search_api_ranges][patch][] = "https://drupal.org/files/search_api_rang
 ; Facet API FACET API
 ; Allows site builders to easily create and manage faceted search interfaces.
 ; Sub-modules: facetapi, current_search
-projects[facetapi][version] = "1.2"
+projects[facetapi][version] = "1.3"
 ; @Patch: Fixes Warning: array_search() expects parameter 2 to be array, null given
-; projects[facetapi][patch][] = "https://drupal.org/files/1900974-1-facetapi-rebuild_delta_map_cache.patch"
+;   From: https://drupal.org/node/1900974#comment-7491106
+projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch"
 
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
