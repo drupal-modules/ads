@@ -285,6 +285,10 @@
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
       <execute-import-file-target name="run-ads-configure" />
 
+    <!-- Enabling ADS theme -->
+      <exec command="${project.drush.cmd} -y en ads_theme" dir="${project.dir.src}" />
+      <exec command="${project.drush.cmd} vset theme_default ads" dir="${project.dir.src}" />
+
     <!-- Done -->
     <log message="" />
     <log message="Done" />

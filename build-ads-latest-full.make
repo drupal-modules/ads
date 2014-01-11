@@ -105,6 +105,9 @@ includes[] = includes/build-ads-travel.make
 ; Provides common Vehicles features for ADS Drupal distribution.
 includes[] = includes/build-ads-vehicles.make
 
+; ADS theme.
+includes[] = includes/build-ads-theme.make
+
 ;-------------------
 ; Extra ADS packages
 ;-------------------
