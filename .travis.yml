@@ -4,9 +4,8 @@ notifications:
 php:
   - 5.3
 before_script:
-  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - sudo cp .travis_ads_rsa ~/.ssh/.travis_ads_rsa
-  - sudo echo -e "Host github.com\n IdentityFile ~/.ssh/.travis_ads_rsa\n" >>~/.ssh/config
+  - sudo echo -e "Host github.com\n IdentityFile ~/.ssh/.travis_ads_rsa\n StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - cp build.properties.travis build.properties
