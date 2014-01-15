@@ -16,14 +16,13 @@ before_script:
   - sudo pear upgrade pear
   - sudo pear channel-discover pear.phing.info
   - sudo pear config-set preferred_state alpha
-  - sudo mkdir /tmp/pear/temp
-  - sudo chmod -R 777 /tmp/pear/temp
-  - pear config-set cache_dir /tmp/pear/temp
+  - sudo chmod -R 777 "/tmp/pear"
+  - sudo pear config-set cache_dir "/tmp/pear/temp"
   - sudo pear install --onlyreqdeps phing/phing
-  - pear channel-discover pear.drush.org 
-  - pear install drush/drush-6.0.0
-  - sudo chmod -R 777 /usr/share/drush/includes
-  - drush --version
+  - sudo pear channel-discover pear.drush.org 
+  - sudo pear install drush/drush-6.0.0
+  - sudo chmod -R 777 /usr/share/php/drush/lib
+  - sudo drush --version
 script:
-  - phing -debug
-  - phing -debug ads-install
+  - sudo phing -debug
+  - sudo phing -debug ads-install
