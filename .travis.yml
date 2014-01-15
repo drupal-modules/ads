@@ -1,4 +1,6 @@
 language: php
+notifications:
+  email: false
 php:
   - 5.3
 before_script:
@@ -14,7 +16,9 @@ before_script:
   - sudo pear upgrade pear
   - sudo pear channel-discover pear.phing.info
   - sudo pear config-set preferred_state alpha
-  - pear config-set temp_dir /tmp
+  - sudo mkdir /tmp/pear/temp
+  - sudo chmod -R 777 /tmp/pear/temp
+  - pear config-set cache_dir /tmp/pear/temp
   - sudo pear install --onlyreqdeps phing/phing
   - pear channel-discover pear.drush.org 
   - pear install drush/drush-6.0.0
