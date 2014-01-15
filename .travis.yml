@@ -26,3 +26,4 @@ before_script:
 script:
   - sudo phing -debug
   - sudo phing -debug ads-install
+
