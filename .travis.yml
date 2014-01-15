@@ -23,4 +23,3 @@ before_script:
 script:
   - phing -debug
   - phing -debug ads-install
-
