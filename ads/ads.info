@@ -1,0 +1,20 @@
+name = ADS123 Theme
+description = General theme for ADS Distribution
+core = 7.x
+
+; Regions
+regions[header]         = 'Header'
+regions[content]        = 'Content'
+regions[footer]         = 'Footer'
+
+; Stylesheets
+stylesheets[all][] = sass/page.scss
+
+; Disabling system and modules' styles
+stylesheets[all][] = contextual.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = views.css
+
+; Scripts
+scripts[] = 'js/main.js'

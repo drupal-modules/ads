@@ -1,0 +1,14 @@
+@mixin font-normal {
+	font-size: $fontNormalSize;
+	line-height: $fontNormalSize * 1.4;
+}
+
+@mixin font-medium {
+	font-size: $fontMediumSize;
+	line-height: $fontMediumSize * 1.4;
+}
+
+@mixin font-huge {
+	font-size: $fontHugeSize;
+	line-height: $fontHugeSize * 1.4;
+}
