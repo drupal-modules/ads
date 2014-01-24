@@ -43,7 +43,7 @@ includes[] = includes/drupal-org-libraries.make
 ; Download the ADS install profile and recursively build all its dependencies
 projects[ads][type] = profile
 projects[ads][download][type] = git
-projects[ads][download][url] = git@github.com:mycognitive/ads.git
+projects[ads][download][url] = https://github.com/mycognitive/ads.git
 projects[ads][download][branch] = master
 
 ;____________________
@@ -104,6 +104,9 @@ includes[] = includes/build-ads-travel.make
 
 ; Provides common Vehicles features for ADS Drupal distribution.
 includes[] = includes/build-ads-vehicles.make
+
+; ADS theme.
+includes[] = includes/build-ads-theme.make
 
 ;-------------------
 ; Extra ADS packages
