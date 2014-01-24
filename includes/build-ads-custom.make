@@ -10,6 +10,6 @@
 projects[ads_custom][type] = module
 projects[ads_custom][download][type] = git
 projects[ads_custom][download][branch] = master
-projects[ads_custom][download][url] = git@github.com:mycognitive/ads_custom.git
+projects[ads_custom][download][url] = https://github.com/mycognitive/ads_custom.git
 projects[ads_custom][subdir] = ads
 
