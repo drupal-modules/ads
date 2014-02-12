@@ -550,9 +550,7 @@ projects[sassy][version] = "2.13"
 
 ; Devel
 ; A suite of modules containing fun for module developers and themers
-projects[devel] = "1.3"
-; @Patch: Use devel_create_greeking for text field instead of user_password - http://drupal.org/node/1010394
-projects[devel][patch][] = "https://drupal.org/files/issues/devel-greeking-text-field-1010394.patch"
+projects[devel] = "1.4"
 
 ; Admin
 ; The admin module provides UI improvements to the standard Drupal admin interface.
