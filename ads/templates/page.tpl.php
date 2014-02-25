@@ -1,4 +1,5 @@
 <div class="page-header">
+  <?php print $messages; ?>
   <?php print render($page['header']); ?>
 </div>
 <div class="page-content">
