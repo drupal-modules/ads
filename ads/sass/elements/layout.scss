@@ -8,9 +8,15 @@ body {
   line-height: $fontNormalSize + 3px;
   color: $textColor;
   background-color: $bodyBackground;
-  width: 1200px;
+  width: 960px;
   margin: 0 auto;
 }
+
+body > div.page-content {
+	padding: 0;
+	border: 1px solid #ccc;
+}
+
 
 // Links
 

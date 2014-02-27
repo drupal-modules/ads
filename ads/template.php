@@ -24,3 +24,19 @@ function ads_theme_preprocess_page(&$vars) {
 
   $vars['messages'] = $output;
 }
+
+/**
+ * Implements template_preprocess_panels_pane().
+ */
+function ads_theme_preprocess_panels_pane(&$vars) {
+  if ($vars['pane']->type === 'ads_include_page') {
+    $vars['theme_hook_suggestions'][] = 'panels_pane__' . $vars['pane']->configuration['page_name'];
+  }
+}
+
+/**
+ * Implements template_panels_default_style_render_region().
+ */
+function ads_theme_panels_default_style_render_region($vars) {
+  return implode('', $vars['panes']);
+}
