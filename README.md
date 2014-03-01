@@ -88,7 +88,7 @@ at the end of this document.
 
 Before building the distribution you need Drush (at least version 5+):
 
- * http://drupal.org/project/drush
+ * https://github.com/drush-ops/drush
 
 For instructions on how to install it, please consult the respective
 documentation. Then continue with the following steps:
