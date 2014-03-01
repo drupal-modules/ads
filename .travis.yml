@@ -11,7 +11,7 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - cp travis/travis.build.properties build.properties
-  - phpenv config-add php.ini
+  - phpenv config-add travis/php.ini
   - sudo apt-get update -qq
   - sudo apt-get install -qq php5-gd
   - sudo apt-get install -qq php5-mysql
