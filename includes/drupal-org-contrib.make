@@ -364,12 +364,10 @@ projects[search_api_autocomplete][version] = "1.0-beta2"
 ; This module provides a Solr backend for the Search API module. The backend uses, like the popular Apache Solr Search Integration module, Apache Solr servers
 ; for indexing and searching content. It has great performance, is suitable even for use on large commercial websites and supports facets and multi-index
 ; searches.
-projects[search_api_solr][version] = "1.0-rc3"
+projects[search_api_solr][version] = "1.4"
 
 ; SEARCH API RANGES
-projects[search_api_ranges] = "1.4"
-; @Patch: Fixes problem with Range slider
-projects[search_api_ranges][patch][] = "https://drupal.org/files/search_api_ranges.module.minmax-alter.patch"
+projects[search_api_ranges] = "1.5"
 
 ; Facet API FACET API
 ; Allows site builders to easily create and manage faceted search interfaces.
@@ -384,7 +382,7 @@ projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
-projects[search_api_db][version] = "1.0-beta4"
+projects[search_api_db][version] = "1.2"
 
 ;___________________________________________________
 ;
