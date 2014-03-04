@@ -128,9 +128,6 @@
         if (self::getDebugLevel() < self::$msgLevels[$this->level])
           return;
 
-        var_dump(self::getDebugLevel());
-        exit;
-
         if (!self::$once) {
           self::$once = 1;
           $this->getProject()->addBuildListener(new LogTaskBuildListener ());
