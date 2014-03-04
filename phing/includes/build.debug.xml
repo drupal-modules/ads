@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<project name="ads" phingVersion="2.4.11" basedir=".">
+<project name="ads123" phingVersion="2.4.11" basedir=".">
 
   <adhoc-task name="log"><![CDATA[
 
@@ -23,6 +23,9 @@
        * @see BuildEvent::getException()
        */
       public function buildFinished(BuildEvent $event) {
+        if (LogTask::$output === '')
+          return;
+      
         print "\n\nHuman readable log output:\n\n" . LogTask::$output;
         print date('Y-m-d H:i:s ') . str_repeat('-', 80) . "\n\n";
       }
@@ -34,8 +37,6 @@
        * @see BuildEvent::getTarget()
        */
       public function targetStarted(BuildEvent $event) {
-         //file_put_contents(LogTask::$fileName, $message = (date('Y-m-d H:i:s ') . str_repeat('  ', LogTask::$stackLevel) . '(entering "' . $event->getTarget()->getName() . '")' . "\n"), FILE_APPEND);
-         //LogTask::$output .= $message;
         ++LogTask::$stackLevel;
       }
 
@@ -81,34 +82,45 @@
 
     class LogTask extends Task {
 
-        private $text;
-        private $level;
-        public static $stackLevel = 0;
-        private static $targetStack = array();
-        public static $fileName = "debug.txt";
-        public static $output = "";
+       private $text;
+       public static $stackLevel = 0;
+       private static $targetStack = array();
+       public static $fileName = "debug.txt";
+       public static $output = "";
 
-        static $once = 0;
+       static $once = 0;
+       static public $msgLevels = array(
+         'debug' => Project::MSG_DEBUG,
+         'verbose' => Project::MSG_VERBOSE,
+         'info' => Project::MSG_INFO,
+         'warning' => Project::MSG_WARN,
+         'error' => Project::MSG_ERR,
+       );
 
-        private $indent = 0;
+       private $indent = 0;
+       private $level = 'verbose';
 
-        function setIndent($value) {
-          $this->indent = $value;
-        }
+       function setIndent($value) {
+         $this->indent = $value;
+       }
 
-        function setMessage($value) {
-          $this->text = $value;
-        }
+       function setMessage($value) {
+         $this->text = $value;
+       }
 
-        function setMsg($value) {
-          $this->text = $value;
-        }
+       function setMsg($value) {
+         $this->text = $value;
+       }
 
-        function setLevel($value) {
-          $this->level = $value;
-        }
+       function setLevel($value) {
+         $this->level = $value;
+       }
 
       public function main () {
+      
+        if (Phing::getMsgOutputLevel() < self::$msgLevels[$this->level])
+          return;
+        
         if (!self::$once) {
           self::$once = 1;
           $this->getProject()->addBuildListener(new LogTaskBuildListener ());
@@ -155,11 +167,13 @@
         if ($return != 0) {
           $log = $this->getProject()->createTask('log');
           $log->setMsg('Operation failed, details:');
+          $log->setLevel('error');
           $log->setIndent($this->indent);
           $log->main();
 
           $log = $this->getProject()->createTask('log');
           $log->setMsg($output);
+          $log->setLevel('error');
           $log->setIndent($this->indent + 1);
           $log->main();
 
@@ -169,10 +183,13 @@
           }
         }
         else {
+        /*
           $log = $this->getProject()->createTask('log');
           $log->setMsg('Done');
+          $log->setLevel('verbose');
           $log->setIndent($this->indent + 1);
           $log->main();
+        */
         }
 
       } //end main

@@ -15,7 +15,7 @@
 
 <project name="build-ads" basedir="." default="build-ads">
 
-  <import file="build.debug.xml" />
+  <import file="phing/includes/build.debug.xml" />
 
   <!--
   ## Build
