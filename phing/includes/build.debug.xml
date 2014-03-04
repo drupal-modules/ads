@@ -100,6 +100,13 @@
        private $indent = 0;
        private $level = 'verbose';
 
+       function getDebugLevel() {
+         $phingLevel = Phing::getMsgOutputLevel();
+         $configurationLevelName = $this->getProject()->getProperty('project.debug.level');
+
+         return max($phingLevel, self::$msgLevels[$configurationLevelName]);
+       }
+
        function setIndent($value) {
          $this->indent = $value;
        }
@@ -118,9 +125,12 @@
 
       public function main () {
       
-        if (Phing::getMsgOutputLevel() < self::$msgLevels[$this->level])
+        if (self::getDebugLevel() < self::$msgLevels[$this->level])
           return;
-        
+
+        var_dump(self::getDebugLevel());
+        exit;
+
         if (!self::$once) {
           self::$once = 1;
           $this->getProject()->addBuildListener(new LogTaskBuildListener ());
