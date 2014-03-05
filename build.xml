@@ -15,7 +15,7 @@
 
 <project name="build-ads" basedir="." default="build-ads">
 
-  <import file="build.debug.xml" />
+  <import file="phing/includes/build.debug.xml" />
 
   <!--
   ## Build
@@ -79,26 +79,26 @@
           <!-- or: <exec command="cp -v ${project.dir.dist}/build.properties.example ${project.dir.dist}/build.properties"
             dir="${project.dir.dist}" checkreturn="true" /> -->
 
-        <log message="" />
-        <log message="Hello :)" />
-        <log message="Thank you for installing ADS distribution." />
-        <log message="I have created a build.properties in ${project.dir.dist}.${line.separator}" />
-        <log message="ACTION REQUIRED" />
-        <log message="Please edit this file with your settings." />
-        <log message="Thank You :)" />
+        <log message="" level="warning" />
+        <log message="Hello :)" level="warning" />
+        <log message="Thank you for installing ADS distribution." level="warning" />
+        <log message="I have created a build.properties in ${project.dir.dist}.${line.separator}" level="warning" />
+        <log message="ACTION REQUIRED" level="warning" />
+        <log message="Please edit this file with your settings." level="warning" />
+        <log message="Thank You :)" level="warning" />
         <fail message="See you again in a moment...${line.separator}" />
-        <log message="" />
+        <log message="" level="warning" />
        </then>
        <else>
          <property file="${project.dir.dist}/build.properties" />
          <if>
          <isset property="properties.notset"/>
          <then>
-          <log message="" />
-          <log message="ACTION REQUIRED!" />
-          <log message="Please edit ${project.dir.dist}/build.properties" />
-          <log message="After you finish, please delete properties.notset section." />
-          <log message="" />
+          <log message="" level="error" />
+          <log message="ACTION REQUIRED!" level="error" />
+          <log message="Please edit ${project.dir.dist}/build.properties" level="error" />
+          <log message="After you finish, please delete properties.notset section." level="error" />
+          <log message="" level="error" />
           <fail />
          </then>
          </if>
@@ -120,7 +120,7 @@
   ## Build Drupal code using drush make
   -->
   <target name="build-drupal" depends="build-init">
-    <log message="Downloading and building Drupal sources... (it may take a while)" />
+    <log message="Downloading and building Drupal sources... (it may take a while)" level="verbose" />
 
     <!-- Detection of makefile variant -->
       <if>
@@ -148,15 +148,15 @@
         -->
 
       <!-- Done -->
-      <log message="" />
-      <log message="Done" />
-      <log message="" />
-      <log message="NOTE:" />
-      <log message="Distribution can be found in the directory: ${project.dir.src}" />
-      <log message="You can move your newly created distribution to your webroot." />
-      <log message="Or you can install it by the following command:" />
-      <log message="    phing ads-install" />
-      <log message="" />
+      <log message="" level="verbose" />
+      <log message="Done" level="verbose" />
+      <log message="" level="verbose" />
+      <log message="NOTE:" level="verbose" />
+      <log message="Distribution can be found in the directory: ${project.dir.src}" level="verbose" />
+      <log message="You can move your newly created distribution to your webroot." level="verbose" />
+      <log message="Or you can install it by the following command:" level="verbose" />
+      <log message="    phing ads-install" level="verbose" />
+      <log message="" level="verbose" />
 
   </target>
 
@@ -164,8 +164,8 @@
   ## Install Drupal code using drush make
   -->
   <target name="install-drupal" depends="build-init">
-    <log message="Installing Drupal from the profile"/>
-    <log message=""/>
+    <log message="Installing Drupal from the profile" level="verbose" />
+    <log message="" level="verbose" />
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
       <exec command="${project.drush.cmd} site-install ads --db-url=${project.db.url} --account-name=${project.drupal.admin.user} --account-mail=&quot;${project.drupal.admin.email}&quot; --account-pass=&quot;${project.drupal.admin.pass}&quot; --site-mail=&quot;${project.drupal.site.email}&quot; --site-name=&quot;${project.drupal.site.name}&quot; install_configure_form.site_default_country=&quot;${project.drupal.site.default_country}&quot; install_configure_form.date_default_timezone=&quot;${project.drupal.site.default_time_zone}&quot; update_notifications.update_status_module=&quot;${project.drupal.site.check_for_updates}&quot;"
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
@@ -184,12 +184,12 @@
     <!-- Unix filesystem -->
     <if><equals arg1="${host.fstype}" arg2="UNIX" />
       <then>
-        <log message="Creating Drupal default files directory"/>
+        <log message="Creating Drupal default files directory" level="verbose" />
           <exec command="mkdir -vp ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.dir.src}/sites/default" dir="${project.drupal.public.dir}" /> -->
           <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
 
-        <log message="Creating Drupal private files directory"/>
+        <log message="Creating Drupal private files directory" level="verbose" />
           <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
           <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
@@ -198,10 +198,10 @@
     <!-- Windows filesystem -->
     <elseif><equals arg1="${host.fstype}" arg2="WINNT" />
       <then>
-        <log message="Creating Drupal default files directory"/>
+        <log message="Creating Drupal default files directory" level="verbose" />
           <exec command="mkdir ${project.drupal.public.dir}" dir="${project.dir.src}" />
 
-        <log message="Creating Drupal private files directory"/>
+        <log message="Creating Drupal private files directory" level="verbose" />
           <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
       </then>
       </elseif>
@@ -215,7 +215,7 @@
     <!-- Generate random users -->
       <if><equals arg1="${project.drupal.generate.users}" arg2="true" />
         <then>
-          <log message="Found project.drupal.generate.users = true, executing build-users.xml"/>
+          <log message="Found project.drupal.generate.users = true, executing build-users.xml" level="verbose" />
             <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
             <execute-import-file-target name="build-users" />
         </then>
@@ -224,7 +224,7 @@
     <!-- Build site -->
       <if><equals arg1="${project.drupal.build.site}" arg2="true" />
         <then>
-          <log message="Found project.drupal.build.site = true, executing build-site.xml"/>
+          <log message="Found project.drupal.build.site = true, executing build-site.xml" level="verbose"/>
             <import-file path="${phing.dir.build_ads}/phing/build-site.xml" absolute="true" />
             <execute-import-file-target name="build-site" />
         </then>
@@ -242,7 +242,7 @@
   <target name="post-install-drupal" depends="build-init">
 
     <!-- Update Database and Features -->
-    <log message="Updating database" />
+    <log message="Updating database" level="verbose" />
       <exec command="${project.drush.cmd} updb" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Clear cache -->
@@ -263,22 +263,22 @@
               <equals arg1="${project.enabledmodules.features}" arg2="1" />
               <then>
                 <!-- Pull new configuration from features -->
-                <log message="Features module is enabled, reverting features" />
+                <log message="Features module is enabled, reverting features" level="verbose" />
                   <exec command="${project.drush.cmd} features-revert-all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
               </then>
               <else>
-                <log message="Features are not enabled. No revert will take place" />
+                <log message="Features are not enabled. No revert will take place" level="verbose" />
               </else>
             </if>
         </then>
       </if>
 
     <!-- Run cron -->
-    <log message="Running Drupal cron" />
+    <log message="Running Drupal cron" level="verbose" />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Run additional phing scripts -->
-    <log message="Checking phing scripts" />
+    <log message="Checking phing scripts" level="verbose" />
       <execute-import-file-target name="run-phing-scripts" />
 
     <!-- Drupal modules auto-configuration -->
@@ -290,13 +290,13 @@
       <exec command="${project.drush.cmd} vset theme_default ads" dir="${project.dir.src}" />
 
     <!-- Done -->
-    <log message="" />
-    <log message="Done" />
-    <log message="" />
-    <log message="NOTE:" />
-    <log message="You can move your newly installed distribution to your webroot" />
-    <log message="Or you should point your webroot at the '${project.dir.src}' folder" />
-    <log message="" />
+    <log message="" level="verbose" />
+    <log message="Done" level="verbose" />
+    <log message="" level="verbose" />
+    <log message="NOTE:" level="verbose" />
+    <log message="You can move your newly installed distribution to your webroot" level="verbose" />
+    <log message="Or you should point your webroot at the '${project.dir.src}' folder" level="verbose" />
+    <log message="" level="verbose" />
 
   </target>
 
