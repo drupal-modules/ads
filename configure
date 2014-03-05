@@ -6,10 +6,14 @@ if [ ! -n "$PHING_CMD" ]; then
   echo Detected missing phing command.
   echo Installing phing...
   set -o xtrace
+  pecl channel-update pear.php.net
   pear channel-discover pear.phing.info || exit 1
   pear install phing/phing || exit 1
   set -o xtrace -
 fi
+
+# TODO
+# pecl install Fileinfo
 
 echo Configuration successful.
 echo Now you can build ADS distribution by the following command:
