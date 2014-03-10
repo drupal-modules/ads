@@ -23,6 +23,26 @@
        * @see BuildEvent::getException()
        */
       public function buildFinished(BuildEvent $event) {
+
+        // We need to remove drush's and drush make's temporary folders.
+        $dirPath = sys_get_temp_dir();
+        
+        foreach (new DirectoryIterator($dirPath) as $path) {
+          if (!$path->isDir()) {
+            continue;
+          }
+
+          if (substr($path->getFilename(), 0, 9) !== 'make_tmp_'
+            && substr($path->getFilename(), 0, 10) !== 'drush_tmp_')
+            continue;
+
+          foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path->getPathName(), FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST) as $subpath) {
+            $subpath->isFile() ? unlink($subpath->getPathname()) : rmdir($subpath->getPathname());
+          }
+
+          rmdir($path->getPathName());
+        }
+
         if (LogTask::$output === '')
           return;
       

@@ -51,3 +51,6 @@ project.drupal.generate.ads=    false
 # Debugging
 # If set to 1, project will build with the fork repository changes applied.
 project.debug.build_with_mine=0
+
+# Minimum Ads logging level. Possible values: "debug", "verbose", "info", "warning", "error".
+project.debug.level=verbose
