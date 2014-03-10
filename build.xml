@@ -148,15 +148,15 @@
         -->
 
       <!-- Done -->
-      <log message="" level="verbose" />
-      <log message="Done" level="verbose" />
-      <log message="" level="verbose" />
-      <log message="NOTE:" level="verbose" />
-      <log message="Distribution can be found in the directory: ${project.dir.src}" level="verbose" />
-      <log message="You can move your newly created distribution to your webroot." level="verbose" />
-      <log message="Or you can install it by the following command:" level="verbose" />
-      <log message="    phing ads-install" level="verbose" />
-      <log message="" level="verbose" />
+      <log message="" level="info" />
+      <log message="Done" level="info" />
+      <log message="" level="info" />
+      <log message="NOTE:" level="info" />
+      <log message="Distribution can be found in the directory: ${project.dir.src}" level="info" />
+      <log message="You can move your newly created distribution to your webroot." level="info" />
+      <log message="Or you can install it by the following command:" level="info" />
+      <log message="    phing ads-install" level="info" />
+      <log message="" level="info" />
 
   </target>
 
@@ -290,13 +290,13 @@
       <exec command="${project.drush.cmd} vset theme_default ads" dir="${project.dir.src}" />
 
     <!-- Done -->
-    <log message="" level="verbose" />
-    <log message="Done" level="verbose" />
-    <log message="" level="verbose" />
-    <log message="NOTE:" level="verbose" />
-    <log message="You can move your newly installed distribution to your webroot" level="verbose" />
-    <log message="Or you should point your webroot at the '${project.dir.src}' folder" level="verbose" />
-    <log message="" level="verbose" />
+    <log message="" level="info" />
+    <log message="Done" level="info" />
+    <log message="" level="info" />
+    <log message="NOTE:" level="info" />
+    <log message="You can move your newly installed distribution to your webroot" level="info" />
+    <log message="Or you should point your webroot at the '${project.dir.src}' folder" level="info" />
+    <log message="" level="info" />
 
   </target>
 
