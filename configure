@@ -1,33 +1,70 @@
 #!/bin/sh
+# Usage:
+#   ./configure [force]
+
+# TODO:
+#   - Add puppet instructions for OSX, see: http://projects.puppetlabs.com/projects/1/wiki/puppet_mac_osx
+
 PUPPET_CMD=`which puppet`
+
+# Check if user has sudo access
+if sudo -n true 2>/dev/null; then
+  SUDO="sudo"
+else
+  SUDO=""
+fi
 
 if [ ! -n "$PUPPET_CMD" ]; then
   echo Detected missing puppet command.
-  echo Please install puppet in order to configure ADS distribution.
-  echo You may do this e.g. by:
-  echo "  sudo apt-get install puppet"
-# set -o xtrace
-# set -o xtrace -
-  exit 1
+
+  if [ "x$1" == "xforce" ]; then
+    echo Installing puppet...
+    $SUDO apt-get install puppet # This is Linux command only
+  else
+    echo Please install puppet in order to configure ADS distribution.
+    echo E.g.: sudo apt-get install puppet
+    echo Or re-run script with: $0 force
+    exit 1
+  fi
+
 fi
 
-if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
-  echo Installing required rafaelfc-pear puppet module...
-  puppet module install rafaelfc-pear
-  exit 1
+if [ ! -n "`$SUDO puppet module list | grep rafaelfc-pear`" ]; then
+  echo Missing rafaelfc-pear puppet module.
+
+  if [ "x$1" == "xforce" ]; then
+    echo Installing puppet''s rafaelfc-pear module...
+    $SUDO puppet module install rafaelfc-pear
+  else
+    echo Please install required rafaelfc-pear puppet module.
+    echo E.g.: puppet module install rafaelfc-pear
+    echo Or re-run script with: $0 force
+    exit 1
+  fi
+
 fi
 
-if [ "`a2enmod rewrite`" != "Module rewrite already enabled" ]; then
-  echo Enabling required rewrite Apache module...
-  sudo a2enmod rewrite
-  echo Restarting apache...
-  sudo apachectl -k graceful
-  exit 1
-fi
+# TODO: Move to puppet
+# if [ "`a2enmod rewrite`" != "Module rewrite already enabled" ]; then
+#   echo Missing Apache rewrite module.
+#
+#   if [ "x$1" == "xforce" ]; then
+#     echo Installing Apache rewrite module...
+#     $SUDO a2enmod rewrite && $SUDO apachectl -k graceful
+#   else
+#     echo Please install and enable required rewrite Apache module.
+#     echo "E.g. sudo a2enmod rewrite && sudo apachectl -k graceful"
+#     echo Or re-run script with: $0 force
+#     exit 1
+#   fi
+#
+#   exit 1
+# fi
 
 echo Configuring puppet modules...
-puppet apply puppet/ads.dev.pp
+puppet -v apply puppet/ads.dev.pp
 
 echo Configuration successful.
+echo Please apply
 echo Now you can build ADS distribution by the following command:
 echo   phing
