@@ -61,10 +61,16 @@ fi
 #   exit 1
 # fi
 
-echo Configuring puppet modules...
-puppet -v apply puppet/ads.dev.pp
-
 echo Configuration successful.
-echo Please apply
+
+if [ "x$1" == "xforce" ]; then
+  echo Applying puppet configuration...
+  puppet -v apply puppet/ads.dev.pp
+else
+  echo Now you can run puppet to apply configuration requirements.
+  echo E.g. $SUDO puppet -v apply puppet/ads.dev.pp
+  exit 1
+fi
+
 echo Now you can build ADS distribution by the following command:
 echo   phing
