@@ -1,19 +1,32 @@
 #!/bin/sh
-PEAR_CMD=`which pear`
-PHING_CMD=`which phing`
+PUPPET_CMD=`which puppet`
 
-if [ ! -n "$PHING_CMD" ]; then
-  echo Detected missing phing command.
-  echo Installing phing...
-  set -o xtrace
-  pecl channel-update pear.php.net
-  pear channel-discover pear.phing.info || exit 1
-  pear install phing/phing || exit 1
-  set -o xtrace -
+if [ ! -n "$PUPPET_CMD" ]; then
+  echo Detected missing puppet command.
+  echo Please install puppet in order to configure ADS distribution.
+  echo You may do this e.g. by:
+  echo "  sudo apt-get install puppet"
+# set -o xtrace
+# set -o xtrace -
+  exit 1
 fi
 
-# TODO
-# pecl install Fileinfo
+if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
+  echo Installing required rafaelfc-pear puppet module...
+  puppet module install rafaelfc-pear
+  exit 1
+fi
+
+if [ "`a2enmod rewrite`" != "Module rewrite already enabled" ]; then
+  echo Enabling required rewrite Apache module...
+  sudo a2enmod rewrite
+  echo Restarting apache...
+  sudo apachectl -k graceful
+  exit 1
+fi
+
+echo Configuring puppet modules...
+puppet apply puppet/ads.dev.pp
 
 echo Configuration successful.
 echo Now you can build ADS distribution by the following command:

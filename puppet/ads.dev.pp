@@ -4,6 +4,8 @@
 # Dependencies:
 #   sudo apt-get -y install puppet
 #   sudo puppet module install puppetlabs/apt
+#   sudo puppet module install rafaelfc/pear
+#   sudo puppet module install rafaelfc/phpqatools
 
 #
 # SERVICES
@@ -39,10 +41,33 @@ package { $packages_php :
 }
 
 #
+# PHP PEAR packages
+#
+
+include pear
+
+# PEAR
+pear::package { "PEAR": }
+
+# Phing
+pear::package { "Phing":
+  version => "2.7.0",
+  repository => "pear.phing.info",
+  require => Pear::Package["PEAR"],
+}
+
+# Drush
+pear::package { "drush":
+  version => "6.2.0",
+  repository => "pear.drush.org",
+  require => Pear::Package["PEAR"],
+}
+
+#
 # TOOLS
 #
 # development packages
-$packages_dev = [ 'git' ]
+$packages_dev = [ 'git', 'phing' ]
 package { $packages_dev : 
   ensure => installed,
 }
