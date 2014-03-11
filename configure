@@ -7,9 +7,11 @@
 
 PUPPET_CMD=`which puppet`
 ERROR=0
+DONE=0
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 BLUE=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
 NC=$(tput sgr 0)
 
 # Check if user has sudo access
@@ -66,11 +68,29 @@ if [ "${ERROR}" = "1" ]; then
   exit 1
 fi
 
-echo Configuring puppet modules...
-puppet apply puppet/ads.dev.pp
-
 echo "${GREEN}Configuration successful.${NC}"
-echo "Now you can build ADS distribution by the following command:"
-echo "  ${BLUE}phing${NC}"
-echo ""
+
+if [ "x$1" = "xinstall" ]; then
+  echo "Configuring puppet modules..."
+  puppet apply puppet/ads.dev.pp
+  echo ""
+  DONE=1
+else
+  echo "${YELLOW}You need to run puppet to apply configuration requirements, you may do it via:${NC}"
+  echo "  ${BLUE}$SUDO puppet -v apply puppet/ads.dev.pp${NC}"
+  echo "OR just re-run script with:"
+  echo "  ${BLUE}$0 install${NC}"
+  echo ""
+  DONE=0
+fi
+
+if [ "${DONE}" = "1" ]; then
+  echo "Now you can build ADS distribution by the following command:"
+  echo "  ${BLUE}phing${NC}"
+  echo ""
+else
+  echo "${YELLOW}After you finish, you will be able to build ADS distribution by the following command:${NC}"
+  echo "  ${BLUE}phing${NC}"
+  echo ""
+fi
 
