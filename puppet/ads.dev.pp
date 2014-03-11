@@ -5,19 +5,35 @@
 #   sudo apt-get -y install puppet
 #   sudo puppet module install puppetlabs/apt
 #   sudo puppet module install rafaelfc/pear
+#   sudo puppet module install puppetlabs-apache
 
 #
 # SERVICES
 #
 
 # Apache
-package { 'apache2' :
-  ensure => installed,
+
+class apache-setup {
+  class { 'apache':
+    mpm_module => 'prefork',
+  }
 }
 
-service { 'apache2' :
-  ensure => running,
-  require => Package['apache2'],
+include apache-setup
+
+include apache::mod::rewrite
+include apache::mod::expires
+include apache::mod::headers
+include apache::mod::php
+
+apache::vhost { '78.47.110.206':
+  port    => '80',
+  docroot => '/var/www/ads',
+  directories  => [
+    { path           => '/var/www/ads',
+      allow_override => ['All'],
+    },
+  ],
 }
 
 # MySQL
@@ -57,7 +73,7 @@ pear::package { "Phing":
 
 # Drush
 pear::package { "drush":
-  version => "6.2.0",
+  version => "6.2.0.0",
   repository => "pear.drush.org",
   require => Pear::Package["PEAR"],
 }
@@ -66,8 +82,7 @@ pear::package { "drush":
 # TOOLS
 #
 # development packages
-$packages_dev = [ 'git', 'phing' ]
+$packages_dev = [ 'git' ]
 package { $packages_dev : 
   ensure => installed,
 }
-
