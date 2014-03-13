@@ -382,7 +382,7 @@ projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
-projects[search_api_db][version] = "1.2"
+projects[search_api_db][version] = "1.x-dev"
 
 ;___________________________________________________
 ;
