@@ -287,7 +287,7 @@
 
     <!-- Enabling ADS theme -->
       <exec command="${project.drush.cmd} -y en ads_theme" dir="${project.dir.src}" />
-      <exec command="${project.drush.cmd} vset theme_default ads" dir="${project.dir.src}" />
+      <exec command="${project.drush.cmd} vset theme_default ads_theme" dir="${project.dir.src}" />
 
     <!-- Done -->
     <log message="" level="info" />
