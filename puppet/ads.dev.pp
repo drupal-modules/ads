@@ -26,15 +26,19 @@ include apache::mod::expires
 include apache::mod::headers
 include apache::mod::php
 
-apache::vhost { '78.47.110.206':
-  port    => '80',
-  docroot => '/var/www/ads',
-  directories  => [
-    { path           => '/var/www/ads',
-      allow_override => ['All'],
-    },
-  ],
-}
+/*
+  You may use this snippet to instantiate virtual host for ADS.
+
+  apache::vhost { 'X.X.X.X':
+    port    => '80',
+    docroot => '/var/www/ads',
+    directories  => [
+      { path           => '/var/www/ads',
+        allow_override => ['All'],
+      },
+    ],
+  }
+*/
 
 # MySQL
 package { 'mysql-server' :
