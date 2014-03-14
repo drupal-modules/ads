@@ -6,6 +6,13 @@
 #   - Add puppet instructions for OSX, see: http://projects.puppetlabs.com/projects/1/wiki/puppet_mac_osx
 
 PUPPET_CMD=`which puppet`
+ERROR=0
+DONE=0
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+NC=$(tput sgr 0)
 
 # Check if user has sudo access
 if sudo -n true 2>/dev/null; then
@@ -15,62 +22,75 @@ else
 fi
 
 if [ ! -n "$PUPPET_CMD" ]; then
-  echo Detected missing puppet command.
-
-  if [ "x$1" == "xinstall" ]; then
-    echo Installing puppet...
+  if [ "x$1" = "xinstall" ]; then
+    echo "Installing puppet..."
     $SUDO apt-get install puppet # This is Linux command only
   else
-    echo Please install puppet in order to configure ADS distribution.
-    echo E.g.: sudo apt-get install puppet
-    echo Or re-run script with: $0 install
-    exit 1
+    echo "${RED}Detected missing puppet command${NC}, you may install it via:"
+    echo "  ${BLUE}sudo apt-get install puppet${NC}"
+    echo "OR just re-run script with:"
+    echo "  ${BLUE}$0 install${NC}"
+    echo ""
+    ERROR=1
   fi
-
 fi
 
-if [ ! -n "`$SUDO puppet module list | grep rafaelfc-pear`" ]; then
-  echo Missing rafaelfc-pear puppet module.
-
-  if [ "x$1" == "xinstall" ]; then
-    echo Installing puppet''s rafaelfc-pear module...
+if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
+  if [ "x$1" = "xinstall" ]; then
+    echo "Installing rafaelfc-pear puppet module..."
     $SUDO puppet module install rafaelfc-pear
   else
-    echo Please install required rafaelfc-pear puppet module.
-    echo E.g.: puppet module install rafaelfc-pear
-    echo Or re-run script with: $0 install
-    exit 1
+    echo "${RED}Detected missing puppet module \"rafaelfc-pear\"${NC}, you may install it via:"
+    echo "  ${BLUE}sudo puppet module install rafaelfc-pear${NC}"
+    echo "OR just re-run script with:"
+    echo "  ${BLUE}$0 install${NC}"
+    echo ""
+    ERROR=1
   fi
-
 fi
 
-# TODO: Move to puppet
-# if [ "`a2enmod rewrite`" != "Module rewrite already enabled" ]; then
-#   echo Missing Apache rewrite module.
-#
-#   if [ "x$1" == "xinstall" ]; then
-#     echo Installing Apache rewrite module...
-#     $SUDO a2enmod rewrite && $SUDO apachectl -k graceful
-#   else
-#     echo Please install and enable required rewrite Apache module.
-#     echo "E.g. sudo a2enmod rewrite && sudo apachectl -k graceful"
-#     echo Or re-run script with: $0 install
-#     exit 1
-#   fi
-#
-#   exit 1
-# fi
+if [ ! -n "`sudo puppet module list | grep puppetlabs-apache`" ]; then
+  if [ "x$1" = "xinstall" ]; then
+    echo "Installing puppetlabs-apache puppet module..."
+    $SUDO puppet module install puppetlabs-apache
+  else
+    echo "${RED}Detected missing puppet module \"puppetlabs-apache\"${NC}, you may install it via:"
+    echo "  ${BLUE}sudo puppet module install puppetlabs-apache${NC}"
+    echo "OR just re-run script with:"
+    echo "  ${BLUE}$0 install${NC}"
+    echo ""
+    ERROR=1
+  fi
+fi
 
-echo Configuration successful.
-
-if [ "x$1" == "xinstall" ]; then
-  echo Applying puppet configuration...
-  puppet -v apply puppet/ads.dev.pp
-else
-  echo Now you can run puppet to apply configuration requirements.
-  echo E.g. $SUDO puppet -v apply puppet/ads.dev.pp
+if [ "${ERROR}" = "1" ]; then
+  echo "${RED}Errors encountered. Quitting.${NC}"
   exit 1
 fi
 
-echo Now you can build ADS distribution by the following command:
-echo   make
+echo "${GREEN}Configuration successful.${NC}"
+
+if [ "x$1" = "xinstall" ]; then
+  echo "Configuring puppet modules..."
+  puppet apply puppet/ads.dev.pp
+  echo ""
+  DONE=1
+else
+  echo "${YELLOW}You need to run puppet to apply configuration requirements, you may do it via:${NC}"
+  echo "  ${BLUE}$SUDO puppet -v apply puppet/ads.dev.pp${NC}"
+  echo "OR just re-run script with:"
+  echo "  ${BLUE}$0 install${NC}"
+  echo ""
+  DONE=0
+fi
+
+if [ "${DONE}" = "1" ]; then
+  echo "Now you can build ADS distribution by the following command:"
+  echo "  ${BLUE}phing${NC}"
+  echo ""
+else
+  echo "${YELLOW}After you finish, you will be able to build ADS distribution by the following command:${NC}"
+  echo "  ${BLUE}phing${NC}"
+  echo ""
+fi
+

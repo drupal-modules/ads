@@ -347,7 +347,7 @@ projects[ife] = "2.0-alpha2"
 ; results, filters, etc. Also, with the Apache Solr integration, a high-performance search engine is available for this module. Developers, on the other hand,
 ; will be impressed by the large flexibility and numerous ways of extension the module provides. Hence, the growing number of additional contrib modules (linked
 ; below), providing additional functionality or helping users customize some aspects of the search process.
-projects[search_api][version] = "1.4"
+projects[search_api][version] = "1.11"
 
 ; SEARCH API SAVED SEARCHES
 ; This module offers users the ability to save searches executed with the Search API module and be notified of new results. Notifications are done via mails
@@ -382,7 +382,7 @@ projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
-projects[search_api_db][version] = "1.2"
+projects[search_api_db][version] = "1.x-dev"
 
 ;___________________________________________________
 ;
