@@ -2,5 +2,5 @@
 
 /**
  * @file
- * ADS123 distribution theme.
+ * ADS distribution theme.
  */
