@@ -1,4 +1,4 @@
-<project name="ads" basedir=".">
+<project name="build-site" basedir="." default="build-site">
 
   <!--
   ## Initialize build
@@ -7,7 +7,7 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${project.git.dir.src}"/>
+      <property name="project.dir.src"            value="${phing.dir}/../src"/>
   </target>
 
   <!--
