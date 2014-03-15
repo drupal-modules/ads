@@ -1,25 +1,25 @@
-name = Ads
-description = Install ads profile.
+name = ADS
+description = Install ADS profile.
 core = 7.x
 
 ; Install Drupal core modules
-dependencies[] = block
-dependencies[] = contextual
-dependencies[] = dashboard
-dependencies[] = help
-dependencies[] = image
-dependencies[] = list
-dependencies[] = menu
-dependencies[] = number
-dependencies[] = options
-dependencies[] = path
-dependencies[] = taxonomy
-dependencies[] = dblog
-dependencies[] = shortcut
-dependencies[] = overlay
-dependencies[] = field_ui
-dependencies[] = file
-dependencies[] = rdf
+; dependencies[] = block
+; dependencies[] = contextual
+; dependencies[] = dashboard
+; dependencies[] = help
+; dependencies[] = image
+; dependencies[] = list
+; dependencies[] = menu
+; dependencies[] = number
+; dependencies[] = options
+; dependencies[] = path
+; dependencies[] = taxonomy
+; dependencies[] = dblog
+; dependencies[] = shortcut
+; dependencies[] = overlay
+; dependencies[] = field_ui
+; dependencies[] = file
+; dependencies[] = rdf
 
 ; Install stable contributed modules.
 ;dependencies[] = views_ui
@@ -65,8 +65,12 @@ dependencies[] = rdf
 ; dependencies[] = admin_theme
 
 ; Install ADS features modules.
-;dependencies[] = ads_content_types
-;dependencies[] = ads_menu
+dependencies[] = ads_advert
+dependencies[] = ads_content_types
+dependencies[] = ads_homepage
+dependencies[] = ads_menu
+dependencies[] = ads_site_settings
+dependencies[] = ads_taxonomy
 
 ; Install custom features.
 

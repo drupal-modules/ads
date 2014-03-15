@@ -13,7 +13,7 @@
  */
 function ads_install_tasks() {
 
-  // Increase maximum function nesting level to prevent install errors.
+  // XDebug fix: Increase maximum function nesting level to prevent install errors.
   $max_nesting_level = ini_get('xdebug.max_nesting_level');
   if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
     ini_set('xdebug.max_nesting_level', 200);
@@ -31,24 +31,10 @@ function ads_install_tasks() {
       'display_name' => st('Generate example users'),
       'type' => 'normal',
     ),
-    /*
     'ads_cleanup' => array(
       'display_name' => st('Post-install cleanup'),
       'type' => 'batch',
     ),
-    */
-    /*
-    'ads_import_vocabularies_batch' => array(
-      'display_name' => st('Import terms'),
-      'type' => 'batch',
-    ),
-    */
-    /*
-    'ads_import_content' => array(
-      'display_name' => st('Import demo content'),
-      'type' => 'batch',
-    ),
-    */
   );
 
   return $tasks;
@@ -173,61 +159,12 @@ function _ads_filter_dependencies($dependency) {
   return !module_exists($dependency);
 }
 
-/**
- * Defines batch operation for importing vocabularies.
- */
-/*
-function ads_import_vocabularies_batch() {
-  $batch = array(
-    'title' => t('Importing taxonomy terms'),
-    'operations' => array(
-      array('ads_import_vocabularies', array()),
-    ),
-    'finished' => 'ads_import_vocabularies_finished',
-    'title' => t('Import terms'),
-    'init_message' => t('Starting import.'),
-    'progress_message' => t('Processed @current out of @total.'),
-    'error_message' => t('ads vocabularies import batch has encountered an error.'),
-    'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_vocabularies.inc',
-  );
-  return $batch;
-}
-*/
-
-
-/**
- * Task callback: return a batch API array with content migrations to import.
- */
-/*
-function ads_import_content() {
-  if (variable_get('ads_install_demo_content', FALSE)) {
-    module_enable(array('ads_demo'));
-    $operations = array();
-
-    // Run all available migrations.
-    $migrations = migrate_migrations();
-    foreach ($migrations as $machine_name => $migration) {
-      $operations[] = array('_ads_import', array($machine_name, t('Importing demo content.')));
-    }
-
-    $batch = array(
-      'title' => t('Importing demo content'),
-      'operations' => $operations,
-      'finished' => 'ads_import_content_finished',
-      'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_callbacks.inc',
-    );
-
-    return $batch;
-  }
-
-  variable_del('ads_install_demo_content');
-}
-*/
 
 /**
  * Task callback: performs final post-installation cleanup.
  */
 function ads_cleanup() {
+
   /*
   $operations = array();
 
@@ -261,6 +198,7 @@ function ads_cleanup() {
   foreach ($facet_blocks as $delta => $title) {
     $operations[] = array('_ads_facet_block_titles', array($delta, $title, t('Setting FacetAPI block titles.')));
   }
+  */
 
   // Flush caches again for good measure.
   $operations[] = array('_ads_flush_caches', array(t('Flushed caches one last time.')));
@@ -271,7 +209,6 @@ function ads_cleanup() {
     'finished' => 'ads_cleanup_finished',
     'file' => drupal_get_path('profile', 'ads') . '/includes/ads.install_callbacks.inc',
   );
-  */
 
   return $batch;
 }
@@ -282,117 +219,8 @@ function ads_cleanup() {
  * Perform actions to set up the site for this profile.
  */
 function ads_install() {
-  // Add text formats.
-  $filtered_html_format = array(
-    'format' => 'filtered_html',
-    'name' => 'Filtered HTML',
-    'weight' => 0,
-    'filters' => array(
-      // URL filter.
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-      ),
-      // HTML filter.
-      'filter_html' => array(
-        'weight' => 1,
-        'status' => 1,
-      ),
-      // Line break filter.
-      'filter_autop' => array(
-        'weight' => 2,
-        'status' => 1,
-      ),
-      // HTML corrector filter.
-      'filter_htmlcorrector' => array(
-        'weight' => 10,
-        'status' => 1,
-      ),
-    ),
-  );
-  $filtered_html_format = (object) $filtered_html_format;
-  filter_format_save($filtered_html_format);
 
-  $full_html_format = array(
-    'format' => 'full_html',
-    'name' => 'Full HTML',
-    'weight' => 1,
-    'filters' => array(
-      // URL filter.
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-      ),
-      // Line break filter.
-      'filter_autop' => array(
-        'weight' => 1,
-        'status' => 1,
-      ),
-      // HTML corrector filter.
-      'filter_htmlcorrector' => array(
-        'weight' => 10,
-        'status' => 1,
-      ),
-    ),
-  );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
-
-/*
-  @COMMENTED
-
-  // Enable some standard blocks.
-  $default_theme = 'cloudy';
-  $admin_theme = 'seven';
-  $values = array(
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'powered-by',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'footer',
-      'pages' => '',
-      'cache' => -1,
-    ),
-  );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
-  foreach ($values as $record) {
-    $query->values($record);
-  }
-  $query->execute();
-
-*/
+  // Note: Text formats defined in ads_site_settings.
 
   // Insert default pre-defined node types into the database. For a complete
   // list of available node type attributes, refer to the node type API
