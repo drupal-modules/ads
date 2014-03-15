@@ -3,22 +3,21 @@ description = Install ADS profile.
 core = 7.x
 
 ; Install Drupal core modules
-; dependencies[] = block
-; dependencies[] = contextual
-; dependencies[] = dashboard
-; dependencies[] = help
-; dependencies[] = image
-; dependencies[] = list
-; dependencies[] = menu
-; dependencies[] = number
-; dependencies[] = options
-; dependencies[] = path
-; dependencies[] = taxonomy
-; dependencies[] = dblog
-; dependencies[] = shortcut
-; dependencies[] = overlay
-; dependencies[] = field_ui
-; dependencies[] = file
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = file
+dependencies[] = dblog
+dependencies[] = dashboard
+dependencies[] = shortcut
+dependencies[] = field_ui
 ; dependencies[] = rdf
 
 ; Install stable contributed modules.
