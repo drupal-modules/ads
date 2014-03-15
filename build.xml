@@ -85,6 +85,7 @@
         <log message="I have created a build.properties in ${project.dir.dist}.${line.separator}" level="warning" />
         <log message="ACTION REQUIRED" level="warning" />
         <log message="Please edit this file with your settings." level="warning" />
+        <log message="And then re-run the script again." level="warning" />
         <log message="Thank You :)" level="warning" />
         <fail message="See you again in a moment...${line.separator}" />
         <log message="" level="warning" />
