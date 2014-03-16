@@ -16,11 +16,6 @@ Same as Drupal 7: http://drupal.org/requirements
 
 You also need to enable "fileinfo" PHP extension in CLI's php.ini (required by Drush).
 
-Troubleshooting
----------------
-
-If wget fails to download files from the https protocol (happens to Cygwin's wget), please ensure that you have ca-certificates package installed in your system.
-
 Recommended Installation
 ------------------------
 
@@ -31,8 +26,6 @@ Recommended Installation
     $> pear channel-discover pear.phing.info
     $> pear install phing/phing
     ```
-
-    If PEAR ends up with the message "No releases available for package 'pear.phing.info/phing'", you may need to clear its cache and try again:
 
     ```
     $> pear clear-cache
@@ -48,6 +41,11 @@ Recommended Installation
 2. Run phing command inside the distribution directory:
 
     ```
+    $> make
+    ```
+    
+   Alternatively:
+    ```
     $> phing
     ```
 
@@ -56,8 +54,19 @@ Recommended Installation
    Note: You'll be asked to edit build.properties.
          After editing the file, please remove properties.notset section
          and make sure that your LAMP environment is up and running.
+         
+  Your code is built and ready in src directory.
 
-  3. Your code is built and ready in src directory.
+3. Now you can install the distribution by the following command:
+
+    ```
+    $> make install
+    ```
+    
+   Alternatively:
+    ```
+    $> phing ads-install
+    ```
 
 Manual Installation
 -------------------
@@ -126,6 +135,15 @@ This file defines 3rd party libraries for Drupal.
 * drupal-org-themes.make
 
 This make file defines Drupal themes.
+
+Troubleshooting
+---------------
+
+If wget fails to download files from the https protocol (happens to Cygwin's wget), please ensure that you have ca-certificates package installed in your system.
+
+If PEAR ends up with the message `"No releases available for package 'pear.phing.info/phing'"`, you may need to clear its cache and try again:
+
+
 
 Support
 -------
