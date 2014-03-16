@@ -6,7 +6,26 @@ core = 7.x
 
 ;___________________________________________________
 ;
-;  FIELDS MODULES
+;  CONTENT MODULES
+;___________________________________________________
+
+; WORKFLOW
+; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
+; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
+projects[workflow][version] = "1.0"
+
+; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
+; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
+; should react to this active context.
+; projects[context][version] = "3.0-beta6"
+
+; COUNTRIES
+; This module provides many country related tasks. Country fields, token support, et al.
+projects[countries] = "2.1"
+
+;___________________________________________________
+;
+;  CONTENT TYPE AND FIELD MODULES
 ;___________________________________________________
 
 ; DATE
@@ -34,6 +53,10 @@ projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 ; NOTE: Changed field_group dependency from version 1.1 to 1.x-dev as we need at least https://drupal.org/node/1324860 functionality (hiding of field groups
 ; NOTE: including children).
 projects[field_group][version] = "1.x-dev"
+
+; MULTISTEP
+; Multistep adds multiple-step functionality to content type editing forms.
+projects[multistep][version] = "1.x-dev"
 
 ; FIELD COLLECTION
 ; Provides a field-collection field, to which any number of fields can be attached. A field collection is internally represented as an entity, which is embedded
@@ -282,25 +305,6 @@ projects[mimemail][version] = "1.0-alpha2"
 ; This module allows Drupal to bypass the PHP mail() function and send email directly to an SMTP server. The module supports SMTP authentication and can even
 ; connect to servers using SSL if supported by PHP.
 projects[smtp] = "1.0-beta2"
-
-;___________________________________________________
-;
-;  CONTENT MODULES
-;___________________________________________________
-
-; WORKFLOW
-; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
-; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-projects[workflow][version] = "1.0"
-
-; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
-; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
-; should react to this active context.
-; projects[context][version] = "3.0-beta6"
-
-; COUNTRIES
-; This module provides many country related tasks. Country fields, token support, et al.
-projects[countries] = "2.1"
 
 ;___________________________________________________
 ;
