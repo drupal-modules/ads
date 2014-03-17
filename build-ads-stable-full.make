@@ -28,6 +28,7 @@ projects[drupal][type] = core
 ; ! Maybe somebody has the solution for the profile folder copied to wrong
 ; ! place?
 ; defaults[projects][subdir] = contrib
+defaults[projects][subdir] = contrib
 
 ; Include the core definition for how to build Drupal
 includes[] = includes/drupal-org-core.make
@@ -45,6 +46,7 @@ projects[ads][type] = profile
 projects[ads][download][type] = git
 projects[ads][download][url] = git://git.drupalcode.org/project/ads.git
 projects[ads][download][branch] = 7.x-1.x
+projects[ads][subdir] = "./"
 
 ;____________________
 ;
