@@ -28,6 +28,7 @@ projects[drupal][type] = core
 ; ! Maybe somebody has the solution for the profile folder copied to wrong
 ; ! place?
 ; defaults[projects][subdir] = contrib
+
 defaults[projects][subdir] = contrib
 
 ; Include the core definition for how to build Drupal
