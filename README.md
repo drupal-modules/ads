@@ -145,7 +145,7 @@ If it still fails with the following errors:
 
     ERROR: certificate common name `*.drupal.org' doesn't match requested host name `drupal.org'.
     
-please upgrade your wget version to >1.14 or please configure your wget to connect insecurely.
+then please upgrade your wget version to >=1.14 or please configure your wget to connect insecurely.
 
 See:
 - https://bugzilla.redhat.com/show_bug.cgi?id=903756
@@ -154,9 +154,13 @@ See:
 - https://github.com/drushonwindows/Drush-on-Windows-Installer/issues/4
 - http://stackoverflow.com/questions/9224298/how-do-i-fix-certificate-errors-when-running-wget-on-an-https-url-in-cygwin
 
-If PEAR ends up with the message `"No releases available for package 'pear.phing.info/phing'"`, you may need to clear its cache and try again:
+If PEAR ends up with the message `"No releases available for package 'pear.phing.info/phing'"`, you may need to clear its cache and try again.
 
+If the build fails with:
 
+    Unable to determine mime type for Spyc.php
+
+then you have to install PHP Fileinfo extension or upgrade your PHP to >=5.3 which contains that extension.
 
 Support
 -------
