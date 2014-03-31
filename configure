@@ -25,6 +25,7 @@ if [ ! -n "$PUPPET_CMD" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet..."
     $SUDO apt-get install puppet # This is Linux command only
+    echo "Installed puppet in version `puppet --version`"
   else
     echo "${RED}Detected missing puppet command${NC}, you may install it via:"
     echo "  ${BLUE}sudo apt-get install puppet${NC}"

@@ -2,6 +2,7 @@ language: php
 php:
   - 5.3
 before_script:
+  - env
   - sudo cp travis/travis.known_hosts ~/.ssh/known_hosts
   - sudo cat /etc/ssh/ssh_config
   - sudo echo -e "Host github.com\n User git\n StrictHostKeyChecking no\n PasswordAuthentication no\n CheckHostIP no\n BatchMode yes\n" >> ~/.ssh/config
@@ -10,31 +11,22 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - cp travis/travis.build.properties build.properties
-  - phpenv config-add php.ini
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq php5-gd
-  - sudo apt-get install -qq php5-mysql
-  - sudo apt-get install -qq php-pear
-  - sudo apt-get install python-software-properties
-  - sudo apt-get install -y -qq postfix
-  - sudo service postfix stop
-  - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
-  - echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail
-  - echo 'sendmail_path = "/usr/sbin/sendmail -t -i "' | sudo tee "/home/travis/.phpenv/versions/`php -i | grep "PHP Version" | head -n 1 | grep -o -P '\d+\.\d+\.\d+.*'`/etc/conf.d/sendmail.ini"
-  - sudo pear upgrade pear
-  - sudo pear channel-discover pear.phing.info
-  - sudo pear config-set preferred_state alpha
-  - sudo chmod -R 777 "/tmp/pear"
-  - sudo pear config-set cache_dir "/tmp/pear/temp"
-  - sudo pear install --onlyreqdeps phing/phing
-  - sudo pear channel-discover pear.drush.org 
-  - sudo pear install drush/drush-6.0.0
-  - sudo chmod -R 777 /usr/share/php/drush/lib
+  - sudo sysctl kernel.hostname=ads.localhost
+  - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+  - sudo dpkg -i puppetlabs-release-precise.deb
+  - sudo apt-get update
+  - sudo ./configure install
+  - sudo puppet apply puppet/travis.pp
+  - sudo puppet apply puppet/ads.dev.pp
+  - sudo puppet apply puppet/solr.dev.pp
   - sudo drush --version
 env:
   - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no "
 script:
-  - sudo phing -debug
-  - sudo phing -debug ads-install
+  - sudo make
+  - sudo make install
 notifications:
   email: false
+addons:
+  hosts:
+    - ads.localhost
