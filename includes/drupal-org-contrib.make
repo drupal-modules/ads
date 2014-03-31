@@ -118,11 +118,11 @@ projects[field_delimiter][version] = "1.0"
 
 ; Entity
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
-projects[entity][version] = "1.2"
+projects[entity][version] = "1.4"
 
 ; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
-projects[entityreference][version] = "1.0"
+projects[entityreference][version] = "1.1"
 
 ; Profile 2
 ; Provides a new, fieldable 'profile' entity.
@@ -482,10 +482,10 @@ projects[libraries][version] = "2.1"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
-projects[ctools][version] = "1.3"
+projects[ctools][version] = "1.4"
 ; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
 ; Error: strlen() expects parameter 1 to be string, array given in drupal_validate_utf8() in line 1587 of bootstrap.inc
-projects[ctools][patch][] = "https://drupal.org/files/ctools-n1925018-12.patch"
+;projects[ctools][patch][] = "https://drupal.org/files/ctools-n1925018-12.patch"
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
