@@ -71,13 +71,14 @@ projects[references][version] = "2.0"
 ; CONDITIONAL FIELDS
 ; Define dependencies between fields based on their states and values. Conditional Fields for Drupal 7 is an user interface to the new States API, plus the
 ; ability to modify fields appearance and behavior on certain conditions when viewing content.
+; Latest stable version: 7.x-3.0-alpha1 (2013-Nov-18)
 projects[conditional_fields][version] = "3.x-dev"
 projects[conditional_fields][download][type] = git
 projects[conditional_fields][download][branch] = "7.x-3.x"
 projects[conditional_fields][download][revision] = cd29b003a592d375f3fdb4c46f5639d0f26ed0be
-; @Patch: Add capacity to use conditional_fields on field_collection item.
+; @Patch: Add capacity to use conditional_fields on field_collection item (https://drupal.org/node/1648128).
 projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields-fix_for_collections_11.patch"
-; @Patch: Add capapcity to use conditional_fields on field_collection item with multiple values.
+; @Patch: Support for multiple "Field Collection" fields (https://drupal.org/node/1464950).
 projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
 
 ; Link
