@@ -64,6 +64,7 @@ dependencies[] = field_ui
 ; dependencies[] = admin_theme
 
 ; Install ADS features modules.
+dependencies[] = ads_perms
 dependencies[] = ads_advert
 dependencies[] = ads_content_types
 dependencies[] = ads_homepage
