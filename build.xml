@@ -213,6 +213,17 @@
   ## Run phing scripts
   -->
   <target name="run-phing-scripts" depends="build-init">
+    
+     <!-- Generate content -->
+      <if><equals arg1="${project.drupal.generate.content}" arg2="true" />
+        <then>
+        <echo>BODEK</echo>
+          <log message="Found project.drupal.generate.content = true, executing build-users.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/build-content.xml" absolute="true" />
+            <execute-import-file-target name="build-content" />
+        </then>
+      </if>
+    
     <!-- Generate random users -->
       <if><equals arg1="${project.drupal.generate.users}" arg2="true" />
         <then>
@@ -221,7 +232,7 @@
             <execute-import-file-target name="build-users" />
         </then>
       </if>
-
+    
     <!-- Build site -->
       <if><equals arg1="${project.drupal.build.site}" arg2="true" />
         <then>
