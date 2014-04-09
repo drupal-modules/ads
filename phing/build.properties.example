@@ -45,8 +45,9 @@ github.user=<github-username>
 drupal.user=<drupal-username>
 #
 # Devel
-project.drupal.generate.users=  false
-project.drupal.generate.ads=    false
+project.drupal.generate.content =  false
+project.drupal.generate.users   =  false
+project.drupal.generate.ads     =  false
 #
 # Debugging
 # If set to 1, project will build with the fork repository changes applied.

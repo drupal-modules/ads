@@ -12,7 +12,7 @@ core = 7.x
 ; WORKFLOW
 ; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
 ; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-projects[workflow][version] = "1.0"
+;projects[workflow][version] = "1.0"
 
 ; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
 ; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
@@ -21,7 +21,7 @@ projects[workflow][version] = "1.0"
 
 ; COUNTRIES
 ; This module provides many country related tasks. Country fields, token support, et al.
-projects[countries] = "2.1"
+;projects[countries] = "2.1"
 
 ;___________________________________________________
 ;
@@ -30,7 +30,7 @@ projects[countries] = "2.1"
 
 ; DATE
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
-projects[date][version] = "2.6"
+;projects[date][version] = "2.6"
 
 ; EMAIL
 ; This module provides a field type for email addresses.
@@ -227,7 +227,7 @@ projects[i18n] = "1.7"
 
 ; FEEDS
 ; Import or aggregate data as nodes, users, taxonomy terms or simple database records.
-projects[feeds][version] = "2.0-alpha7"
+;projects[feeds][version] = "2.0-alpha7"
 
 ; JOB SCHEDULER (Required by FEEDS)
 ; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
@@ -289,7 +289,7 @@ projects[features][version] = "2.0-beta2"
 projects[features][patch][] = "https://drupal.org/files/927566-50-multiple-link_path.patch"
 
 ; FEATURES EXTRA
-projects[features_extra][version] = "1.0-alpha2"
+;projects[features_extra][version] = "1.0-alpha2"
 
 ; STRONGARM
 projects[strongarm][version] = "2.0"
@@ -300,12 +300,12 @@ projects[strongarm][version] = "2.0"
 ;___________________________________________________
 
 ; MIME MAIL
-projects[mimemail][version] = "1.0-alpha2"
+;projects[mimemail][version] = "1.0-alpha2"
 
 ; SMTP
 ; This module allows Drupal to bypass the PHP mail() function and send email directly to an SMTP server. The module supports SMTP authentication and can even
 ; connect to servers using SSL if supported by PHP.
-projects[smtp] = "1.0-beta2"
+;projects[smtp] = "1.0-beta2"
 
 ;___________________________________________________
 ;
@@ -396,7 +396,7 @@ projects[search_api_db][version] = "1.x-dev"
 
 ; MESSAGE
 ; Message module is Drupal 7's answer to activity-streams and a flexible Messaging & Notifications system.
-projects[message][version] = "1.7"
+;projects[message][version] = "1.7"
 
 ;___________________________________________________
 ;
@@ -429,7 +429,7 @@ projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45
 ; Drupal). Out-of-the-box, support for creating core Drupal objects such as nodes, users, files, terms, and comments are included - it can easily be extended
 ; for migrating other kinds of content. Content is imported and rolled back using a bundled web interface (Migrate UI module) or included Drush commands
 ; (strongly recommended).
-projects[migrate][version] = "2.5"
+;projects[migrate][version] = "2.5"
 
 ;___________________________________________________
 ;
@@ -439,9 +439,9 @@ projects[migrate][version] = "2.5"
 ; CLIENTSIDE VALIDATION
 ; This module adds clientside validation (aka "Ajax form validation") for all forms and webforms using jquery.validate. The included jquery.validate.js file is
 ; patched because we needed to be able to hide empty messages.
-projects[clientside_validation][download][type] = get
-projects[clientside_validation][download][directory_name] = "clientside_validation"
-projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
+;projects[clientside_validation][download][type] = get
+;projects[clientside_validation][download][directory_name] = "clientside_validation"
+;projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
 
 ;___________________________________________________
 ;
@@ -511,7 +511,7 @@ projects[currency][version] = "2.0"
 
 ; Variable
 ; Provides a registry for meta-data about Drupal variables.
-projects[variable][version] = "2.2"
+;projects[variable][version] = "2.2"
 
 ; MemCache
 ; Integration between Drupal and Memcached.
@@ -573,16 +573,16 @@ projects[local_tasks_blocks] = "2.1"
 
 ; Admin Tools
 ; Is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
-projects[admin_tools] = "1.1"
+;projects[admin_tools] = "1.1"
 
 ; Services
 ; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
 ; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
-projects[services][version] = "3.3"
+;projects[services][version] = "3.3"
 
 ; Coder
 ; Utilizes regular expressions to review source code and version upgrade.
-projects[coder] = "1.2"
+;projects[coder] = "1.2"
 
 ; Diff
 ; Extends Features and node revision functionality.
