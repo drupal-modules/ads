@@ -289,7 +289,7 @@ projects[features][version] = "2.0-beta2"
 projects[features][patch][] = "https://drupal.org/files/927566-50-multiple-link_path.patch"
 
 ; FEATURES EXTRA
-projects[features_extra][version] = "1.0-alpha2"
+;projects[features_extra][version] = "1.0-alpha2"
 
 ; STRONGARM
 projects[strongarm][version] = "2.0"
