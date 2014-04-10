@@ -28,6 +28,10 @@ core = 7.x
 ;  CONTENT TYPE AND FIELD MODULES
 ;___________________________________________________
 
+; HONEYPOT
+; Honeypot uses both the honeypot and timestamp methods of deterring spam bots from completing forms on your Drupal site.
+projects[honeypot][version] = "1.16"
+
 ; DATE
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
 ;projects[date][version] = "2.6"
