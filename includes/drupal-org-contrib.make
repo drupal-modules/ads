@@ -519,7 +519,7 @@ projects[currency][version] = "2.0"
 
 ; MemCache
 ; Integration between Drupal and Memcached.
-projects[memcache][version] = "1.0"
+; projects[memcache][version] = "1.0"
 
 ; jQuery Update
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
