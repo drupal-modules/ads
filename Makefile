@@ -10,3 +10,8 @@ site:
 users:
 	phing -f phing/build-users.xml
 
+content:
+    phing -f phing/build-content.xml
+
+ads:
+    phing -f phing/build-ads.xml
