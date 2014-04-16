@@ -214,7 +214,7 @@ projects[panels][version] = "3.3"
 
 ; Internationalization
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
-projects[i18n] = "1.7"
+projects[i18n] = "1.10"
 
 ; Language icons
 ; Provides icons for language links.

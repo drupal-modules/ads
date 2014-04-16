@@ -15,4 +15,3 @@ content:
 
 ads:
 	phing -f phing/build-ads.xml
- 
