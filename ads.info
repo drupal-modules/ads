@@ -19,6 +19,7 @@ dependencies[] = dashboard
 dependencies[] = shortcut
 dependencies[] = field_ui
 ; dependencies[] = rdf
+dependencies[] = booking_com_api        
 
 ; Install stable contributed modules.
 ;dependencies[] = views_ui
