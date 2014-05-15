@@ -75,3 +75,7 @@ dependencies[] = ads_taxonomy
 
 ; Install custom features.
 
+dependencies[] = media
+dependencies[] = styles
+dependencies[] = file_entity
+dependencies[] = lightbox2
