@@ -78,3 +78,4 @@ dependencies[] = ads_taxonomy
 dependencies[] = media
 dependencies[] = styles
 dependencies[] = file_entity
+dependencies[] = lightbox2
