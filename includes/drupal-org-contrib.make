@@ -153,7 +153,7 @@ projects[email_registration][version] = "1.1"
 
 ; Path Auto
 ; Automatically generates URL/path aliases for various kinds of content (nodes, taxonomy terms, users).
-projects[pathauto][version] = "1.1"
+projects[pathauto][version] = "1.2"
 
 ; Sitemap
 ; Provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
@@ -605,6 +605,15 @@ projects[diff][version] = "2.0"
 ; applies to pages with a path starting with 'admin' and content editing pages. The Administration theme module allows you to use this theme on more pages like:
 ; batch processing pages, devel node load and render pages, coder code review pages, pages you define yourself in the provided textarea.
 ; projects[admin_theme] = "1.0"
+
+;___________________________________________________
+;
+;  MEDIA
+;___________________________________________________
+
+projects[media][version] = "2.0-alpha3"
+projects[styles][version] = "2.0-alpha8"
+projects[file_entity][version] = "2.0-alpha3"
 
 ;___________________________________________________
 ;
