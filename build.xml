@@ -213,7 +213,16 @@
   ## Run phing scripts
   -->
   <target name="run-phing-scripts" depends="build-init">
-    
+  
+         <!-- Generate adverts -->
+      <if><equals arg1="${project.drupal.generate.ads}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.generate.ads = true, executing build-ads.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/build-ads.xml" absolute="true" />
+            <execute-import-file-target name="build-ads" />
+        </then>
+      </if>
+        
      <!-- Generate content -->
       <if><equals arg1="${project.drupal.generate.content}" arg2="true" />
         <then>
