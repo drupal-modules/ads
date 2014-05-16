@@ -623,6 +623,10 @@ projects[styles][version] = "2.0-alpha8"
 ; Provides interfaces for managing files. It is required by the 7.x-2.x branch of the Media module.
 projects[file_entity][version] = "2.0-alpha3"
 
+; Lightbox2
+; It is used to overlay images on the current page.
+projects[lightbox2][version] = "1.0-beta1"
+
 ;___________________________________________________
 ;
 ;  OTHER
