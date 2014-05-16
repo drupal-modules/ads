@@ -24,38 +24,6 @@ dependencies[] = field_ui
 ;dependencies[] = views_ui
 ;dependencies[] = rules
 
-; Install unstable contributed modules.
-; dependencies[] = rules_admin
-; dependencies[] = taxonomy_manager
-; dependencies[] = colorbox
-; dependencies[] = context_ui
-; dependencies[] = libraries
-; dependencies[] = menu_block
-; dependencies[] = fe_block
-; dependencies[] = migrate
-; dependencies[] = coder
-; dependencies[] = clamav
-; dependencies[] = googleanalytics
-; dependencies[] = services
-; dependencies[] = rest_server
-; dependencies[] = feeds
-; dependencies[] = feeds_ui
-; dependencies[] = job_scheduler
-; dependencies[] = panels
-; dependencies[] = panels_node
-; dependencies[] = panels_mini
-; dependencies[] = less
-; dependencies[] = site_map
-; dependencies[] = menu_attributes
-; dependencies[] = smtp
-; dependencies[] = gelf
-; dependencies[] = ife
-; dependencies[] = profile2
-; dependencies[] = logintoboggan
-; dependencies[] = email_registration
-; dependencies[] = webform
-; dependencies[] = sharethis
-
 ; Install admin modules.
 ; dependencies[] = admin
 ; dependencies[] = admin_tools
