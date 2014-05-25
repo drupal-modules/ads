@@ -150,6 +150,10 @@ projects[logintoboggan][version] = "1.3"
 ; Allow users to register and login using only an email address. Users can then log-in using their email address and password for authentication.
 projects[email_registration][version] = "1.1"
 
+; Workspace
+; Users to have a central place to view and manage their content. It's a user-centric view of a Drupal site.
+projects[workspace][version] = "1.x-dev"
+
 ;___________________________________________________
 ;
 ;  MENU MODULES
