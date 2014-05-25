@@ -102,7 +102,7 @@ projects[field_validation][version] = "2.3"
 ; Implements a field type that has number and unit of measurement
 ; projects[mvf][version] = "1.0-alpha2"
 
-; MONEY
+; Money
 ; This module defines the "money" field.
 ; It uses the Currency API, which is included in the Currency module, to get a list of existing currencies and their symbols.
 projects[money][type] = module
@@ -115,6 +115,10 @@ projects[bundle_name_reference][version] = "1.x-dev"
 ; Field Delimiter
 ; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
 projects[field_delimiter][version] = "1.0"
+
+; Fivestar
+; Adds a clean, attractive voting widget to nodes and comments and any entity.
+projects[fivestar][version] = "2.1"
 
 ;___________________________________________________
 ;
@@ -549,6 +553,10 @@ projects[prepro][version] = "1.2"
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
 projects[sassy][version] = "2.13"
+
+; Voting API
+; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
+projects[votingapi][version] = "2.11"
 
 ;___________________________________________________
 ;
