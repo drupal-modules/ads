@@ -533,6 +533,10 @@ projects[currency][version] = "2.0"
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
 projects[jquery_update][version] = "2.x-dev"
 
+; BeautyTips
+; Provides ballon-help style tooltips for any page element by integrating the BeautyTips jQuery Tooltip plugin.
+projects[beautytips][version] = "2.0-beta2"
+
 ; Masonry
 ; Masonry is a dynamic grid layout plugin for jQuery.
 projects[masonry][version] = "2.x-dev"
