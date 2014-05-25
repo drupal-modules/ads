@@ -154,6 +154,10 @@ projects[email_registration][version] = "1.1"
 ; Users to have a central place to view and manage their content. It's a user-centric view of a Drupal site.
 projects[workspace][version] = "1.x-dev"
 
+; IP-based Determination of a Visitor's Country
+; Uses a visitor's IP address to identify the geographical location (country) of the user. 
+projects[ip2country][version] = "1.4"
+
 ;___________________________________________________
 ;
 ;  MENU MODULES
