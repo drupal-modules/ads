@@ -206,6 +206,10 @@ projects[views][version] = "3.6"
 ; Provides a Views display plugin that allows the output of a View to be attached to the content of any Drupal entity.
 projects[eva][version] = "1.2"
 
+; Calendar
+; Display any Views date field in calendar formats. Switch between year, month, and day views.
+projects[calendar][version] = "3.4"
+
 ;___________________________________________________
 ;
 ;  PANEL MODULES
@@ -525,10 +529,6 @@ projects[currency][version] = "2.0"
 ; Provides a registry for meta-data about Drupal variables.
 ;projects[variable][version] = "2.2"
 
-; MemCache
-; Integration between Drupal and Memcached.
-; projects[memcache][version] = "1.0"
-
 ; jQuery Update
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
 projects[jquery_update][version] = "2.x-dev"
@@ -568,7 +568,16 @@ projects[votingapi][version] = "2.11"
 
 ;___________________________________________________
 ;
-;  ADMINISTRATION MODULES
+;  CACHING
+;___________________________________________________
+
+; MemCache
+; Integration between Drupal and Memcached.
+; projects[memcache][version] = "1.0"
+
+;___________________________________________________
+;
+;  ADMINISTRATION & DEVELOPMENT
 ;___________________________________________________
 
 ; Devel
