@@ -23,6 +23,10 @@ core = 7.x
 ; This module provides many country related tasks. Country fields, token support, et al.
 ;projects[countries] = "2.1"
 
+; Answers
+; Provides a question & answer service. Users can post questions and other users can answer them.
+projects[answers] = "4.0-alpha1"
+
 ;___________________________________________________
 ;
 ;  CONTENT TYPE AND FIELD MODULES
