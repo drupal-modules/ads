@@ -495,6 +495,11 @@ projects[less][version] = "2.6"
 ; that tap into the cost-effective, scalable, and reliable AWS cloud.
 ; projects[awssdk][version] = "5.4"
 
+; XML sitemap
+; Creates a sitemap that conforms to the sitemaps.org specification. This helps search engines to more intelligently crawl a website and keep their results up to date. 
+projects[xmlsitemap][version] = "2.0"
+
+
 ;___________________________________________________
 ;
 ;  LIBRARY MODULES
