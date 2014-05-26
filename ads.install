@@ -2,10 +2,8 @@
 
 /**
  * @file
- * Install, update, and uninstall functions for the ads profile.
+ * Install, update, and uninstall functions for the ADS profile.
  *
- * With inspriations from Recruiter:
- *  http://drupalcode.org/project/recruiter.git/blob/refs/heads/7.x-1.x:/recruiter.install
  */
 
 /**
@@ -46,7 +44,7 @@ function ads_install_tasks() {
 function ads_generate_example_users() {
   if (module_exists('devel')) {
     module_load_include('inc', 'devel', 'devel_generate/devel_generate');
-    devel_create_users(5, FALSE, 0, array(), 'asdf');
+    devel_create_users(5, FALSE, 0, array(), 'password');
   }
 }
 
@@ -54,7 +52,6 @@ function ads_generate_example_users() {
  * Implements hook_install_tasks_alter().
  */
 function ads_install_tasks_alter(&$tasks, $install_state) {
-  /*
   // Skip the profile selection, and use the 'exclusive' property to directly
   // install the ads distribution. Requires core patch: #1727430.
   $tasks['install_select_profile']['display'] = FALSE;
@@ -67,7 +64,6 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
     'logo_upload' => '',
   );
   $GLOBALS['conf']['theme_seven_settings'] = $theme_settings;
-  */
 }
 
 /**
@@ -258,8 +254,8 @@ function ads_install() {
   // Don't display date and author information for "Basic page" nodes by default.
   variable_set('node_submitted_page', FALSE);
 
-  // By default, disable user picture support.
-  variable_set('user_pictures', '0');
+  // By default, enable user picture support.
+  variable_set('user_pictures', TRUE);
 
   // Allow visitor account creation with administrative approval.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
@@ -388,11 +384,8 @@ function ads_install() {
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
 
-  // @COMMENTED
-  // user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-
-  // @COMMENTED
-  // user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
 
   // Create a default role for site administrators (if it does not yet exist),
   // and assign all available permissions.
@@ -430,33 +423,27 @@ function ads_install() {
     ->execute();
   variable_set('admin_theme', 'seven');
 
+  /*
   // Enable omega base theme.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
     ->condition('name', 'omega')
     ->execute();
+  */
 
-/*
-  @COMMENTED
-
-  // Enable cloudy default theme.
+  // Enable ads default theme.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'cloudy')
+    ->condition('name', 'ads')
     ->execute();
-  variable_set('theme_default', 'cloudy');
+  variable_set('theme_default', 'asd');
   variable_set('node_admin_theme', '1');
 
-  $theme_settings = variable_get('theme_cloudy_settings', array());
-  variable_set('theme_cloudy_settings', $theme_settings);
-*/
+  $theme_settings = variable_get('theme_ads_settings', array());
+  variable_set('theme_ads_settings', $theme_settings);
 
-  $theme_settings['toggle_slogan'] = FALSE;
-
-  // Create resume for user 1.
-  // @COMMENTED
-  // profile2_save(profile2_create(array('type' => 'resume', 'uid' => 1)));
+  $theme_settings['toggle_slogan'] = TRUE;
 }
 

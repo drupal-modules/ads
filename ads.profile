@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install, update, and uninstall functions for the ads profile.
+ * Install, update, and uninstall functions for the ADS profile.
  *
  * With inspriations from Recruiter:
  *  http://drupalcode.org/project/recruiter.git/blame/refs/heads/7.x-1.x:/recruiter.install
@@ -23,7 +23,6 @@ function ads_form_install_configure_form_alter(&$form, &$form_state) {
     return;
   }
 
-  /*
   // Add informations about the default username and password.
   $form['admin_account']['account']['ads_name'] = array(
     '#type' => 'item',
@@ -71,7 +70,7 @@ function ads_form_install_configure_form_alter(&$form, &$form_state) {
   // Add a custom validation that needs to be trigger before the original one,
   // where we can copy the site's mail as the admin account's mail.
   array_unshift($form['#validate'], 'ads_custom_setting');
-  */
+
 }
 
 /**
@@ -79,7 +78,7 @@ function ads_form_install_configure_form_alter(&$form, &$form_state) {
  * custom values.
  */
 function ads_custom_setting(&$form, &$form_state) {
-  /*
+
   $form_state['values']['account']['mail'] = $form_state['values']['site_mail'];
   // Use our custom values only the corresponding checkbox is checked.
   if ($form_state['values']['override_account_informations'] == TRUE) {
@@ -91,5 +90,5 @@ function ads_custom_setting(&$form, &$form_state) {
       form_set_error('pass', st('The specified passwords do not match.'));
     }
   }
-  */
 }
+
