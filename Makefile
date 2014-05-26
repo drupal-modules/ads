@@ -13,5 +13,3 @@ users:
 content:
 	phing -f phing/build-content.xml
 
-ads:
-	phing -f phing/build-ads.xml
