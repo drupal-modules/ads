@@ -80,30 +80,20 @@ function ads_install_additional_modules() {
     'dashboard',
     'dblog',
     'shortcut',
-    'overlay',
     'field_ui',
 
     // Install default contrib modules.
-    'admin_menu_toolbar',
-    'rules_admin',
-    'views_ui',
     'taxonomy_manager',
     'colorbox',
     'context_ui',
     'pathauto',
     'facetapi_pretty_paths',
-    'colorbox',
     'context_ui',
     'rules_admin',
-    'views_ui',
-    'wysiwyg',
 
     // Install requirements for the ads cloudy base theme.
     'omega_tools',
     'block_class',
-    'ads_cloudy',
-    'ads_menu',
-    'ads_front',
   );
 
   if (variable_get('ads_install_demo_content', FALSE)) {
