@@ -6,4 +6,4 @@
 </div>
 <div class="page-footer">
   <?php print render($page['footer']); ?>
-</div>footer
+</div>
