@@ -1,5 +1,5 @@
 name = ADS
-description = Install ADS profile.
+description = ADS profile installer.
 core = 7.x
 
 ; Install Drupal core modules
@@ -19,11 +19,9 @@ dependencies[] = dashboard
 dependencies[] = shortcut
 dependencies[] = field_ui
 ; dependencies[] = rdf
-dependencies[] = booking_com_api        
 
-; Install stable contributed modules.
-;dependencies[] = views_ui
-;dependencies[] = rules
+; Install theme.
+dependencies[] = ads
 
 ; Install admin modules.
 ; dependencies[] = admin
@@ -33,11 +31,11 @@ dependencies[] = booking_com_api
 ; dependencies[] = admin_theme
 
 ; Install ADS features modules.
-dependencies[] = ads_perms
 dependencies[] = ads_advert
 dependencies[] = ads_content_types
 dependencies[] = ads_homepage
 dependencies[] = ads_menu
+dependencies[] = ads_perms
 dependencies[] = ads_site_settings
 dependencies[] = ads_taxonomy
 
