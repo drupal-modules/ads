@@ -422,7 +422,7 @@ function ads_install() {
     ->condition('type', 'theme')
     ->condition('name', 'ads')
     ->execute();
-  variable_set('theme_default', 'asd');
+  variable_set('theme_default', 'ads');
   variable_set('node_admin_theme', '1');
 
   $theme_settings = variable_get('theme_ads_settings', array());
