@@ -288,13 +288,13 @@
     <log message="Running Drupal cron" level="verbose" />
       <exec command="${project.drush.cmd} --php=&quot;`which php` -d sendmail_path=/dev/null&quot; core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
-    <!-- Run additional phing scripts -->
-    <log message="Checking phing scripts" level="verbose" />
-      <execute-import-file-target name="run-phing-scripts" />
-
     <!-- Drupal modules auto-configuration -->
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
       <execute-import-file-target name="run-ads-configure" />
+
+    <!-- Run additional phing scripts -->
+    <log message="Checking phing scripts" level="verbose" />
+      <execute-import-file-target name="run-phing-scripts" />
 
     <!-- Enabling ADS theme -->
       <exec command="${project.drush.cmd} -y en ads_theme" dir="${project.dir.src}" />
