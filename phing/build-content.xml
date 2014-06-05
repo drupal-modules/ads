@@ -20,11 +20,15 @@
       <exec command="${project.drush.cmd} en devel_generate comment" 
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
+    <echo message="Generating example categories..."/>
+      <exec command="${project.drush.cmd} generate-terms categories 100"
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
     <echo message="Generating example content..."/>
       <exec command="${project.drush.cmd} generate-content 50 10"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
-    <echo message="Generating example adverts ..."/>
+    <echo message="Generating example adverts..."/>
       <exec command="${project.drush.cmd} generate-content --types=advert 50 10"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
