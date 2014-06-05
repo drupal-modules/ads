@@ -152,6 +152,11 @@
         if (self::getDebugLevel() < self::$msgLevels[$this->level])
           return;
 
+        $echo = $this->getProject()->createTask('echo');
+        $echo->setMsg($this->text);
+        $echo->setLevel('debug');
+        $echo->main();
+
         if (!self::$once) {
           self::$once = 1;
           $this->getProject()->addBuildListener(new LogTaskBuildListener ());
