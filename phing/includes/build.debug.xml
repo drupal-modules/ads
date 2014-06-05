@@ -159,7 +159,7 @@
           self::$output .= $message;
         }
 
-        $indent = str_repeat('  ', self::$stackLevel + $this->indent);
+        $indent = str_repeat('  ', self::$stackLevel + ($this->indent ? $this->indent : 0));
 
         $lines = explode("\n", $this->text);
 
@@ -199,13 +199,13 @@
           $log = $this->getProject()->createTask('log');
           $log->setMsg('Operation failed, details:');
           $log->setLevel('error');
-          $log->setIndent($this->indent);
+          $log->setIndent($this->indent ? $this->indent : 0);
           $log->main();
 
           $log = $this->getProject()->createTask('log');
           $log->setMsg($output);
           $log->setLevel('error');
-          $log->setIndent($this->indent + 1);
+          $log->setIndent($this->indent ? $this->indent : 0);
           $log->main();
 
           if ($this->exit) {
@@ -218,7 +218,7 @@
           $log = $this->getProject()->createTask('log');
           $log->setMsg('Done');
           $log->setLevel('verbose');
-          $log->setIndent($this->indent + 1);
+          $log->setIndent(($this->indent ? $this->indent : 0) + 1);
           $log->main();
         */
         }
