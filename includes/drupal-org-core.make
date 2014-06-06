@@ -15,4 +15,4 @@ core = 7.x
 
 ; Patch for simpletest module: "Tests of disabled modules shouldn't be parsed"
 ; Issue: https://drupal.org/node/1592668#comment-6034714
-projects[drupal][patch][] = https://drupal.org/files/simpletest-1592668.patch
+projects[drupal][patch][] = https://drupal.org/files/issues/simpletest-1592668.patch
