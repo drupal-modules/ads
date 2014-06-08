@@ -28,7 +28,7 @@ script:
   - pwd
   - cd src
   - drush en simpletest -y
-  - drush test-run Pager
+  - drush test-run --all
 notifications:
   email: false
 addons:
