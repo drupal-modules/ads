@@ -25,6 +25,10 @@ env:
 script:
   - sudo make
   - sudo make install
+  - pwd
+  - cd src
+  - drush en simpletest -y
+  - drush test-run --all --uri=http://ads.localhost
 notifications:
   email: false
 addons:
