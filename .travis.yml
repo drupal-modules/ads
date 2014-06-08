@@ -25,6 +25,8 @@ env:
 script:
   - sudo make
   - sudo make install
+  - drush en simpletest
+  - drush test-run Pager
 notifications:
   email: false
 addons:
