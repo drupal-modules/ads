@@ -27,7 +27,7 @@ script:
   - sudo make install
   - pwd
   - cd src
-  - drush en simpletest
+  - drush en simpletest -y
   - drush test-run Pager
 notifications:
   email: false
