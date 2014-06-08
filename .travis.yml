@@ -34,3 +34,4 @@ notifications:
 addons:
   hosts:
     - ads.localhost
+    - ads.localhost
