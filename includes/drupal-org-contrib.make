@@ -173,7 +173,7 @@ projects[pathauto][version] = "1.2"
 
 ; Sitemap
 ; Provides a site map that gives visitors an overview of your site. It can also display the RSS feeds for all blogs and categories.
-projects[site_map][version] = "1.0"
+projects[site_map][version] = "1.2"
 
 ; Taxonomy Menu
 ; Transform any of your taxonomy vocabularies into existing menus easily!
