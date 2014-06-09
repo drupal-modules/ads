@@ -21,12 +21,13 @@ before_script:
   - sudo puppet apply puppet/solr.dev.pp
   - sudo drush --version
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="$TRAVIS_BUILD_DIR/src" DRUSH="sudo drush -y -r $SRCDIR"
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR"
 script:
   - sudo make
   - sudo make install
-  - $DRUSH -y en simpletest
-  - php $SRCDIR/scripts/run-tests.sh --php `which php` --concurrency 12 System
+  - sudo mv $TRAVIS_BUILD_DIR /var/www/ads
+  - sudo puppet apply puppet/ads.dev.vhost.pp
+  - $DRUSH -y en simpletest && cd $SRCDIR && php ./scripts/run-tests.sh --php `which php` --concurrency 12 --url http://ads.localhost/ System
 notifications:
   email: false
 addons:
