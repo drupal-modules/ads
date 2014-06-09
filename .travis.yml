@@ -21,10 +21,12 @@ before_script:
   - sudo puppet apply puppet/solr.dev.pp
   - sudo drush --version
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no "
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " DRUSH="sudo drush -y -r $TRAVIS_BUILD_DIR/src"
 script:
   - sudo make
   - sudo make install
+  - $DRUSH -y en simpletest
+  - $DRUSH test-run --all --debug
 notifications:
   email: false
 addons:

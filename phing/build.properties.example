@@ -38,6 +38,12 @@ project.drupal.build.stable=    true
 project.drupal.build.type=      full     # min, full, dev
 
 #
+# Modules' settings.
+
+# ads_locations
+project.drupal.configure.locations.countries=AD
+
+#
 # DEVELOPMENT
 #
 # Repository Credentials.
