@@ -11,8 +11,6 @@
 
 # Apache
 
-require 'facter'
-
 class apache-setup {
   class { 'apache':
     mpm_module => 'prefork',
