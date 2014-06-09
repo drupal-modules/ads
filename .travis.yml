@@ -8,8 +8,6 @@ before_script:
   - sudo echo -e "Host github.com\n User git\n StrictHostKeyChecking no\n PasswordAuthentication no\n CheckHostIP no\n BatchMode yes\n" >> ~/.ssh/config
   - sudo cat ~/.ssh/config
   - sudo cat ~/.ssh/known_hosts
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
-  - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - cp travis/travis.build.properties build.properties
   - sudo sysctl kernel.hostname=ads.localhost
   - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
@@ -19,15 +17,18 @@ before_script:
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp
   - sudo puppet apply puppet/solr.dev.pp
+  - sudo puppet apply puppet/ads.dev.configure-site.pp
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - sudo drush --version
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR"
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
 script:
   - sudo make
   - sudo make install
-  - sudo mv $TRAVIS_BUILD_DIR/src /var/www/ads
-  - sudo puppet apply puppet/ads.dev.configure-site.pp
-  - $DRUSH -y en simpletest && cd $SRCDIR && php ./scripts/run-tests.sh --php `which php` --concurrency 12 --url http://ads.localhost/ System
+  - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
+  - pwd
+  - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --concurrency 12 --verbose System
 notifications:
   email: false
 addons:
