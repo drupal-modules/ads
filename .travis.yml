@@ -21,12 +21,12 @@ before_script:
   - sudo puppet apply puppet/solr.dev.pp
   - sudo drush --version
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " DRUSH="sudo drush -y -r $TRAVIS_BUILD_DIR/src"
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="$TRAVIS_BUILD_DIR/src" DRUSH="sudo drush -y -r $SRCDIR"
 script:
   - sudo make
   - sudo make install
   - $DRUSH -y en simpletest
-  - $DRUSH test-run --debug --php `which php` --concurrency 12 System
+  - sudo php $SRCDIR/scripts/run-tests.sh --php `which php` --concurrency 12 System
 notifications:
   email: false
 addons:
