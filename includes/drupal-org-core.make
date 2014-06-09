@@ -13,3 +13,6 @@ core = 7.x
 ; http://drupal.org/node/1146244#comment-6644078
 ; projects[drupal][patch][] = http://drupal.org/files/1146244-82-node-save-on-insert.patch
 
+; Patch for simpletest module: "Tests of disabled modules shouldn't be parsed"
+; Issue: https://drupal.org/node/1592668#comment-6034714
+projects[drupal][patch][] = https://drupal.org/files/issues/simpletest-1592668.patch

@@ -371,12 +371,6 @@ function ads_install() {
   );
   field_create_instance($instance);
 
-  // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
-
   // Create a default role for site administrators (if it does not yet exist),
   // and assign all available permissions.
   if (!$admin_role = user_role_load_by_name('administrator')) {
@@ -428,7 +422,7 @@ function ads_install() {
     ->condition('type', 'theme')
     ->condition('name', 'ads')
     ->execute();
-  variable_set('theme_default', 'asd');
+  variable_set('theme_default', 'ads');
   variable_set('node_admin_theme', '1');
 
   $theme_settings = variable_get('theme_ads_settings', array());

@@ -308,9 +308,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 ;___________________________________________________
 
 ; FEATURES
-projects[features][version] = "2.0-beta2"
-; @Patch: Add capacity to define more than one term with the same path.
-projects[features][patch][] = "https://drupal.org/files/927566-50-multiple-link_path.patch"
+projects[features][version] = "2.0"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-alpha2"
