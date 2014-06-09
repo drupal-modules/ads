@@ -25,7 +25,7 @@ env:
 script:
   - sudo make
   - sudo make install
-  - sudo mv $TRAVIS_BUILD_DIR /var/www/ads
+  - sudo mv $TRAVIS_BUILD_DIR/src /var/www/ads
   - sudo puppet apply puppet/ads.dev.vhost.pp
   - $DRUSH -y en simpletest && cd $SRCDIR && php ./scripts/run-tests.sh --php `which php` --concurrency 12 --url http://ads.localhost/ System
 notifications:
