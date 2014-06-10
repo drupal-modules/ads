@@ -17,6 +17,7 @@ before_script:
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp
   - sudo puppet apply puppet/solr.dev.pp
+  - sudo mkdir /var/www/ads
   - sudo puppet apply puppet/ads.dev.configure-site.pp
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
@@ -27,8 +28,10 @@ script:
   - sudo make
   - sudo make install
   - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
+  - sudo chmod -R 777 $SRCDIR/
+  - sudo wget -qO- http://ads.localhost/ | cat
   - pwd
-  - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --concurrency 12 --verbose System
+  - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --url http://ads.localhost/ --concurrency 16 --verbose System
 notifications:
   email: false
 addons:
