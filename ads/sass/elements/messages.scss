@@ -1,0 +1,57 @@
+.messages.error,
+.messages.warning,
+.messages.status {
+
+	color: #fff;
+	background-image: none;
+	margin: 0;
+	padding: 12px 0px;
+
+	a {
+		color: #fff;
+		font-weight: bold;
+	}
+
+	ul {
+		li {
+			list-style-type: none;
+			border-top: 2px dotted rgba(255, 255, 255, 0.3);
+			margin: 10px 0;
+			padding: 10px 0 0 0;
+
+			&:first-child {
+				padding-top: 0;
+				margin-top: 0;
+				border-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.icon {
+				font-size: 20px;
+				vertical-align: middle;
+				display: inline-block;
+				text-align: center;
+				width: 36px;
+			}
+		}
+	}
+	
+}
+
+.messages.error {
+	background-color: #f8576c;
+	border: 1px solid #f8576c;
+}
+
+.messages.warning {
+	background-color: #d78708;
+	border: 1px solid #d78708;
+}
+
+.messages.status {
+	background-color: #aaa;
+	border: 1px solid #aaa;
+}

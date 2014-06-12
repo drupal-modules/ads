@@ -1,1 +1,11 @@
 // Insert stylings here.
+
+.page-header {
+  padding: 12px 0px;
+}
+
+body.page-admin {
+	.page-header {
+		padding: 0 0 0 0;
+	}
+}

@@ -3,3 +3,189 @@
 // Insert stylings before that line.
 
 @import elements;
+
+body.page-admin {
+   background-color: #f2f2f2;
+
+  .page-columns {
+    display: table;
+    width: 100%;
+  }
+
+  .page-column-main-menu {
+    vertical-align: top;
+    display: table-cell;
+    width: 200px;
+
+	.go-to-administration-page {
+		font-size: 17px;
+		display: inline-block;
+		padding: 10px;
+		color: #fff;
+		text-decoration: none;
+		cursor: pointer;
+
+		span {
+			padding-left: 10px;
+		}
+	}    
+  }
+
+  .page-column-main-menu-back {
+    z-index: -1;
+    background-color: #181d20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+  }
+
+
+  .page-column-content {
+    display: table-cell;
+    vertical-align: top;
+    background-color: #fff;
+
+    .top-toolbox {
+    	a {
+    		text-decoration: none;
+	    	display: inline-block;
+    		color: #000;
+    		padding: 14px;
+
+    		&:hover {
+    			background-color: #eee;
+    		}
+    	}
+
+    	div.right {
+    		float: right;
+    	}
+
+    }
+
+    .current-page-title,
+    div.messages {
+    	margin: 0 20px;
+    }
+
+    .current-page-title {
+    	padding: 18px 0;
+
+    	i {
+    		color: #aaa;
+    		margin-right: 6px;
+    	}
+
+    	.title-text {
+    		font-size: 23px;
+    		line-height: 28px;
+    	}
+    }
+
+    div.admin {
+    	display: table;
+    	width: 100%;
+
+    	.left,
+    	.right {
+    		width: 50%;
+    		margin: 0;
+    		padding: 0;
+    	}
+
+    	.left {
+    		.admin-panel {
+    			margin-right: 5px;
+    		}
+    	}
+
+    	.right {
+    		.admin-panel {
+    			margin-left: 5px;
+    		}
+    	}
+
+    }
+
+    .admin .cols {
+
+    	.col {
+    	}
+    }
+
+    .admin-panel {
+    	color: #000;
+   		
+   		display: block;
+
+    	h3 {
+	   		background-color: #6bafbd;
+    		padding: 10px;
+    		color: #fff;
+    		font-weight: normal;
+    		font-size: $adminFontNormalSize;
+    	}
+
+    	.body {
+    		color: #fff;
+    		font-weight: normal;
+    		margin: 0;
+    		padding: 0;
+    	}
+
+    }
+
+    /*
+    	Special colors for sections.
+    */
+
+    // Development section colors.
+    .menu-admin_config_development .admin-panel {
+    	h3 {
+    		background-color: #666;
+    	}
+
+    	.title {
+    		background-color: #888;
+    	}
+    }
+
+   	.admin-list {
+
+    	.description {
+    		display: none;
+    	}
+
+    	.title {
+    		background-color: darken(#6bafbd, 5%);
+    		
+    		display: block;
+
+    		a {
+	    		padding: 10px 12px;
+    			text-decoration: none;
+	    		color: #fff;
+	    		display: block;
+
+	    		&:hover {
+    				color: #000;
+    				background-color: #fff;
+    			}
+			}
+    
+    	}
+    }
+
+  }
+
+  .page-content {
+    padding: 18px;
+  }
+}
+
+td, tr {
+  padding: 0;
+}
+

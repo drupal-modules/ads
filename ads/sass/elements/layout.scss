@@ -1,3 +1,54 @@
+// Reset
+
+    /**
+    * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+    * http://cssreset.com
+    */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+    display: block;
+    }
+    body {
+    line-height: 1;
+    }
+    ol, ul {
+    list-style: none;
+    }
+    blockquote, q {
+    quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+    content: '';
+    content: none;
+    }
+    table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+
+
 // Body
 
 body {
@@ -8,8 +59,19 @@ body {
   line-height: $fontNormalSize + 3px;
   color: $textColor;
   background-color: $bodyBackground;
+
   width: 960px;
-  margin: 0 auto;
+
+  &.page-admin {
+    width: auto;
+
+    font-family: $adminFontDefaultFamily;
+    font-size: $adminFontNormalSize;
+    line-height: $adminFontNormalSize + 3px;
+
+  }
+
+    margin: 0 auto;
 }
 
 body > div.page-content {
@@ -30,10 +92,33 @@ a:focus {
   text-decoration: underline;
 }
 
-.page-header {
-  padding: 12px 0px;
-}
-
 .page-content {
 	padding: 12px 0px;
 }
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin cols($num) {
+  .cols-#{$num} {
+    display: table;
+    width: 100%;
+
+    .col-1, .col-2, col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10 {
+      display: table-cell;
+      width: 100% / $num;
+    }
+  }
+}
+
+@include cols(2);
+@include cols(3);
+@include cols(4);
+@include cols(5);
+@include cols(6);
+@include cols(7);
+@include cols(8);
+@include cols(9);
+@include cols(10);
