@@ -91,7 +91,7 @@ projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fi
 
 ; Link
 ; Provides a standard custom content field for links.
-projects[link][version] = "1.1"
+projects[link][version] = "1.2"
 
 ; DOUBLE FIELD
 ; Double field is a small module written to provide extensions to Drupal's core Fields.
