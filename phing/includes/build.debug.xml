@@ -164,7 +164,7 @@
           self::$output .= $message;
         }
 
-        $indent = str_repeat('  ', self::$stackLevel + ($this->indent ? $this->indent : 0));
+        $indent = str_repeat('  ', max(0, self::$stackLevel + ($this->indent ? $this->indent : 0)));
 
         $lines = explode("\n", $this->text);
 
