@@ -374,13 +374,13 @@ projects[ife] = "2.0-alpha2"
 ; results, filters, etc. Also, with the Apache Solr integration, a high-performance search engine is available for this module. Developers, on the other hand,
 ; will be impressed by the large flexibility and numerous ways of extension the module provides. Hence, the growing number of additional contrib modules (linked
 ; below), providing additional functionality or helping users customize some aspects of the search process.
-projects[search_api][version] = "1.11"
+projects[search_api][version] = "1.13"
 
 ; SEARCH API SAVED SEARCHES
 ; This module offers users the ability to save searches executed with the Search API module and be notified of new results. Notifications are done via mails
 ; with token-replacement, their frequency can be configured both by admins and/or users and saved searches can also be created without first executing the
 ; search.
-projects[search_api_saved_searches][version] = "1.0"
+projects[search_api_saved_searches][version] = "1.3"
 
 ; SEARCH API AUTOCOMPLETE
 ; This module provides autocomplete functionality for Search API searches, similar to the Apache Solr autocomplete module. Autocompletion can be activated and
@@ -391,7 +391,7 @@ projects[search_api_autocomplete][version] = "1.0-beta2"
 ; This module provides a Solr backend for the Search API module. The backend uses, like the popular Apache Solr Search Integration module, Apache Solr servers
 ; for indexing and searching content. It has great performance, is suitable even for use on large commercial websites and supports facets and multi-index
 ; searches.
-projects[search_api_solr][version] = "1.4"
+projects[search_api_solr][version] = "1.5"
 
 ; SEARCH API RANGES
 projects[search_api_ranges] = "1.5"
