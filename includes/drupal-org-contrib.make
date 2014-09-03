@@ -200,7 +200,7 @@ projects[ntm][version] = "1.11"
 
 ; Views
 ; Provides a flexible method to control how lists and tables of content are presented.
-projects[views][version] = "3.6"
+projects[views][version] = "3.8"
 
 ; Views Bulk Operations
 ; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
@@ -234,7 +234,7 @@ projects[panels][version] = "3.3"
 
 ; Internationalization
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
-projects[i18n] = "1.10"
+projects[i18n] = "1.11"
 
 ; Language icons
 ; Provides icons for language links.
