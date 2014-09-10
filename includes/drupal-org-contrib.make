@@ -308,7 +308,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 ;___________________________________________________
 
 ; FEATURES
-projects[features][version] = "2.0"
+projects[features][version] = "2.2"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-alpha2"
