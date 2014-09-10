@@ -120,6 +120,10 @@ projects[bundle_name_reference][version] = "1.x-dev"
 ; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
 projects[field_delimiter][version] = "1.0"
 
+; Votingapi
+; VotingAPI helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
+projects[votingapi][version] = "2.12"
+
 ; Fivestar
 ; Adds a clean, attractive voting widget to nodes and comments and any entity.
 projects[fivestar][version] = "2.1"
