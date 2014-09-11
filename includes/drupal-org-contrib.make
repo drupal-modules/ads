@@ -12,7 +12,9 @@ core = 7.x
 ; WORKFLOW
 ; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
 ; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-;projects[workflow][version] = "1.0"
+projects[workflow][version] = "2.4"
+; @Patch: It seems that it was a typo on the function workflow_features_pipe_field_base_alter (https://www.drupal.org/node/2303925#comment-8974443).
+projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feature-undefined-wid-2303925-1.patch"
 
 ; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
 ; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
@@ -120,6 +122,10 @@ projects[bundle_name_reference][version] = "1.x-dev"
 ; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
 projects[field_delimiter][version] = "1.0"
 
+; Votingapi
+; VotingAPI helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
+projects[votingapi][version] = "2.12"
+
 ; Fivestar
 ; Adds a clean, attractive voting widget to nodes and comments and any entity.
 projects[fivestar][version] = "2.1"
@@ -200,7 +206,7 @@ projects[ntm][version] = "1.11"
 
 ; Views
 ; Provides a flexible method to control how lists and tables of content are presented.
-projects[views][version] = "3.6"
+projects[views][version] = "3.8"
 
 ; Views Bulk Operations
 ; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
@@ -234,7 +240,7 @@ projects[panels][version] = "3.3"
 
 ; Internationalization
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
-projects[i18n] = "1.10"
+projects[i18n] = "1.11"
 
 ; Language icons
 ; Provides icons for language links.
@@ -308,7 +314,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 ;___________________________________________________
 
 ; FEATURES
-projects[features][version] = "2.0"
+projects[features][version] = "2.2"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-alpha2"

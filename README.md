@@ -162,6 +162,12 @@ If the build fails with:
 
 then you have to install PHP Fileinfo extension or upgrade your PHP to >=5.3 which contains that extension.
 
+If you're using Cygwin and end up with messages saying "The system cannot find the path specified." after commands that contain ">/dev/null" or "2>&1" then consider those:
+- On the disk from which you start phing (in its root folder) create folder with name "dev"
+- On the disk from which you start phing (in its root folder) create empty file with name "&1"
+- Inside the Cygwin's installation directory "dev" folder, please create empty file with name "null" so Cygwin can access /dev/null
+If you find another way to solve above problem, please tell us.
+
 Support
 -------
 Please find the support at:

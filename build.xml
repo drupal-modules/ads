@@ -64,8 +64,8 @@
     <echo message="Assigning drush properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-clean --no-gitinfofile --concurrency=12 --verbose"/>
-      <property name="project.drush.make.args2"   value="-y --no-core --no-clean --prepare-install --working-copy --no-gitinfofile --concurrency=12 --verbose"/>
+      <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-cache --no-clean --no-gitinfofile --verbose"/>
+      <property name="project.drush.make.args2"   value="-y --no-core --no-cache --no-clean --prepare-install --working-copy --no-gitinfofile --verbose"/>
 
     <echo message="Loading configuration file...${line.separator}" level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
@@ -257,9 +257,9 @@
   -->
   <target name="post-install-drupal" depends="build-init">
 
-    <!-- Somehow ads_content_types is not enabling fivestar module even if fivestar in its dependency, we have to enable fivestar explicitly -->
-    <log message="Enabling fivestar module (should be enabled along with ads_content_types, assuming it's a features module bug)" level="verbose" />
-      <exec command="${project.drush.cmd} en fivestar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+    <!-- Somehow ads_content_types is not enabling votingapi and fivestar modules even if fivestar in its dependency, we have to enable them explicitly -->
+    <log message="Enabling votingapi and fivestar modulse (should be enabled along with ads_content_types, assuming it's a features module bug)" level="verbose" />
+      <exec command="${project.drush.cmd} en votingapi fivestar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Update Database and Features -->
     <log message="Updating database" level="verbose" />
