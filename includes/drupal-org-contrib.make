@@ -12,7 +12,9 @@ core = 7.x
 ; WORKFLOW
 ; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
 ; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-;projects[workflow][version] = "1.0"
+projects[workflow][version] = "2.4"
+; @Patch: It seems that it was a typo on the function workflow_features_pipe_field_base_alter (https://www.drupal.org/node/2303925#comment-8974443).
+projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feature-undefined-wid-2303925-1.patch"
 
 ; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
 ; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
