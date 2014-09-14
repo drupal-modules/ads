@@ -92,7 +92,7 @@ if [ "x$1" = "xinstall" ]; then
   DONE=1
 else
   echo "${YELLOW}You need to run puppet to apply configuration requirements, you may do it via:${NC}"
-  echo "  ${BLUE}$SUDO puppet -v apply puppet/ads.dev.pp${NC}"
+  echo "  ${BLUE}$SUDO puppet -v puppet/ads.dev.pp${NC}"
   echo "OR just re-run script with:"
   echo "  ${BLUE}$0 install${NC}"
   echo ""
