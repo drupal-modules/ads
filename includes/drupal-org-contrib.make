@@ -137,7 +137,7 @@ projects[fivestar][version] = "2.1"
 
 ; Entity
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
-projects[entity][version] = "1.4"
+projects[entity][version] = "1.5"
 
 ; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
@@ -197,7 +197,7 @@ projects[menu_attributes][version] = "1.0-rc2"
 ; This module like "Nice menus" but without old solutions in code. CSS-Menu only
 ; (working in IE7+ and other modern browsers). With this module you can select
 ; any sub items with any depth from menu or taxonomy.
-projects[ntm][version] = "1.11"
+projects[ntm][version] = "1.13"
 
 ;___________________________________________________
 ;
@@ -231,7 +231,7 @@ projects[calendar][version] = "3.4"
 
 ; Panels
 ; Allows a site administrator to create customized layouts for multiple uses.
-projects[panels][version] = "3.3"
+projects[panels][version] = "3.4"
 
 ;___________________________________________________
 ;
@@ -285,7 +285,7 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ; RULES
 ; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
 ; replacement with more features for the trigger module in core and the successor of the Drupal 5 workflow-ng module.
-projects[rules][version] = "2.6"
+projects[rules][version] = "2.7"
 
 ; RULES AUTO TAG
 ; The Rules Autotag module takes a light-weight approach for autotagging full-text content by matching taxonomy terms (and optional Synonyms). Rules Autotag
@@ -317,7 +317,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 projects[features][version] = "2.2"
 
 ; FEATURES EXTRA
-projects[features_extra][version] = "1.0-alpha2"
+projects[features_extra][version] = "1.0-beta1"
 
 ; STRONGARM
 projects[strongarm][version] = "2.0"
@@ -405,10 +405,7 @@ projects[search_api_ranges] = "1.5"
 ; Facet API FACET API
 ; Allows site builders to easily create and manage faceted search interfaces.
 ; Sub-modules: facetapi, current_search
-projects[facetapi][version] = "1.3"
-; @Patch: Fixes Warning: array_search() expects parameter 2 to be array, null given
-;   From: https://drupal.org/node/1900974#comment-7491106
-projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch"
+projects[facetapi][version] = "1.5"
 
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
@@ -512,7 +509,7 @@ projects[xmlsitemap][version] = "2.0"
 ; Libraries
 ; This module introduces a common repository for libraries.
 ; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
-projects[libraries][version] = "2.1"
+projects[libraries][version] = "2.2"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
@@ -532,7 +529,7 @@ projects[format_number][version] = "1.x-dev"
 
 ; Currency
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
-projects[currency][version] = "2.0"
+projects[currency][version] = "2.4"
 
 ; Units of Measurement
 ; Provides very simple API for working with unit types collections.
@@ -573,7 +570,7 @@ libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.mi
 ; Prepro
 ; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
 ; to registered preprocessor modules (such as Sassy)
-projects[prepro][version] = "1.2"
+projects[prepro][version] = "1.4"
 
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
@@ -581,7 +578,7 @@ projects[sassy][version] = "2.13"
 
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
-projects[votingapi][version] = "2.11"
+projects[votingapi][version] = "2.12"
 
 ;___________________________________________________
 ;
@@ -615,11 +612,11 @@ projects[backup_migrate] = "2.4"
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
-projects[local_tasks_blocks] = "2.1"
+; projects[local_tasks_blocks] = "2.1"
 
 ; Admin Tools
 ; Is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
-;projects[admin_tools] = "1.1"
+; projects[admin_tool] = "1.1"
 
 ; Services
 ; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
