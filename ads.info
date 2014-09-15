@@ -24,11 +24,7 @@ dependencies[] = field_ui
 dependencies[] = ads
 
 ; Install admin modules.
-; dependencies[] = admin
-; dependencies[] = admin_tools
-; dependencies[] = environment_modules
-; dependencies[] = local_tasks_blocks
-; dependencies[] = admin_theme
+dependencies[] = toolbar
 
 ; Install ADS features modules.
 dependencies[] = ads_advert
@@ -38,5 +34,3 @@ dependencies[] = ads_menu
 dependencies[] = ads_perms
 dependencies[] = ads_site_settings
 dependencies[] = ads_taxonomy
-
-; Install custom features.

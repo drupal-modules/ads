@@ -405,7 +405,7 @@ function ads_install() {
     ->condition('type', 'theme')
     ->condition(db_or()
       ->condition('name', 'seven')
-      ->condition('name', 'ads_theme')
+      ->condition('name', 'ads')
     )
     ->execute();
   variable_set('theme_default', 'seven');
