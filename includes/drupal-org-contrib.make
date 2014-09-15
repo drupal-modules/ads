@@ -139,6 +139,10 @@ projects[fivestar][version] = "2.1"
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
 projects[entity][version] = "1.5"
 
+; Entity Score
+; Provide dynamic entity score boosts based on field values or conditions.
+projects[entity_score][version] = "1.x-dev"
+
 ; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
 projects[entityreference][version] = "1.1"
