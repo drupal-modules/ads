@@ -399,14 +399,16 @@ function ads_install() {
   // Update the menu router information.
   menu_rebuild();
 
-  // Enable default theme.
+  // Enable default themes.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'seven')
+    ->condition(db_or()
+      ->condition('name', 'seven')
+      ->condition('name', 'ads_theme')
+    )
     ->execute();
   variable_set('theme_default', 'seven');
-  variable_set('node_admin_theme', '1');
 
   // Enable default admin theme.
   db_update('system')
@@ -415,6 +417,7 @@ function ads_install() {
     ->condition('name', 'seven')
     ->execute();
   variable_set('admin_theme', 'rubik');
+  variable_set('node_admin_theme', '1');
 
   $theme_settings = variable_get('theme_ads_settings', array());
   variable_set('theme_ads_settings', $theme_settings);
