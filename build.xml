@@ -313,6 +313,9 @@
     <log message="NOTE:" level="info" />
     <log message="You can move your newly installed distribution to your webroot" level="info" />
     <log message="Or you should point your webroot at the '${project.dir.src}' folder" level="info" />
+    <log message="Also make sure that the following folders:" level="info" />
+    <log message="${project.drupal.public.dir}, ${project.drupal.private.dir}" level="info" />
+    <log message="are accessible by your web server user." level="info" />
     <log message="" level="info" />
 
   </target>
