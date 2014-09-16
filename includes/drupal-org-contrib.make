@@ -172,6 +172,11 @@ projects[workspace][version] = "1.x-dev"
 ; Uses a visitor's IP address to identify the geographical location (country) of the user. 
 projects[ip2country][version] = "1.4"
 
+; Smart IP
+; Smart IP identify visitor's geographical location (longitude/latitude), country, region, city and postal code based on the IP address of the user.
+projects[smart_ip][download][type] = git
+projects[smart_ip][download][branch] = 7.x-2.x
+
 ;___________________________________________________
 ;
 ;  MENU MODULES
