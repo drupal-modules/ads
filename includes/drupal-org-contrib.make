@@ -201,7 +201,7 @@ projects[menu_attributes][version] = "1.0-rc2"
 ; This module like "Nice menus" but without old solutions in code. CSS-Menu only
 ; (working in IE7+ and other modern browsers). With this module you can select
 ; any sub items with any depth from menu or taxonomy.
-projects[ntm][version] = "1.13"
+projects[ntm][version] = "1.12"
 
 ;___________________________________________________
 ;
@@ -574,11 +574,11 @@ libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.mi
 ; Prepro
 ; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
 ; to registered preprocessor modules (such as Sassy)
-projects[prepro][version] = "1.4"
+;projects[prepro][version] = "1.4"
 
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
-projects[sassy][version] = "2.13"
+;projects[sassy][version] = "2.13"
 
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
