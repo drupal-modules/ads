@@ -201,7 +201,7 @@ projects[menu_attributes][version] = "1.0-rc2"
 ; This module like "Nice menus" but without old solutions in code. CSS-Menu only
 ; (working in IE7+ and other modern browsers). With this module you can select
 ; any sub items with any depth from menu or taxonomy.
-projects[ntm][version] = "1.13"
+projects[ntm][version] = "1.12"
 
 ;___________________________________________________
 ;
