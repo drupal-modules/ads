@@ -17,7 +17,7 @@
 
     <!-- Enabling ADS modules -->
     <echo message="Enabling ADS common modules..."/>
-      <exec command="${project.drush.cmd} en sassy sassy_compass ads_homepage ads_search_db ads_advert ads_menu ads_locations ads_user"
+      <exec command="${project.drush.cmd} en ads_homepage ads_search_db ads_advert ads_menu ads_locations ads_user"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Run cron -->
