@@ -26,11 +26,12 @@ dependencies[] = ads
 ; Install admin modules.
 dependencies[] = toolbar
 
-; Install ADS features modules.
+; Install ADS modules.
 dependencies[] = ads_advert
-dependencies[] = ads_content_types
 dependencies[] = ads_homepage
+dependencies[] = ads_locations
 dependencies[] = ads_menu
 dependencies[] = ads_perms
 dependencies[] = ads_site_settings
 dependencies[] = ads_taxonomy
+dependencies[] = ads_user
