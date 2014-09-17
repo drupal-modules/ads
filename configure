@@ -35,7 +35,7 @@ if [ ! -n "$PUPPET_CMD" ]; then
         $SUDO brew install puppet
         ;;
       *)
-        echo System $OSTYPE not supported.
+        $SUDO which apt-get && $SUDO apt-get install puppet || echo System $OSTYPE not supported.
         ;;
     esac
     which puppet && echo "Installed puppet in version `puppet --version`"
