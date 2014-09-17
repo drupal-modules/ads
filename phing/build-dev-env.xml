@@ -7,7 +7,7 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${project.git.dir.src}"/>
+      <property name="project.dir.src"            value="${phing.dir}/../src"/>
   </target>
 
   <!--
@@ -16,20 +16,23 @@
   <target name="build-dev-env" depends="build-dev-env-init">
 
     <!-- Enabling common core development modules -->
+    <!--
     <echo message="Enabling common core development modules..."/>
-
-      <exec command="${project.drush.cmd} en toolbar toolbar"
-        dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+      <exec command="${project.drush.cmd} en toolbar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+    -->
 
     <!-- Enabling common contrib development modules -->
-    <echo message="Enabling common contrib development modules..."/>
+    <echo message="Enabling GUI for modules..."/>
+      <exec command="${project.drush.cmd} en views_ui workflow_ui" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
-      <exec command="${project.drush.cmd} en devel views_ui admin_menu_toolbar"
-        dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+    <echo message="Enabling contrib development modules..."/>
+      <exec command="${project.drush.cmd} en devel admin_menu_toolbar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
-    <!-- Disabling useless modules -->
-      <exec command="${project.drush.cmd} dis toolbar"
-        dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+    <echo message="Enabling development menu modules..."/>
+      <exec command="${project.drush.cmd} en admin_menu_toolbar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
+    <!-- Disabling other modules -->
+      <exec command="${project.drush.cmd} dis toolbar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Enabling ADS modules -->
     <!--
