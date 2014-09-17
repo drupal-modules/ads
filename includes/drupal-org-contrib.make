@@ -23,7 +23,8 @@ projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feat
 
 ; Countries
 ; This module provides many country related tasks. Country fields, token support, et al.
-; projects[countries] = "2.1"
+; Required by: ads_locations
+projects[countries] = "2.1"
 
 ; Answers
 ; Provides a question & answer service. Users can post questions and other users can answer them.
