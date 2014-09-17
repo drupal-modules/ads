@@ -26,20 +26,19 @@
 
   <target name="ads-make" depends="
                 build-init,
-                build-drupal
+                build-drupal,
+                set-dir-permissions
                 "/>
 
   <target name="ads-install" depends="
                 build-init,
                 install-drupal,
-                set-dir-permissions,
                 post-install-drupal
                 "/>
 
   <target name="ads-install-skip-post-install-drupal" depends="
                 build-init,
-                install-drupal,
-                set-dir-permissions
+                install-drupal
                 "/>
 
   <!--
