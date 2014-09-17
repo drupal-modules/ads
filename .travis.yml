@@ -23,9 +23,9 @@ install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
 # - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb && sudo dpkg -i puppetlabs-release-precise.deb
   - sudo ./configure install
-  - sudo puppet puppet/travis.pp
-  - sudo puppet puppet/ads.dev.pp
-  - sudo puppet puppet/solr.dev.pp
+  - sudo puppet apply puppet/travis.pp
+  - sudo puppet apply puppet/ads.dev.pp
+  - sudo puppet apply puppet/solr.dev.pp
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).

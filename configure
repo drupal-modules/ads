@@ -87,7 +87,7 @@ echo "${GREEN}Configuration successful.${NC}"
 
 if [ "x$1" = "xinstall" ]; then
   echo "Configuring puppet modules..."
-  puppet puppet/ads.dev.pp
+  puppet apply puppet/ads.dev.pp
   echo ""
   DONE=1
 else
