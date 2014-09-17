@@ -9,7 +9,7 @@
 /**
  * Implements hook_install_tasks().
  */
-function ads_install_tasks() {
+function ads_install_tasks($install_state) {
 
   // XDebug fix: Increase maximum function nesting level to prevent install errors.
   $max_nesting_level = ini_get('xdebug.max_nesting_level');
@@ -21,6 +21,10 @@ function ads_install_tasks() {
   // drupal_get_messages('status', TRUE);
 
   $tasks = array(
+    'ads_set_variables' => array(
+      'display_name' => st('Set Drupal variables'),
+      'type' => 'normal',
+    ),
     'ads_install_additional_modules' => array(
       'display_name' => st('Install additional modules'),
       'type' => 'batch',
@@ -45,6 +49,18 @@ function ads_generate_example_users() {
   if (module_exists('devel')) {
     module_load_include('inc', 'devel', 'devel_generate/devel_generate');
     devel_create_users(5, FALSE, 0, array(), 'password');
+  }
+}
+
+/**
+ * Task callback: Set Drupal variables.
+ */
+function ads_set_variables($install_state)
+{
+  if (isset($install_state['forms']['variables'])) {
+    foreach ($install_state['forms']['variables'] as $name => $value) {
+      variable_set($name, $value);
+    }
   }
 }
 
