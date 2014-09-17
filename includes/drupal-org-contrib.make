@@ -9,7 +9,7 @@ core = 7.x
 ;  CONTENT MODULES
 ;___________________________________________________
 
-; WORKFLOW
+; WorkfloW
 ; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
 ; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
 projects[workflow][version] = "2.4"
@@ -21,9 +21,9 @@ projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feat
 ; should react to this active context.
 ; projects[context][version] = "3.0-beta6"
 
-; COUNTRIES
+; Countries
 ; This module provides many country related tasks. Country fields, token support, et al.
-;projects[countries] = "2.1"
+; projects[countries] = "2.1"
 
 ; Answers
 ; Provides a question & answer service. Users can post questions and other users can answer them.
@@ -34,51 +34,51 @@ projects[answers] = "4.0-alpha1"
 ;  CONTENT TYPE AND FIELD MODULES
 ;___________________________________________________
 
-; HONEYPOT
+; HoneypoT
 ; Honeypot uses both the honeypot and timestamp methods of deterring spam bots from completing forms on your Drupal site.
 projects[honeypot][version] = "1.16"
 
-; DATE
+; DatE
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
-;projects[date][version] = "2.6"
+; projects[date][version] = "2.6"
 
-; EMAIL
+; Email
 ; This module provides a field type for email addresses.
 projects[email][version] = "1.2"
 
-; ADDRESS FIELD
+; Address FielD
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
 projects[addressfield][version] = "1.0-beta3"
 
-; PHONE
+; Phone
 ; This module provides a phone field type.
 projects[phone][version] = "2.x-dev"
 projects[phone][download][type] = git
 projects[phone][download][branch] = "7.x-2.x"
 projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 
-; FIELD GROUP
+; Field group
 ; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
 ; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
 ; NOTE: Changed field_group dependency from version 1.1 to 1.x-dev as we need at least https://drupal.org/node/1324860 functionality (hiding of field groups
 ; NOTE: including children).
 projects[field_group][version] = "1.x-dev"
 
-; MULTISTEP
+; Multistep
 ; Multistep adds multiple-step functionality to content type editing forms.
-projects[multistep][version] = "1.x-dev"
+; projects[multistep][version] = "1.x-dev"
 
-; FIELD COLLECTION
+; Field collection
 ; Provides a field-collection field, to which any number of fields can be attached. A field collection is internally represented as an entity, which is embedded
 ; in the host entity. Thus, if desired field collections may be viewed and edited separately too.
 projects[field_collection][version] = "1.0-beta5"
 
-; REFERENCES
+; References
 ; This project provides D7 versions of the 'node_reference' and 'user_reference' field types, that were part of the CCK package in D6, at functional parity with
 ; the D6 counterparts. See http://drupal.org/node/533222 for details.
 projects[references][version] = "2.0"
 
-; CONDITIONAL FIELDS
+; Conditional fields
 ; Define dependencies between fields based on their states and values. Conditional Fields for Drupal 7 is an user interface to the new States API, plus the
 ; ability to modify fields appearance and behavior on certain conditions when viewing content.
 ; Latest stable version: 7.x-3.0-alpha1 (2013-Nov-18)
@@ -95,16 +95,16 @@ projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fi
 ; Provides a standard custom content field for links.
 projects[link][version] = "1.2"
 
-; DOUBLE FIELD
+; Double field
 ; Double field is a small module written to provide extensions to Drupal's core Fields.
 ; By this module you can divide your fields into two seporate parts.
 projects[double_field][version] = "2.3"
 
-; FIELD VALIDATION
+; Field validation
 ; This module allowing you to specify validation rules for your field instances.
 projects[field_validation][version] = "2.3"
 
-; MEASURED VALUE FIELD
+; Measured value field
 ; Implements a field type that has number and unit of measurement
 ; projects[mvf][version] = "1.0-alpha2"
 
@@ -137,7 +137,11 @@ projects[fivestar][version] = "2.1"
 
 ; Entity
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
-projects[entity][version] = "1.4"
+projects[entity][version] = "1.5"
+
+; Entity Score
+; Provide dynamic entity score boosts based on field values or conditions.
+projects[entity_score][version] = "1.x-dev"
 
 ; Entity Reference
 ; Provides a field type that can reference arbitrary entities.
@@ -168,6 +172,11 @@ projects[workspace][version] = "1.x-dev"
 ; Uses a visitor's IP address to identify the geographical location (country) of the user. 
 projects[ip2country][version] = "1.4"
 
+; Smart IP
+; Smart IP identify visitor's geographical location (longitude/latitude), country, region, city and postal code based on the IP address of the user.
+projects[smart_ip][download][type] = git
+projects[smart_ip][download][branch] = 7.x-2.x
+
 ;___________________________________________________
 ;
 ;  MENU MODULES
@@ -197,7 +206,7 @@ projects[menu_attributes][version] = "1.0-rc2"
 ; This module like "Nice menus" but without old solutions in code. CSS-Menu only
 ; (working in IE7+ and other modern browsers). With this module you can select
 ; any sub items with any depth from menu or taxonomy.
-projects[ntm][version] = "1.11"
+projects[ntm][version] = "1.12"
 
 ;___________________________________________________
 ;
@@ -231,7 +240,7 @@ projects[calendar][version] = "3.4"
 
 ; Panels
 ; Allows a site administrator to create customized layouts for multiple uses.
-projects[panels][version] = "3.3"
+projects[panels][version] = "3.4"
 
 ;___________________________________________________
 ;
@@ -255,11 +264,11 @@ projects[i18n] = "1.11"
 ;  FEEDS MODULES
 ;___________________________________________________
 
-; FEEDS
+; Feeds
 ; Import or aggregate data as nodes, users, taxonomy terms or simple database records.
-;projects[feeds][version] = "2.0-alpha7"
+; projects[feeds][version] = "2.0-alpha7"
 
-; JOB SCHEDULER (Required by FEEDS)
+; Job scheduler (required by Feeds)
 ; Simple API for scheduling tasks once at a predetermined time or periodically at a fixed interval.
 projects[job_scheduler][version] = "2.0-alpha3"
 
@@ -268,7 +277,7 @@ projects[job_scheduler][version] = "2.0-alpha3"
 ;  FLAG MODULES
 ;___________________________________________________
 
-; FLAG
+; Flag
 ; Flag is a flexible flagging system that is completely customizable by the administrator. Using this module, the site administrator can provide any number of
 ; flags for nodes, comments, users, and any other type of entity. Some possibilities include bookmarks, marking important, friends, or flag as offensive. With
 ; extensive views integration, you can create custom lists of popular content or keep tabs on important content.
@@ -282,17 +291,17 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ;  RULES MODULES
 ;___________________________________________________
 
-; RULES
+; Rules
 ; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
 ; replacement with more features for the trigger module in core and the successor of the Drupal 5 workflow-ng module.
-projects[rules][version] = "2.6"
+projects[rules][version] = "2.7"
 
-; RULES AUTO TAG
+; Rules auto tag
 ; The Rules Autotag module takes a light-weight approach for autotagging full-text content by matching taxonomy terms (and optional Synonyms). Rules Autotag
 ; depends on the Rules module. Functionality is provided on different layers.
-projects[rules_autotag][version] = "1.1"
+; projects[rules_autotag][version] = "1.1"
 
-; RULES LINK
+; Rules link
 ; This module lets you create links which trigger arbitrary functionality with the help of Rules.
 projects[rules_link][version] = "1.0-beta4"
 projects[rules_link][download][type] = git
@@ -317,7 +326,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 projects[features][version] = "2.2"
 
 ; FEATURES EXTRA
-projects[features_extra][version] = "1.0-alpha2"
+projects[features_extra][version] = "1.0-beta1"
 
 ; STRONGARM
 projects[strongarm][version] = "2.0"
@@ -327,24 +336,25 @@ projects[strongarm][version] = "2.0"
 ;  MAIL
 ;___________________________________________________
 
-; MIME MAIL
-;projects[mimemail][version] = "1.0-alpha2"
+; Mime Mail
+; Component module for use by other modules to send HTML emails with embedded images and attachments.
+; projects[mimemail][version] = "1.0-alpha2"
 
 ; SMTP
 ; This module allows Drupal to bypass the PHP mail() function and send email directly to an SMTP server. The module supports SMTP authentication and can even
 ; connect to servers using SSL if supported by PHP.
-;projects[smtp] = "1.0-beta2"
+; projects[smtp] = "1.0-beta2"
 
 ;___________________________________________________
 ;
 ;  TAXONOMY MODULES
 ;___________________________________________________
 
-; CONTENT TAXONOMY
+; Content TaXonomy
 ; The module provides extensions to Drupal's core Taxonomy Term Reference Fields.
 projects[content_taxonomy][version] = "1.0-beta2"
 
-; TERM LEVEL
+; Term level
 ; This module provides a field type for referencing terms with a level to an entity, e.g. someone can add the term "Java" with the level "Expert" to a node.
 ; The levels can be defined in the field settings and consist of a numeric level key and a human readable level label. The structure of the specified vocabulary
 ; either has to be a flat-list or a single hierarchy with two hierarchy-levels, where the parents act as grouping terms.
@@ -374,7 +384,7 @@ projects[ife] = "2.0-alpha2"
 ;  SEARCH, FACET & SOLR MODULES
 ;___________________________________________________
 
-; SEARCH API
+; Search API
 ; This module provides a framework for easily creating searches on any entity known to Drupal, using any kind of search engine. For site administrators, it is a
 ; great alternative to other search solutions, since it already incorporates facetting support and the ability to use the Views module for displaying search
 ; results, filters, etc. Also, with the Apache Solr integration, a high-performance search engine is available for this module. Developers, on the other hand,
@@ -382,33 +392,30 @@ projects[ife] = "2.0-alpha2"
 ; below), providing additional functionality or helping users customize some aspects of the search process.
 projects[search_api][version] = "1.13"
 
-; SEARCH API SAVED SEARCHES
+; Search API saved searches
 ; This module offers users the ability to save searches executed with the Search API module and be notified of new results. Notifications are done via mails
 ; with token-replacement, their frequency can be configured both by admins and/or users and saved searches can also be created without first executing the
 ; search.
 projects[search_api_saved_searches][version] = "1.3"
 
-; SEARCH API AUTOCOMPLETE
+; Search API Autocomplete
 ; This module provides autocomplete functionality for Search API searches, similar to the Apache Solr autocomplete module. Autocompletion can be activated and
 ; configured for each search (all search views and pages) individually, so you have fine-grained control over where autocompletion can be used � and by whom.
 projects[search_api_autocomplete][version] = "1.0-beta2"
 
-; SEARCH API SOLR
+; Search API Solr
 ; This module provides a Solr backend for the Search API module. The backend uses, like the popular Apache Solr Search Integration module, Apache Solr servers
 ; for indexing and searching content. It has great performance, is suitable even for use on large commercial websites and supports facets and multi-index
 ; searches.
 projects[search_api_solr][version] = "1.5"
 
-; SEARCH API RANGES
+; Search API Ranges
 projects[search_api_ranges] = "1.5"
 
-; Facet API FACET API
+; Facet API
 ; Allows site builders to easily create and manage faceted search interfaces.
 ; Sub-modules: facetapi, current_search
-projects[facetapi][version] = "1.3"
-; @Patch: Fixes Warning: array_search() expects parameter 2 to be array, null given
-;   From: https://drupal.org/node/1900974#comment-7491106
-projects[facetapi][patch][] = "https://drupal.org/files/facetapi-1900974-9.patch"
+projects[facetapi][version] = "1.5"
 
 ; Facet API Pretty Paths
 ; projects[facetapi_pretty_paths][version] = "1.0-beta2"
@@ -424,7 +431,7 @@ projects[search_api_db][version] = "1.x-dev"
 
 ; MESSAGE
 ; Message module is Drupal 7's answer to activity-streams and a flexible Messaging & Notifications system.
-;projects[message][version] = "1.7"
+; projects[message][version] = "1.7"
 
 ;___________________________________________________
 ;
@@ -452,24 +459,21 @@ projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45
 ; Allows roles to have machine_names and generates a unique role id (rid) based off of the machine_name.
 ; projects[role_export][version] = "1.0"
 
-; MIGRATE
-; The migrate module provides a flexible framework for migrating content into Drupal from other sources (e.g., when converting a web site from another CMS to
-; Drupal). Out-of-the-box, support for creating core Drupal objects such as nodes, users, files, terms, and comments are included - it can easily be extended
-; for migrating other kinds of content. Content is imported and rolled back using a bundled web interface (Migrate UI module) or included Drush commands
-; (strongly recommended).
-;projects[migrate][version] = "2.5"
+; Migrate
+; The migrate module provides a flexible framework for migrating content into Drupal from other sources.
+; projects[migrate][version] = "2.5"
 
 ;___________________________________________________
 ;
 ;  CLIENTSIDE MODULES
 ;___________________________________________________
 
-; CLIENTSIDE VALIDATION
+; Clientside validation
 ; This module adds clientside validation (aka "Ajax form validation") for all forms and webforms using jquery.validate. The included jquery.validate.js file is
 ; patched because we needed to be able to hide empty messages.
-;projects[clientside_validation][download][type] = get
-;projects[clientside_validation][download][directory_name] = "clientside_validation"
-;projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
+; projects[clientside_validation][download][type] = get
+; projects[clientside_validation][download][directory_name] = "clientside_validation"
+; projects[clientside_validation][download][url] = http://ftp.drupal.org/files/projects/clientside_validation-7.x-1.37.tar.gz
 
 ;___________________________________________________
 ;
@@ -481,11 +485,11 @@ projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45
 ; editor integration modules. No other Drupal module is required.
 projects[wysiwyg][version] = "2.2"
 
-; GOOGLE ANALYTICS
+; Google Analytics
 ; Adds the Google Analytics web statistics tracking system to your website.
 projects[google_analytics][version] = "1.3"
 
-; CLAM AV
+; Clam AV
 ; Drupal integration with the ClamAV virus scanner. This module will verify that files uploaded to a site are not infected with a virus, and prevent infected
 ; files from being saved.
 ; projects[clamav][version] = "1.0-alpha2"
@@ -512,14 +516,14 @@ projects[xmlsitemap][version] = "2.0"
 ; Libraries
 ; This module introduces a common repository for libraries.
 ; in sites/all/libraries resp. sites/<domain>/libraries for contributed modules.
-projects[libraries][version] = "2.1"
+projects[libraries][version] = "2.2"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
 projects[ctools][version] = "1.4"
 ; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
 ; Error: strlen() expects parameter 1 to be string, array given in drupal_validate_utf8() in line 1587 of bootstrap.inc
-;projects[ctools][patch][] = "https://drupal.org/files/ctools-n1925018-12.patch"
+; projects[ctools][patch][] = "https://drupal.org/files/ctools-n1925018-12.patch"
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
@@ -532,7 +536,7 @@ projects[format_number][version] = "1.x-dev"
 
 ; Currency
 ; Provides currency conversion, currency information & metadata, and amount/price display functionality.
-projects[currency][version] = "2.0"
+projects[currency][version] = "2.4"
 
 ; Units of Measurement
 ; Provides very simple API for working with unit types collections.
@@ -544,7 +548,7 @@ projects[currency][version] = "2.0"
 
 ; Variable
 ; Provides a registry for meta-data about Drupal variables.
-;projects[variable][version] = "2.2"
+; projects[variable][version] = "2.2"
 
 ; jQuery Update
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
@@ -573,15 +577,15 @@ libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.mi
 ; Prepro
 ; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
 ; to registered preprocessor modules (such as Sassy)
-projects[prepro][version] = "1.2"
+; projects[prepro][version] = "1.4"
 
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
-projects[sassy][version] = "2.13"
+; projects[sassy][version] = "2.13"
 
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
-projects[votingapi][version] = "2.11"
+projects[votingapi][version] = "2.12"
 
 ;___________________________________________________
 ;
@@ -615,20 +619,20 @@ projects[backup_migrate] = "2.4"
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
-projects[local_tasks_blocks] = "2.1"
+; projects[local_tasks_blocks] = "2.1"
 
 ; Admin Tools
 ; Is an addon module for the Admin module, which provides a sidebar navigation for selected roles.
-;projects[admin_tools] = "1.1"
+; projects[admin_tool] = "1.1"
 
 ; Services
 ; A standardized solution of integrating external applications with Drupal. Service callbacks may be used with multiple interfaces like REST, XMLRPC, JSON,
 ; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
-;projects[services][version] = "3.3"
+; projects[services][version] = "3.3"
 
 ; Coder
 ; Utilizes regular expressions to review source code and version upgrade.
-;projects[coder] = "1.2"
+; projects[coder] = "1.2"
 
 ; Diff
 ; Extends Features and node revision functionality.

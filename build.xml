@@ -64,8 +64,8 @@
     <echo message="Assigning drush properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-cache --no-clean --no-gitinfofile --verbose"/>
-      <property name="project.drush.make.args2"   value="-y --no-core --no-cache --no-clean --prepare-install --working-copy --no-gitinfofile --verbose"/>
+      <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-gitinfofile --verbose"/>
+      <property name="project.drush.make.args2"   value="-y --no-core --prepare-install --working-copy --no-gitinfofile --verbose"/>
 
     <echo message="Loading configuration file...${line.separator}" level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
@@ -301,11 +301,6 @@
     <log message="Checking phing scripts" level="verbose" />
       <execute-import-file-target name="run-phing-scripts" />
 
-    <!-- Enabling ADS theme -->
-      <exec command="${project.drush.cmd} -y en ads_theme" dir="${project.dir.src}" />
-      <exec command="${project.drush.cmd} -y en ads" dir="${project.dir.src}" />
-      <exec command="${project.drush.cmd} vset theme_default ads" dir="${project.dir.src}" />
-
     <!-- Done -->
     <log message="" level="info" />
     <log message="Done" level="info" />
@@ -313,6 +308,9 @@
     <log message="NOTE:" level="info" />
     <log message="You can move your newly installed distribution to your webroot" level="info" />
     <log message="Or you should point your webroot at the '${project.dir.src}' folder" level="info" />
+    <log message="Also make sure that the following folders:" level="info" />
+    <log message="${project.drupal.public.dir}, ${project.drupal.private.dir}" level="info" />
+    <log message="are accessible by your web server user." level="info" />
     <log message="" level="info" />
 
   </target>
