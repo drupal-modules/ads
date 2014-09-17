@@ -4,7 +4,7 @@
   ## Initialize build
   -->
   <target name="init">
-    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+    <log message="Assigning phing properties...${line.separator}" level="debug" />
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
       <property name="project.dir.src"            value="${phing.dir}/../src"/>
@@ -16,16 +16,16 @@
   <target name="enable-search-db" depends="init">
 
     <!-- Enabling ADS modules -->
-    <echo message="Enabling ADS search db modules..."/>
+    <log message="Enabling ADS search db modules..." level="info" />
       <exec command="${project.drush.cmd} en ads_search_db"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Run cron -->
-    <echo message="Running Drupal cron...${line.separator}" />
+    <log message="Running Drupal cron...${line.separator}" level="info" />
       <exec command="${project.drush.cmd} core-cron" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
     <!-- Index items for all enabled search_api indexes. -->
-    <echo message="Running Search API indexing...${line.separator}" />
+    <log message="Running Search API indexing...${line.separator}" level="info" />
       <exec command="${project.drush.cmd} search-api-index" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
   </target>

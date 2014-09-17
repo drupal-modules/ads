@@ -52,7 +52,7 @@
   -->
   <target name="build-load-properties">
 
-    <echo message="Assigning project directories and files to phing properties...${line.separator}" level="debug"/>
+    <log message="Assigning project directories and files to phing properties...${line.separator}" level="debug"/>
       <property name="project.dir.dist" value="${phing.dir.build_ads}"/>
       <property name="project.dir.profile" value="${project.dir.dist}"/>
       <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
@@ -60,13 +60,13 @@
       <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
       <property name="project.file.makefile" value="build-ads.make"/>
 
-    <echo message="Assigning drush properties...${line.separator}" level="debug"/>
+    <log message="Assigning drush properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
       <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
       <property name="project.drush.make.args2"   value="-y --no-core --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
 
-    <echo message="Loading configuration file...${line.separator}" level="debug"/>
+    <log message="Loading configuration file...${line.separator}" level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
       <if>
        <not><isset property="project.properties.exist"/></not>
@@ -109,7 +109,7 @@
       <if>
          <isset property="pullfrom" />
          <then>
-            <!-- <echo message"Overriding gihub.user with ${pullfrom}" />
+            <!-- <log message"Overriding gihub.user with ${pullfrom}" />
             <property name="github.user" value="${pullfrom}"/>-->
          </then>
       </if>
@@ -141,7 +141,7 @@
       <!--
         <if><not><equals arg1="${project.drupal.exists}" arg2="0" /></not>
           <then>
-            <echo message="Drupal instance exists, updating the existing sources...${line.separator}" />
+            <log message="Drupal instance exists, updating the existing sources...${line.separator}" />
             <exec command="${project.drush.cmd} make ${project.dir.profile}/${project.file.makefile} ${project.dir.src} ${project.drush.make.args2}" dir="${project.dir.dist}" LogOutput="true" />
           </then>
         </if>
@@ -266,7 +266,7 @@
 
     <!-- Clear cache -->
     <!--
-    <echo message="Clearing Drupal cache...${line.separator}" />
+    <log message="Clearing Drupal cache...${line.separator}" />
       <exec command="${project.drush.cmd} cc all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
     -->
 

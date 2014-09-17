@@ -4,7 +4,7 @@
   ## Initialize build
   -->
   <target name="build-ads-init">
-    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+    <log message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
       <property name="project.dir.src"            value="${phing.dir}/../src"/>
@@ -16,16 +16,16 @@
   <target name="build-ads" depends="build-ads-init">
 
     <!-- Enabling devel_generate module -->
-    <echo message="Enabling Devel Generate module..."/>
+    <log message="Enabling Devel Generate module..." level="info" />
       <exec command="${project.drush.cmd} en devel_generate" 
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
-    <echo message="Generating example adverts ..."/>
+    <log message="Generating example adverts ..." level="info" />
       <exec command="${project.drush.cmd} generate-content --types=advert 50 "
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Disabling devel_generate module -->
-    <echo message="Disabling Devel Generate module..."/>
+    <log message="Disabling Devel Generate module..." level="info" />
       <exec command="${project.drush.cmd} dis devel_generate" dir="${project.dir.src}" />
 
   </target>
