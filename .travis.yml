@@ -1,30 +1,42 @@
-language: php
-php:
-  - 5.3
-before_script:
+# Travis CI build configuration config file.
+# Used environment variables (see: http://docs.travis-ci.com/user/ci-environment/):
+#   TRAVIS_BUILD_DIR - The absolute path to the directory where the repository being built has been copied on the worker.
+#   TRAVIS_REPO_SLUG - The slug (in form: owner_name/repo_name) of the repository currently being built. (for example, "travis-ci/travis-build").
+
+env:
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
+
+before_install:
+# Use this to prepare the system to install prerequisites or dependencies.
+# Commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
   - env
+  - sudo apt-get update
+  - sudo sysctl kernel.hostname=ads.localhost
   - sudo cp travis/travis.known_hosts ~/.ssh/known_hosts
   - sudo cat /etc/ssh/ssh_config
   - sudo echo -e "Host github.com\n User git\n StrictHostKeyChecking no\n PasswordAuthentication no\n CheckHostIP no\n BatchMode yes\n" >> ~/.ssh/config
   - sudo cat ~/.ssh/config
   - sudo cat ~/.ssh/known_hosts
   - cp travis/travis.build.properties build.properties
-  - sudo sysctl kernel.hostname=ads.localhost
-  - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
-  - sudo dpkg -i puppetlabs-release-precise.deb
-  - sudo apt-get update
+
+install:
+# Use this to install any prerequisites or dependencies necessary to run your build.
+  - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb && sudo dpkg -i puppetlabs-release-precise.deb
   - sudo ./configure install
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp
   - sudo puppet apply puppet/solr.dev.pp
+
+before_script:
+# Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
   - sudo mkdir /var/www/ads
   - sudo puppet apply puppet/ads.dev.configure-site.pp
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - sudo drush --version
-env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
+
 script:
+# All commands must exit with code 0 on success. Anything else is considered failure.
   - sudo make
   - sudo make install
   - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
@@ -32,14 +44,28 @@ script:
 # - sudo wget -qO- http://ads.localhost/ | cat
   - pwd
   - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --url http://ads.localhost/ --concurrency 16 --verbose System
+
+# The standard Unix exit code of "0" means the build passed; everything else is treated as failure.
 after_success:
   - which html2text || sudo apt-get install html2text
   - $SRCDIR/scripts/drupal.sh http://ads.localhost/ | html2text
   - pwd && drush status-report --severity=2
+
 after_failure:
   - cd $SRCDIR && pwd && drush status-report
+
+after_script:
+# Test result is exported to TRAVIS_TEST_RESULT.
+  - echo $TRAVIS_TEST_RESULT
+
 notifications:
   email: false
+
 addons:
   hosts:
     - ads.localhost
+
+language: php
+
+php:
+  - 5.3
