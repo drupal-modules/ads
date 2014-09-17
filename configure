@@ -36,13 +36,13 @@ if [ ! -n "$PUPPET_CMD" ]; then
   fi
 fi
 
-if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
+if [ ! -n "`sudo puppet-module list | grep rafaelfc-pear`" ]; then
   if [ "x$1" = "xinstall" ]; then
-    echo "Installing rafaelfc-pear puppet module..."
-    $SUDO puppet module install rafaelfc-pear
+    echo "Installing rafaelfc-pear puppet-module..."
+    $SUDO puppet-module install rafaelfc-pear
   else
-    echo "${RED}Detected missing puppet module \"rafaelfc-pear\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install rafaelfc-pear${NC}"
+    echo "${RED}Detected missing puppet-module \"rafaelfc-pear\"${NC}, you may install it via:"
+    echo "  ${BLUE}sudo puppet-module install rafaelfc-pear${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -50,13 +50,13 @@ if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
   fi
 fi
 
-if [ ! -n "`sudo puppet module list | grep puppetlabs-apache`" ]; then
+if [ ! -n "`sudo puppet-module list | grep puppetlabs-apache`" ]; then
   if [ "x$1" = "xinstall" ]; then
-    echo "Installing puppetlabs-apache puppet module..."
-    $SUDO puppet module install puppetlabs-apache
+    echo "Installing puppetlabs-apache puppet-module..."
+    $SUDO puppet-module install puppetlabs-apache
   else
-    echo "${RED}Detected missing puppet module \"puppetlabs-apache\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install puppetlabs-apache${NC}"
+    echo "${RED}Detected missing puppet-module \"puppetlabs-apache\"${NC}, you may install it via:"
+    echo "  ${BLUE}sudo puppet-module install puppetlabs-apache${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -64,13 +64,13 @@ if [ ! -n "`sudo puppet module list | grep puppetlabs-apache`" ]; then
   fi
 fi
 
-if [ ! -n "`sudo puppet module list | grep puppetlabs-mysql`" ]; then
+if [ ! -n "`sudo puppet-module list | grep puppetlabs-mysql`" ]; then
   if [ "x$1" = "xinstall" ]; then
-    echo "Installing puppetlabs-mysql puppet module..."
-    $SUDO puppet module install puppetlabs-mysql
+    echo "Installing puppetlabs-mysql puppet-module..."
+    $SUDO puppet-module install puppetlabs-mysql
   else
-    echo "${RED}Detected missing puppet module \"puppetlabs-mysql\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install puppetlabs-mysql${NC}"
+    echo "${RED}Detected missing puppet-module \"puppetlabs-mysql\"${NC}, you may install it via:"
+    echo "  ${BLUE}sudo puppet-module install puppetlabs-mysql${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -86,8 +86,8 @@ fi
 echo "${GREEN}Configuration successful.${NC}"
 
 if [ "x$1" = "xinstall" ]; then
-  echo "Configuring puppet modules..."
-  puppet apply puppet/ads.dev.pp
+  echo "Configuring puppet-modules..."
+  puppet puppet/ads.dev.pp
   echo ""
   DONE=1
 else
