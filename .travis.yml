@@ -18,8 +18,6 @@ before_install:
   - sudo cat ~/.ssh/config
   - sudo cat ~/.ssh/known_hosts
   - cp travis/travis.build.properties build.properties
-  - sudo puppet module list
-  - sudo gem list
 
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
@@ -28,6 +26,8 @@ install:
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp
   - sudo puppet apply puppet/solr.dev.pp
+  - sudo puppet module list
+  - sudo gem list
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
