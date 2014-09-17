@@ -4,7 +4,10 @@
 #   TRAVIS_REPO_SLUG - The slug (in form: owner_name/repo_name) of the repository currently being built. (for example, "travis-ci/travis-build").
 
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
+  - OSTYPE="linux"
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no "
+  - SRCDIR="/var/www/ads"
+  - DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
 
 before_install:
 # Use this to prepare the system to install prerequisites or dependencies.
