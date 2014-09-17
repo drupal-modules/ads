@@ -31,6 +31,7 @@ before_script:
   - sudo puppet apply puppet/ads.dev.configure-site.pp
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
+  - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
   - sudo drush --version
 
 script:
