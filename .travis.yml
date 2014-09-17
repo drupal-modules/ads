@@ -9,14 +9,14 @@ before_install:
   - env
   - sudo apt-get update
   - sudo sysctl kernel.hostname=ads.localhost
-  - cat travis/travis.known_hosts | tee -a ~/.ssh/known_hosts
-  - ln -s travis/travis.build.properties build.properties
+  - cat $TRAVIS_BUILD_DIR/travis/travis.known_hosts | tee -a ~/.ssh/known_hosts
+  - ln -s $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - sudo echo -e "Host github.com\n User git\n StrictHostKeyChecking no\n PasswordAuthentication no\n CheckHostIP no\n BatchMode yes\n" >> ~/.ssh/config
   - sudo cat /etc/ssh/ssh_config ~/.ssh/config ~/.ssh/known_hosts
 
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
-# - sudo wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb && sudo dpkg -i puppetlabs-release-precise.deb
+  - curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | dpkg --install -
   - sudo ./configure install
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp

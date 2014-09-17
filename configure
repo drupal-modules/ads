@@ -49,7 +49,7 @@ if [ ! -n "$PUPPET_CMD" ]; then
   fi
 fi
 
-if [ "`$SUDO puppet module list; echo $?`" -ne 0 ]; then
+if [ "`$SUDO puppet module list > /dev/null; echo $?`" -ne 0 ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet-module gem..."
     $SUDO gem install puppet-module
