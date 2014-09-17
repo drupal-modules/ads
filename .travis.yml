@@ -37,7 +37,8 @@ before_script:
 script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
   - sudo make
-# - sudo make install # Do not install this repo.
+# Note: Do not install build in this repo.
+# - sudo make install
 # - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
 # - sudo chmod -R 777 $SRCDIR/
 # - sudo wget -qO- http://ads.localhost/ | cat
