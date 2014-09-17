@@ -57,6 +57,12 @@ service { 'postfix' :
   require => Package['postfix'],
 }
 
+# Install a Ruby Gem.
+package { 'puppet-module':
+  ensure   => 'installed',
+  provider => 'gem',
+}
+
 #
 # PHP PEAR packages
 #

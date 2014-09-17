@@ -24,8 +24,21 @@ fi
 if [ ! -n "$PUPPET_CMD" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet..."
-    $SUDO apt-get install puppet # This is Linux command only
-    echo "Installed puppet in version `puppet --version`"
+    case "$OSTYPE" in
+      linux-gnu*) # Debian
+        $SUDO apt-get install puppet
+        ;;
+      linux*)
+        $SUDO apt-get install puppet
+        ;;
+      darwin*) # Mac (OSX)
+        $SUDO brew install puppet
+        ;;
+      *)
+        echo System $OSTYPE not supported.
+        ;;
+    esac
+    which puppet && echo "Installed puppet in version `puppet --version`"
   else
     echo "${RED}Detected missing puppet command${NC}, you may install it via:"
     echo "  ${BLUE}sudo apt-get install puppet${NC}"
@@ -36,13 +49,13 @@ if [ ! -n "$PUPPET_CMD" ]; then
   fi
 fi
 
-if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
+if [ "`$SUDO puppet module list; echo $?`" -ne 0 ]; then
   if [ "x$1" = "xinstall" ]; then
-    echo "Installing rafaelfc-pear puppet module..."
-    $SUDO puppet module install rafaelfc-pear
+    echo "Installing puppet-module gem..."
+    $SUDO gem install puppet-module
   else
-    echo "${RED}Detected missing puppet module \"rafaelfc-pear\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install rafaelfc-pear${NC}"
+    echo "${RED}Detected missing puppet module subcommand, you may install it via:"
+    echo "  ${BLUE}${SUDO} gem install puppet-module${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -50,13 +63,27 @@ if [ ! -n "`sudo puppet module list | grep rafaelfc-pear`" ]; then
   fi
 fi
 
-if [ ! -n "`sudo puppet module list | grep puppetlabs-apache`" ]; then
+if [ ! -n "`$SUDO puppet module list | grep rafaelfc-pear`" ]; then
+  if [ "x$1" = "xinstall" ]; then
+    echo "Installing rafaelfc-pear puppet module..."
+    $SUDO puppet module install rafaelfc-pear
+  else
+    echo "${RED}Detected missing puppet module \"rafaelfc-pear\"${NC}, you may install it via:"
+    echo "  ${BLUE}${SUDO} puppet module install rafaelfc-pear${NC}"
+    echo "OR just re-run script with:"
+    echo "  ${BLUE}$0 install${NC}"
+    echo ""
+    ERROR=1
+  fi
+fi
+
+if [ ! -n "`$SUDO puppet module list | grep puppetlabs-apache`" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppetlabs-apache puppet module..."
     $SUDO puppet module install puppetlabs-apache
   else
     echo "${RED}Detected missing puppet module \"puppetlabs-apache\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install puppetlabs-apache${NC}"
+    echo "  ${BLUE}${SUDO} puppet module install puppetlabs-apache${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -70,7 +97,7 @@ if [ ! -n "`sudo puppet module list | grep puppetlabs-mysql`" ]; then
     $SUDO puppet module install puppetlabs-mysql
   else
     echo "${RED}Detected missing puppet module \"puppetlabs-mysql\"${NC}, you may install it via:"
-    echo "  ${BLUE}sudo puppet module install puppetlabs-mysql${NC}"
+    echo "  ${BLUE}${SUDO} puppet module install puppetlabs-mysql${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
     echo ""
@@ -92,7 +119,7 @@ if [ "x$1" = "xinstall" ]; then
   DONE=1
 else
   echo "${YELLOW}You need to run puppet to apply configuration requirements, you may do it via:${NC}"
-  echo "  ${BLUE}$SUDO puppet -v puppet/ads.dev.pp${NC}"
+  echo "  ${BLUE}${SUDO} puppet -v puppet/ads.dev.pp${NC}"
   echo "OR just re-run script with:"
   echo "  ${BLUE}$0 install${NC}"
   echo ""
