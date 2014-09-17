@@ -45,7 +45,7 @@ projects[ads][type] = profile
 projects[ads][download][type] = git
 projects[ads][download][url] = http://git.drupal.org/project/ads.git
 projects[ads][download][branch] = 7.x-1.x
-projects[ads][subdir] = "./"
+; projects[ads][subdir] = "./"
 
 ;____________________
 ;

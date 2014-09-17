@@ -53,7 +53,7 @@ projects[ads][download][branch] = master
 
 ; REQUIRED ADS packages
 ; Provides features for ads distribution.
-includes[] = includes/build-ads-features.make
+includes[] = includes/build-ads-features-dev.make
 
 ; OPTIONAL ADS packages (PLEASE CHANGE according to your needs)
 
