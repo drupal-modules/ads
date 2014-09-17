@@ -29,8 +29,6 @@ projects[drupal][type] = core
 ; ! place?
 ; defaults[projects][subdir] = contrib
 
-defaults[projects][subdir] = contrib
-
 ; Include the core definition for how to build Drupal
 includes[] = includes/drupal-org-core.make
 includes[] = includes/drupal-org-contrib.make
