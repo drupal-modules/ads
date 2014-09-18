@@ -4,7 +4,7 @@
   ## Initialize build
   -->
   <target name="build-users-init">
-    <log message="Assigning phing properties...${line.separator}" level="debug"/>
+    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
       <property name="project.dir.src"            value="${phing.dir}/../src"/>
@@ -16,16 +16,16 @@
   <target name="build-users" depends="build-users-init">
 
     <!-- Enabling devel_generate module -->
-    <log message="Enabling Devel Generate module..." level="info" />
+    <echo message="Enabling Devel Generate module..." level="info" />
       <exec command="${project.drush.cmd} en devel_generate"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
-    <log message="Generating example users..." level="info" />
+    <echo message="Generating example users..." level="info" />
       <exec command="${project.drush.cmd} generate-users 20 --pass=password"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <!-- Disabling devel_generate module -->
-    <log message="Disabling Devel Generate module..." level="info" />
+    <echo message="Disabling Devel Generate module..." level="info" />
       <exec command="${project.drush.cmd} dis devel_generate" dir="${project.dir.src}" />
 
   </target>
