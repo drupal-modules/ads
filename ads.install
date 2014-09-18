@@ -7,6 +7,41 @@
  */
 
 /**
+ * Implements hook_module_enabled().
+ */
+function ads_modules_enabled($modules) {
+  if (in_array('user', $modules)) {
+    $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
+
+    if (!file_exists($install_state_path)) {
+      return;
+    }
+
+    $install_state = json_decode(file_get_contents($install_state_path), TRUE);
+
+    // Installation takes place.
+    if (isset($install_state['forms']['variables'])) {
+      foreach ($install_state['forms']['variables'] as $name => $value) {
+        variable_set($name, $value);
+      }
+
+      if (in_array('file_public_path', $install_state['forms']['variables'])) {
+        file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      }
+
+      if (in_array('file_private_path', $install_state['forms']['variables'])) {
+        file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      }
+
+      if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
+        file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      }
+    }
+
+  }
+}
+
+/**
  * Implements hook_install_tasks().
  */
 function ads_install_tasks($install_state) {
@@ -21,10 +56,6 @@ function ads_install_tasks($install_state) {
   // drupal_get_messages('status', TRUE);
 
   $tasks = array(
-    'ads_set_variables' => array(
-      'display_name' => st('Set Drupal variables'),
-      'type' => 'normal',
-    ),
     'ads_install_additional_modules' => array(
       'display_name' => st('Install additional modules'),
       'type' => 'batch',
@@ -53,38 +84,12 @@ function ads_generate_example_users() {
 }
 
 /**
- * Task callback: Set Drupal variables.
- */
-function ads_set_variables($install_state)
-{
-  if (isset($install_state['forms']['variables'])) {
-    foreach ($install_state['forms']['variables'] as $name => $value) {
-      variable_set($name, $value);
-    }
-  }
-}
-
-/**
  * Implements hook_install_tasks_alter().
  */
 function ads_install_tasks_alter(&$tasks, $install_state) {
   // Skip the profile selection, and use the 'exclusive' property to directly
   // install the ads distribution. Requires core patch: #1727430.
   $tasks['install_select_profile']['display'] = FALSE;
-
-  ads_set_variables($install_state);
-
- if (in_array('file_public_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
-
-  if (in_array('file_private_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
-
-  if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
 
   // Exchange the logo that is used in the installer.
   $theme_settings = array(
@@ -94,6 +99,10 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
     'logo_upload' => '',
   );
   $GLOBALS['conf']['theme_seven_settings'] = $theme_settings;
+
+  $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
+
+  file_put_contents($install_state_path, json_encode($install_state));
 }
 
 /**
