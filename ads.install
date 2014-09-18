@@ -19,21 +19,41 @@ function ads_modules_enabled($modules) {
 
     $install_state = json_decode(file_get_contents($install_state_path), TRUE);
 
+    if (drupal_is_cli()) {
+      echo "Setting Drupal variables:\n";
+    }
+
     // Installation takes place.
     if (isset($install_state['forms']['variables'])) {
       foreach ($install_state['forms']['variables'] as $name => $value) {
+        if (drupal_is_cli()) {
+          echo ' - "' . $name . '" = "' . $value . "\"\n";
+        }
+
         variable_set($name, $value);
       }
 
       if (in_array('file_public_path', $install_state['forms']['variables'])) {
+        if (drupal_is_cli()) {
+          echo 'Preparing Drupal public files directory "' . $install_state['forms']['variables']['file_public_path'] . "\"\n";
+        }
+
         file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
       }
 
       if (in_array('file_private_path', $install_state['forms']['variables'])) {
+        if (drupal_is_cli()) {
+          echo 'Preparing Drupal private files directory "' . $install_state['forms']['variables']['file_private_path'] . "\"\n";
+        }
+
         file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
       }
 
       if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
+        if (drupal_is_cli()) {
+          echo 'Preparing Drupal temporary files directory "' . $install_state['forms']['variables']['file_temporary_path'] . "\"\n";
+        }
+
         file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
       }
     }
