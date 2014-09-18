@@ -13,3 +13,5 @@ users:
 content:
 	phing -f phing/build-content.xml
 
+update:
+	sh ./scripts/update_src.sh
