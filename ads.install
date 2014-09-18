@@ -20,19 +20,6 @@ function ads_install_tasks($install_state) {
   // Remove any status messages that might have been set. They are unneeded.
   // drupal_get_messages('status', TRUE);
 
-  if (in_array('file_public_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
-
-  if (in_array('file_private_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
-
-  if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
-    file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-  }
-
-
   $tasks = array(
     'ads_set_variables' => array(
       'display_name' => st('Set Drupal variables'),
@@ -84,6 +71,20 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
   // Skip the profile selection, and use the 'exclusive' property to directly
   // install the ads distribution. Requires core patch: #1727430.
   $tasks['install_select_profile']['display'] = FALSE;
+
+  ads_set_variables($install_state);
+
+ if (in_array('file_public_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+
+  if (in_array('file_private_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+
+  if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
 
   // Exchange the logo that is used in the installer.
   $theme_settings = array(
