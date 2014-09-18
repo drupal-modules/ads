@@ -16,12 +16,12 @@
 
     <echo message="Executing drush ads-configure for all the ads modules..." level="info" />
 
-    <echo message="Enabling ads_setup module" indent="1" level="verbose" />
+    <log message="Enabling ads_setup module" indent="1" level="verbose" />
       <exec command="${project.drush.cmd} -y en ads_setup" dir="${project.dir.src}" LogOutput="true" />
 
     <property file="${project.dir.dist}/build.properties" />
 
-    <echo message="Configuring modules..." indent="1" level="info" />
+    <log message="Configuring modules..." indent="1" level="info" />
       <parse-properties-file-configure />
       <exec command="${project.drush.cmd} ads-configure ${parsed_path}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
