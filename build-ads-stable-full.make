@@ -30,10 +30,10 @@ projects[drupal][type] = core
 ; defaults[projects][subdir] = contrib
 
 ; Include the core definition for how to build Drupal
-includes[] = includes/drupal-org-core.make
-includes[] = includes/drupal-org-contrib.make
-includes[] = includes/drupal-org-themes.make
-includes[] = includes/drupal-org-libraries.make
+includes[] = drush/drupal-org-core.make
+includes[] = drush/drupal-org-contrib.make
+includes[] = drush/drupal-org-themes.make
+includes[] = drush/drupal-org-libraries.make
 
 ;____________________
 ;
@@ -54,73 +54,73 @@ projects[ads][download][branch] = 7.x-1.x
 
 ; REQUIRED ADS packages
 ; Provides features for ads distribution.
-includes[] = includes/build-ads-features.make
+includes[] = drush/includes/build-ads-features.make
 
 ; OPTIONAL ADS packages (PLEASE CHANGE according to your needs)
 
 ; Provides common Animals features for ADS Drupal distribution.
-includes[] = includes/build-ads-animals.make
+includes[] = drush/includes/build-ads-animals.make
 
 ; Provides common Art features for ADS Drupal distribution.
-includes[] = includes/build-ads-art.make
+includes[] = drush/includes/build-ads-art.make
 
 ; Provides common Auctions features for ADS Drupal distribution.
-includes[] = includes/build-ads-auctions.make
+includes[] = drush/includes/build-ads-auctions.make
 
 ; Provides common Business features for ADS Drupal distribution.
-includes[] = includes/build-ads-business.make
+includes[] = drush/includes/build-ads-business.make
 
 ; Provides common Community features for ADS Drupal distribution.
-includes[] = includes/build-ads-community.make
+includes[] = drush/includes/build-ads-community.make
 
 ; Provides common Education features for ADS Drupal distribution.
-includes[] = includes/build-ads-education.make
+includes[] = drush/includes/build-ads-education.make
 
 ; Provides common Dating features for ADS Drupal distribution.
-includes[] = includes/build-ads-dating.make
+includes[] = drush/includes/build-ads-dating.make
 
 ; Provides common Finance features for ADS Drupal distribution.
-includes[] = includes/build-ads-finance.make
+includes[] = drush/includes/build-ads-finance.make
 
 ; Provides common IT features for ADS Drupal distribution.
-includes[] = includes/build-ads-it.make
+includes[] = drush/includes/build-ads-it.make
 
 ; Provides common Items features for ADS Drupal distribution.
-includes[] = includes/build-ads-items.make
+includes[] = drush/includes/build-ads-items.make
 
 ; Provides common Jobs features for ADS Drupal distribution.
-includes[] = includes/build-ads-jobs.make
+includes[] = drush/includes/build-ads-jobs.make
 
 ; Provides common Music features for ADS Drupal distribution.
-includes[] = includes/build-ads-music.make
+includes[] = drush/includes/build-ads-music.make
 
 ; Provides common Properties features for ADS Drupal distribution.
-includes[] = includes/build-ads-properties.make
+includes[] = drush/includes/build-ads-properties.make
 
 ; Provides common Services features for ADS Drupal distribution.
-includes[] = includes/build-ads-services.make
+includes[] = drush/includes/build-ads-services.make
 
 ; Provides common Travel features for ADS Drupal distribution.
-includes[] = includes/build-ads-travel.make
+includes[] = drush/includes/build-ads-travel.make
 
 ; Provides common Vehicles features for ADS Drupal distribution.
-includes[] = includes/build-ads-vehicles.make
+includes[] = drush/includes/build-ads-vehicles.make
 
 ; ADS theme.
-includes[] = includes/build-ads-theme.make
+includes[] = drush/includes/build-ads-theme.make
 
 ;-------------------
 ; Extra ADS packages
 ;-------------------
 
 ; Provides common Development features for ADS Drupal distribution.
-; includes[] = includes/build-ads-devel.make
+; drush/includes[] = drush/includes/build-ads-devel.make
 
 ; Restricted ADS packages
 
 ; Internal custom code
-; includes[] = includes/build-ads-premium.make
+; drush/includes[] = drush/includes/build-ads-premium.make
 
 ; Internal custom code
-; includes[] = includes/build-ads-custom.make
+; drush/includes[] = drush/includes/build-ads-custom.make
 
