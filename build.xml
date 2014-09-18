@@ -257,8 +257,10 @@
   <target name="post-install-drupal" depends="build-init">
 
     <!-- Somehow ads_content_types is not enabling votingapi and fivestar modules even if fivestar in its dependency, we have to enable them explicitly -->
+    <!--
     <log message="Enabling votingapi and fivestar modulse (should be enabled along with ads_content_types, assuming it's a features module bug)" level="verbose" />
       <exec command="${project.drush.cmd} en votingapi fivestar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+    -->
 
     <!-- Update Database and Features -->
     <log message="Updating database" level="verbose" />
