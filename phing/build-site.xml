@@ -30,6 +30,10 @@
     <echo message="Running Search API indexing...${line.separator}" level="info" />
       <exec command="${project.drush.cmd} search-api-index" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
+    <!-- Clear caches -->
+    <echo message="Clearing caches...${line.separator}" level="info" />
+      <exec command="${project.drush.cmd} cc all" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
   </target>
 
 </project>

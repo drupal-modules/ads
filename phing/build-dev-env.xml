@@ -35,6 +35,10 @@
     <echo message="Disabling not needed modules..." level="info" />
       <exec command="${project.drush.cmd} dis toolbar" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
 
+    <!-- Clear menu registry -->
+    <echo message="Clearing menu registry...${line.separator}" level="info" />
+      <exec command="${project.drush.cmd} cc menu" dir="${project.dir.src}" checkreturn="true" LogOutput="true" spawn="true" />
+
     <!-- Enabling ADS modules -->
     <!--
     <echo message="Enabling ADS development modules..." level="info" />
