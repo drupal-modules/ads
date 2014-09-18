@@ -20,6 +20,19 @@ function ads_install_tasks($install_state) {
   // Remove any status messages that might have been set. They are unneeded.
   // drupal_get_messages('status', TRUE);
 
+  if (in_array('file_public_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+
+  if (in_array('file_private_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+
+  if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
+    file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+
+
   $tasks = array(
     'ads_set_variables' => array(
       'display_name' => st('Set Drupal variables'),
@@ -60,18 +73,6 @@ function ads_set_variables($install_state)
   if (isset($install_state['forms']['variables'])) {
     foreach ($install_state['forms']['variables'] as $name => $value) {
       variable_set($name, $value);
-    }
-
-    if (in_array('file_public_path', $install_state['forms']['variables'])) {
-      file_prepare_directory($install_state['forms']['variables']['file_public_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-    }
-
-    if (in_array('file_private_path', $install_state['forms']['variables'])) {
-      file_prepare_directory($install_state['forms']['variables']['file_private_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-    }
-
-    if (in_array('file_temporary_path', $install_state['forms']['variables'])) {
-      file_prepare_directory($install_state['forms']['variables']['file_temporary_path'], FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
     }
   }
 }
