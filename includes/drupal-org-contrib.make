@@ -131,6 +131,11 @@ projects[votingapi][version] = "2.12"
 ; Adds a clean, attractive voting widget to nodes and comments and any entity.
 projects[fivestar][version] = "2.1"
 
+; Simple hierarchical select
+; Defines a new form widget for taxonomy fields to select a term by "browsing" through the vocabularies hierarchy.
+; Required by: ads_content_types
+projects[shs][version] = "1.6"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
