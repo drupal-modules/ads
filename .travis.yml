@@ -21,7 +21,6 @@ install:
   - sudo puppet apply puppet/ads.dev.pp
   - sudo puppet apply puppet/solr.dev.pp
   - sudo puppet module list
-  - sudo gem list
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).

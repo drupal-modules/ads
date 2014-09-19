@@ -144,11 +144,11 @@ fi
 
 if [ "${DONE}" = "1" ]; then
   echo "Now you can build ADS distribution by the following command:"
-  echo "  ${BLUE}phing${NC}"
+  echo "  ${BLUE}make (or phing)${NC}"
   echo ""
 else
   echo "${YELLOW}After you finish, you will be able to build ADS distribution by the following command:${NC}"
-  echo "  ${BLUE}phing${NC}"
+  echo "  ${BLUE}make (or phing)${NC}"
   echo ""
 fi
 
