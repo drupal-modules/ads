@@ -40,20 +40,21 @@ fi
 if [ ! -n "$PUPPET_CMD" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet..."
+    # Add the repo for your distribution if dpkg is present.
+    which dpkg && (curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && ls && $SUDO dpkg -i puppetlabs-release-precise.deb)
+    # >= dpkg >= 1.17.7 # curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | sudo dpkg --install -
     case "$OSTYPE" in
       linux-gnu*) # Debian
-        $SUDO apt-get install puppet
+        $SUDO apt-get -y install puppet
         ;;
       linux*)
-        $SUDO apt-get install puppet
+        $SUDO apt-get -y install puppet
         ;;
       darwin*) # Mac (OSX)
         $SUDO brew install puppet
         ;;
       *)
-        which dpkg && (curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && $SUDO dpkg -i puppetlabs-release-precise.deb) ||
-          (which apt-get && $SUDO apt-get install puppet || echo System $OSTYPE not supported.)
-        # curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | sudo dpkg --install - # > dpkg >= 1.17.7
+        which apt-get && $SUDO apt-get -y install puppet || echo "System $OSTYPE not supported."
         ;;
     esac
     which puppet && echo "Installed puppet in version `puppet --version`" || echo "Installation of puppet failed."

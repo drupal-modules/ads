@@ -16,8 +16,6 @@ before_install:
 
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
-# - curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && sudo dpkg -i puppetlabs-release-precise.deb && puppet --version
-# - curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | sudo dpkg --install - # > dpkg >= 1.17.7
   - sudo sh -x ./configure install
   - sudo puppet apply puppet/travis.pp
   - sudo puppet apply puppet/ads.dev.pp
