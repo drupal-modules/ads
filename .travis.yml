@@ -12,7 +12,7 @@ before_install:
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
   - sudo sh ./configure install
-  - puppet apply puppet/travis.pp && puppet apply puppet/ads.dev.pp && puppet apply puppet/solr.dev.pp && puppet module list
+  - sudo puppet apply puppet/travis.pp && sudo puppet apply puppet/ads.dev.pp && sudo puppet apply puppet/solr.dev.pp && sudo puppet module list
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
