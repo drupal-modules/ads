@@ -14,6 +14,22 @@ BLUE=$(tput setaf 6)
 YELLOW=$(tput setaf 3)
 NC=$(tput sgr 0)
 
+# Show distribution details.
+case "$OSTYPE" in
+  linux-gnu*) # Debian
+    lsb_release -a
+  ;;
+  linux*)
+    lsb_release -a
+  ;;
+  darwin*) # Mac (OSX)
+    uname -a
+  ;;
+  *)
+    uname -a
+  ;;
+esac
+
 # Check if user has sudo access
 if sudo -n true 2>/dev/null; then
   SUDO="sudo"
