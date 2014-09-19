@@ -7,11 +7,7 @@ before_install:
 # Use this to prepare the system to install prerequisites or dependencies.
 # Commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
   - env
-  - sudo apt-get update
   - sudo sysctl kernel.hostname=ads.localhost
-  - cat $TRAVIS_BUILD_DIR/travis/travis.known_hosts | tee -a ~/.ssh/known_hosts
-  - ln -s $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
-  - sudo echo -e "Host github.com\n User git\n StrictHostKeyChecking no\n PasswordAuthentication no\n CheckHostIP no\n BatchMode yes\n" >> ~/.ssh/config
   - sudo cat /etc/ssh/ssh_config ~/.ssh/config ~/.ssh/known_hosts
 
 install:
@@ -33,6 +29,7 @@ before_script:
 
 script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
+  - ln -s $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - sudo make
 # Note: Do not install build in this repo.
 # - sudo make install
