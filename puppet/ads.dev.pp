@@ -67,6 +67,7 @@ include pear
 
 # PEAR
 pear::package { "PEAR": }
+pear::package { "Console_Table": }
 
 # Phing
 pear::package { "Phing":
