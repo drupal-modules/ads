@@ -12,10 +12,7 @@ before_install:
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
   - sudo sh ./configure install
-  - sudo puppet apply puppet/travis.pp
-  - sudo puppet apply puppet/ads.dev.pp
-  - sudo puppet apply puppet/solr.dev.pp
-  - sudo puppet module list
+  - sudo puppet apply puppet/travis.pp && sudo puppet apply puppet/ads.dev.pp && sudo puppet apply puppet/solr.dev.pp && sudo puppet module list
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
@@ -29,9 +26,9 @@ before_script:
 script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
   - ln -s $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
-  - sudo make
+  - make
 # Note: Do not install build in this repo.
-# - sudo make install
+# - make install
 # - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
 # - sudo chmod -R 777 $SRCDIR/
 # - sudo wget -qO- http://ads.localhost/ | cat
