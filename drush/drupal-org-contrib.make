@@ -136,6 +136,11 @@ projects[fivestar][version] = "2.1"
 ; Required by: ads_content_types
 projects[shs][version] = "1.6"
 
+; Rate
+; This module provides flexible voting widgets for nodes and comments.
+; Required by: ads_advert
+projects[rate][version] = "1.7"
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
