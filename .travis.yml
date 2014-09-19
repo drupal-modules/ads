@@ -21,12 +21,13 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
-  - sudo drush --version
+  - drush --version
 
 script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
-  - ln -s $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
+  - ln -sv $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - make
+# Note: make without sudo it complains that /home/travis/.drush/cache is not writable.
 # Note: Do not install build in this repo.
 # - make install
 # - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
@@ -50,7 +51,7 @@ after_script:
   - echo $TRAVIS_TEST_RESULT
 
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="sudo drush -y -r $SRCDIR --uri=http://ads.localhost/"
+  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=http://ads.localhost/"
 
 notifications:
   email: false
