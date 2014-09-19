@@ -12,13 +12,13 @@ before_install:
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
   - sudo sh ./configure install
-  - sudo puppet apply puppet/travis.pp && sudo puppet apply puppet/ads.dev.pp && sudo puppet apply puppet/solr.dev.pp && sudo puppet module list
+  - puppet apply puppet/travis.pp && puppet apply puppet/ads.dev.pp && puppet apply puppet/solr.dev.pp && puppet module list
 
 before_script:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
   - sudo mkdir /var/www/ads
   - sudo puppet apply puppet/ads.dev.configure-site.pp
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -uroot
   - echo "CREATE DATABASE travis_ads_test DEFAULT CHARACTER SET utf8" | mysql -uroot -proot
   - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
   - drush --version
