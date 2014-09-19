@@ -53,9 +53,10 @@ if [ ! -n "$PUPPET_CMD" ]; then
       *)
         which dpkg && (curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && $SUDO dpkg -i puppetlabs-release-precise.deb) ||
           (which apt-get && $SUDO apt-get install puppet || echo System $OSTYPE not supported.)
+        # curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | sudo dpkg --install - # > dpkg >= 1.17.7
         ;;
     esac
-    which puppet && echo "Installed puppet in version `puppet --version`"
+    which puppet && echo "Installed puppet in version `puppet --version`" || echo "Installation of puppet failed."
   else
     echo "${RED}Detected missing puppet command${NC}, you may install it via:"
     echo "  ${BLUE}sudo apt-get install puppet${NC}"
