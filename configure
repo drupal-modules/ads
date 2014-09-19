@@ -44,17 +44,14 @@ if [ ! -n "$PUPPET_CMD" ]; then
     which dpkg && (curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && ls && $SUDO dpkg -i puppetlabs-release-precise.deb)
     # >= dpkg >= 1.17.7 # curl -o- https://apt.puppetlabs.com/puppetlabs-release-precise.deb | sudo dpkg --install -
     case "$OSTYPE" in
-      linux-gnu*) # Debian
-        $SUDO apt-get -y install puppet
-        ;;
       linux*)
-        $SUDO apt-get -y install puppet
+        $SUDO apt-get update && $SUDO apt-get -y install puppet
         ;;
       darwin*) # Mac (OSX)
         $SUDO brew install puppet
         ;;
       *)
-        which apt-get && $SUDO apt-get -y install puppet || echo "System $OSTYPE not supported."
+        which apt-get && $SUDO apt-get update && $SUDO apt-get -y install puppet || echo "System $OSTYPE not supported."
         ;;
     esac
     which puppet && echo "Installed puppet in version `puppet --version`" || echo "Installation of puppet failed."
@@ -68,12 +65,12 @@ if [ ! -n "$PUPPET_CMD" ]; then
   fi
 fi
 
-if [ ! -n "`$SUDO puppet module list`" ]; then
+if [ ! "`$SUDO puppet module list`" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet-module gem..."
     $SUDO gem install puppet-module
   else
-    echo "${RED}Detected missing puppet module subcommand, you may install it via:"
+    echo "${RED}Detected missing puppet module subcommand, so you should upgrade your puppet, you install it via:"
     echo "  ${BLUE}${SUDO} gem install puppet-module${NC}"
     echo "OR just re-run script with:"
     echo "  ${BLUE}$0 install${NC}"
