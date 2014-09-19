@@ -8,7 +8,6 @@ before_install:
 # Commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
   - env
   - sudo sysctl kernel.hostname=ads.localhost
-  - sudo cat /etc/ssh/ssh_config ~/.ssh/config ~/.ssh/known_hosts
 
 install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
