@@ -26,7 +26,7 @@ case "$OSTYPE" in
     uname -a
   ;;
   *)
-    uname -a
+    which lsb_release && lsb_release -a || uname -a
   ;;
 esac
 
@@ -51,7 +51,8 @@ if [ ! -n "$PUPPET_CMD" ]; then
         $SUDO brew install puppet
         ;;
       *)
-        $SUDO which apt-get && $SUDO apt-get install puppet || echo System $OSTYPE not supported.
+        which dpkg && (curl -O https://apt.puppetlabs.com/puppetlabs-release-precise.deb && $SUDO dpkg -i puppetlabs-release-precise.deb) ||
+          (which apt-get && $SUDO apt-get install puppet || echo System $OSTYPE not supported.)
         ;;
     esac
     which puppet && echo "Installed puppet in version `puppet --version`"
@@ -65,7 +66,7 @@ if [ ! -n "$PUPPET_CMD" ]; then
   fi
 fi
 
-if [ "`$SUDO puppet module list > /dev/null; echo $?`" -ne 0 ]; then
+if [ ! -n "`$SUDO puppet module list`" ]; then
   if [ "x$1" = "xinstall" ]; then
     echo "Installing puppet-module gem..."
     $SUDO gem install puppet-module
