@@ -4,4 +4,4 @@ DRUSH="drush -y -r $CWD/../src $*"
 MODULES="ads"
 
 $DRUSH en coder
-time $DRUSH coder --active --no-empty --security --critical $MODULES
+$DRUSH coder --active --no-empty --security --critical $MODULES

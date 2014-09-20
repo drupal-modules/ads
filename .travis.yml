@@ -3,22 +3,26 @@
 #   TRAVIS_BUILD_DIR - The absolute path to the directory where the repository being built has been copied on the worker. (e.g. "/home/travis/build/mycognitive/ads")
 #   TRAVIS_REPO_SLUG - The slug (in form: owner_name/repo_name) of the repository currently being built. (e.g. "mycognitive/ads")
 
+# Before Install
 # Use this to prepare the system to install prerequisites or dependencies.
 # Commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
 before_install:
   - env
   - sudo sysctl kernel.hostname=ads.localhost
 
+# Install
 # Use this to install any prerequisites or dependencies necessary to run your build.
 install:
   - sudo sh ./configure install
   - sudo puppet apply puppet/travis.pp && sudo puppet apply puppet/ads.dev.pp && sudo puppet apply puppet/solr.dev.pp && sudo puppet module list
 
+# Before Script
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
 before_script:
   - sudo puppet apply puppet/ads.dev.configure-site.pp # Apply webroot puppet configuration.
   - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
 
+# Script
 # Main build command to run.
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
@@ -33,22 +37,28 @@ script:
 # - sudo wget -qO- http://ads.localhost/ | cat
 # - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --url http://ads.localhost/ --concurrency 16 --verbose System
 
+# After Success
 # Note: The standard Unix exit code of "0" means the build passed; everything else is treated as failure.
 after_success:
 # - which html2text || sudo apt-get install html2text
 # - $SRCDIR/scripts/drupal.sh http://ads.localhost/ | html2text
-# - pwd && drush status-report --severity=2
+# - pwd && $DRUSH status-report --severity=2
 
+# After Failure
 after_failure:
   - pwd
-  - env
-  - drush --version
+  - env # Print the environment variables.
+  - drush --version # Check drush version
   - cd $SRCDIR && pwd && drush status-report
+  - sudo tail /var/log/*.log /var/log/*/*.log # Check the logs.
 
+
+# After Script
 # Test result is exported to TRAVIS_TEST_RESULT.
 after_script:
   - pwd
 
+# Environment
 env:
   - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=http://ads.localhost/"
 
