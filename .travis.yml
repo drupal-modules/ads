@@ -16,14 +16,14 @@ install:
 
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
 before_script:
-  - sudo mkdir /var/www/ads  # Apply webroot puppet configuration.
-  - sudo puppet apply puppet/ads.dev.configure-site.pp
+  - sudo puppet apply puppet/ads.dev.configure-site.pp # Apply webroot puppet configuration.
   - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
 
 # Main build command to run.
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   - ln -sv $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
+  - sh -x ./scripts/puppet_check.sh
   - make
 
 # Note: Do not install build in this repo.
@@ -45,8 +45,9 @@ after_failure:
   - drush --version
   - cd $SRCDIR && pwd && drush status-report
 
+# Test result is exported to TRAVIS_TEST_RESULT.
 after_script:
-  - echo $TRAVIS_TEST_RESULT # Test result is exported to TRAVIS_TEST_RESULT.
+  - pwd
 
 env:
   - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=http://ads.localhost/"

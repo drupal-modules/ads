@@ -39,9 +39,28 @@ apache::vhost { 'ads.localhost':
 }
 
 class { '::mysql::server':
-  restart => true,
-  override_options => { 'mysqld' => {
-    'max_connections' => '1024',
-    'max_allowed_packet' => '100M'
-  } }
+  root_password    => 'root',
+  override_options => {
+    'mysqld' => {
+      'max_connections' => '512',
+      'max_allowed_packet' => '12M'
+    }
+  },
+  restart => true
 }
+
+# MySQL
+#service { 'mysql':
+#  ensure => running,
+#  enable => true,
+#}
+
+# Apache
+#package { 'apache2':
+#  ensure => present,
+#}
+#service { 'apache2' :
+#  ensure  => running,
+#  enable  => true,
+#  require => Package['apache2'],
+#}
