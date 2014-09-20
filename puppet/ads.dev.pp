@@ -76,6 +76,7 @@ include pear
 # PEAR
 pear::package { "PEAR": }
 pear::package { "Console_Table": }
+pear::package { "PHP_CodeSniffer": }
 
 # Phing
 pear::package { "Phing":
