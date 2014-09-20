@@ -641,10 +641,6 @@ projects[backup_migrate] = "2.4"
 ; JSON-RPC, SOAP, AMF, etc. This allows a Drupal site to provide web services via multiple interfaces while using the same callback code.
 ; projects[services][version] = "3.3"
 
-; Coder
-; Utilizes regular expressions to review source code and version upgrade.
-; projects[coder] = "1.2"
-
 ; Diff
 ; Extends Features and node revision functionality.
 projects[diff][version] = "2.0"
@@ -658,9 +654,7 @@ projects[diff][version] = "2.0"
 ; projects[job_scheduler][version] = "2.0-alpha3"
 
 ; Admin Theme
-; Drupal allows you to define a different theme for administration pages (Administer -> Site configuration -> Administration theme). By default this only
-; applies to pages with a path starting with 'admin' and content editing pages. The Administration theme module allows you to use this theme on more pages like:
-; batch processing pages, devel node load and render pages, coder code review pages, pages you define yourself in the provided textarea.
+; Allows you to define a different theme for administration pages.
 ; projects[admin_theme] = "1.0"
 
 ;___________________________________________________
