@@ -28,8 +28,8 @@ project.drupal.site.email=              ads@niepodam.pl
 project.drupal.site.default_country=    GB
 project.drupal.site.default_time_zone=  Europe/London
 project.drupal.site.check_for_updates=  1 # 1 for "Check for updates automatically", 2 for "Receive e-mail notifications"
-project.drupal.private.dir=             "sites/default/private/files"
-project.drupal.public.dir=              "sites/default/files"
+project.drupal.private.dir=             sites/default/private/files
+project.drupal.public.dir=              sites/default/files
 
 #
 # Drupal Build Settings.

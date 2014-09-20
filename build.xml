@@ -55,9 +55,9 @@
     <log message="Assigning project directories and files to phing properties...${line.separator}" level="debug"/>
       <property name="project.dir.dist" value="${phing.dir.build_ads}"/>
       <property name="project.dir.profile" value="${project.dir.dist}"/>
-      <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
+      <!-- <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/> -->
       <property name="project.dir.src" value="${project.dir.profile}/src"/>
-      <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/>
+      <!-- <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/> -->
       <property name="project.file.makefile" value="build-ads.make"/>
 
     <log message="Assigning drush properties...${line.separator}" level="debug"/>
@@ -187,12 +187,12 @@
         <log message="Creating Drupal default files directory" level="verbose" />
           <exec command="mkdir -vp ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.dir.src}/sites/default" dir="${project.drupal.public.dir}" /> -->
-          <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
+          <!-- <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" /> -->
 
         <log message="Creating Drupal private files directory" level="verbose" />
           <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
           <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
-          <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" />
+          <!-- <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" /> -->
 
       </then>
     <!-- Windows filesystem -->
@@ -206,6 +206,13 @@
       </then>
       </elseif>
     </if>
+    <!-- Fix permissions for the default site directory and settings. The
+      owner must be able to delete the directories during subsequent
+      builds. -->
+    <chmod file="${project.dir.src}/${project.drupal.private.dir}"
+      mode="0775" failonerror="true"/>
+    <chmod file="${project.dir.src}/${project.drupal.public.dir}"
+      mode="0775" failonerror="true"/>
   </target>
 
   <!--
