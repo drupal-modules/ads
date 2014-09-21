@@ -21,3 +21,5 @@ projects[ads_devel][subdir] = ads
 ; Coder
 ; Coder checks your Drupal code against coding standards and other best practices.
 projects[coder] = "2.2"
+; @Patch: drush coder-review sometime considers the summary as an error, triggering "Drush command terminated abnormally"
+projects[coder][patch][] = "https://www.drupal.org/files/issues/1974654-drush-coder-review-summary-error-13.patch"
