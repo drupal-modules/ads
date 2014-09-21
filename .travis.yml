@@ -46,11 +46,7 @@ after_success:
 
 # After Failure
 after_failure:
-  - pwd
-  - env # Print the environment variables.
-  - drush --version # Check drush version
-  - cd $SRCDIR && pwd && drush status-report
-  - sudo tail /var/log/*.log /var/log/*/*.log # Check the logs.
+ - sh -x $TRAVIS_BUILD_DIR/travis/scripts/after_failure.sh
 
 
 # After Script
