@@ -5,7 +5,9 @@
 # See:
 #  - https://www.genuineinteractive.com/blog/blog-posts/genuine-thoughts/enforcing-drupal-coding-standards-software-versioning-process/
 CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
-DRUSH="drush -y -r $CWD/../src $*"
+PARENT="`dirname $CWD`"
+DRUSH="drush -y -r $PARENT/src $*"
+
 MODULES="ads"
 CODER_ARGS="--active --no-empty --critical --security --sql --style --i18n --comment --sniffer --druplart"
 
