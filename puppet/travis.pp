@@ -25,6 +25,12 @@ exec { 'php-ini' :
 }
 
 #
+# Other packages.
+#
+# html2text
+package { 'html2text' : ensure => installed, }
+
+#
 # Postfix.
 #
 
@@ -55,12 +61,6 @@ exec { 'configure-sendmail' :
 service { 'postfix' :
   ensure => running,
   require => Package['postfix'],
-}
-
-# Install a Ruby Gem.
-package { 'puppet-module':
-  ensure   => 'installed',
-  provider => 'gem',
 }
 
 #
