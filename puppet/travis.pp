@@ -28,7 +28,11 @@ exec { 'php-ini' :
 # Other packages.
 #
 # html2text
+#   HTML-to-text converter.
 package { 'html2text' : ensure => installed, }
+# tree
+#   Print directory structure in the form of a tree.
+package { 'tree' : ensure => installed, }
 
 #
 # Postfix.
