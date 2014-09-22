@@ -38,6 +38,8 @@ apache::vhost { 'ads.localhost':
   ],
 }
 
+# MySQL
+# Note: mysql module will manage all the restarts needed after all the configuration changes.
 class { '::mysql::server':
   root_password    => 'root',
   override_options => {
@@ -46,21 +48,4 @@ class { '::mysql::server':
       'max_allowed_packet' => '12M'
     }
   },
-  restart => true
 }
-
-# MySQL
-#service { 'mysql':
-#  ensure => running,
-#  enable => true,
-#}
-
-# Apache
-#package { 'apache2':
-#  ensure => present,
-#}
-#service { 'apache2' :
-#  ensure  => running,
-#  enable  => true,
-#  require => Package['apache2'],
-#}
