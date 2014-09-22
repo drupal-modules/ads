@@ -9,7 +9,7 @@ PARENT="`dirname $CWD`"
 [ -z "$1" ] && echo "Usage: $0 URL [test_args]" && exit 1
 HOST="$1"
 
-DRUSH="drush -r $PARENT/src --uri=$HOST"
+DRUSH="drush --yes -r $PARENT/src --uri=$HOST"
 CONCURRENCY=8
 TESTS="System"
 TEST_ARGS="--php `which php` --verbose --concurrency $CONCURRENCY --url $*"
