@@ -559,7 +559,8 @@ projects[currency][version] = "2.4"
 
 ; Variable
 ; Provides a registry for meta-data about Drupal variables.
-; projects[variable][version] = "2.2"
+; Required by: ads_search
+projects[variable][version] = "2.5"
 
 ; jQuery Update
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
