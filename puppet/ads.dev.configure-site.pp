@@ -10,6 +10,8 @@
 #
 
 # Apache
+# Some examples:
+#   http://kodingnotes.wordpress.com/tag/puppet-script/
 
 class apache-setup {
   class { 'apache':
@@ -45,7 +47,7 @@ class { '::mysql::server':
   override_options => {
     'mysqld' => {
       'max_connections' => '512',
-      'max_allowed_packet' => '12M'
+      'max_allowed_packet' => '32M' # 12M fails on System tests.
     }
   },
 }
