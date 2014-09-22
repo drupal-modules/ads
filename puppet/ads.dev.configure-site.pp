@@ -43,11 +43,14 @@ apache::vhost { 'ads.localhost':
 # MySQL
 # Note: mysql module will manage all the restarts needed after all the configuration changes.
 class { '::mysql::server':
-  root_password    => 'root',
+  root_password    => 'root', # Sets MySQL root password.
   override_options => {
     'mysqld' => {
       'max_connections' => '512',
-      'max_allowed_packet' => '32M' # 12M fails on System tests.
+      'max_allowed_packet' => '64M', # 12M fails on System tests, 32M on country import.
+      'log' => 'ON',
+      'log_slow_queries' => 'ON',
+      'general_log' => 'ON',
     }
   },
 }
