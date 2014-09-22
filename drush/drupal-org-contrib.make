@@ -24,7 +24,7 @@ projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feat
 ; Countries
 ; This module provides many country related tasks. Country fields, token support, et al.
 ; Required by: ads_locations
-projects[countries] = "2.1"
+projects[countries] = "2.3"
 
 ; Answers
 ; Provides a question & answer service. Users can post questions and other users can answer them.
@@ -45,11 +45,11 @@ projects[honeypot][version] = "1.16"
 
 ; Email
 ; This module provides a field type for email addresses.
-projects[email][version] = "1.2"
+projects[email][version] = "1.3"
 
 ; Address FielD
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
-projects[addressfield][version] = "1.0-beta3"
+projects[addressfield][version] = "1.0-beta5"
 
 ; Phone
 ; This module provides a phone field type.
@@ -614,19 +614,19 @@ projects[votingapi][version] = "2.12"
 
 ; Devel
 ; A suite of modules containing fun for module developers and themers
-projects[devel] = "1.4"
+projects[devel] = "1.5"
 
 ; Admin
 ; The admin module provides UI improvements to the standard Drupal admin interface.
 ; projects[admin] = "2.0-beta3"
 
 ; Admin Menu
-projects[admin_menu] = "3.0-rc3"
+projects[admin_menu] = "3.0-rc4"
 
 ; Backup and Migrate
 ; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
 ; gzip, bzip and zip compression as well as automatic scheduled backups.
-projects[backup_migrate] = "2.4"
+projects[backup_migrate] = "2.8"
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
@@ -643,7 +643,7 @@ projects[backup_migrate] = "2.4"
 
 ; Diff
 ; Extends Features and node revision functionality.
-projects[diff][version] = "2.0"
+projects[diff][version] = "3.2"
 
 ; Environment Modules
 ; Allows a list of modules to be enabled in $conf['environment_modules'].
