@@ -15,6 +15,9 @@ core = 7.x
 projects[workflow][version] = "2.4"
 ; @Patch: It seems that it was a typo on the function workflow_features_pipe_field_base_alter (https://www.drupal.org/node/2303925#comment-8974443).
 projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feature-undefined-wid-2303925-1.patch"
+; @Patch: Fix for Fatal error: __clone method called on non-object in workflow.features.inc (https://www.drupal.org/node/2317877)
+projects[workflow][patch][] = "http://cgit.drupalcode.org/workflow/patch/?id=b58e42e227bd6e5833b9cd5dadd26cc0ee3fdad3"
+
 
 ; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
 ; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
