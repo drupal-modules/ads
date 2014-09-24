@@ -69,5 +69,5 @@ function ads_import_vocabularies_finished($success, $results, $operations) {
     $message .= theme('item_list', array('items' => $results));
   }
   $message .= t("Import finished");
-  drupal_set_message($message);
+  drupal_set_message(check_plain($message));
 }
