@@ -29,12 +29,14 @@ script:
   - set -e # This makes build to fail on first error.
   - ln -sv $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - sh -x ./scripts/puppet_check.sh
-  - phing -debug
-  - phing -debug ads-install
-  - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
-  - sudo chmod -R 777 $SRCDIR/
-  - sudo wget -qO- http://ads.localhost/ | cat
-#  - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --url http://ads.localhost/ --concurrency 16 --verbose System
+  - make
+
+# Note: Do not install build in this repo.
+# - make install
+# - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
+# - sudo chmod -R 777 $SRCDIR/
+# - sudo wget -qO- http://ads.localhost/ | cat
+# - cd $SRCDIR && pwd && ls && echo "$DRUSH" && $DRUSH -y en simpletest && php ./scripts/run-tests.sh --php `which php` --url http://ads.localhost/ --concurrency 16 --verbose System
 
 # After Success
 # Note: The standard Unix exit code of "0" means the build passed; everything else is treated as failure.
