@@ -193,6 +193,16 @@ projects[smart_ip][download][branch] = 7.x-2.x
 
 ;___________________________________________________
 ;
+;  USER POINTS MODULES
+;___________________________________________________
+
+; User Points
+; Provides an API for users to gain or lose points for performing certain actions on your site.
+; Required by: ads_points
+projects[userpoints][download][version] = 1.0
+
+;___________________________________________________
+;
 ;  MENU MODULES
 ;___________________________________________________
 
