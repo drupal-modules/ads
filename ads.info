@@ -27,11 +27,12 @@ dependencies[] = ads
 dependencies[] = toolbar
 
 ; Install ADS modules.
-dependencies[] = ads_advert
-dependencies[] = ads_homepage
-dependencies[] = ads_locations
-dependencies[] = ads_menu
-dependencies[] = ads_perms
-dependencies[] = ads_site_settings
-dependencies[] = ads_taxonomy
-dependencies[] = ads_user
+; ! Note: Disabled temporarily due to errors in drush make that these modules are not present.
+; dependencies[] = ads_advert
+; dependencies[] = ads_homepage
+; dependencies[] = ads_locations
+; dependencies[] = ads_menu
+; dependencies[] = ads_perms
+; dependencies[] = ads_site_settings
+; dependencies[] = ads_taxonomy
+; dependencies[] = ads_user
