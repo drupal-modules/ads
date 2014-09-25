@@ -26,6 +26,7 @@ before_script:
 # Main build command to run.
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
+  - set -e # This makes build to fail on first error.
   - ln -sv $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - sh -x ./scripts/puppet_check.sh
   - make
