@@ -204,7 +204,7 @@
         <log message="Creating Drupal private files directory" level="verbose" />
           <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
       </then>
-      </elseif>
+    </elseif>
     </if>
     <!--
     <log message="Creating Drupal default files directory..." level="verbose" />
