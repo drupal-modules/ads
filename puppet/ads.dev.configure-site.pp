@@ -47,7 +47,7 @@ class { '::mysql::server':
   override_options => {
     'mysqld' => {
       'max_connections' => '512',
-      'max_allowed_packet' => '100M', # 12M fails on System tests, 32M on country import.
+      'max_allowed_packet' => '256M', # 12M fails on System tests, 32M on country import.
       'log' => 'ON',
       'log_slow_queries' => 'ON',
       'general_log' => 'ON',
