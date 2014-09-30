@@ -42,10 +42,7 @@ includes[] = drush/drupal-org-libraries.make
 
 ; Download the ADS install profile and recursively build all its dependencies
 projects[ads][type] = profile
-projects[ads][download][type] = git
-projects[ads][download][url] = http://git.drupal.org/project/ads.git
-projects[ads][download][branch] = 7.x-1.x
-; projects[ads][subdir] = "./"
+projects[ads][version] = 1.0-alpha1
 
 ;____________________
 ;
