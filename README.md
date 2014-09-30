@@ -6,7 +6,12 @@ This is an installation profile for building a Drupal based ads platform.
 Build status
 ------------
 ADS build status:
-[![ADS Build](https://travis-ci.org/mycognitive/ads.png "ADS Build")](https://travis-ci.org/mycognitive/ads)
+
+
+| Status | Project | Description
+| :----- | :------ | :---
+| [![ADS Build](https://travis-ci.org/mycognitive/ads.png "ADS Build")](https://travis-ci.org/mycognitive/ads) | ADS | Main build process.
+| [![ADS Features](https://travis-ci.org/mycognitive/ads_features.png "ADS Build")](https://travis-ci.org/mycognitive/ads_features) | ADS | Build and installation of ADS Features.
 
 
 Requirements
