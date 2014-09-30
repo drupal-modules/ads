@@ -15,4 +15,4 @@ TESTS="System"
 TEST_ARGS="--php `which php` --verbose --concurrency $CONCURRENCY --url $*"
 
 $DRUSH en simpletest
-php $PARENT/src/scripts/run-tests.sh $TEST_ARGS $TESTS
+cd $PARENT/src/ && sh -e ./scripts/run-tests.sh $TEST_ARGS $TESTS
