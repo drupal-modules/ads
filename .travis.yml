@@ -55,14 +55,14 @@ after_script:
 
 # Environment
 env:
-  - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=http://ads.localhost/"
+  - HOST="ads.server" URL="http://$HOST/" GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=$URL"
 
 notifications:
   email: false
 
 addons:
   hosts:
-    - ads.localhost
+    - ads.server
 
 language: php
 

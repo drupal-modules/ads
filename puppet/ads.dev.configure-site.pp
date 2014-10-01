@@ -26,7 +26,7 @@ include apache::mod::expires
 include apache::mod::headers
 include apache::mod::php
 
-apache::vhost { 'ads.localhost':
+apache::vhost { 'ads.server':
   port    => '80',
 
   # @TODO: Currently we're using static path for docroot, we need to find a way
