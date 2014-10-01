@@ -7,11 +7,21 @@ Build status
 ------------
 ADS build status:
 
+Releases:
 
-| Status | Project | Description
-| :----- | :------ | :---
-| [![ADS Build](https://travis-ci.org/mycognitive/ads.png "ADS Build")](https://travis-ci.org/mycognitive/ads) | ADS | Main build process.
-| [![ADS Features](https://travis-ci.org/mycognitive/ads_features.png "ADS Build")](https://travis-ci.org/mycognitive/ads_features) | ADS | Build and installation of ADS Features.
+| Status | Project | Version | Description
+| :----- | :------ | :--- | :---
+| [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=7.x-1.0-alpha1)](https://travis-ci.org/mycognitive/ads) | ADS | 7.x-1.0-alpha1 | Main build process.
+| [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=7.x-1.0-alpha1)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | 7.x-1.0-alpha1 | Build and installation of ADS Features.
+
+Latest:
+
+| Status | Project | Branch | Description
+| :----- | :------ | :--- | :---
+| [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=master)](https://travis-ci.org/mycognitive/ads) | ADS | master | Main build process.
+| [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=7.x-1.x)](https://travis-ci.org/mycognitive/ads) | ADS | 7.x-1.x | Main build process.
+| [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=master)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | master | Build and installation of ADS Features.
+| [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=7.x-1.x)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | 7.x-1.x | Build and installation of ADS Features.
 
 
 Requirements
