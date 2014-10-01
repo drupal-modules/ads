@@ -54,4 +54,5 @@ class { '::mysql::server':
       'wait_timeout' => '28800',
     }
   },
+  restart => true
 }
