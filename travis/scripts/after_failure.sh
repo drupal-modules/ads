@@ -8,5 +8,6 @@ $DRUSH status --full && $DRUSH watchdog-show --full && $DRUSH status-report --se
 cat /etc/ssh/ssh_config ~/.ssh/config ~/.ssh/known_hosts  # Display content of configuration files.
 sudo tail -n5 /var/log/*.log /var/log/*/*.log             # Display logs.
 df -h # Display free disk space
-echo "SHOW FULL PROCESSLIST"  | mysql -uroot -proot # Show which MySQL threads are running.
-echo "SHOW SESSION VARIABLES" | mysql -uroot -proot # Shows the values of MySQL system variables.
+echo "SHOW ENGINE INNODB STATUS" | mysql -uroot -proot # Output for the standard InnoDB Monitor.
+echo "SHOW FULL PROCESSLIST"     | mysql -uroot -proot # Show which MySQL threads are running.
+echo "SHOW SESSION VARIABLES"    | mysql -uroot -proot # Shows the values of MySQL system variables.
