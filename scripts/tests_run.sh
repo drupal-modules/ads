@@ -14,5 +14,6 @@ CONCURRENCY=8
 TESTS="System"
 TEST_ARGS="--php `which php` --verbose --concurrency $CONCURRENCY --url $*"
 
+$DRUSH dis dblog # Fixes "MySQL server has gone away" error.
 $DRUSH en simpletest
-php $PARENT/src/scripts/run-tests.sh $TEST_ARGS $TESTS
+cd $PARENT/src/ && php ./scripts/run-tests.sh $TEST_ARGS $TESTS

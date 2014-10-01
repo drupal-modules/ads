@@ -147,6 +147,17 @@
         </if>
         -->
 
+      <available file="${project.dir.src}" property="project.src.exist" />
+      <if>
+        <not><isset property="project.src.exist"/></not>
+        <then>
+          <log message="" level="error" />
+          <log message="Drupal build failed, directory &quot;${project.dir.src}&quot; does not exist" level="error" />
+          <log message="" level="error" />
+          <fail message="Drupal build failed, directory &quot;${project.dir.src}&quot; does not exist" />
+        </then>
+      </if>
+
       <!-- Done -->
       <log message="" level="info" />
       <log message="Done" level="info" />
@@ -204,7 +215,7 @@
         <log message="Creating Drupal private files directory" level="verbose" />
           <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
       </then>
-      </elseif>
+    </elseif>
     </if>
     <!--
     <log message="Creating Drupal default files directory..." level="verbose" />
