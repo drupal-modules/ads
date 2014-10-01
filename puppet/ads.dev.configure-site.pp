@@ -53,6 +53,18 @@ class { '::mysql::server':
       'general_log' => 'ON',
       'wait_timeout' => '28800',
     }
-  },
-  restart => true
+  }
+}
+
+# MySQL server config subclass
+# Restarts MySQL service when /etc/mysql/my.cnf changes.
+class ads::mysql inherits ::mysql::server::config {
+  File[ '/etc/mysql/my.cnf' ] {
+    content => template('mysql/my.cnf.erb'),
+    mode   => '0640',
+    notify => Class['mysql::server::service']
+  }
+}
+
+class { 'ads::mysql':
 }
