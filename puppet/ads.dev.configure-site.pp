@@ -51,6 +51,7 @@ class { '::mysql::server':
       'log' => 'ON',
       'log_slow_queries' => 'ON',
       'general_log' => 'ON',
+      'wait_timeout' => '28800',
     }
   },
 }
