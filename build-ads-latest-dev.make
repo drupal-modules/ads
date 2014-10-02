@@ -46,6 +46,18 @@ projects[ads][download][type] = git
 projects[ads][download][url] = https://github.com/mycognitive/ads.git
 projects[ads][download][branch] = master
 
+;_____________________
+;
+; Build/deploy process
+;_____________________
+
+projects[ads_drush][type] = library
+projects[ads_drush][download][type] = git
+projects[ads_drush][download][url] = https://github.com/mycognitive/ads_drush
+projects[ads_drush][download][branch] = master
+projects[ads_drush][destination] = ""
+projects[ads_drush][directory_name] = drush
+
 ;____________________
 ;
 ; Common ADS packages
