@@ -19,6 +19,9 @@
     <log message="Enabling ads_setup module" indent="1" level="verbose" />
       <exec command="${project.drush.cmd} en ads_setup" dir="${project.dir.src}" LogOutput="true" />
 
+    <log message="Checking modules' dependencies for: shs, pathauto, token" indent="1" level="verbose" />
+      <exec command="echo n | drush dis shs pathauto token | grep -oP 'will be disabled: \K[a-z_ ,]+' | tail -n 1 | tr -d ',' | tr -d '.'" dir="${project.dir.src}" LogOutput="false" outputProperty="output.modules.disabled" />
+
     <log message="Disabling modules: shs, pathauto, token" indent="1" level="verbose" />
       <exec command="${project.drush.cmd} dis shs pathauto token" dir="${project.dir.src}" LogOutput="true" />
 
@@ -28,8 +31,8 @@
       <parse-properties-file-configure />
       <exec command="${project.drush.cmd} ads-configure ${parsed_path}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
-    <log message="Re-enabling modules: shs, pathauto, token" indent="1" level="verbose" />
-      <exec command="${project.drush.cmd} en shs pathauto token" dir="${project.dir.src}" LogOutput="true" />
+    <log message="Re-enabling modules: ${output.modules.disabled}" indent="1" level="verbose" />
+      <exec command="${project.drush.cmd} en ${output.modules.disabled}" dir="${project.dir.src}" LogOutput="true" />
 
   </target>
 
