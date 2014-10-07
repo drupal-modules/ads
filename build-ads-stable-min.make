@@ -24,10 +24,7 @@ api  = 2
 projects[drupal][type] = core
 
 ; Specify directory for contrib modules
-; ! Commented out - we don't want profile to be copied to /profiles/contrib/ads.
-; ! Maybe somebody has the solution for the profile folder copied to wrong
-; ! place?
-; defaults[projects][subdir] = contrib
+defaults[projects][subdir] = contrib
 
 ; Include the core definition for how to build Drupal
 includes[] = drush/drupal-org-core.make
@@ -43,6 +40,7 @@ includes[] = drush/drupal-org-libraries.make
 ; Download the ADS install profile and recursively build all its dependencies
 projects[ads][type] = profile
 projects[ads][version] = 1.0-alpha1
+projects[ads][subdir] = ""
 
 ;____________________
 ;

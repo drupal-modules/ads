@@ -24,10 +24,7 @@ api  = 2
 projects[drupal][type] = core
 
 ; Specify directory for contrib modules
-; ! Commented out - we don't want profile to be copied to /profiles/contrib/ads.
-; ! Maybe somebody has the solution for the profile folder copied to wrong
-; ! place?
-; defaults[projects][subdir] = contrib
+defaults[projects][subdir] = contrib
 
 ; Include the core definition for how to build Drupal
 includes[] = drush/drupal-org-core.make
@@ -45,6 +42,7 @@ projects[ads][type] = profile
 projects[ads][download][type] = git
 projects[ads][download][url] = https://github.com/mycognitive/ads.git
 projects[ads][download][branch] = master
+projects[ads][subdir] = ""
 
 ;_____________________
 ;
@@ -56,6 +54,7 @@ projects[ads_drush][download][type] = git
 projects[ads_drush][download][url] = https://github.com/mycognitive/ads_drush
 projects[ads_drush][download][branch] = master
 projects[ads_drush][destination] = ""
+projects[ads_drush][subdir] = ""
 projects[ads_drush][directory_name] = drush
 
 ;____________________
