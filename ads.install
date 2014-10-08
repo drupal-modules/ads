@@ -63,6 +63,10 @@ function ads_modules_enabled($modules) {
     drupal_static_reset('file_get_stream_wrappers');
 
     unlink ($install_state_path);
+
+    // We don't want Smart IP to update MaxMind database so early.
+    variable_set('smart_ip_maxmind_bin_db_auto_update', '0');
+    variable_set('smart_ip_auto_update', '0');
   }
 }
 
