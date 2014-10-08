@@ -255,6 +255,24 @@
         </then>
       </if>
 
+    <!-- Enable DB search -->
+      <if><equals arg1="${project.drupal.build.search}" arg2="db" />
+        <then>
+          <log message="Found project.drupal.build.search = db, executing enable-search-db.xml" level="verbose"/>
+            <import-file path="${phing.dir.build_ads}/phing/enable-search-db.xml" absolute="true" />
+            <execute-import-file-target name="enable-search-db" />
+        </then>
+      </if>
+
+    <!-- Enable Solr search -->
+      <if><equals arg1="${project.drupal.build.search}" arg2="solr" />
+        <then>
+          <log message="Found project.drupal.build.search = solr, executing enable-search-solr.xml" level="verbose"/>
+            <import-file path="${phing.dir.build_ads}/phing/enable-search-solr.xml" absolute="true" />
+            <execute-import-file-target name="enable-search-solr" />
+        </then>
+      </if>
+
     <!-- Drupal modules auto-configuration -->
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
       <execute-import-file-target name="run-ads-configure" />

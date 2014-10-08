@@ -36,6 +36,7 @@ project.drupal.public.dir=              sites/default/files
 project.drupal.build.site=      true     # Build the site by enabling modules
 project.drupal.build.stable=    true
 project.drupal.build.type=      min      # min, full, dev
+project.drupal.build.search=    db       # db, solr, none
 
 #
 # Modules' settings.
