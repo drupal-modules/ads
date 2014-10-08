@@ -273,6 +273,15 @@
         </then>
       </if>
 
+    <!-- Enable development environment -->
+      <if><equals arg1="${project.drupal.build.type}" arg2="dev" />
+        <then>
+          <log message="Found project.drupal.build.type = dev, executing build-dev-env.xml" level="verbose"/>
+            <import-file path="${phing.dir.build_ads}/phing/build-dev-env.xml" absolute="true" />
+            <execute-import-file-target name="build-dev-env" />
+        </then>
+      </if>
+
     <!-- Drupal modules auto-configuration -->
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
       <execute-import-file-target name="run-ads-configure" />
