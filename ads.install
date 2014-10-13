@@ -121,13 +121,15 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
   $tasks['install_select_profile']['display'] = FALSE;
 
   // Exchange the logo that is used in the installer.
+  /*
   $theme_settings = array(
     'toggle_logo' => 1,
     'default_logo' => 0,
     'logo_path' => 'profiles/ads/themes/cloudy/images/ads-logo.png',
     'logo_upload' => '',
   );
-  $GLOBALS['conf']['theme_seven_settings'] = $theme_settings;
+  $GLOBALS['conf']['theme_zen_settings'] = $theme_settings;
+  */
 
   $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
 
@@ -472,17 +474,19 @@ function ads_install() {
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
     ->condition(db_or()
-      ->condition('name', 'seven')
-      ->condition('name', 'ads')
+      ->condition('name', 'zen')
     )
     ->execute();
-  variable_set('theme_default', 'seven');
+  variable_set('theme_default', 'zen');
 
   // Enable default admin theme.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'seven')
+    ->condition(db_or()
+      ->condition('name', 'tao')
+      ->condition('name', 'rubik')
+    )
     ->execute();
   variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
