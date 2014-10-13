@@ -695,6 +695,6 @@ projects[lightbox2][version] = "1.0-beta1"
 ;  OTHER
 ;___________________________________________________
 
-; Legal
-; Displays Terms & Conditions to users who want to register, and requires that they accept the T&C before their registration is accepted.
-projects[legal][version] = "1.5"
+; Terms of Use
+; Adds Terms of Use for users who want to register and requires that they accept the T&C before their registration is accepted.
+projects[terms_of_use][version] = 1.2
