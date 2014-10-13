@@ -692,9 +692,18 @@ projects[lightbox2][version] = "1.0-beta1"
 
 ;___________________________________________________
 ;
-;  OTHER
+;  LEGAL
 ;___________________________________________________
 
 ; Terms of Use
 ; Adds Terms of Use for users who want to register and requires that they accept the T&C before their registration is accepted.
-projects[terms_of_use][version] = 1.2
+projects[terms_of_use] = 1.2
+
+; EU Cookie Compliance
+; Intends to deal with the EU Directive on Privacy and Electronic Communications that comes into effect in the UK on 26th May 2012.
+projects[eu_cookie_compliance] = 1.14
+
+;___________________________________________________
+;
+;  OTHER
+;___________________________________________________
