@@ -17,10 +17,10 @@ projects[workflow][version] = "2.4"
 projects[workflow][patch][] = "https://www.drupal.org/files/issues/workflow-feature-undefined-wid-2303925-1.patch"
 
 
-; Context allows you to manage contextual conditions and reactions for different portions of your site. You can think of each context as representing a
-; "section" of your site. For each context, you can choose the conditions that trigger this context to be active and choose different aspects of Drupal that
-; should react to this active context.
-; projects[context][version] = "3.0-beta6"
+; Context
+; Allows to manage contextual conditions and reactions for different portions of your site.
+; Required by: ads_setup
+projects[context][version] = 3.3
 
 ; Countries
 ; This module provides many country related tasks. Country fields, token support, et al.
