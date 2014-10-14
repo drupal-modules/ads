@@ -16,28 +16,44 @@
 
     <echo message="Executing drush ads-configure for all the ads modules..." level="info" />
 
-    <log message="Enabling ads_setup module" indent="1" level="verbose" />
-      <exec command="${project.drush.cmd} en ads_setup" dir="${project.dir.src}" LogOutput="true" />
+    <if>
+      <isset property="pure"/>
+      <else>
+        <log message="Enabling ads_setup module" indent="1" level="verbose" />
+          <exec command="${project.drush.cmd} en ads_setup" dir="${project.dir.src}" LogOutput="true" />
 
-    <log message="Checking modules' dependencies for: shs, pathauto, token" indent="1" level="verbose" />
-      <exec command="echo n | drush dis shs pathauto token | grep -oP 'will be disabled: \K[a-z_ ,]+' | tail -n 1 | tr -d ',' | tr -d '.'" dir="${project.dir.src}" LogOutput="false" outputProperty="output.modules.disabled" />
+        <log message="Checking modules' dependencies for: shs, pathauto, token" indent="1" level="verbose" />
+          <exec command="echo n | drush dis shs pathauto token | grep -oP 'will be disabled: \K[a-z_ ,]+' | tail -n 1 | tr -d ',' | tr -d '.'" dir="${project.dir.src}" LogOutput="false" outputProperty="output.modules.disabled" />
 
-    <log message="Dependencies are: ${output.modules.disabled}. If something gone wrong, please" indent="1" level="verbose" />
-    <log message="re-enable those modules before running phing again:" indent="1" level="verbose" />
-    <log message="drush -y en ${output.modules.disabled}" indent="2" level="verbose" />
-    <log message="" indent="2" level="verbose" />
+        <log message="Dependencies are: ${output.modules.disabled}. If something gone wrong, please" indent="1" level="verbose" />
+        <log message="re-enable those modules before running phing again:" indent="1" level="verbose" />
+        <log message="drush -y en ${output.modules.disabled}" indent="2" level="verbose" />
+        <log message="" indent="2" level="verbose" />
 
-    <log message="Disabling modules: shs, pathauto, token" indent="1" level="verbose" />
-      <exec command="${project.drush.cmd} dis shs pathauto token" dir="${project.dir.src}" LogOutput="true" />
+        <log message="Disabling modules: shs, pathauto, token" indent="1" level="verbose" />
+          <exec command="${project.drush.cmd} dis shs pathauto token" dir="${project.dir.src}" LogOutput="true" />
+      </else>
+    </if>
 
     <property file="${project.dir.dist}/build.properties" />
 
     <log message="Configuring modules..." indent="1" level="info" />
-      <parse-properties-file-configure />
-      <exec command="${project.drush.cmd} ads-configure ${parsed_path} --exclude=ads_locations" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
-    <log message="Re-enabling modules: ${output.modules.disabled}" indent="1" level="verbose" />
-      <exec command="${project.drush.cmd} en ${output.modules.disabled}" dir="${project.dir.src}" LogOutput="true" />
+      <if>
+        <isset property="force"/>
+        <then><property name="forced" value="1" override="true" /></then>
+        <else><property name="forced" value="0" override="true" /></else>
+      </if>
+
+      <exec command="${project.drush.cmd} ads-configure &quot;${project.dir.dist}/build.properties&quot; --force=${forced}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+    <if>
+      <isset property="pure"/>
+      <else>
+        <log message="Re-enabling modules: ${output.modules.disabled}" indent="1" level="verbose" />
+          <exec command="${project.drush.cmd} en ${output.modules.disabled}" dir="${project.dir.src}" LogOutput="true" />
+      </else>
+    </if>
 
   </target>
 
