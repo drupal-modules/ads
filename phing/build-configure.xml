@@ -1,4 +1,4 @@
-<project name="ads" basedir=".">
+<project name="build-configure" basedir=".">
 
   <!--
   ## Initialize build
@@ -6,7 +6,7 @@
   <target name="build-configure-init">
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+      <property name="project.dir.src"            value="${phing.dir.build_configure}/../src"/>
   </target>
 
   <!--
@@ -45,7 +45,7 @@
         <else><property name="forced" value="0" override="true" /></else>
       </if>
 
-      <exec command="${project.drush.cmd} ads-configure &quot;${project.dir.dist}/build.properties&quot; --force=${forced}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <exec command="${project.drush.cmd} ads-configure &quot;${phing.dir.build_ads}/build.properties&quot; --force=${forced}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <if>
       <isset property="pure"/>
