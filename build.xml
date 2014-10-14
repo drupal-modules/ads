@@ -225,7 +225,7 @@
           <exec command="mkdir ${project.drupal.public.dir}" dir="${project.dir.src}" />
 
         <log message="Creating Drupal private files directory" level="verbose" />
-          <exec command="mkdir ${project.drupal.private.dir}" dir="${project.dir.src}" />
+          <exec command="mkdir &quot;${project.drupal.private.dir}&quot;" dir="${project.dir.src}" />
       </then>
     </elseif>
     </if>
