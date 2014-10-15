@@ -28,6 +28,7 @@ dependencies[] = toolbar
 
 ; Install ADS modules.
 dependencies[] = ads_advert
+dependencies[] = ads_context
 dependencies[] = ads_homepage
 dependencies[] = ads_locations
 dependencies[] = ads_menu
