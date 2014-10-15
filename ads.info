@@ -35,3 +35,4 @@ dependencies[] = ads_perms
 dependencies[] = ads_site_settings
 dependencies[] = ads_taxonomy
 dependencies[] = ads_user
+dependencies[] = ads_geo
