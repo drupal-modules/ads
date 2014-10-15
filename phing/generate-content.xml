@@ -1,0 +1,33 @@
+<project name="generate-content" basedir="." default="generate-content">
+
+  <!--
+  ## Initialize build
+  -->
+  <target name="generate-content-init">
+    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+  </target>
+
+  <!--
+  ## Generate random content
+  -->
+  <target name="generate-content" depends="generate-content-init">
+
+    <!-- Enabling devel_generate module -->
+    <echo message="Enabling Devel Generate module..." level="info" />
+      <exec command="${project.drush.cmd} en devel_generate comment" 
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+    <echo message="Generating example content..." level="info" />
+      <exec command="${project.drush.cmd} generate-content 50 10"
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
+    <!-- Disabling devel_generate module -->
+    <echo message="Disabling Devel Generate module..." level="info" />
+      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.dir.src}" />
+
+  </target>
+
+</project>

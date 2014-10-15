@@ -1,0 +1,43 @@
+<!--
+## Phing script to enable all the ADS site packages.
+-->
+<project name="enable-all-packages" basedir="." default="enable-all-packages">
+
+  <!--
+  ## Initialize build
+  -->
+  <target name="enable-all-packages-init">
+    <echo message="Assigning phing properties...${line.separator}" level="debug"/>
+      <property name="project.drush.args"         value="--verbose --yes"/>
+      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+  </target>
+
+  <!--
+  ## Set up standard feature site
+  -->
+  <target name="enable-all-packages" depends="enable-all-packages-init">
+
+    <!-- Enabling ADS main package modules -->
+
+    <echo message="Enabling ADS package modules..." level="info" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_animals" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_art" />
+  <!--<exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_auctions" /> -->
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_business" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_community" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_dating" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_education" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_finance" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_it" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_items" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_jobs" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_music" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_properties" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_services" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_travel" />
+      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_vehicles" />
+
+  </target>
+
+</project>
