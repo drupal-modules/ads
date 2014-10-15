@@ -4,6 +4,28 @@
 # Please remove below line after editing this file.
 properties.notset=true
 
+#
+# BUILD #
+#
+
+# Drupal Build Settings.
+project.drupal.build.site=        true     # Build the site by enabling modules
+project.drupal.build.stable=      true
+project.drupal.build.type=        min      # min, full, dev
+
+# Default site credentials.
+project.drupal.admin.user=        admin
+project.drupal.admin.pass=        admin
+project.drupal.admin.email=       ads@niepodam.pl
+
+# Public and private directories.
+project.drupal.private.dir=       sites/default/private/files
+project.drupal.public.dir=        sites/default/files
+
+#
+# INSTALLATION #
+#
+
 # Database Credentials.
 project.db.database=  ads
 project.db.username=  root
@@ -14,51 +36,24 @@ project.db.driver=    mysqli
 project.db.port=      3306
 
 #
-# DRUPAL
-#
-# Drupal Credentials.
-project.drupal.admin.user=              admin
-project.drupal.admin.pass=              admin
-project.drupal.admin.email=             ads@niepodam.pl
-
-#
 # Drupal Settings
 project.drupal.site.name=               ADS
 project.drupal.site.email=              ads@niepodam.pl
 project.drupal.site.default_country=    GB
 project.drupal.site.default_time_zone=  Europe/London
 project.drupal.site.check_for_updates=  1 # 1 for "Check for updates automatically", 2 for "Receive e-mail notifications"
-project.drupal.private.dir=             sites/default/private/files
-project.drupal.public.dir=              sites/default/files
 
 #
-# Drupal Build Settings.
-project.drupal.build.site=      true     # Build the site by enabling modules
-project.drupal.build.stable=    true
-project.drupal.build.type=      min      # min, full, dev
-project.drupal.build.search=    db       # db, solr, none
+# Generate sample content
+project.drupal.generate.terms   =  true
+project.drupal.generate.users   =  true
+project.drupal.generate.content =  true
+project.drupal.generate.ads     =  true
 
 #
-# Modules' settings.
-
+# Module settings.
+# ads_search
+project.drupal.configure.search=    db       # db, solr, none
 # ads_locations
-project.drupal.configure.locations.countries=AD
+#project.drupal.configure.locations.countries=AD # Depreciated?
 
-#
-# DEVELOPMENT
-#
-# Repository Credentials.
-github.user=<github-username>
-drupal.user=<drupal-username>
-#
-# Devel
-project.drupal.generate.content =  false
-project.drupal.generate.users   =  false
-
-#
-# Debugging
-# If set to 1, project will build with the fork repository changes applied.
-project.debug.build_with_mine=0
-
-# Minimum Ads logging level. Possible values: "debug", "verbose", "info", "warning", "error".
-project.debug.level=verbose

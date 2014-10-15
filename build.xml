@@ -249,15 +249,6 @@
   -->
   <target name="run-phing-scripts" depends="build-init">
 
-    <!-- Generate random users -->
-      <if><equals arg1="${project.drupal.generate.users}" arg2="true" />
-        <then>
-          <log message="Found project.drupal.generate.users = true, executing build-users.xml" level="verbose" />
-            <import-file path="${phing.dir.build_ads}/phing/build-users.xml" absolute="true" />
-            <execute-import-file-target name="build-users" />
-        </then>
-      </if>
-
     <!-- Build site -->
       <if><equals arg1="${project.drupal.build.site}" arg2="true" />
         <then>
@@ -268,18 +259,18 @@
       </if>
 
     <!-- Enable DB search -->
-      <if><equals arg1="${project.drupal.build.search}" arg2="db" />
+      <if><equals arg1="${project.drupal.configure.search}" arg2="db" />
         <then>
-          <log message="Found project.drupal.build.search = db, executing enable-search-db.xml" level="verbose"/>
+          <log message="Found project.drupal.configure.search = db, executing enable-search-db.xml" level="verbose"/>
             <import-file path="${phing.dir.build_ads}/phing/enable-search-db.xml" absolute="true" />
             <execute-import-file-target name="enable-search-db" />
         </then>
       </if>
 
     <!-- Enable Solr search -->
-      <if><equals arg1="${project.drupal.build.search}" arg2="solr" />
+      <if><equals arg1="${project.drupal.configure.search}" arg2="solr" />
         <then>
-          <log message="Found project.drupal.build.search = solr, executing enable-search-solr.xml" level="verbose"/>
+          <log message="Found project.drupal.configure.search = solr, executing enable-search-solr.xml" level="verbose"/>
             <import-file path="${phing.dir.build_ads}/phing/enable-search-solr.xml" absolute="true" />
             <execute-import-file-target name="enable-search-solr" />
         </then>
@@ -298,12 +289,39 @@
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
       <execute-import-file-target name="run-ads-configure" />
 
+     <!-- Generate taxonomy terms -->
+      <if><equals arg1="${project.drupal.generate.terms}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.generate.terms = true, executing generate-terms.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/generate-terms.xml" absolute="true" />
+            <execute-import-file-target name="generate-terms" />
+        </then>
+      </if>
+
+     <!-- Generate users -->
+      <if><equals arg1="${project.drupal.generate.users}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.generate.users = true, executing generate-users.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/generate-users.xml" absolute="true" />
+            <execute-import-file-target name="generate-users" />
+        </then>
+      </if>
+
      <!-- Generate content -->
       <if><equals arg1="${project.drupal.generate.content}" arg2="true" />
         <then>
-          <log message="Found project.drupal.generate.content = true, executing build-content.xml" level="verbose" />
-            <import-file path="${phing.dir.build_ads}/phing/build-content.xml" absolute="true" />
-            <execute-import-file-target name="build-content" />
+          <log message="Found project.drupal.generate.content = true, executing generate-content.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/generate-content.xml" absolute="true" />
+            <execute-import-file-target name="generate-content" />
+        </then>
+      </if>
+
+     <!-- Generate adverts -->
+      <if><equals arg1="${project.drupal.generate.ads}" arg2="true" />
+        <then>
+          <log message="Found project.drupal.generate.ads = true, executing generate-ads.xml" level="verbose" />
+            <import-file path="${phing.dir.build_ads}/phing/generate-ads.xml" absolute="true" />
+            <execute-import-file-target name="generate-ads" />
         </then>
       </if>
 
