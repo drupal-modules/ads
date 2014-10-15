@@ -20,6 +20,10 @@
       <exec command="${project.drush.cmd} en devel_generate comment" 
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
+    <echo message="Generating example locations..." level="info" />
+      <exec command="${project.drush.cmd} generate-terms locations 100"
+        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+
     <echo message="Generating example categories..." level="info" />
       <exec command="${project.drush.cmd} generate-terms categories 100"
         dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
