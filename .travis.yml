@@ -55,7 +55,12 @@ after_script:
 
 # Environment
 env:
-  - HOST="ads.server" URL="http://$HOST/" GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no " SRCDIR="/var/www/ads" DRUSH="drush -y -r $SRCDIR --uri=$URL"
+  global:
+    - HOST="ads.server" URL="http://$HOST/"
+    - GIT_TRACE=1 GIT_SSH="/usr/bin/ssh -oStrictHostKeyChecking=no "
+    - DRUSH="drush -y -r $SRCDIR --uri=$URL"
+  matrix:
+    - SRCDIR="/var/www/ads"
 
 notifications:
   email: false
