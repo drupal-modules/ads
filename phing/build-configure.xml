@@ -23,10 +23,11 @@
           <exec command="${project.drush.cmd} en ads_setup" dir="${project.dir.src}" LogOutput="true" />
 
         <log message="Checking modules' dependencies for: shs, pathauto, token" indent="1" level="verbose" />
-          <exec command="echo n | drush dis shs pathauto token | grep -oP 'will be disabled: \K[a-z_ ,]+' | tail -n 1 | tr -d ',' | tr -d '.'" dir="${project.dir.src}" LogOutput="false" outputProperty="output.modules.disabled" />
+          <exec command="echo n | drush dis shs pathauto token | grep -oE 'will be disabled: [a-z_ ,]+' | tail -n 1 | tr -d ',' | tr -d '.' | cut -d ':' -f2 | sed -e 's/^ *//' -e 's/ *$//'" dir="${project.dir.src}" LogOutput="false" outputProperty="output.modules.disabled" />
 
-        <log message="Dependencies are: ${output.modules.disabled}. If something gone wrong, please" indent="1" level="verbose" />
-        <log message="re-enable those modules before running phing again:" indent="1" level="verbose" />
+        <log message="Dependencies are: ${output.modules.disabled}." indent="1" level="verbose" />
+        <log message="If something gone wrong, please execute this before running phing again:" indent="1" level="verbose" />
+        <log message="" indent="1" level="verbose" />
         <log message="drush -y en ${output.modules.disabled}" indent="2" level="verbose" />
         <log message="" indent="2" level="verbose" />
 
