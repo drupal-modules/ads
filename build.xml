@@ -287,6 +287,11 @@
 
     <!-- Drupal modules auto-configuration -->
     <import-file path="${phing.dir.build_ads}/phing/build-configure.xml" absolute="true" />
+
+    <!-- We don't want locations import in this build -->
+      <property name="exclude" value="ads_locations" />
+
+    <!-- Configuring modules -->
       <execute-import-file-target name="run-ads-configure" />
 
      <!-- Generate taxonomy terms -->
