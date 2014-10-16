@@ -39,10 +39,21 @@ project.drupal.build.type=      dev      # min, full, dev
 project.drupal.build.search=    db       # db, solr, none
 
 #
-# Modules' settings.
+# MODULE'S SETTINGS
 
+#
 # ads_locations
-project.drupal.configure.locations.countries=AD
+project.drupal.configure.locations.countries=  SC
+
+# Locations' CSV file source. "file" or "url".
+project.drupal.configure.locations.source=     file
+
+# Pattern for path to CSV file (relative to folder with build.properties file).
+# "[country]" is a placeholder for country code such as "GB" or "DE".
+project.drupal.configure.locations.file=       ../dataset/cities/[country].csv
+
+# Pattern for URL to CSV file. "[country]" is a placeholder for country code such as "GB" or "DE".
+# project.drupal.configure.locations.url=       http://example.com/locations/[country].csv
 
 #
 # DEVELOPMENT

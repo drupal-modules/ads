@@ -42,11 +42,35 @@
 
       <if>
         <isset property="force"/>
-        <then><property name="forced" value="1" override="true" /></then>
-        <else><property name="forced" value="0" override="true" /></else>
+        <then><property name="arg_force" value="--force" override="true" /></then>
+        <else><property name="arg_force" value="" override="true" /></else>
       </if>
 
-      <exec command="${project.drush.cmd} ads-configure &quot;${phing.dir.build_ads}/build.properties&quot; --force=${forced}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <if>
+        <isset property="modules"/>
+        <then><property name="arg_modules" value="${modules}" override="true" /></then>
+        <else><property name="arg_modules" value="" override="true" /></else>
+      </if>
+
+      <if>
+        <isset property="include"/>
+        <then><property name="arg_include" value="--include=${include}" override="true" /></then>
+        <else><property name="arg_include" value="" override="true" /></else>
+      </if>
+
+      <if>
+        <isset property="exclude"/>
+        <then><property name="arg_exclude" value="--exclude=${exclude}" override="true" /></then>
+        <else><property name="arg_exclude" value="" override="true" /></else>
+      </if>
+
+      <if>
+        <isset property="options"/>
+        <then><property name="arg_options" value="--options=${options}" override="true" /></then>
+        <else><property name="arg_options" value="" override="true" /></else>
+      </if>
+
+      <exec command="${project.drush.cmd} ads-configure &quot;${phing.dir.build_ads}/build.properties&quot; ${arg_modules} ${arg_include} ${arg_exclude} ${arg_force} ${arg_options}" dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
 
     <if>
       <isset property="pure"/>
