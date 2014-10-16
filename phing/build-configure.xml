@@ -48,25 +48,25 @@
 
       <if>
         <isset property="modules"/>
-        <then><property name="arg_modules" value="${modules}" override="true" /></then>
+        <then><property name="arg_modules" value="&quot;${modules}&quot;" override="true" /></then>
         <else><property name="arg_modules" value="" override="true" /></else>
       </if>
 
       <if>
         <isset property="include"/>
-        <then><property name="arg_include" value="--include=${include}" override="true" /></then>
+        <then><property name="arg_include" value="--include=&quot;${include}&quot;" override="true" /></then>
         <else><property name="arg_include" value="" override="true" /></else>
       </if>
 
       <if>
         <isset property="exclude"/>
-        <then><property name="arg_exclude" value="--exclude=${exclude}" override="true" /></then>
+        <then><property name="arg_exclude" value="--exclude=&quot;${exclude}&quot;" override="true" /></then>
         <else><property name="arg_exclude" value="" override="true" /></else>
       </if>
 
       <if>
         <isset property="options"/>
-        <then><property name="arg_options" value="--options=${options}" override="true" /></then>
+        <then><property name="arg_options" value="--options=&quot;${options}&quot;" override="true" /></then>
         <else><property name="arg_options" value="" override="true" /></else>
       </if>
 
