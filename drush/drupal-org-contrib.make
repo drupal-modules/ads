@@ -28,16 +28,20 @@ projects[countries] = "2.3"
 ; Provides a question & answer service. Users can post questions and other users can answer them.
 projects[answers] = "4.0-alpha1"
 
+; FAQ - Frequently Asked Questions
+; Allows to create question and answer pairs which they want displayed on the FAQ page.
+projects[faq] = 2.0-alpha2
+
 ;___________________________________________________
 ;
 ;  CONTENT TYPE AND FIELD MODULES
 ;___________________________________________________
 
-; HoneypoT
+; Honeypot
 ; Honeypot uses both the honeypot and timestamp methods of deterring spam bots from completing forms on your Drupal site.
 projects[honeypot][version] = "1.16"
 
-; DatE
+; Date
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
 ; projects[date][version] = "2.6"
 
@@ -45,7 +49,7 @@ projects[honeypot][version] = "1.16"
 ; This module provides a field type for email addresses.
 projects[email][version] = "1.3"
 
-; Address FielD
+; Address Field
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
 projects[addressfield][version] = "1.0-beta5"
 
@@ -121,7 +125,7 @@ projects[bundle_name_reference][version] = "1.x-dev"
 ; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
 projects[field_delimiter][version] = "1.0"
 
-; Votingapi
+; Voting API
 ; VotingAPI helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
 projects[votingapi][version] = "2.12"
 
@@ -457,16 +461,24 @@ projects[search_api_db][version] = "1.x-dev"
 ;  SOCIAL MODULES
 ;___________________________________________________
 
-; SHARETHIS
+; ShareThis
 ; Integration with the ShareThis social bookmarking utility on selected node types.
-projects[sharethis][version] = "2.5"
+projects[sharethis][version] = 2.5
+
+; Follow
+; Adds sitewide and per user links that link to various social networking sites.
+projects[follow][version] = 2.0-alpha1
+
+; Social Share
+; adds very simple, configurable social network share links to nodes.
+; projects[social_share][version] = 2.1
 
 ;___________________________________________________
 ;
 ;  IMPORT/EXPORT MODULES
 ;___________________________________________________
 
-; TAXONOMY CSV
+; Taxonomy CSV
 ; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
 projects[taxonomy_csv][version] = "5.x-dev"
 projects[taxonomy_csv][download][type] = git
@@ -692,6 +704,15 @@ projects[terms_of_use] = 1.2
 ; EU Cookie Compliance
 ; Intends to deal with the EU Directive on Privacy and Electronic Communications that comes into effect in the UK on 26th May 2012.
 projects[eu_cookie_compliance] = 1.14
+
+;___________________________________________________
+;
+;  User Experience (UX)
+;___________________________________________________
+
+; Scroll to top
+; Uses a jQuery script to provide an animated scroll to top link in the bottom of the node.
+projects[scroll_to_top] = 2.1
 
 ;___________________________________________________
 ;
