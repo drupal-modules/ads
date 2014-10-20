@@ -256,6 +256,10 @@ projects[eva][version] = "1.2"
 ; Display any Views date field in calendar formats. Switch between year, month, and day views.
 projects[calendar][version] = "3.4"
 
+; Semantic Views
+; Plugin makes unformatted styles, field row styles and other output more readily configurable without needing to override template files.
+; projects[semanticviews][version] = 1.0-rc1
+
 ;___________________________________________________
 ;
 ;  PANEL MODULES
@@ -384,7 +388,12 @@ projects[content_taxonomy][version] = "1.0-beta2"
 projects[term_level][version] = "1.1"
 
 ; Taxonomy Manager
-; projects[taxonomy_manager][version] = "1.0-rc1"
+; Provides a powerful interface for managing taxonomies. A vocabulary gets displayed in a dynamic tree view.
+projects[taxonomy_manager][version] = "1.0-rc1"
+
+; Taxonomy Term Reference Tree Widget
+; Provides an expandable tree widget for the Taxonomy Term Reference field.
+; projects[term_reference_tree][version] = 1.10
 
 ;___________________________________________________
 ;
@@ -468,6 +477,10 @@ projects[sharethis][version] = 2.5
 ; Follow
 ; Adds sitewide and per user links that link to various social networking sites.
 projects[follow][version] = 2.0-alpha1
+
+; AddThis
+; Provides an AddThis.com button or toolbox to let your users share your content to social network sites.
+; projects[addthis][version] = 4.0-alpha4
 
 ; Social Share
 ; adds very simple, configurable social network share links to nodes.
@@ -595,19 +608,6 @@ projects[beautytips][version] = "2.0-beta2"
 projects[masonry][version] = "2.x-dev"
 projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
 
-; Advanced help
-; Allows module developers to store their help outside the module system, in pure .html files.
-; projects[advanced_help][version] = "1.0"
-
-; Prepro
-; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
-; to registered preprocessor modules (such as Sassy)
-; projects[prepro][version] = "1.4"
-
-; Sassy
-; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
-; projects[sassy][version] = "2.13"
-
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
 projects[votingapi][version] = "2.12"
@@ -671,6 +671,14 @@ projects[diff][version] = "3.2"
 ; Allows you to define a different theme for administration pages.
 ; projects[admin_theme] = "1.0"
 
+; Advanced help
+; Allows module developers to store their help outside the module system, in pure .html files.
+; projects[advanced_help][version] = "1.0"
+
+; Module Filter
+; Adds ability to quickly find the module on the modules list page.
+; projects[module_filter][version] = 2.0-alpha2
+
 ;___________________________________________________
 ;
 ;  MEDIA
@@ -707,14 +715,44 @@ projects[eu_cookie_compliance] = 1.14
 
 ;___________________________________________________
 ;
-;  User Experience (UX)
+;  USER INTERFACE (UI)
+;___________________________________________________
+
+; Prepro
+; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
+; to registered preprocessor modules (such as Sassy)
+; projects[prepro][version] = "1.4"
+
+; Sassy
+; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
+; projects[sassy][version] = "2.13"
+
+; Block Class
+; Allows users to add classes to any block through the block's configuration interface.
+projects[block_class][version] = 2.1
+
+; Dismiss
+; Adds a jQuery-powered "dismiss" button to all Drupal messages so they can be closed without refreshing or opening browser devtools.
+projects[dismiss][version] = 1.3
+
+; Retina Images
+; Adds an option to all image effects included with core to allow them to output high resolution images for high DPI or retina displays.
+projects[retina_images][version] = 1.0-beta4
+
+;___________________________________________________
+;
+;  USER EXPERIENCE (UX)
 ;___________________________________________________
 
 ; Scroll to top
 ; Uses a jQuery script to provide an animated scroll to top link in the bottom of the node.
 projects[scroll_to_top] = 2.1
 
+; Tipsy
+; Plugin for creating a Facebook-like tooltips effect to textareas, textfield, anchors or any other elements.
+projects[tipsy] = 1.0-rc1
+
 ;___________________________________________________
 ;
-;  OTHER
+;  MISCELLANEOUS
 ;___________________________________________________
