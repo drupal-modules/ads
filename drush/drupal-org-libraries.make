@@ -49,3 +49,11 @@ libraries[phpsass][type] = "library"
 libraries[phpsass][destination] = "libraries"
 libraries[phpsass][download][type] = "get"
 libraries[phpsass][download][url] = "https://github.com/richthegeek/phpsass/archive/master.zip"
+
+; Masonry Library
+; Required by Masonry module.
+libraries[masonry][directory_name] = "masonry"
+libraries[masonry][type] = "library"
+libraries[masonry][destination] = "libraries"
+libraries[masonry][download][type] = "get"
+libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"

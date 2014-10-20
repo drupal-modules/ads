@@ -583,13 +583,6 @@ projects[beautytips][version] = "2.0-beta2"
 projects[masonry][version] = "2.x-dev"
 projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
 
-; Masonry Library
-libraries[masonry][directory_name] = "masonry"
-libraries[masonry][type] = "library"
-libraries[masonry][destination] = "libraries"
-libraries[masonry][download][type] = "get"
-libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"
-
 ; Advanced help
 ; Allows module developers to store their help outside the module system, in pure .html files.
 ; projects[advanced_help][version] = "1.0"
