@@ -102,7 +102,7 @@ includes[] = drush/includes/build-ads-features.make
 ; drush/includes[] = drush/includes/build-ads-vehicles.make
 
 ; ADS theme.
-; includes[] = drush/includes/build-ads-theme.make
+includes[] = drush/includes/build-ads-theme.make
 
 ;-------------------
 ; Extra ADS packages
