@@ -351,6 +351,8 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 
 ; FEATURES
 projects[features][version] = "2.2"
+; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
+projects[features][patch][] = "https://www.drupal.org/files/issues/features-project-2161841-3.patch"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-beta1"
