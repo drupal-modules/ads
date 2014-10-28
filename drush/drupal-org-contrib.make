@@ -60,12 +60,9 @@ projects[phone][download][type] = git
 projects[phone][download][branch] = "7.x-2.x"
 projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 
-; Field group
-; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
-; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
-; NOTE: Changed field_group dependency from version 1.1 to 1.x-dev as we need at least https://drupal.org/node/1324860 functionality (hiding of field groups
-; NOTE: including children).
-projects[field_group][version] = "1.x-dev"
+; Field Group
+; Group fields together by HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
+projects[field_group][version] = 1.4
 
 ; Multistep
 ; Multistep adds multiple-step functionality to content type editing forms.
@@ -96,7 +93,7 @@ projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fi
 
 ; Link
 ; Provides a standard custom content field for links.
-projects[link][version] = "1.2"
+projects[link][version] = 1.3
 
 ; Double field
 ; Double field is a small module written to provide extensions to Drupal's core Fields.
@@ -391,7 +388,7 @@ projects[term_level][version] = "1.1"
 
 ; Taxonomy Manager
 ; Provides a powerful interface for managing taxonomies. A vocabulary gets displayed in a dynamic tree view.
-projects[taxonomy_manager][version] = "1.0-rc1"
+projects[taxonomy_manager][version] = 1.0
 
 ; Taxonomy Term Reference Tree Widget
 ; Provides an expandable tree widget for the Taxonomy Term Reference field.
@@ -688,7 +685,7 @@ projects[diff][version] = "3.2"
 
 ; Media
 ; Provides an extensible framework for managing files and multimedia assets.
-projects[media][version] = "2.0-alpha3"
+projects[media][version] = 2.0-alpha4
 
 ; Styles
 ; Bundled with the Media module, is a fully featured module utilizing the API.
@@ -696,7 +693,7 @@ projects[styles][version] = "2.0-alpha8"
 
 ; File entity (fieldable files)
 ; Provides interfaces for managing files. It is required by the 7.x-2.x branch of the Media module.
-projects[file_entity][version] = "2.0-alpha3"
+projects[file_entity][version] = 2.0-beta1
 
 ; Lightbox2
 ; It is used to overlay images on the current page.
