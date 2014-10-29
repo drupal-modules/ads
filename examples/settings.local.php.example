@@ -2,7 +2,16 @@
 
 /**
  * @file
- * Drupal site-specific configuration file.
+ * Drupal instance-specific configuration file. This is included at the end of
+ * the distributed settings.php, so use this to set everything related to
+ * your local instance.
+ *
+ * Example settings below. See the original settings.php for full
+ * documentation.
+ *
+ * USAGE:
+ *   Copy to settings.local.php and edit.
+ *   Your local copy will be ignored by Git.
  *
  * Command to check the current settings:
  *   drush eval 'include conf_path() . "/settings.php"; print_r($conf);'
@@ -12,23 +21,7 @@
 /**
  * Database settings:
  *
- * Database URL format:
- *
- * Each database connection is specified as an array of settings,
- * similar to the following:
- * @code
- *   $databases['default']['default'] = array(
- *     'driver' => 'mysql',
- *     'database' => 'databasename',
- *     'username' => 'username',
- *     'password' => 'password',
- *     'host' => 'localhost',
- *     'prefix' => '',
- *   );
- * @endcode
- *
  */
-
 $databases['default']['default'] = array(
   'driver' => 'mysql',
   'database' => 'DB_NAME',
@@ -148,6 +141,7 @@ if (class_exists('VarnishCache')) {
   // Drupal 7 does not cache pages when we invoke hooks during bootstrap. This needs to be disabled.
   $conf['page_cache_invoke_hooks'] = FALSE;
   $conf['cache_class_cache_page'] = 'VarnishCache';
+  // $conf['varnish_control_key'] = ''; // This is managed from salt://varnishd/secret
 }
 
 /**
@@ -180,6 +174,12 @@ switch ($env) {
 }
 
 /**
+ * This needs to be set for Secure Pages.
+ */
+// $conf['https'] = TRUE;
+
+
+/**
  * Bootstrap variables set only in CLI (drush)
  * See also: drushrc.php (Variable overrides)
  */
@@ -203,9 +203,5 @@ ini_set('session.cookie_lifetime', 0);
  * Other variables
  */
 // $conf['user_failed_login_ip_limit'] = PHP_INT_MAX; // Activate no login limits in case of flood issues.
-
-/**
- * This needs to be set for secure pages to work with Drupal Commerce.  Otherwise, items added on unsecure pages don't get added to cart.
- */
-// $conf['https'] = TRUE;
- 
+// $drupal_hash_salt = ''; // Salt for one-time login links and cancel links, form tokens, etc.
+// $base_url = getenv('BASE_URL'); // Base URL (NO trailing slash!).
