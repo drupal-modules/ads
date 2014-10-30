@@ -676,7 +676,8 @@ projects[diff][version] = "3.2"
 
 ; Module Filter
 ; Adds ability to quickly find the module on the modules list page.
-; projects[module_filter][version] = 2.0-alpha2
+; Used by: build-dev-env.xml
+projects[module_filter][version] = 2.0-alpha2
 
 ;___________________________________________________
 ;
