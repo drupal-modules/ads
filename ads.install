@@ -220,6 +220,11 @@ function _ads_filter_dependencies($dependency) {
  * Task callback: performs final post-installation cleanup.
  */
 function ads_cleanup() {
+  // We no longer need ads_installation_state.json file.
+  $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
+  if (file_exists($install_state_path)) {
+    unlink($install_state_path);
+  }
 
   /*
   $operations = array();
