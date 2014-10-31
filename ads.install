@@ -11,13 +11,11 @@
  */
 function ads_modules_enabled($modules) {
   if (in_array('update', $modules)) {
-    $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
-
-    if (!file_exists($install_state_path)) {
+    if (empty($GLOBALS['install_state'])) {
       return;
     }
 
-    $install_state = json_decode(file_get_contents($install_state_path), TRUE);
+    $install_state = $GLOBALS['install_state'];
 
     if (drupal_is_cli()) {
       echo "Setting Drupal variables:\n";
@@ -61,8 +59,6 @@ function ads_modules_enabled($modules) {
     // Rebuilding list of stream wrappers.
     drush_log('Rebuilding list of stream wrappers');
     drupal_static_reset('file_get_stream_wrappers');
-
-    unlink ($install_state_path);
 
     // We don't want Smart IP to update MaxMind database so early.
     variable_set('smart_ip_maxmind_bin_db_auto_update', '0');
@@ -131,9 +127,7 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
   $GLOBALS['conf']['theme_zen_settings'] = $theme_settings;
   */
 
-  $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
-
-  file_put_contents($install_state_path, json_encode($install_state));
+  $GLOBALS['install_state'] = $install_state;
 }
 
 /**
@@ -220,12 +214,6 @@ function _ads_filter_dependencies($dependency) {
  * Task callback: performs final post-installation cleanup.
  */
 function ads_cleanup() {
-  // We no longer need ads_installation_state.json file.
-  $install_state_path = sys_get_temp_dir() . '/ads_installation_state.json';
-  if (file_exists($install_state_path)) {
-    unlink($install_state_path);
-  }
-
   /*
   $operations = array();
 
