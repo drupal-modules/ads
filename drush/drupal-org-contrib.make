@@ -637,8 +637,7 @@ projects[devel] = "1.5"
 projects[admin_menu] = "3.0-rc4"
 
 ; Backup and Migrate
-; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
-; gzip, bzip and zip compression as well as automatic scheduled backups.
+; Back up and restore your Drupal MySQL database, code, and files or migrate a site between environments.
 projects[backup_migrate] = 3.0
 
 ; Local Task Blocks
