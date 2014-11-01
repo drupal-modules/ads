@@ -7,5 +7,5 @@
 ;___________________________________________________
 
 ; ADS CUSTOM FEATURES
-projects[ads_features][version] = 1.0-alpha1
+projects[ads_features][version] = 1.0-alpha2
 projects[ads_features][subdir] = ads
