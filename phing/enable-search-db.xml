@@ -15,6 +15,9 @@
   -->
   <target name="enable-search-db" depends="init">
 
+    <exec command="${project.drush.cmd} pm-info"
+        dir="${project.dir.src}" checkreturn="false" LogOutput="true" />
+
     <!-- Enabling ADS modules -->
     <echo message="Enabling ADS search db modules..." level="info" />
       <exec command="${project.drush.cmd} en ads_search_db"

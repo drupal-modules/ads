@@ -39,7 +39,7 @@ includes[] = drush/drupal-org-libraries.make
 
 ; Download the ADS install profile and recursively build all its dependencies
 projects[ads][type] = profile
-projects[ads][version] = 1.0-alpha1
+projects[ads][version] = 1.0-alpha2
 projects[ads][subdir] = ""
 
 ;____________________

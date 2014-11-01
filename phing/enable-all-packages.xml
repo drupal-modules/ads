@@ -10,7 +10,7 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+      <!--<property name="project.dir.src"            value="${phing.dir}/../src"/>-->
   </target>
 
   <!--
@@ -21,22 +21,22 @@
     <!-- Enabling ADS main package modules -->
 
     <echo message="Enabling ADS package modules..." level="info" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_animals" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_art" />
-  <!--<exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_auctions" /> -->
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_business" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_community" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_dating" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_education" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_finance" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_it" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_items" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_jobs" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_music" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_properties" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_services" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_travel" />
-      <exec dir="${project.dir.src}" checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_vehicles" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_animals" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_art" />
+  <!--<exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_auctions" /> -->
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_business" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_community" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_dating" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_education" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_finance" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_it" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_items" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_jobs" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_music" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_properties" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_services" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_travel" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_vehicles" />
 
   </target>
 

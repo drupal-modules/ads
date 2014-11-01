@@ -28,16 +28,20 @@ projects[countries] = "2.3"
 ; Provides a question & answer service. Users can post questions and other users can answer them.
 projects[answers] = "4.0-alpha1"
 
+; FAQ - Frequently Asked Questions
+; Allows to create question and answer pairs which they want displayed on the FAQ page.
+projects[faq] = 2.0-alpha2
+
 ;___________________________________________________
 ;
 ;  CONTENT TYPE AND FIELD MODULES
 ;___________________________________________________
 
-; HoneypoT
+; Honeypot
 ; Honeypot uses both the honeypot and timestamp methods of deterring spam bots from completing forms on your Drupal site.
 projects[honeypot][version] = "1.16"
 
-; DatE
+; Date
 ; This package contains both a flexible date/time field type Date field and a Date API that other modules can use.
 ; projects[date][version] = "2.6"
 
@@ -45,7 +49,7 @@ projects[honeypot][version] = "1.16"
 ; This module provides a field type for email addresses.
 projects[email][version] = "1.3"
 
-; Address FielD
+; Address Field
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
 projects[addressfield][version] = "1.0-beta5"
 
@@ -56,12 +60,9 @@ projects[phone][download][type] = git
 projects[phone][download][branch] = "7.x-2.x"
 projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
 
-; Field group
-; Fieldgroup will, as the name implies, group fields together. All fieldable entities will have the possibility to add groups to wrap their fields together.
-; Fieldgroup comes with default HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
-; NOTE: Changed field_group dependency from version 1.1 to 1.x-dev as we need at least https://drupal.org/node/1324860 functionality (hiding of field groups
-; NOTE: including children).
-projects[field_group][version] = "1.x-dev"
+; Field Group
+; Group fields together by HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
+projects[field_group][version] = 1.4
 
 ; Multistep
 ; Multistep adds multiple-step functionality to content type editing forms.
@@ -92,7 +93,7 @@ projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fi
 
 ; Link
 ; Provides a standard custom content field for links.
-projects[link][version] = "1.2"
+projects[link][version] = 1.3
 
 ; Double field
 ; Double field is a small module written to provide extensions to Drupal's core Fields.
@@ -121,7 +122,7 @@ projects[bundle_name_reference][version] = "1.x-dev"
 ; Provides a setting for field formatters, allowing multi-value fields to be displayed with a delimiter between the values
 projects[field_delimiter][version] = "1.0"
 
-; Votingapi
+; Voting API
 ; VotingAPI helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
 projects[votingapi][version] = "2.12"
 
@@ -252,6 +253,10 @@ projects[eva][version] = "1.2"
 ; Display any Views date field in calendar formats. Switch between year, month, and day views.
 projects[calendar][version] = "3.4"
 
+; Semantic Views
+; Plugin makes unformatted styles, field row styles and other output more readily configurable without needing to override template files.
+; projects[semanticviews][version] = 1.0-rc1
+
 ;___________________________________________________
 ;
 ;  PANEL MODULES
@@ -343,6 +348,8 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 
 ; FEATURES
 projects[features][version] = "2.2"
+; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
+projects[features][patch][] = "https://www.drupal.org/files/issues/features-project-2161841-3.patch"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-beta1"
@@ -380,7 +387,12 @@ projects[content_taxonomy][version] = "1.0-beta2"
 projects[term_level][version] = "1.1"
 
 ; Taxonomy Manager
-; projects[taxonomy_manager][version] = "1.0-rc1"
+; Provides a powerful interface for managing taxonomies. A vocabulary gets displayed in a dynamic tree view.
+projects[taxonomy_manager][version] = 1.0
+
+; Taxonomy Term Reference Tree Widget
+; Provides an expandable tree widget for the Taxonomy Term Reference field.
+; projects[term_reference_tree][version] = 1.10
 
 ;___________________________________________________
 ;
@@ -457,16 +469,28 @@ projects[search_api_db][version] = "1.x-dev"
 ;  SOCIAL MODULES
 ;___________________________________________________
 
-; SHARETHIS
+; ShareThis
 ; Integration with the ShareThis social bookmarking utility on selected node types.
-projects[sharethis][version] = "2.5"
+projects[sharethis][version] = 2.5
+
+; Follow
+; Adds sitewide and per user links that link to various social networking sites.
+projects[follow][version] = 2.0-alpha1
+
+; AddThis
+; Provides an AddThis.com button or toolbox to let your users share your content to social network sites.
+; projects[addthis][version] = 4.0-alpha4
+
+; Social Share
+; adds very simple, configurable social network share links to nodes.
+; projects[social_share][version] = 2.1
 
 ;___________________________________________________
 ;
 ;  IMPORT/EXPORT MODULES
 ;___________________________________________________
 
-; TAXONOMY CSV
+; Taxonomy CSV
 ; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
 projects[taxonomy_csv][version] = "5.x-dev"
 projects[taxonomy_csv][download][type] = git
@@ -583,26 +607,6 @@ projects[beautytips][version] = "2.0-beta2"
 projects[masonry][version] = "2.x-dev"
 projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
 
-; Masonry Library
-libraries[masonry][directory_name] = "masonry"
-libraries[masonry][type] = "library"
-libraries[masonry][destination] = "libraries"
-libraries[masonry][download][type] = "get"
-libraries[masonry][download][url] = "http://masonry.desandro.com/masonry.pkgd.min.js"
-
-; Advanced help
-; Allows module developers to store their help outside the module system, in pure .html files.
-; projects[advanced_help][version] = "1.0"
-
-; Prepro
-; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
-; to registered preprocessor modules (such as Sassy)
-; projects[prepro][version] = "1.4"
-
-; Sassy
-; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
-; projects[sassy][version] = "2.13"
-
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
 projects[votingapi][version] = "2.12"
@@ -633,9 +637,8 @@ projects[devel] = "1.5"
 projects[admin_menu] = "3.0-rc4"
 
 ; Backup and Migrate
-; Simplifies the task of backing up and restoring your Drupal database or copying your database from one Drupal site to another. It supports
-; gzip, bzip and zip compression as well as automatic scheduled backups.
-projects[backup_migrate] = "2.8"
+; Back up and restore your Drupal MySQL database, code, and files or migrate a site between environments.
+projects[backup_migrate] = 3.0
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
@@ -666,6 +669,15 @@ projects[diff][version] = "3.2"
 ; Allows you to define a different theme for administration pages.
 ; projects[admin_theme] = "1.0"
 
+; Advanced help
+; Allows module developers to store their help outside the module system, in pure .html files.
+; projects[advanced_help][version] = "1.0"
+
+; Module Filter
+; Adds ability to quickly find the module on the modules list page.
+; Used by: build-dev-env.xml
+projects[module_filter][version] = 2.0-alpha2
+
 ;___________________________________________________
 ;
 ;  MEDIA
@@ -673,7 +685,7 @@ projects[diff][version] = "3.2"
 
 ; Media
 ; Provides an extensible framework for managing files and multimedia assets.
-projects[media][version] = "2.0-alpha3"
+projects[media][version] = 2.0-alpha4
 
 ; Styles
 ; Bundled with the Media module, is a fully featured module utilizing the API.
@@ -681,7 +693,7 @@ projects[styles][version] = "2.0-alpha8"
 
 ; File entity (fieldable files)
 ; Provides interfaces for managing files. It is required by the 7.x-2.x branch of the Media module.
-projects[file_entity][version] = "2.0-alpha3"
+projects[file_entity][version] = 2.0-beta1
 
 ; Lightbox2
 ; It is used to overlay images on the current page.
@@ -702,5 +714,44 @@ projects[eu_cookie_compliance] = 1.14
 
 ;___________________________________________________
 ;
-;  OTHER
+;  USER INTERFACE (UI)
+;___________________________________________________
+
+; Prepro
+; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
+; to registered preprocessor modules (such as Sassy)
+; projects[prepro][version] = "1.4"
+
+; Sassy
+; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
+; projects[sassy][version] = "2.13"
+
+; Block Class
+; Allows users to add classes to any block through the block's configuration interface.
+projects[block_class][version] = 2.1
+
+; Dismiss
+; Adds a jQuery-powered "dismiss" button to all Drupal messages so they can be closed without refreshing or opening browser devtools.
+projects[dismiss][version] = 1.3
+
+; Retina Images
+; Adds an option to all image effects included with core to allow them to output high resolution images for high DPI or retina displays.
+projects[retina_images][version] = 1.0-beta4
+
+;___________________________________________________
+;
+;  USER EXPERIENCE (UX)
+;___________________________________________________
+
+; Scroll to top
+; Uses a jQuery script to provide an animated scroll to top link in the bottom of the node.
+projects[scroll_to_top] = 2.1
+
+; Tipsy
+; Plugin for creating a Facebook-like tooltips effect to textareas, textfield, anchors or any other elements.
+projects[tipsy] = 1.0-rc1
+
+;___________________________________________________
+;
+;  MISCELLANEOUS
 ;___________________________________________________
