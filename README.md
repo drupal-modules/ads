@@ -11,8 +11,8 @@ Releases:
 
 | Status | Project | Version | Description
 | :----- | :------ | :--- | :---
-| [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=7.x-1.0-alpha1)](https://travis-ci.org/mycognitive/ads) | ADS | 7.x-1.0-alpha1 | Main build process.
-| [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=7.x-1.0-alpha1)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | 7.x-1.0-alpha1 | Build and installation of ADS Features.
+| [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=7.x-1.0-alpha2)](https://travis-ci.org/mycognitive/ads) | ADS | 7.x-1.0-alpha2 | Main build process.
+| [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=7.x-1.0-alpha2)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | 7.x-1.0-alpha2 | Build and installation of ADS Features.
 
 Latest:
 
