@@ -212,7 +212,12 @@ projects[site_map][version] = "1.2"
 
 ; Taxonomy Menu
 ; Transform any of your taxonomy vocabularies into existing menus easily!
-projects[taxonomy_menu][version] = "1.4"
+projects[taxonomy_menu][version] = 2.x-dev
+projects[taxonomy_menu][download][type] = git
+projects[taxonomy_menu][download][branch] = 7.x-2.x
+projects[taxonomy_menu][download][revision] = c2b6b874e945c9609ef82a8b568d087eff7c0460
+; @Patch: Introduce depth limit for very large and deep vocabularies (https://www.drupal.org/node/990512)
+projects[taxonomy_menu][patch][] = "https://www.drupal.org/files/issues/maxdepth-990512-24.patch"
 
 ; Menu Block
 ; It provides configurable blocks of menu trees starting with any level of any menu.
@@ -238,8 +243,7 @@ projects[ntm][version] = "1.12"
 projects[views][version] = "3.8"
 
 ; Views Bulk Operations
-; This module augments Views by allowing bulk operations to be executed on the displayed rows. It does so by showing a checkbox in front of each node, and
-; adding a select box containing operations that can be applied. Drupal Core or Rules actions can be used.
+; Extends Views by allowing bulk operations to be executed on the displayed rows.
 ; projects[views_bulk_operations][version] = "3.x-dev"
 ; projects[views_bulk_operations][download][type] = git
 ; projects[views_bulk_operations][download][branch] = 7.x-3.x
