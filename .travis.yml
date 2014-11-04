@@ -20,7 +20,7 @@ install:
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
 before_script:
   - sudo puppet apply puppet/ads.dev.configure-site.pp # Apply webroot puppet configuration.
-  - sed -i'.bak' "s/^includes/;includes/g" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
+  - sed -i'.bak' "s|^includes\[\] = drush/includes|;includes\[\] = drush/includes|" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
 
 # Script
 # Main build command to run.
