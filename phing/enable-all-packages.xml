@@ -33,7 +33,7 @@
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_items" />
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_jobs" />
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_music" />
-      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_properties" />
+      <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_property" />
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_services" />
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_travel" />
       <exec checkreturn="true" LogOutput="true" command="${project.drush.cmd} en ads_vehicles" />

@@ -95,7 +95,7 @@ includes[] = drush/includes/build-ads-jobs.make
 includes[] = drush/includes/build-ads-music.make
 
 ; Provides common Properties features for ADS Drupal distribution.
-includes[] = drush/includes/build-ads-properties.make
+includes[] = drush/includes/build-ads-property.make
 
 ; Provides common Services features for ADS Drupal distribution.
 includes[] = drush/includes/build-ads-services.make
