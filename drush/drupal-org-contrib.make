@@ -636,6 +636,10 @@ projects[devel] = "1.5"
 ; Admin Menu
 projects[admin_menu] = "3.0-rc4"
 
+; SUPERFISH
+; Superfish integrates jQuery Superfish plugin with your Drupal menus.
+projects[superfish] = "1.9"
+
 ; Backup and Migrate
 ; Back up and restore your Drupal MySQL database, code, and files or migrate a site between environments.
 projects[backup_migrate] = 3.0
