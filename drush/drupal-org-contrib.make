@@ -717,14 +717,15 @@ projects[eu_cookie_compliance] = 1.14
 ;  USER INTERFACE (UI)
 ;___________________________________________________
 
-; Prepro
-; The module gets access to the list of JS/CSS files added, and picks files from the array based on file syntax (eg .sass) and offers them
-; to registered preprocessor modules (such as Sassy)
-; projects[prepro][version] = "1.4"
-
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
-; projects[sassy][version] = "2.13"
+; Required by: ads_theme
+projects[sassy] = 2.13
+
+; Prepro
+; The module picks JS/CSS files (eg .sass) and offers them to registered preprocessor modules (such as Sassy).
+; Required by: sassy
+projects[prepro] = 1.4
 
 ; Block Class
 ; Allows users to add classes to any block through the block's configuration interface.
