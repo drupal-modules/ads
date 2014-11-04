@@ -616,9 +616,10 @@ projects[votingapi][version] = "2.12"
 ;  CACHING
 ;___________________________________________________
 
-; MemCache
+; Memcache API and Integration
 ; Integration between Drupal and Memcached.
-; projects[memcache][version] = "1.0"
+; Required by: settings.local.php
+projects[memcache] = 1.3
 
 ;___________________________________________________
 ;
