@@ -9,6 +9,13 @@ core = 7.x
 ;  LIBRARIES
 ;___________________________________________________
 
+; SUPERFISH
+; Superfish integrates jQuery Superfish plugin with your Drupal menus.
+libraries[superfish][download][type] = get
+libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/archive/1.x.zip"
+libraries[superfish][directory_name] = "superfish"
+libraries[superfish][destination] = "libraries"
+
 ; LESS CSS PREPROCESSOR PLUGIN
 ; Lessphp is a compiler for LESS written in PHP.
 libraries[lessphp][type] = "libraries"
