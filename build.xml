@@ -131,7 +131,7 @@
   <!--
   ## Build Drupal code using drush make
   -->
-  <target name="build-drupal" depends="build-init, check-db">
+  <target name="build-drupal" depends="build-init">
 
     <log message="Downloading and building Drupal sources... (it may take a while)" level="verbose" />
 
