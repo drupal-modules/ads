@@ -178,6 +178,16 @@ projects[email_registration][version] = "1.1"
 ; Users to have a central place to view and manage their content. It's a user-centric view of a Drupal site.
 projects[workspace][version] = "1.x-dev"
 
+;___________________________________________________
+;
+;  GEOLOCATION MODULES
+;___________________________________________________
+
+; Get Locations
+; Provides Google maps API version 3 enabled maps on which to display markers of locations found in
+; location-enabled content-types.
+projects[getlocations][version] = "1.13"
+
 ; IP-based Determination of a Visitor's Country
 ; Uses a visitor's IP address to identify the geographical location (country) of the user. 
 projects[ip2country][version] = "1.4"
@@ -241,6 +251,19 @@ projects[ntm][version] = "1.12"
 ; Views
 ; Provides a flexible method to control how lists and tables of content are presented.
 projects[views][version] = "3.8"
+
+; Views Slideshow
+; Can be used to create a slideshow of any content (not just images) that can appear in a View.
+projects[views_slideshow][version] = "3.1"
+
+; FlexSlider Views Slideshow
+; This is the FlexSlider Views Slideshow module which used to be included in FlexSlider by default.
+projects[flexslider_views_slideshow][version] = "2.x-dev"
+
+; Views Isotope - jQuery Isotope
+; This module allows you to easily create a grid View that uses the amazing Isotope JQuery Library to dynamically filter
+; the elements displayed.
+projects[views_isotope][version] = "2.0-alpha1"
 
 ; Views Bulk Operations
 ; Extends Views by allowing bulk operations to be executed on the displayed rows.
@@ -614,6 +637,24 @@ projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v3
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
 projects[votingapi][version] = "2.12"
+
+; Nivo Slider
+; Nivo Slider provides an easy and eye-catching way to showcase featured content.
+projects[nivo_slider][version] = "1.11"
+
+; fancyBox
+; The Fancybox module is the best way to incorporate the fancyBox jQuery plugin into Drupal. Display images, HTML,
+; YouTube videos, Google maps in an elegant and aesthetic lightbox alternative.
+projects[fancybox][version] = "2.0-beta2"
+
+; jQuery Easing
+; The jQuery Easing module makes the jQuery Easing plugin available for Drupal modules/themes to use.
+projects[jqeasing][version] = "1.0"
+
+; Flex Slider
+; Flex Slider module integrates the Flex Slider library with Drupal and several contributed modules which allows you to
+; build responsive, resizable slideshows.
+projects[flexslider][version] = "2.0-alpha3"
 
 ;___________________________________________________
 ;

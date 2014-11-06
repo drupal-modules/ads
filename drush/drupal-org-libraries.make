@@ -9,6 +9,66 @@ core = 7.x
 ;  LIBRARIES
 ;___________________________________________________
 
+; MARKITUP!
+; markItUp! is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor.
+libraries[markitup][download][type] = get
+libraries[markitup][download][url] = "https://github.com/markitup/1.x/archive/master.zip"
+libraries[markitup][download][subtree] = "1.x-master/markitup"
+libraries[markitup][directory_name] = "markitup"
+libraries[markitup][destination] = "libraries"
+
+; JQUERY CYCLE
+; The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effects.
+libraries[jquery_cycle][download][type] = get
+libraries[jquery_cycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
+libraries[jquery_cycle][directory_name] = "jquery.cycle"
+libraries[jquery_cycle][destination] = "libraries"
+
+; NIVO SLIDER
+; Nivo Slider provides an easy and eye-catching way to showcase featured content.
+libraries[nivo_slider][download][type] = get
+libraries[nivo_slider][download][url] = "https://github.com/gilbitron/Nivo-Slider/archive/master.zip"
+libraries[nivo_slider][directory_name] = "nivo-slider"
+libraries[nivo_slider][destination] = "libraries"
+
+; FANCYBOX
+; The Fancybox module is the best way to incorporate the fancyBox jQuery plugin into Drupal. Display images, HTML,
+; YouTube videos, Google maps in an elegant and aesthetic lightbox alternative.
+libraries[fancybox][download][type] = get
+libraries[fancybox][download][url] = "https://codeload.github.com/fancyapps/fancyBox/legacy.zip/v2.1.5"
+libraries[fancybox][directory_name] = "fancybox"
+libraries[fancybox][destination] = "libraries"
+
+; JQUERY EASING
+; The jQuery Easing module makes the jQuery Easing plugin available for Drupal modules/themes to use.
+libraries[jquery_easing][download][type] = file
+libraries[jquery_easing][download][url] = "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"
+libraries[jquery_easing][download][filename] = "jquery.easing.js"
+libraries[jquery_easing][directory_name] = "easing"
+libraries[jquery_easing][destination] = "libraries"
+
+; FLEX SLIDER
+; Flex Slider module integrates the Flex Slider library with Drupal and several contributed modules which allows you to
+; build responsive, resizable slideshows.
+libraries[flexslider][download][type] = get
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/master.zip"
+libraries[flexslider][directory_name] = "flexslider"
+libraries[flexslider][destination] = "libraries"
+
+; Views Isotope - jQuery Isotope
+; This module allows you to easily create a grid View that uses the amazing Isotope JQuery Library to dynamically filter
+; the elements displayed.
+libraries[isotope][download][type] = file
+libraries[isotope][download][url] = "http://isotope.metafizzy.co/isotope.pkgd.min.js"
+libraries[isotope][download][filename] = "jquery.isotope.min.js"
+libraries[isotope][directory_name] = "jquery.isotope"
+libraries[isotope][destination] = "libraries"
+
+libraries[kwicks][download][type] = get
+libraries[kwicks][download][url] = "https://github.com/jmar777/kwicks/archive/master.zip"
+libraries[kwicks][directory_name] = "kwicks"
+libraries[kwicks][destination] = "libraries"
+
 ; SUPERFISH
 ; Superfish integrates jQuery Superfish plugin with your Drupal menus.
 libraries[superfish][download][type] = get
