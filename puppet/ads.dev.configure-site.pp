@@ -56,6 +56,12 @@ class { '::mysql::server':
   }
 }
 
+mysql_database { 'travis_ads_test':
+  ensure  => 'present',
+  charset => 'utf8',
+  collate => 'utf8_general_ci',
+}
+
 # MySQL server config subclass
 # Restarts MySQL service when /etc/mysql/my.cnf changes.
 class ads::mysql inherits ::mysql::server::config {
