@@ -131,7 +131,8 @@
   <!--
   ## Build Drupal code using drush make
   -->
-  <target name="build-drupal" depends="build-init">
+  <target name="build-drupal" depends="build-init, check-db">
+
     <log message="Downloading and building Drupal sources... (it may take a while)" level="verbose" />
 
     <!-- Detection of makefile variant -->
@@ -183,10 +184,26 @@
 
   </target>
 
+  <target name="check-db" depends="build-init">
+    <log message="Checking database connection..." level="verbose" />
+      <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
+      <exec command="${project.drush.cmd} sql-query --db-url=${project.db.url} &quot;SHOW TABLES;&quot;" returnProperty="cmd.return" passthru="1" LogOutput="true" />
+      <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
+        <then>
+          <log  msg="Cannot access selected database! Check your database connection at &quot;${project.db.url}&quot;!" indent="1" />
+          <fail msg="Cannot access selected database! Check your database connection at &quot;${project.db.url}&quot;!" />
+        </then>
+        <else>
+          <log msg="OK" indent="1" />
+        </else>
+      </if>
+    <log msg="" />
+  </target>
+
   <!--
   ## Install Drupal code using drush make
   -->
-  <target name="install-drupal" depends="build-init">
+  <target name="install-drupal" depends="build-init, check-db">
     <log message="Installing Drupal from the profile" level="verbose" />
     <log message="" level="verbose" />
       <property name="project.db.url" value="${project.db.driver}://${project.db.username}:${project.db.password}@${project.db.host}:${project.db.port}/${project.db.database}" />
@@ -194,10 +211,13 @@
         dir="${project.dir.src}" returnProperty="cmd.return" passthru="1" LogOutput="true" />
         <if><not><equals arg1="${cmd.return}" arg2="0" /></not>
           <then>
-            <fail msg="Can't install Drupal! Check your database connection at ${project.db.url}!" />
+            <log  msg="Can't install Drupal! Check your database connection at &quot;${project.db.url}&quot;!" indent="1" />
+            <fail msg="Can't install Drupal! Check your database connection at &quot;${project.db.url}&quot;!" />
           </then>
         </if>
 
+      <log msg="Drupal installed" />
+      <log msg="" />
   </target>
 
   <!--
