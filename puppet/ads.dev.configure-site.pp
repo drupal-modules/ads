@@ -57,8 +57,8 @@ class { '::mysql::server':
 }
 
 mysql::db { 'travis_ads_test':
-  user     => 'root',
-  password => 'root',
+  user     => 'travis_ads_test',
+  password => 'travis_ads_test',
   host     => 'localhost',
   charset  => 'utf8',
   collate  => 'utf8_general_ci',
