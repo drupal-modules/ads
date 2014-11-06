@@ -78,9 +78,8 @@ projects[field_collection][version] = "1.0-beta5"
 ; the D6 counterparts. See http://drupal.org/node/533222 for details.
 projects[references][version] = "2.0"
 
-; Conditional fields
-; Define dependencies between fields based on their states and values. Conditional Fields for Drupal 7 is an user interface to the new States API, plus the
-; ability to modify fields appearance and behavior on certain conditions when viewing content.
+; Conditional Fields
+; Allows you to manage sets of dependencies between fields based on their states and values.
 ; Latest stable version: 7.x-3.0-alpha1 (2013-Nov-18)
 projects[conditional_fields][version] = "3.x-dev"
 projects[conditional_fields][download][type] = git
@@ -139,6 +138,11 @@ projects[shs][version] = "1.6"
 ; This module provides flexible voting widgets for nodes and comments.
 ; Required by: ads_advert
 projects[rate][version] = "1.7"
+
+; Hierarchical Select
+; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
+; Required by: ads_advert
+projects[hierarchical_select] = 3.0-alpha6
 
 ;___________________________________________________
 ;
