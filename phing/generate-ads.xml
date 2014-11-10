@@ -7,7 +7,7 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.dir.src"            value="${phing.dir}/../src"/>
+      <property name="project.drupal.dir"         value="${phing.dir}"/>
   </target>
 
   <!--
@@ -17,16 +17,14 @@
 
     <!-- Enabling devel_generate module -->
     <echo message="Enabling Devel Generate module..." level="info" />
-      <exec command="${project.drush.cmd} en devel_generate" 
-        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <exec command="${project.drush.cmd} en devel_generate" dir="${project.drupal.dir}" checkreturn="true" LogOutput="true" />
 
     <echo message="Generating example adverts..." level="info" />
-      <exec command="${project.drush.cmd} generate-content --types=advert 50 10"
-        dir="${project.dir.src}" checkreturn="true" LogOutput="true" />
+      <exec command="${project.drush.cmd} generate-content --types=advert 50 10" dir="${project.drupal.dir}" checkreturn="true" LogOutput="true" />
 
     <!-- Disabling devel_generate module -->
     <echo message="Disabling Devel Generate module..." level="info" />
-      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.dir.src}" />
+      <exec command="${project.drush.cmd} dis devel_generate" dir="${project.drupal.dir}" />
 
   </target>
 
