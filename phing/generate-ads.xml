@@ -7,7 +7,11 @@
     <echo message="Assigning phing properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
       <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
-      <property name="project.drupal.dir"         value="${phing.dir}"/>
+      <if><isset property="project.dir.src" /><then>
+        <property name="project.drupal.dir"       value="${project.dir.src}"/>
+      </then><else>
+        <property name="project.drupal.dir"       value="${phing.dir}"/>
+      </else></if>
   </target>
 
   <!--
