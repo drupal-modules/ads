@@ -124,7 +124,7 @@ function ads_install_tasks_alter(&$tasks, $install_state) {
     'logo_path' => 'profiles/ads/themes/cloudy/images/ads-logo.png',
     'logo_upload' => '',
   );
-  $GLOBALS['conf']['theme_zen_settings'] = $theme_settings;
+  $GLOBALS['conf']['theme_ads_base_settings'] = $theme_settings;
   */
 
   $GLOBALS['install_state'] = $install_state;
@@ -467,10 +467,10 @@ function ads_install() {
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
     ->condition(db_or()
-      ->condition('name', 'zen')
+      ->condition('name', 'ads_base')
     )
     ->execute();
-  variable_set('theme_default', 'zen');
+  variable_set('theme_default', 'ads_base');
 
   // Enable default admin theme.
   db_update('system')
