@@ -3,7 +3,7 @@
   <form id="views-exposed-form-ads-search-results-search-results-content-pane" accept-charset="UTF-8" method="get" action="/search/results">
 
     <div class="title">
-      Search more than <b>1 724 342</b> ads.
+      Search more than <b>123</b> ads.
     </div>
 
     <span>
@@ -17,7 +17,7 @@
       &nbsp;<?php print t('in'); ?>&nbsp;
     </span>
 
-    <input id="edit-location" class="form-text" type="text" maxlength="128" size="20" value="<?php print check_plain(@$_REQUEST['location']) ?>" name="location" placeholder="<?php print t('Postcode or location  '); ?>"><select>
+    <input id="edit-location" class="form-text" type="text" maxlength="128" size="20" value="<?php print check_plain(@$_REQUEST['location']) ?>" name="location" placeholder="<?php print t('Postcode or location'); ?>"><select>
       <option>+0 miles</option>
     </select>
 

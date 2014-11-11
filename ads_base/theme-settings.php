@@ -7,7 +7,7 @@
  * @param $form_state
  *   A keyed array containing the current state of the form.
  */
-function ads_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
+function ads_base_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
@@ -18,7 +18,7 @@ function ads_form_system_theme_settings_alter(&$form, &$form_state, $form_id = N
   /* -- Delete this line if you want to use this setting
   $form['ads_example'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('ads sample setting'),
+    '#title'         => t('ads base sample setting'),
     '#default_value' => theme_get_setting('ads_example'),
     '#description'   => t("This option doesn't do anything; it's just an example."),
   );
