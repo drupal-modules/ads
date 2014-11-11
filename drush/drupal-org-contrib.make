@@ -171,8 +171,8 @@ projects[profile2][version] = "1.3"
 ;___________________________________________________
 
 ; LoginToboggan
-; Offers several modifications of the Drupal login system in an external module by offering many features and usability improvements.
-projects[logintoboggan][version] = "1.3"
+; Improves login system by offering features and usability improvements (log-in via e-mail, log-in after register, etc.).
+projects[logintoboggan][version] = 1.4
 
 ; Email Registration
 ; Allow users to register and login using only an email address. Users can then log-in using their email address and password for authentication.
