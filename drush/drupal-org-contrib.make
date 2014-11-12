@@ -144,6 +144,13 @@ projects[rate][version] = "1.7"
 ; Required by: ads_advert
 projects[hierarchical_select] = 3.0-alpha6
 
+; Contact form fields
+; Allows to add additional fields to site wide contact form like the profile module interface.
+projects[contact_field] = 1.x-dev
+projects[contact_field][download][type] = git
+projects[contact_field][download][branch] = 7.x-2.x
+projects[contact_field][download][revision] = 18dc4544596e321fea310e33334b1fe444df8174
+
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
