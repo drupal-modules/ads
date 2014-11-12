@@ -19,5 +19,5 @@ ads:
 content:
 	phing -D project.drupal.dir=src -f phing/generate-content.xml
 
-update:
+update-src:
 	sh ./scripts/update_src.sh
