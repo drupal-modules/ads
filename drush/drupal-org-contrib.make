@@ -806,6 +806,10 @@ projects[scroll_to_top] = 2.1
 ; Plugin for creating a Facebook-like tooltips effect to textareas, textfield, anchors or any other elements.
 projects[tipsy] = 1.0-rc1
 
+; Feedback Simple
+; Allows users and visitors to quickly send feedback messages about the currently displayed page.
+projects[feedback_simple] = 1.6
+
 ;___________________________________________________
 ;
 ;  MISCELLANEOUS
