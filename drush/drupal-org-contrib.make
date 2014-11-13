@@ -782,6 +782,10 @@ projects[eu_cookie_compliance] = 1.14
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
 ; Required by: ads_theme
 projects[sassy] = 2.13
+; @Patch: "Shouldn't external libraries be used as libraries?" (https://www.drupal.org/node/2373259#comment-9333901)
+projects[sassy][patch][] = "https://www.drupal.org/files/issues/sassy_fixed_path_to_compass.patch"
+; @Patch: "https://www.drupal.org/node/2204793#comment-9333861" (https://www.drupal.org/node/2204793#comment-9333861)
+projects[sassy][patch][] = "https://www.drupal.org/files/issues/compass_upgrade.patch"
 
 ; Prepro
 ; The module picks JS/CSS files (eg .sass) and offers them to registered preprocessor modules (such as Sassy).

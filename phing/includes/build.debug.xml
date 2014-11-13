@@ -228,6 +228,9 @@
         */
         }
 
+        // Clearing return code.
+        $this->getProject()->setProperty('app.return', 0);
+
       } //end main
 
     } //end LogTask
