@@ -821,6 +821,14 @@ projects[tipsy] = 1.0-rc1
 ; Allows users and visitors to quickly send feedback messages about the currently displayed page.
 projects[feedback_simple] = 1.6
 
+; User Dashboard
+; Provide an individual dashboard for each user on the site.
+projects[user_dashboard] = 1.3
+
+; Tab Tamer
+; Utility that provides easy re-ordering, hiding, and deactivation of tabs and subtabs.
+projects[tabtamer] = 1.1
+
 ;___________________________________________________
 ;
 ;  MISCELLANEOUS
