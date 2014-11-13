@@ -109,6 +109,13 @@ libraries[libphonenumber-for-php][download][url] = "https://github.com/chipperst
 libraries[libphonenumber-for-php][directory_name] = "libphonenumber-for-php"
 libraries[libphonenumber-for-php][destination] = "libraries"
 
+// Compass
+libraries[compass][directory_name] = "compass"
+libraries[compass][type] = "library"
+libraries[compass][destination] = "libraries"
+libraries[compass][download][type] = "get"
+libraries[compass][download][url] = "https://github.com/Compass/compass/archive/stable.zip"
+
 // PHPSass
 // A compiler for SASS/SCSS written in PHP.
 libraries[phpsass][directory_name] = "phpsass"
