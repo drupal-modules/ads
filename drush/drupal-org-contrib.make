@@ -825,6 +825,10 @@ projects[feedback_simple] = 1.6
 ; Provide an individual dashboard for each user on the site.
 projects[user_dashboard] = 1.3
 
+; Tab Tamer
+; Utility that provides easy re-ordering, hiding, and deactivation of tabs and subtabs.
+projects[tabtamer] = 1.1
+
 ;___________________________________________________
 ;
 ;  MISCELLANEOUS
