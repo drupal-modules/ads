@@ -129,20 +129,23 @@ projects[votingapi][version] = "2.12"
 ; Adds a clean, attractive voting widget to nodes and comments and any entity.
 projects[fivestar][version] = "2.1"
 
-; Simple hierarchical select
-; Defines a new form widget for taxonomy fields to select a term by "browsing" through the vocabularies hierarchy.
-; Required by: ads_content_types
-projects[shs][version] = "1.6"
-
 ; Rate
 ; This module provides flexible voting widgets for nodes and comments.
 ; Required by: ads_advert
 projects[rate][version] = "1.7"
 
+; Client-side hierarchical select
+; A simple client-side hierarchical select widget for taxonomy terms.
+; Required by: ads_advert
+projects[cshs][version] = 1.0-beta3
+
+; Simple hierarchical select
+; Defines a new form widget for taxonomy fields to select a term by "browsing" through the vocabularies hierarchy.
+projects[shs][version] = "1.6"
+
 ; Hierarchical Select
 ; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
-; Required by: ads_advert
-projects[hierarchical_select] = 3.0-alpha6
+; projects[hierarchical_select] = 3.0-alpha6
 
 ; Contact form fields
 ; Allows to add additional fields to site wide contact form like the profile module interface.
