@@ -675,7 +675,9 @@ projects[flexslider][version] = "2.0-alpha3"
 ; Memcache API and Integration
 ; Integration between Drupal and Memcached.
 ; Required by: settings.local.php
-projects[memcache] = 1.3
+projects[memcache][version] = 1.3
+; @Patch: "Add function to invalidate cache from drush" (https://www.drupal.org/node/2309657)
+projects[memcache][patch][] = "https://www.drupal.org/files/issues/memcache-drush-cc.patch"
 
 ;___________________________________________________
 ;
