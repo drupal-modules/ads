@@ -435,9 +435,9 @@ projects[taxonomy_manager][version] = 1.0
 ; Provides an expandable tree widget for the Taxonomy Term Reference field.
 ; projects[term_reference_tree][version] = 1.10
 
-; Taxonomy Views Integrator
-; Allows selective overriding of taxonomy terms and/or vocabulary with the view of your choice.
-projects[tvi] = 1.0-beta4
+; Taxonomy display
+; Allows to override the default presentation of taxonomy term pages per vocabulary.
+projects[taxonomy_display] = 1.1
 
 ;___________________________________________________
 ;
