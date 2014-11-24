@@ -71,7 +71,8 @@ class ads::mysql inherits ::mysql::server::config {
   File[ '/etc/mysql/my.cnf' ] {
     content => template('mysql/my.cnf.erb'),
     mode   => '0640',
-    notify => Class['mysql::server::service']
+    notify => Class['mysql::server::service'],
+    before => Service["mysql"],
   }
 }
 
