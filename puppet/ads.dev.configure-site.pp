@@ -43,6 +43,7 @@ apache::vhost { 'ads.server':
 # MySQL
 # Note: mysql module will manage all the restarts needed after all the configuration changes.
 class { '::mysql::server':
+  config_file => '/etc/my.cnf',
   root_password    => 'root', # Sets MySQL root password.
   override_options => {
     'mysqld' => {
@@ -65,10 +66,16 @@ mysql::db { 'travis_ads_test':
   grant    => ['ALL'],
 }
 
-# MySQL server config subclass
+# MySQL server config subclass.
 # Restarts MySQL service when /etc/mysql/my.cnf changes.
 class ads::mysql inherits ::mysql::server::config {
-  File[ '/etc/mysql/my.cnf' ] {
+  $options = mysql_deepmerge( $::mysql::server::options, $::mysql_hardening::puppetlabs::new_options )
+  if defined(File['mysql-config-file']) {
+    $mysql_config_filename = 'mysql-config-file'
+  } else {
+    $mysql_config_filename = $mysql::server::config_file
+  }
+  File[$mysql_config_filename] {
     content => template('mysql/my.cnf.erb'),
     mode   => '0640',
     notify => Class['mysql::server::service'],
