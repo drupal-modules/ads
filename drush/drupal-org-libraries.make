@@ -55,6 +55,14 @@ libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/
 libraries[flexslider][directory_name] = "flexslider"
 libraries[flexslider][destination] = "libraries"
 
+; JQUERY MAP HILIGHT
+; It enables the simple addition of mouseover highlighting of hotspots to HTML image maps without requiring the editing
+; of theme files or knowledge of javascript/jquery. 
+libraries[jq_maphilight][download][type] = get
+libraries[jq_maphilight][download][url] = "http://davidlynch.org/projects/maphilight/jquery.maphilight.min.js"
+libraries[jq_maphilight][directory_name] = "jquery.maphilight"
+libraries[jq_maphilight][destination] = "libraries"
+
 ; Views Isotope - jQuery Isotope
 ; This module allows you to easily create a grid View that uses the amazing Isotope JQuery Library to dynamically filter
 ; the elements displayed.

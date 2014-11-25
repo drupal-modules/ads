@@ -30,7 +30,7 @@ projects[answers] = "4.0-alpha1"
 
 ; FAQ - Frequently Asked Questions
 ; Allows to create question and answer pairs which they want displayed on the FAQ page.
-projects[faq] = 2.0-alpha2
+projects[faq][version] = 2.0-alpha2
 
 ;___________________________________________________
 ;
@@ -145,11 +145,11 @@ projects[shs][version] = "1.6"
 
 ; Hierarchical Select
 ; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
-; projects[hierarchical_select] = 3.0-alpha6
+; projects[hierarchical_select][version] = 3.0-alpha6
 
 ; Contact form fields
 ; Allows to add additional fields to site wide contact form like the profile module interface.
-projects[contact_field] = 1.x-dev
+projects[contact_field][version] = 1.x-dev
 projects[contact_field][download][type] = git
 projects[contact_field][download][branch] = 7.x-2.x
 projects[contact_field][download][revision] = 18dc4544596e321fea310e33334b1fe444df8174
@@ -437,7 +437,7 @@ projects[taxonomy_manager][version] = 1.0
 
 ; Taxonomy display
 ; Allows to override the default presentation of taxonomy term pages per vocabulary.
-projects[taxonomy_display] = 1.1
+projects[taxonomy_display][version] = 1.1
 
 ;___________________________________________________
 ;
@@ -674,6 +674,11 @@ projects[jqeasing][version] = "1.0"
 ; build responsive, resizable slideshows.
 projects[flexslider][version] = "2.0-alpha3"
 
+; jQuery Map Hilight
+; It enables the simple addition of mouseover highlighting of hotspots to HTML image maps without requiring the editing
+; of theme files or knowledge of javascript/jquery. 
+projects[jq_maphilight][version] = "1.1"
+
 ;___________________________________________________
 ;
 ;  CACHING
@@ -708,7 +713,7 @@ projects[superfish] = "1.9"
 
 ; Backup and Migrate
 ; Back up and restore your Drupal MySQL database, code, and files or migrate a site between environments.
-projects[backup_migrate] = 3.0
+projects[backup_migrate][vesion] = 3.0
 
 ; Local Task Blocks
 ; Turns the standard MENU_LOCAL_TASKS into blocks that can be repositioned or interacted with at the theme layer.
@@ -776,11 +781,11 @@ projects[lightbox2][version] = "1.0-beta1"
 
 ; Terms of Use
 ; Adds Terms of Use for users who want to register and requires that they accept the T&C before their registration is accepted.
-projects[terms_of_use] = 1.2
+projects[terms_of_use][version] = 1.2
 
 ; EU Cookie Compliance
 ; Intends to deal with the EU Directive on Privacy and Electronic Communications that comes into effect in the UK on 26th May 2012.
-projects[eu_cookie_compliance] = 1.14
+projects[eu_cookie_compliance][version] = 1.14
 
 ;___________________________________________________
 ;
@@ -790,7 +795,7 @@ projects[eu_cookie_compliance] = 1.14
 ; Sassy
 ; Integrates the PHPSass library to allow automatic SASS/SCSS compilation.
 ; Required by: ads_theme
-projects[sassy] = 2.13
+projects[sassy][version] = 2.13
 ; @Patch: "Shouldn't external libraries be used as libraries?" (https://www.drupal.org/node/2373259#comment-9333901)
 projects[sassy][patch][] = "https://www.drupal.org/files/issues/sassy_fixed_path_to_compass.patch"
 ; @Patch: "https://www.drupal.org/node/2204793#comment-9333861" (https://www.drupal.org/node/2204793#comment-9333861)
@@ -799,7 +804,7 @@ projects[sassy][patch][] = "https://www.drupal.org/files/issues/compass_upgrade.
 ; Prepro
 ; The module picks JS/CSS files (eg .sass) and offers them to registered preprocessor modules (such as Sassy).
 ; Required by: sassy
-projects[prepro] = 1.4
+projects[prepro][version] = 1.4
 
 ; Block Class
 ; Allows users to add classes to any block through the block's configuration interface.
@@ -820,23 +825,23 @@ projects[retina_images][version] = 1.0-beta4
 
 ; Scroll to top
 ; Uses a jQuery script to provide an animated scroll to top link in the bottom of the node.
-projects[scroll_to_top] = 2.1
+projects[scroll_to_top][version] = 2.1
 
 ; Tipsy
 ; Plugin for creating a Facebook-like tooltips effect to textareas, textfield, anchors or any other elements.
-projects[tipsy] = 1.0-rc1
+projects[tipsy][version] = 1.0-rc1
 
 ; Feedback Simple
 ; Allows users and visitors to quickly send feedback messages about the currently displayed page.
-projects[feedback_simple] = 1.6
+projects[feedback_simple][vesion] = 1.6
 
 ; User Dashboard
 ; Provide an individual dashboard for each user on the site.
-projects[user_dashboard] = 1.3
+projects[user_dashboard][version] = 1.3
 
 ; Tab Tamer
 ; Utility that provides easy re-ordering, hiding, and deactivation of tabs and subtabs.
-projects[tabtamer] = 1.1
+projects[tabtamer][version] = 1.1
 
 ;___________________________________________________
 ;
