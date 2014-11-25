@@ -670,6 +670,11 @@ projects[jqeasing][version] = "1.0"
 ; build responsive, resizable slideshows.
 projects[flexslider][version] = "2.0-alpha3"
 
+; jQuery Map Hilight
+; It enables the simple addition of mouseover highlighting of hotspots to HTML image maps without requiring the editing
+; of theme files or knowledge of javascript/jquery. 
+projects[jq_maphilight][version] = "1.1"
+
 ;___________________________________________________
 ;
 ;  CACHING
