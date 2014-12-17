@@ -25,6 +25,38 @@ include apache::mod::rewrite
 include apache::mod::expires
 include apache::mod::headers
 include apache::mod::php
+
+package { 'libapache2-mod-geoip' :
+  ensure => installed
+}
+
+class apache::mod::geoip {
+  ::apache::mod { 'geoip': }
+  # Template uses no variables
+  file { 'geoip.conf':
+    ensure  => file,
+    path    => "${::apache::mod_dir}/geoip.conf",
+    content => '
+	    <IfModule mod_geoip.c>
+		    GeoIPEnable On
+		    GeoIPEnableUTF8 On 
+		    # GeoIPOutput [Notes|Env|All]
+		    GeoIPOutput All
+		    GeoIPScanProxyHeaders On
+		    <IfModule prefork.c>
+		      GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat
+		    </IfModule>
+		    <IfModule !prefork>
+		      GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat MMapCache
+		    </IfModule>
+		  </IfModule>
+	    ',
+    require => Exec["mkdir ${::apache::mod_dir}"],
+    before  => File[$::apache::mod_dir],
+    notify  => Service['httpd'],
+  }
+}
+
 include apache::mod::geoip
 
 /*
@@ -60,7 +92,27 @@ service { 'mysql' :
 #}
 
 # PHP packages
-$packages_php = [ 'libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', ]
+$packages_php = [ 'libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', 'php5-geoip' ]
+
+file { [ "/usr/share/GeoIP" ]:
+    ensure => "directory",
+    before => Exec['retrieve_geoip_db_gz'],
+}
+
+exec { 'retrieve_geoip_db_gz' :
+  path => ['/bin', '/sbin', '/usr/bin'], 
+  command => "wget -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /usr/share/GeoIP/GeoIPCity.dat.gz",
+  creates => "/usr/share/GeoIP/GeoIPCity.dat.gz",
+  before => Exec['unpack_geoip_db_gz'],
+}
+
+exec { 'unpack_geoip_db_gz' :
+  cwd => "/usr/share/GeoIP/",
+  path => ['/bin', '/sbin', '/usr/bin'], 
+  command => "gunzip GeoIPCity.dat.gz",
+  unless => 'test -f /usr/share/GeoIP/GeoIPCity.dat',
+  require => Package['libapache2-mod-geoip'],
+}
 
 package { $packages_php :
   ensure => installed,
