@@ -30,7 +30,10 @@ script:
   - ln -sv $TRAVIS_BUILD_DIR/travis/travis.build.properties build.properties
   - sh -x ./scripts/puppet_check.sh
   - make
-
+  - sudo touch /var/www/ads/index.php
+  - sudo chown travis /var/www/ads/index.php
+  - echo "<?php print_r($_SERVER); print_r(geoip_record_by_name('php.net')); ?>" > /var/www/ads/index.php
+  - sudo wget -qO- http://ads.server/ | cat
 # Note: Do not install build in this repo.
 # - make install
 # - sudo mv $TRAVIS_BUILD_DIR/src/* $SRCDIR/
