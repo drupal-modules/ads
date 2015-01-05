@@ -37,20 +37,20 @@ class apache::mod::geoip {
     ensure  => file,
     path    => "${::apache::mod_dir}/geoip.conf",
     content => '
-	    <IfModule mod_geoip.c>
-		    GeoIPEnable On
-		    GeoIPEnableUTF8 On 
-		    # GeoIPOutput [Notes|Env|All]
-		    GeoIPOutput All
-		    GeoIPScanProxyHeaders On
-		    <IfModule prefork.c>
-		      GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat
-		    </IfModule>
-		    <IfModule !prefork>
-		      GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat MMapCache
-		    </IfModule>
-		  </IfModule>
-	    ',
+      <IfModule mod_geoip.c>
+        GeoIPEnable On
+        GeoIPEnableUTF8 On 
+        # GeoIPOutput [Notes|Env|All]
+        GeoIPOutput All
+        GeoIPScanProxyHeaders On
+        <IfModule prefork.c>
+          GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat
+        </IfModule>
+        <IfModule !prefork>
+          GeoIPDBFile /usr/share/GeoIP/GeoIPCity.dat MMapCache
+        </IfModule>
+      </IfModule>
+      ',
     require => Exec["mkdir ${::apache::mod_dir}"],
     before  => File[$::apache::mod_dir],
     notify  => Service['httpd'],
