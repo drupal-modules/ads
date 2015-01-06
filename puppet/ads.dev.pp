@@ -60,7 +60,7 @@ class { '::mysql::server':
 # MySQL server config subclass.
 # Restarts MySQL service when /etc/mysql/my.cnf changes.
 class ads::mysql inherits ::mysql::server::config {
-  $options = mysql_deepmerge( $::mysql::server::options, $::mysql_hardening::puppetlabs::new_options )
+  $options = mysql_deepmerge( $::mysql::server::options, $::mysql::server::new_options )
   if defined(File['mysql-config-file']) {
     $mysql_config_filename = 'mysql-config-file'
   } else {
