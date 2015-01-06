@@ -11,13 +11,6 @@ package { 'python-software-properties' :
  ensure => installed,
 }
 
-# PHP packages
-$packages_php = [ 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', ]
-
-package { $packages_php :
-  ensure => installed,
-}
-
 # PHP: Including custom php.ini
 exec { 'php-ini' :
   command => "phpenv config-add php.ini",
@@ -65,55 +58,4 @@ exec { 'configure-sendmail' :
 service { 'postfix' :
   ensure => running,
   require => Package['postfix'],
-}
-
-#
-# PHP PEAR packages
-#
-
-include pear
-
-# PEAR
-pear::package { "PEAR": }
-
-# PEAR: We'd like to use alpha packages.
-exec { 'alpha-pear' :
-  command => "pear config-set preferred_state alpha",
-  path => ["/bin", "/usr/bin"],
-}
-
-# PEAR: Upgrading itself.
-exec { 'upgrade-pear' :
-  command => "pear upgrade pear",
-  path => ["/bin", "/usr/bin"],
-}
-
-# PEAR: Configurating temporary directories.
-exec { 'pear-cache-1' :
-  command => "chmod -R 777 '/tmp/pear'",
-  path => ["/bin", "/usr/bin"],
-}
-
-exec { 'pear-cache-2' :
-  command => "pear config-set cache_dir '/tmp/pear/temp'",
-  path => ["/bin", "/usr/bin"],
-}
-
-exec { 'drush-lib-chmod' :
-  command => "chmod -R 777 /usr/share/php/drush/lib",
-  path => ["/bin", "/usr/bin"],
-}
-
-# Phing
-pear::package { "Phing":
-  version => "2.7.0",
-  repository => "pear.phing.info",
-  require => Pear::Package["PEAR"],
-}
-
-# Drush
-pear::package { "drush":
-  version => "6.2.0.0",
-  repository => "pear.drush.org",
-  require => Pear::Package["PEAR"],
 }
