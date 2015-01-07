@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<project name="ads" phingVersion="2.4.11" basedir=".">
+<project name="ads123" phingVersion="2.4.11" basedir=".">
 
   <adhoc-task name="log"><![CDATA[
 
@@ -23,7 +23,9 @@
        * @see BuildEvent::getException()
        */
       public function buildFinished(BuildEvent $event) {
+      }
 
+      public function __destruct() {
         // We need to remove drush's and drush make's temporary folders.
         $dirPath = sys_get_temp_dir();
         
@@ -117,6 +119,14 @@
          'error' => Project::MSG_ERR,
        );
 
+       static public $msgLevelsNames = array(
+         Project::MSG_DEBUG => 'debug',
+         Project::MSG_VERBOSE => 'verbose',
+         Project::MSG_INFO => 'info',
+         Project::MSG_WARN => 'warning',
+         Project::MSG_ERR => 'error',
+       );
+
        private $indent = 0;
        private $level = 'verbose';
 
@@ -125,10 +135,10 @@
          $configurationLevelName = $this->getProject()->getProperty('project.debug.level');
 
          if ($configurationLevelName === NULL) {
-         	$configurationLevelName = 'warning';
+         	return $phingLevel;
          }
 
-         return max($phingLevel, self::$msgLevels[$configurationLevelName]);
+         return self::$msgLevels[$configurationLevelName];
        }
 
        function setIndent($value) {
@@ -148,13 +158,13 @@
        }
 
       public function main () {
-      
-        if (self::getDebugLevel() < self::$msgLevels[$this->level])
+
+        if (self::$msgLevels[$this->level] > self::getDebugLevel())
           return;
 
         $echo = $this->getProject()->createTask('echo');
         $echo->setMsg($this->text);
-        $echo->setLevel('debug');
+        $echo->setLevel($this->level);
         $echo->main();
 
         if (!self::$once) {
@@ -162,6 +172,29 @@
           $this->getProject()->addBuildListener(new LogTaskBuildListener ());
           file_put_contents(self::$fileName, $message = (date('Y-m-d H:i:s ') . str_repeat('-', 80) . "\n"));
           self::$output .= $message;
+
+          $log = $this->getProject()->createTask('log');
+          $log->setMsg("Phing's log level is set to \"" . self::$msgLevelsNames[Phing::getMsgOutputLevel()] . '"');
+          $log->setLevel('error');
+          $log->setIndent(0);
+          $log->main();
+
+          $overriddenLogLevel = $this->getProject()->getProperty('project.debug.level');
+
+          if ($overriddenLogLevel !== NULL && $overriddenLogLevel !== self::$msgLevelsNames[Phing::getMsgOutputLevel()]) {
+            $log = $this->getProject()->createTask('log');
+            $log->setMsg("But our logging is in \"" . $overriddenLogLevel . "\" mode as set by \"project.debug.level\" setting inside build.properties file");
+            $log->setLevel('error');
+            $log->setIndent(1);
+            $log->main();
+          }
+
+          $log = $this->getProject()->createTask('log');
+          $log->setMsg('');
+          $log->setLevel('error');
+          $log->main();
+
+
         }
 
         $indent = str_repeat('  ', max(0, self::$stackLevel + ($this->indent ? $this->indent : 0)));
