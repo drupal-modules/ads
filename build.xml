@@ -78,7 +78,7 @@
       <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
       <property name="project.drush.make.args2"   value="-y --no-core --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
 
-    <log message="Loading configuration file...${line.separator}" level="debug"/>
+    <log message="Loading configuration file..." level="debug"/>
       <available file="${project.dir.dist}/build.properties" property="project.properties.exist" />
       <if>
        <not><isset property="project.properties.exist"/></not>
@@ -125,6 +125,20 @@
             <property name="github.user" value="${pullfrom}"/>-->
          </then>
       </if>
+
+      <property environment="env" />
+
+      <!-- Checking for variable overrides by environment variables -->
+      <if>
+         <isset property="env.ADS_SEARCH"/>
+         <then>
+            <log message="Found environment variable ADS_SEARCH, overriding project.drupal.configure.search = &quot;${env.ADS_SEARCH}&quot;" level="verbose" indent="1" />
+              <property name="project.drupal.configure.search" value="${env.ADS_SEARCH}" override="true"/>
+         </then>
+      </if>
+
+
+    <log message="" level="verbose"/>
 
   </target>
 
