@@ -70,3 +70,6 @@ project.drupal.configure.locations.file=       ../dataset/cities/[country].csv
 
 # Pattern for URL to CSV file. "[country]" is a placeholder for country code such as "GB" or "DE".
 # project.drupal.configure.locations.url=       http://example.com/locations/[country].csv
+
+# Minimum Ads logging level. Possible values: "debug", "verbose", "info", "warning", "error".
+project.debug.level=debug
