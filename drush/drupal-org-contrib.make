@@ -17,7 +17,7 @@ projects[workflow][version] = "2.x"
 ; Context
 ; Allows to manage contextual conditions and reactions for different portions of your site.
 ; Required by: ads_setup
-projects[context][version] = 3.3
+projects[context][version] = 3.6
 
 ; Countries
 ; This module provides many country related tasks. Country fields, token support, et al.
