@@ -32,7 +32,7 @@ $databases['default']['default'] = array(
 );
 
 /**
- * Set environment variables (local, dev, test, prod) - important, do not remove
+ * Set environment variables (local, dev, test, qa, prod) - important, do not remove
  */
 $conf['environment'] = $env = 'local';
 
@@ -161,6 +161,10 @@ switch ($env) {
  * Variables for testing environments.
  */
 switch ($env) {
+  case 'qa':
+    ini_set('display_errors', TRUE);
+    ini_set('display_startup_errors', TRUE);
+  case 'test':
   case 'dev':
   case 'local':
     // Disable cache
