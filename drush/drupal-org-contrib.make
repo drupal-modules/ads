@@ -153,6 +153,8 @@ projects[contact_field][version] = 1.x-dev
 projects[contact_field][download][type] = git
 projects[contact_field][download][branch] = 7.x-2.x
 projects[contact_field][download][revision] = 18dc4544596e321fea310e33334b1fe444df8174
+; @Patch: Fixes: Fatal error: Call to undefined function db_fetch_object() on form submit
+projects[contact_field][patch][] = "https://www.drupal.org/files/issues/contact_field.module.123.patch"
 
 ;___________________________________________________
 ;
