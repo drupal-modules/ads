@@ -1,6 +1,9 @@
 ; drush make build file for drupal.org packaging.
 ; This file defines Drupal contrib themes.
 
+api = 2
+core = 7.x
+
 ; Rubik
 ; Rubik is a clean admin theme.
 projects[rubik][version] = 4.1
