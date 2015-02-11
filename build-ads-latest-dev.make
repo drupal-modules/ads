@@ -23,9 +23,6 @@ api  = 2
 
 projects[drupal][type] = core
 
-; Specify directory for contrib modules
-defaults[projects][subdir] = contrib
-
 ; Include the core definition for how to build Drupal
 includes[] = drush/drupal-org-core.make
 includes[] = drush/drupal-org-contrib.make
