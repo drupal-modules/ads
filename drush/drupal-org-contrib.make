@@ -3,7 +3,9 @@
 
 api = 2
 core = 7.x
-defaults[projects][subdir] = contrib ; Specify directory for contrib modules
+
+; Specify directory for contrib modules
+defaults[projects][subdir] = contrib
 
 ;___________________________________________________
 ;
