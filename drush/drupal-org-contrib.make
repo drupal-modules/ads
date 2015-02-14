@@ -54,7 +54,7 @@ projects[email][version] = "1.3"
 
 ; Address Field
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
-projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][version] = 1.0
 
 ; Phone
 ; This module provides a phone field type.
@@ -148,7 +148,7 @@ projects[shs][version] = "1.6"
 
 ; Hierarchical Select
 ; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
-; projects[hierarchical_select][version] = 3.0-alpha6
+; projects[hierarchical_select][version] = 3.0-alpha10
 
 ; Contact form fields
 ; Allows to add additional fields to site wide contact form like the profile module interface.
@@ -269,7 +269,7 @@ projects[ntm][version] = "1.12"
 
 ; Views
 ; Provides a flexible method to control how lists and tables of content are presented.
-projects[views][version] = "3.8"
+projects[views][version] = 3.10
 
 ; Views Slideshow
 ; Can be used to create a slideshow of any content (not just images) that can appear in a View.
@@ -310,7 +310,7 @@ projects[calendar][version] = "3.4"
 
 ; Panels
 ; Allows a site administrator to create customized layouts for multiple uses.
-projects[panels][version] = "3.4"
+projects[panels][version] = 3.5
 
 ;___________________________________________________
 ;
@@ -364,7 +364,7 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ; Rules
 ; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
 ; replacement with more features for the trigger module in core and the successor of the Drupal 5 workflow-ng module.
-projects[rules][version] = "2.7"
+projects[rules][version] = "2.8"
 
 ; Rules auto tag
 ; The Rules Autotag module takes a light-weight approach for autotagging full-text content by matching taxonomy terms (and optional Synonyms). Rules Autotag
@@ -471,7 +471,7 @@ projects[ife] = "2.0-alpha2"
 ; results, filters, etc. Also, with the Apache Solr integration, a high-performance search engine is available for this module. Developers, on the other hand,
 ; will be impressed by the large flexibility and numerous ways of extension the module provides. Hence, the growing number of additional contrib modules (linked
 ; below), providing additional functionality or helping users customize some aspects of the search process.
-projects[search_api][version] = "1.13"
+projects[search_api][version] = 1.14
 
 ; Search API saved searches
 ; This module offers users the ability to save searches executed with the Search API module and be notified of new results. Notifications are done via mails
@@ -613,10 +613,7 @@ projects[libraries][version] = "2.2"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
-projects[ctools][version] = "1.4"
-; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
-; Error: strlen() expects parameter 1 to be string, array given in drupal_validate_utf8() in line 1587 of bootstrap.inc
-; projects[ctools][patch][] = "https://drupal.org/files/ctools-n1925018-12.patch"
+projects[ctools][version] = 1.5
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
@@ -710,7 +707,7 @@ projects[devel] = "1.5"
 ; projects[admin] = "2.0-beta3"
 
 ; Admin Menu
-projects[admin_menu] = "3.0-rc4"
+projects[admin_menu] = 3.0-rc5
 
 ; SUPERFISH
 ; Superfish integrates jQuery Superfish plugin with your Drupal menus.

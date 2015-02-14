@@ -6,7 +6,7 @@ core = 7.x
 
 ; Rubik
 ; Rubik is a clean admin theme.
-projects[rubik][version] = 4.1
+projects[rubik][version] = 4.2
 
 ; Tao
 ; Tao is a base theme for Drupal that is all about going with the flow.
