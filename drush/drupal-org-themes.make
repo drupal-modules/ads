@@ -4,6 +4,9 @@
 api = 2
 core = 7.x
 
+; Specify directory for contrib modules
+defaults[projects][subdir] = contrib
+
 ; Rubik
 ; Rubik is a clean admin theme.
 projects[rubik][version] = 4.2
