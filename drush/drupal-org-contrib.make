@@ -613,7 +613,7 @@ projects[libraries][version] = "2.2"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
-projects[ctools][version] = 1.5
+projects[ctools][version] = 1.6
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
