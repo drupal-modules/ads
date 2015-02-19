@@ -303,6 +303,15 @@ projects[calendar][version] = "3.4"
 ; Plugin makes unformatted styles, field row styles and other output more readily configurable without needing to override template files.
 ; projects[semanticviews][version] = 1.0-rc1
 
+; YQL Views Query Backend
+; Provides Yahoo Query Language Query backend.
+projects[yql_views_query][version] = 1.x-dev
+projects[yql_views_query][download][type] = git
+projects[yql_views_query][download][branch] = 7.x-1.x
+projects[yql_views_query][download][revision] = bd4de6cbd2c816e2c422209ea7481c26dd1b4a50
+; @Patch: htmlspecialchars() expects parameter 1 to be string, array given (https://www.drupal.org/node/2381533)
+projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/handlers-yql_views_query_handler_field_column.inc-2381533.patch"
+
 ;___________________________________________________
 ;
 ;  PANEL MODULES
