@@ -310,7 +310,7 @@ projects[yql_views_query][download][type] = git
 projects[yql_views_query][download][branch] = 7.x-1.x
 projects[yql_views_query][download][revision] = bd4de6cbd2c816e2c422209ea7481c26dd1b4a50
 ; @Patch: htmlspecialchars() expects parameter 1 to be string, array given (https://www.drupal.org/node/2381533)
-projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/handlers-yql_views_query_handler_field_column.inc_.patch"
+projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/handlers-yql_views_query_handler_field_column.inc-2381533_0.patch"
 
 ;___________________________________________________
 ;
