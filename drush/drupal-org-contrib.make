@@ -270,6 +270,8 @@ projects[ntm][version] = "1.12"
 ; Views
 ; Provides a flexible method to control how lists and tables of content are presented.
 projects[views][version] = 3.10
+; @Patch: Fix for: New lines are not converted to HTML to be stripped in link fields (https://www.drupal.org/node/2444719).
+projects[views][patch][] = "https://www.drupal.org/files/issues/handlers-views_handler_field.inc-2444719_0.patch"
 
 ; Views Slideshow
 ; Can be used to create a slideshow of any content (not just images) that can appear in a View.
