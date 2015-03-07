@@ -12,10 +12,10 @@ defaults[projects][subdir] = contrib
 ;  CONTENT MODULES
 ;___________________________________________________
 
-; WorkfloW
-; The workflow module allows the creation and assignment of arbitrary workflows to Drupal node types. Workflows are made up of workflow states. For example, a
-; workflow with the states Draft, Review, and Published could be assigned to the Story node type.
-projects[workflow][version] = "2.x"
+; Workflow
+; Allows the creation and assignment of arbitrary workflows/states to Drupal node types.
+; Required by: ads_advert
+projects[workflow][version] = 2.5
 
 ; Context
 ; Allows to manage contextual conditions and reactions for different portions of your site.
@@ -140,7 +140,7 @@ projects[rate][version] = "1.7"
 ; Client-side hierarchical select
 ; A simple client-side hierarchical select widget for taxonomy terms.
 ; Required by: ads_advert
-projects[cshs][version] = 1.0-beta3
+projects[cshs][version] = 1.0-beta4
 
 ; Simple hierarchical select
 ; Defines a new form widget for taxonomy fields to select a term by "browsing" through the vocabularies hierarchy.
@@ -148,7 +148,7 @@ projects[shs][version] = "1.6"
 
 ; Hierarchical Select
 ; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
-; projects[hierarchical_select][version] = 3.0-alpha10
+; projects[hierarchical_select][version] = 3.0-alpha12
 
 ; Contact form fields
 ; Allows to add additional fields to site wide contact form like the profile module interface.
@@ -166,7 +166,7 @@ projects[contact_field][patch][] = "https://www.drupal.org/files/issues/contact_
 
 ; Entity
 ; Extends the entity API in order to provide a unified way to deal with entities and their properties.
-projects[entity][version] = "1.5"
+projects[entity][version] = "1.6"
 
 ; Entity Score
 ; Provide dynamic entity score boosts based on field values or conditions.
@@ -330,7 +330,7 @@ projects[panels][version] = 3.5
 
 ; Internationalization
 ; Collection of modules to extend Drupal core multilingual capabilities and be able to build real life multilingual sites.
-projects[i18n] = "1.11"
+projects[i18n] = 1.12
 
 ; Language icons
 ; Provides icons for language links.
@@ -404,9 +404,7 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 ;___________________________________________________
 
 ; FEATURES
-projects[features][version] = "2.2"
-; @Patch: Adding a renderable-array block to a page gives errors in the admin UI (https://drupal.org/node/1925018)
-projects[features][patch][] = "https://www.drupal.org/files/issues/features-project-2161841-3.patch"
+projects[features][version] = "2.4"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-beta1"
@@ -510,7 +508,7 @@ projects[search_api_ranges] = "1.5"
 projects[facetapi][version] = "1.5"
 
 ; Facet API Pretty Paths
-; projects[facetapi_pretty_paths][version] = "1.0-beta2"
+projects[facetapi_pretty_paths][version] = 1.3
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
@@ -628,7 +626,7 @@ projects[ctools][version] = 1.6
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
-projects[token][version] = "1.5"
+projects[token][version] = 1.6
 
 ; Format Number
 ; Provides a method to configure number formats with configurable decimal point and thousand separators.
@@ -654,7 +652,7 @@ projects[variable][version] = "2.5"
 
 ; jQuery Update
 ; Upgrades the version of jQuery in Drupal core to a newer version of jQuery.
-projects[jquery_update][version] = "2.x-dev"
+projects[jquery_update][version] = 2.5
 
 ; BeautyTips
 ; Provides ballon-help style tooltips for any page element by integrating the BeautyTips jQuery Tooltip plugin.
@@ -764,7 +762,7 @@ projects[diff][version] = "3.2"
 ; Module Filter
 ; Adds ability to quickly find the module on the modules list page.
 ; Used by: build-dev-env.xml
-projects[module_filter][version] = 2.0-alpha2
+projects[module_filter][version] = 2.0
 
 ;___________________________________________________
 ;
