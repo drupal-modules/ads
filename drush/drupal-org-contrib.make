@@ -313,6 +313,8 @@ projects[yql_views_query][download][branch] = 7.x-1.x
 projects[yql_views_query][download][revision] = bd4de6cbd2c816e2c422209ea7481c26dd1b4a50
 ; @Patch: htmlspecialchars() expects parameter 1 to be string, array given (https://www.drupal.org/node/2381533)
 projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/handlers-yql_views_query_handler_field_column.inc-2381533_0.patch"
+; @Patch: Export of Custom open tables broken (https://www.drupal.org/node/973552)
+projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/yql_views_query_plugin_query_yql.inc-973552.patch"
 
 ;___________________________________________________
 ;
