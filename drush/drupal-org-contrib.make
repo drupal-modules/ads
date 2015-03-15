@@ -692,6 +692,10 @@ projects[flexslider][version] = "2.0-alpha3"
 ; of theme files or knowledge of javascript/jquery. 
 projects[jq_maphilight][version] = "1.1"
 
+; Translation helpers
+; Enables other modules to respond to changes in the "source translation" of a set of translated content.
+projects[translation_helpers][version] = 1.0
+
 ;___________________________________________________
 ;
 ;  CACHING
