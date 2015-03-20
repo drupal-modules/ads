@@ -315,6 +315,8 @@ projects[yql_views_query][download][revision] = bd4de6cbd2c816e2c422209ea7481c26
 projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/handlers-yql_views_query_handler_field_column.inc-2381533_0.patch"
 ; @Patch: Export of Custom open tables broken (https://www.drupal.org/node/973552)
 projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/yql_views_query_plugin_query_yql.inc-973552.patch"
+; @Patch: Fix of Declaration of yql_views_query_plugin_query_yql::query() should be compatible with views_plugin_query::query (https://www.drupal.org/node/2449139)
+projects[yql_views_query][patch][] = "https://www.drupal.org/files/issues/2449139.patch"
 
 ;___________________________________________________
 ;
