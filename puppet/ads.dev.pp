@@ -5,7 +5,7 @@
 #   sudo apt-get -y install puppet
 #   sudo puppet module install puppetlabs/apt
 #   sudo puppet module install rafaelfc/pear
-#   sudo puppet module install puppetlabs-apache
+#   sudo puppet module install puppetlabs/apache
 
 #
 # SERVICES

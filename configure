@@ -121,6 +121,20 @@ if [ ! -n "`sudo puppet module list | grep puppetlabs-mysql`" ]; then
   fi
 fi
 
+if [ ! -n "`sudo puppet module list | grep puppetlabs-tomcat`" ]; then
+  if [ "x$1" = "xinstall" ]; then
+    echo "Installing puppetlabs-tomcat puppet module..."
+    $SUDO puppet module install puppetlabs-tomcat
+  else
+    echo "${RED}Detected missing puppet module \"puppetlabs-tomcat\"${NC}, you may install it via:"
+    echo "  ${BLUE}${SUDO} puppet module install puppetlabs-tomcat${NC}"
+    echo "OR just re-run script with:"
+    echo "  ${BLUE}$0 install${NC}"
+    echo ""
+    ERROR=1
+  fi
+fi
+
 if [ "${ERROR}" = "1" ]; then
   echo "${RED}Errors encountered. Quitting.${NC}"
   exit 1

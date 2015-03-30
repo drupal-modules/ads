@@ -1,3 +1,7 @@
+#
+# Puppet recipe to install geoip apache module.
+#
+
 include apache
 
 package { 'libapache2-mod-geoip' :
@@ -31,4 +35,4 @@ class apache::mod::geoip {
   }
 }
 
-include apache::mod::geoip 
+include apache::mod::geoip
