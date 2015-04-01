@@ -1,5 +1,5 @@
 #
-# Puppet recipe to install geoip apache module.
+# Puppet manifest to install geoip apache module.
 #
 
 include apache

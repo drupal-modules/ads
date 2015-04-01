@@ -1,5 +1,5 @@
 #
-# Puppet recipe to install Jetty + Solr for ADS distribution.
+# Puppet manifest to install Jetty + Solr for ADS distribution.
 #
 # NOTE:
 #   schema.xml/solrconfig.xml files are those provided by Solr by default.

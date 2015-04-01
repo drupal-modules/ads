@@ -1,5 +1,5 @@
 #
-# Puppet recipe to configure fully functional ADS site, i.e. vhost, mysql configuration.
+# Puppet manifest to configure fully functional ADS site, i.e. vhost, mysql configuration.
 #
 # Dependencies:
 #   sudo apt-get -y install puppet

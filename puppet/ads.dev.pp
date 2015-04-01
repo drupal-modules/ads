@@ -1,5 +1,5 @@
 #
-# Puppet recipe to install LAMP environment for ADS distribution.
+# Puppet manifest to install LAMP environment for ADS distribution.
 #
 # Dependencies:
 #   sudo apt-get -y install puppet

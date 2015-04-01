@@ -1,5 +1,5 @@
 #
-# Puppet recipe to install packages required by Travis when installing ADS distribution.
+# Puppet manifest to install packages required by Travis when installing ADS distribution.
 #
 # Dependencies:
 #   sudo apt-get -y install puppet
