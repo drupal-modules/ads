@@ -82,7 +82,7 @@ class solr {
     exec { 'solr-install-logging-jars':
       path      => ['/usr/bin', '/usr/sbin', '/bin'],
       cwd       => "/opt/solr",
-      command   => "cp -v /opt/solr/solr-${solr::version}/example/lib/ext/*.jar ${solr::tomcat_base}/webapps/solr/WEB-INF/lib",
+      command   => "cp -v /opt/solr/solr-${solr::version}/example/lib/ext/*.jar /opt/solr/solr-${solr::version}/example/resources/log4j.properties ${solr::tomcat_base}/webapps/solr/WEB-INF/lib",
       onlyif    => "test ! -f ${solr::tomcat_base}/webapps/solr/WEB-INF/lib/log4j-1.2.17.jar",
       require   => Exec['solr-extract'],
     }
