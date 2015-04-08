@@ -71,11 +71,20 @@ class solr {
     }
 
     # Download and extract solr
-    exec { "solr-download":
-      command => "/usr/bin/curl -s http://archive.apache.org/dist/lucene/solr/${solr::version}/solr-${solr::version}.tgz | tar zxf -",
+    exec { "solr-extract":
+      path    => ['/usr/bin', '/usr/sbin', '/bin'],
+      command => "curl -s http://archive.apache.org/dist/lucene/solr/${solr::version}/solr-${solr::version}.tgz | tar zxf -",
       cwd => "/opt/solr",
       require => [File["data_dir"], File["home_dir"]],
       creates => "/opt/solr/solr-${solr::version}/dist/solr-${solr::version}.war",
+    }
+    # Logging setup for Tomcat.
+    exec { 'solr-install-logging-jars':
+      path      => ['/usr/bin', '/usr/sbin', '/bin'],
+      cwd       => "/opt/solr",
+      command   => "cp -v /opt/solr/solr-${solr::version}/example/lib/ext/*.jar ${solr::tomcat_base}/webapps/solr/WEB-INF/lib",
+      onlyif    => "test ! -f ${solr::tomcat_base}/webapps/solr/WEB-INF/lib/log4j-1.2.17.jar",
+      require   => Exec['solr-extract'],
     }
   }
 
