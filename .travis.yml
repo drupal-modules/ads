@@ -14,14 +14,14 @@ before_install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
 install:
   - sudo sh ./configure install
-  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/php5-memcached.pp | sudo puppet apply
+  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3-tomcat.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/php5-memcached.pp | sudo puppet apply
   - sudo ps aux | grep memcached
   - sudo puppet module list
 
 # Before Script
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).
 before_script:
-  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3.pp puppet/ads.dev.configure-site.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/php5-memcached.pp | sudo puppet apply # Apply webroot puppet configuration.
+  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3-tomcat.pp puppet/ads.dev.configure-site.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/php5-memcached.pp | sudo puppet apply # Apply webroot puppet configuration.
   - sed -i'.bak' "s|^includes\[\] = drush/includes|;includes\[\] = drush/includes|" $TRAVIS_BUILD_DIR/build-ads-*.make # Ignore feature includes for this repo.
 
 # Script
