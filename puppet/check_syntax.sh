@@ -1,2 +1,2 @@
 #!/bin/sh
-puppet parser validate *.pp
+puppet parser validate -v *.pp
