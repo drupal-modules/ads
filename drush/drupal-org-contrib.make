@@ -363,13 +363,8 @@ projects[job_scheduler][version] = "2.0-alpha3"
 ;___________________________________________________
 
 ; Flag
-; Flag is a flexible flagging system that is completely customizable by the administrator. Using this module, the site administrator can provide any number of
-; flags for nodes, comments, users, and any other type of entity. Some possibilities include bookmarks, marking important, friends, or flag as offensive. With
-; extensive views integration, you can create custom lists of popular content or keep tabs on important content.
-projects[flag][version] = "3.x-dev"
-projects[flag][download][type] = git
-projects[flag][download][branch] = "7.x-3.x"
-projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
+; Flagging system that is completely customizable by the administrator.
+projects[flag][version] = 3.6
 
 ;___________________________________________________
 ;
@@ -377,21 +372,16 @@ projects[flag][download][revision] = a38302c74000dcb82db89281708c1359fc3ed408
 ;___________________________________________________
 
 ; Rules
-; The rules module allows site administrators to define conditionally executed actions based on occurring events (known as reactive or ECA rules). It's a
-; replacement with more features for the trigger module in core and the successor of the Drupal 5 workflow-ng module.
-projects[rules][version] = "2.8"
+; Allows site administrators to define conditionally executed actions.
+projects[rules][version] = 2.9
 
-; Rules auto tag
-; The Rules Autotag module takes a light-weight approach for autotagging full-text content by matching taxonomy terms (and optional Synonyms). Rules Autotag
-; depends on the Rules module. Functionality is provided on different layers.
+; Rules Autotag
+; Autotagging full-text content by matching taxonomy terms.
 ; projects[rules_autotag][version] = "1.1"
 
-; Rules link
-; This module lets you create links which trigger arbitrary functionality with the help of Rules.
-projects[rules_link][version] = "1.0-beta4"
-projects[rules_link][download][type] = git
-projects[rules_link][download][branch] = "7.x-1.0"
-projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff10b
+; Rules Link
+; Help to create links which trigger arbitrary functionality with the help of Rules.
+projects[rules_link][version] = 1.1
 
 ;___________________________________________________
 ;
@@ -503,7 +493,7 @@ projects[search_api_autocomplete][version] = "1.0-beta2"
 ; This module provides a Solr backend for the Search API module. The backend uses, like the popular Apache Solr Search Integration module, Apache Solr servers
 ; for indexing and searching content. It has great performance, is suitable even for use on large commercial websites and supports facets and multi-index
 ; searches.
-projects[search_api_solr][version] = "1.5"
+projects[search_api_solr][version] = 1.6
 
 ; Search API Ranges
 projects[search_api_ranges] = "1.5"
@@ -514,7 +504,7 @@ projects[search_api_ranges] = "1.5"
 projects[facetapi][version] = "1.5"
 
 ; Facet API Pretty Paths
-projects[facetapi_pretty_paths][version] = 1.3
+projects[facetapi_pretty_paths][version] = 1.4
 
 ; Search API Database Search
 ; Provides a backend for the Search API that uses a normal database to index data.
@@ -628,7 +618,7 @@ projects[libraries][version] = "2.2"
 
 ; Chaos tool suite (ctools)
 ; Set of APIs and tools to improve the developer experience.
-projects[ctools][version] = 1.6
+projects[ctools][version] = 1.7
 
 ; Token
 ; Provides API for modules to use these tokens, and expose their own token values.
