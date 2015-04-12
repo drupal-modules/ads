@@ -409,6 +409,8 @@ projects[rules_link][download][revision] = 63975cf69c576af6e3154f0f6cfa9f9d27cff
 
 ; FEATURES
 projects[features][version] = "2.4"
+; @Patch: Feature: Add a drush features-diff --all option (https://www.drupal.org/node/1602014)
+projects[features][patch][] = "https://www.drupal.org/files/issues/features.drush_.inc-1602014.patch"
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-beta1"
