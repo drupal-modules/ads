@@ -115,6 +115,10 @@ package { $packages_php :
 }
 
 #
+# Mail
+package { "sendmail": ensure => present, }
+
+#
 # PHP PEAR packages
 #
 
