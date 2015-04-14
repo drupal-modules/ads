@@ -1,15 +1,19 @@
 #
-# Puppet manifest to install sendmail for ADS distribution.
+# Puppet manifest to install postfix for ADS distribution.
 #
 
 #
 # Mail Transfer Agents (MTA)
 #
 
-class sendmail {
+class postfix {
 
-  package { sendmail:
-    ensure => present
+  package { postfix:
+    ensure => installed
+  }
+
+  package { ["sendmail-cf","sendmail"]:
+    ensure => purged
   }
 
   package { exim4:
@@ -28,9 +32,9 @@ class sendmail {
     ensure => purged
   }
 
-  service { sendmail:
+  service { postfix:
     ensure  => running,
     enable  => true,
-    require => Package[sendmail]
+    require => Package[postfix]
   }
 }
