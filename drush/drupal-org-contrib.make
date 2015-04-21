@@ -150,15 +150,6 @@ projects[shs][version] = "1.6"
 ; Defines the Hierarchical Select" form element, which is a greatly enhanced way for letting the user select items in a hierarchy.
 ; projects[hierarchical_select][version] = 3.0-alpha12
 
-; Contact form fields
-; Allows to add additional fields to site wide contact form like the profile module interface.
-projects[contact_field][version] = 1.x-dev
-projects[contact_field][download][type] = git
-projects[contact_field][download][branch] = 7.x-2.x
-projects[contact_field][download][revision] = 18dc4544596e321fea310e33334b1fe444df8174
-; @Patch: Fixes: Fatal error: Call to undefined function db_fetch_object() on form submit
-projects[contact_field][patch][] = "https://www.drupal.org/files/issues/contact_field.module.123.patch"
-
 ;___________________________________________________
 ;
 ;  ENTITY MODULES
