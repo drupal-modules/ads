@@ -61,7 +61,7 @@ projects[addressfield][version] = 1.1
 projects[phone][version] = "2.x-dev"
 projects[phone][download][type] = git
 projects[phone][download][branch] = "7.x-2.x"
-projects[phone][download][revision] = 0df2e253a80f87f3fd886437d9021a06e7202de9
+projects[phone][download][revision] = 4b02be474876ba1926dbcd22072e615c994f2bcb
 
 ; Field Group
 ; Group fields together by HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
@@ -87,11 +87,11 @@ projects[references][version] = "2.0"
 projects[conditional_fields][version] = "3.x-dev"
 projects[conditional_fields][download][type] = git
 projects[conditional_fields][download][branch] = "7.x-3.x"
-projects[conditional_fields][download][revision] = cd29b003a592d375f3fdb4c46f5639d0f26ed0be
+projects[conditional_fields][download][revision] = 0b37992f49ec9f63f78f947168f236e49ef718e0
 ; @Patch: Add capacity to use conditional_fields on field_collection item (https://drupal.org/node/1648128).
-projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields-fix_for_collections_11.patch"
+projects[conditional_fields][patch][] = "https://www.drupal.org/files/issues/conditional_fields-fix_for_collections_12.patch"
 ; @Patch: Support for multiple "Field Collection" fields (https://drupal.org/node/1464950).
-projects[conditional_fields][patch][] = "https://drupal.org/files/conditional_fields_fixed_multiple_field_collection_fields_1464950-62_0.patch"
+projects[conditional_fields][patch][] = "https://www.drupal.org/files/issues/conditional_fields_fixed_multiple_field_collection_fields_1464950-63_0.patch"
 
 ; Link
 ; Provides a standard custom content field for links.
@@ -203,9 +203,8 @@ projects[getlocations][version] = "1.13"
 projects[ip2country][version] = "1.4"
 
 ; Smart IP
-; Smart IP identify visitor's geographical location (longitude/latitude), country, region, city and postal code based on the IP address of the user.
-projects[smart_ip][download][type] = git
-projects[smart_ip][download][branch] = 7.x-2.x
+; Identify visitor's geographical location (longitude/latitude), country, region, city and postal code based on the IP address of the user.
+projects[smart_ip][version] = 2.4
 
 ;___________________________________________________
 ;
@@ -236,6 +235,7 @@ projects[taxonomy_menu][version] = 2.x-dev
 projects[taxonomy_menu][download][type] = git
 projects[taxonomy_menu][download][branch] = 7.x-2.x
 projects[taxonomy_menu][download][revision] = c2b6b874e945c9609ef82a8b568d087eff7c0460
+
 ; @Patch: Introduce depth limit for very large and deep vocabularies (https://www.drupal.org/node/990512)
 projects[taxonomy_menu][patch][] = "https://www.drupal.org/files/issues/maxdepth-990512-24.patch"
 
@@ -535,11 +535,11 @@ projects[follow][version] = 2.0-alpha1
 ;___________________________________________________
 
 ; Taxonomy CSV
-; This module allows you to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
+; Allows to import or export taxonomy from or to a CSV (comma-separated values) file or with a copy-and-paste text.
 projects[taxonomy_csv][version] = "5.x-dev"
 projects[taxonomy_csv][download][type] = git
 projects[taxonomy_csv][download][branch] = 7.x-5.x
-projects[taxonomy_csv][download][revision] = 539e061dcfd729e2dbcf94b5598c5c9ba45d3b59
+
 
 ; Role Export
 ; Roles can be exported with Features and get the exact same rid if imported on other sites
