@@ -54,7 +54,7 @@ projects[email][version] = "1.3"
 
 ; Address Field
 ; A Drupal 7 field module to hold postal addresses, implementing a subset of the fields defined in the xNAL standard.
-projects[addressfield][version] = 1.0
+projects[addressfield][version] = 1.1
 
 ; Phone
 ; This module provides a phone field type.
@@ -389,9 +389,7 @@ projects[rules_link][version] = 1.1
 ;___________________________________________________
 
 ; FEATURES
-projects[features][version] = "2.4"
-; @Patch: Feature: Add a drush features-diff --all option (https://www.drupal.org/node/1602014)
-projects[features][patch][] = "https://www.drupal.org/files/issues/features.drush_.inc-1602014.patch"
+projects[features][version] = 2.5
 
 ; FEATURES EXTRA
 projects[features_extra][version] = "1.0-beta1"
