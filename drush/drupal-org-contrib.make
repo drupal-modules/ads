@@ -753,6 +753,10 @@ projects[diff][version] = "3.2"
 ; Used by: build-dev-env.xml
 projects[module_filter][version] = 2.0
 
+; Update Status Advanced Settings
+; Provides per-project settings to ignore certain projects or even specific releases, is absent in the core version of the module.
+projects[update_advanced][version] = 1.0-rc1
+
 ;___________________________________________________
 ;
 ;  MEDIA
