@@ -57,11 +57,8 @@ projects[email][version] = "1.3"
 projects[addressfield][version] = 1.1
 
 ; Phone
-; This module provides a phone field type.
-projects[phone][version] = "2.x-dev"
-projects[phone][download][type] = git
-projects[phone][download][branch] = "7.x-2.x"
-projects[phone][download][revision] = 4b02be474876ba1926dbcd22072e615c994f2bcb
+; Provides a phone field type.
+projects[phone][version] = 1.0-beta1
 
 ; Field Group
 ; Group fields together by HTML wrappers like vertical tabs, horizontal tabs, accordions, fieldsets or div wrappers.
