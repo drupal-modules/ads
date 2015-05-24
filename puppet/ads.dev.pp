@@ -88,25 +88,26 @@ class { 'ads::mysql':
 # PHP packages
 $packages_php = [ 'libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', 'php5-geoip' ]
 
-file { [ "/usr/share/GeoIP" ]:
-    ensure => "directory",
-    before => Exec['retrieve_geoip_db_gz'],
-}
-
-exec { 'retrieve_geoip_db_gz' :
-  path => ['/bin', '/sbin', '/usr/bin'], 
-  command => "wget -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /usr/share/GeoIP/GeoIPCity.dat.gz",
-  creates => "/usr/share/GeoIP/GeoIPCity.dat.gz",
-  before => Exec['unpack_geoip_db_gz'],
-}
-
-exec { 'unpack_geoip_db_gz' :
-  cwd => "/usr/share/GeoIP/",
-  path => ['/bin', '/sbin', '/usr/bin'], 
-  command => "gunzip GeoIPCity.dat.gz",
-  unless => 'test -f /usr/share/GeoIP/GeoIPCity.dat',
-  require => Package['libapache2-mod-geoip'],
-}
+# @fixme: Error: Could not find dependency Package[libapache2-mod-geoip] for Exec[unpack_geoip_db_gz] at /home/travis/ads/puppet/ads.dev.pp:109
+#file { [ "/usr/share/GeoIP" ]:
+#    ensure => "directory",
+#    before => Exec['retrieve_geoip_db_gz'],
+#}
+#
+#exec { 'retrieve_geoip_db_gz' :
+#  path => ['/bin', '/sbin', '/usr/bin'],
+#  command => "wget -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /usr/share/GeoIP/GeoIPCity.dat.gz",
+#  creates => "/usr/share/GeoIP/GeoIPCity.dat.gz",
+#  before => Exec['unpack_geoip_db_gz'],
+#}
+#
+#exec { 'unpack_geoip_db_gz' :
+#  cwd => "/usr/share/GeoIP/",
+#  path => ['/bin', '/sbin', '/usr/bin'],
+#  command => "gunzip GeoIPCity.dat.gz",
+#  unless => 'test -f /usr/share/GeoIP/GeoIPCity.dat',
+#  require => Package['libapache2-mod-geoip'],
+#}
 
 package { $packages_php :
   ensure => installed,
@@ -149,6 +150,6 @@ pear::package { "drush":
 #
 # development packages
 $packages_dev = [ 'git' ]
-package { $packages_dev : 
+package { $packages_dev :
   ensure => installed,
 }
