@@ -846,5 +846,14 @@ projects[tabtamer][version] = 1.1
 
 ;___________________________________________________
 ;
+;  SECURITY
+;___________________________________________________
+
+; CAPTCHA
+; A challenge-response test within web forms to determine whether the user is human.
+projects[captcha][version] = 1.3
+
+;___________________________________________________
+;
 ;  MISCELLANEOUS
 ;___________________________________________________
