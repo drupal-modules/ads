@@ -55,19 +55,10 @@
     <log message="Assigning project directories and files to phing properties...${line.separator}" level="debug"/>
       <property name="project.dir.dist" value="${phing.dir.build_ads}"/>
       <property name="project.dir.profile" value="${project.dir.dist}"/>
+      <property name="project.dir.src" value="${project.dir.profile}/src"/>
       <!-- <property name="project.dir.taxonomies" value="${project.dir.src}/sites/all/modules/ads/ads_features"/> -->
 
-      <if>
-        <isset property="out"/>
-        <then>
-          <property name="project.dir.src" value="${out}/src"/>
-        </then>
-        <else>
-          <property name="project.dir.src" value="${project.dir.profile}/src"/>
-        </else>
-      </if>
-
-    <log message="Building ADS into &quot;${project.dir.src}&quot;" level="verbose"/>
+      <log message="Building ADS into &quot;${project.dir.src}&quot;" level="verbose"/>
 
       <!-- <property name="project.dir.src.ads_features" value="${project.dir.src}/sites/all/modules/ads/ads_features"/> -->
       <property name="project.file.makefile" value="build-ads.make"/>
@@ -184,6 +175,20 @@
           <fail message="Drupal build failed, directory &quot;${project.dir.src}&quot; does not exist" />
         </then>
       </if>
+
+      <if>
+        <isset property="out"/>
+        <then>
+          <log message="Moving Drupal build folder &quot;${project.dir.src}&quot; to destination &quot;${out}&quot;" level="debug" />
+          <move todir="${out}">
+            <fileset dir="${project.dir.src}">
+              <include name="**/*" />
+            </fileset>
+          </move>
+        </then>
+      </if>
+
+
 
       <!-- Done -->
       <log message="" level="info" />
