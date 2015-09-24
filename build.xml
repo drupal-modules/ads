@@ -60,7 +60,7 @@
       <if>
         <isset property="out"/>
         <then>
-          <property name="project.dir.src" value="${out}"/>
+          <property name="project.dir.src" value="${out}/src"/>
         </then>
         <else>
           <property name="project.dir.src" value="${project.dir.profile}/src"/>
