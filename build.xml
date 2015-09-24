@@ -238,37 +238,10 @@
   ## Set proper system permissions
   -->
   <target name="set-dir-permissions" depends="build-init">
-    <!-- Unix filesystem -->
-    <if><equals arg1="${host.fstype}" arg2="UNIX" />
-      <then>
-        <log message="Creating Drupal default files directory" level="verbose" />
-          <exec command="mkdir -vp ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" />
-          <!-- <exec command="sudo chown -R ubuntu:www-data ${project.dir.src}/sites/default" dir="${project.drupal.public.dir}" /> -->
-          <!-- <exec command="chmod -vR 775 ${project.drupal.public.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" /> -->
-
-        <log message="Creating Drupal private files directory" level="verbose" />
-          <exec command="mkdir -vp ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" />
-          <!-- <exec command="sudo chown -R ubuntu:www-data ${project.drupal.private.dir}" dir="${project.dir.dist}" /> -->
-          <!-- <exec command="chmod -vR 775 ${project.drupal.private.dir}" dir="${project.dir.src}" LogOutput="true" spawn="true" /> -->
-
-      </then>
-    <!-- Windows filesystem -->
-    <elseif><equals arg1="${host.fstype}" arg2="WINNT" />
-      <then>
-        <log message="Creating Drupal default files directory" level="verbose" />
-          <exec command="mkdir ${project.drupal.public.dir}" dir="${project.dir.src}" />
-
-        <log message="Creating Drupal private files directory" level="verbose" />
-          <exec command="mkdir &quot;${project.drupal.private.dir}&quot;" dir="${project.dir.src}" />
-      </then>
-    </elseif>
-    </if>
-    <!--
     <log message="Creating Drupal default files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.public.dir}" />
+      <mkdir dir="${project.dir.src}/${project.drupal.public.dir}" />
     <log message="Creating Drupal private files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.private.dir}" />
-    -->
+      <mkdir dir="${project.dir.src}/${project.drupal.private.dir}" />
     <!-- Fix permissions for the default site directory and settings.
          The owner must be able to delete the directories during subsequent builds. -->
     <log message="Setting up the permissions..." level="verbose" />
