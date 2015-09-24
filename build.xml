@@ -182,9 +182,9 @@
   -->
   <target name="set-dir-permissions" depends="build-init">
     <log message="Creating Drupal default files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.public.dir}" />
+      <mkdir dir="${project.dir.src}/${project.drupal.public.dir}" />
     <log message="Creating Drupal private files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.private.dir}" />
+      <mkdir dir="${project.dir.src}/${project.drupal.private.dir}" />
     <log message="Setting up the permissions..." level="verbose" />
     <!-- Fix permissions for the default site directory and settings.
          The owner must be able to delete the directories during subsequent builds. -->
