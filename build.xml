@@ -263,19 +263,13 @@
       </then>
     </elseif>
     </if>
-    <!--
-    <log message="Creating Drupal default files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.public.dir}" />
-    <log message="Creating Drupal private files directory..." level="verbose" />
-      <mkdir dir="${project.drupal.private.dir}" />
-    -->
     <!-- Fix permissions for the default site directory and settings.
          The owner must be able to delete the directories during subsequent builds. -->
     <log message="Setting up the permissions..." level="verbose" />
-    <chmod file="${project.dir.src}/${project.drupal.private.dir}"
-      mode="0775" failonerror="true" />
-    <chmod file="${project.dir.src}/${project.drupal.public.dir}"
-      mode="0775" failonerror="true" />
+    <chmod file="${project.drupal.private.dir}"
+      dir="${project.dir.src}" mode="0775" failonerror="true" />
+    <chmod file="${project.drupal.public.dir}"
+      dir="${project.dir.src}" mode="0775" failonerror="true" />
   </target>
 
   <!--
