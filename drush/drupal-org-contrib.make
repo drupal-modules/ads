@@ -643,7 +643,7 @@ projects[beautytips][version] = "2.0-beta2"
 ; Masonry
 ; Masonry is a dynamic grid layout plugin for jQuery.
 projects[masonry][version] = "2.x-dev"
-projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
+; projects[masonry][patch][] = "https://drupal.org/files/issues/masonry-support_v311-2022371-5.patch"
 
 ; Voting API
 ; It helps developers who want to use a standardized API and schema for storing, retrieving, and tabulating votes for Drupal content.
