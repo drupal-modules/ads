@@ -3,7 +3,7 @@ ADS Drupal distribution
 
 This is an installation profile for building a Drupal based ads platform.
 
-![](https://api.bountysource.com/badge/tracker?tracker_id=578272)
+[![Bounty Source](https://api.bountysource.com/badge/tracker?tracker_id=578272)](https://www.bountysource.com/teams/mycognitive/issues?tracker_ids=578272)
 
 Build status
 ------------
