@@ -3,6 +3,8 @@ ADS Drupal distribution
 
 This is an installation profile for building a Drupal based ads platform.
 
+![](https://api.bountysource.com/badge/tracker?tracker_id=578272)
+
 Build status
 ------------
 ADS build status:
@@ -22,7 +24,6 @@ Latest:
 | [![Build Status](https://travis-ci.org/mycognitive/ads.svg?branch=7.x-1.x)](https://travis-ci.org/mycognitive/ads) | ADS | 7.x-1.x | Main build process.
 | [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=master)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | master | Build and installation of ADS Features.
 | [![Build Status](https://travis-ci.org/mycognitive/ads_features.svg?branch=7.x-1.x)](https://travis-ci.org/mycognitive/ads_features) | ADS Features | 7.x-1.x | Build and installation of ADS Features.
-
 
 Requirements
 ------------
