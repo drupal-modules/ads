@@ -15,11 +15,19 @@
 
 if $::ads_docroot != undef {
   $vhost_docroot = $::ads_docroot
+  notify { "Using facter docroot: ${::ads_docroot}": }
 } else {
   $vhost_docroot = '/var/www'
 }
 
-apache::vhost { $::ads_host:
+if $::ads_host != undef {
+  $vhost_host = $::ads_host
+  notify { "Using facter docroot: ${::ads_host}": }
+} else {
+  $vhost_host = 'ads.server'
+}
+
+apache::vhost { $vhost_host:
   port    => '80',
   docroot => $vhost_docroot,
   directories  => [
