@@ -13,20 +13,29 @@
 # Some examples:
 #   http://kodingnotes.wordpress.com/tag/puppet-script/
 
-apache::vhost { 'ads.server':
+if $::ads_docroot != undef {
+  $vhost_docroot = $::ads_docroot
+  notify { "Using facter docroot: ${::ads_docroot}": }
+} else {
+  $vhost_docroot = '/var/www'
+}
+
+if $::ads_host != undef {
+  $vhost_host = $::ads_host
+  notify { "Using facter docroot: ${::ads_host}": }
+} else {
+  $vhost_host = 'ads.server'
+}
+
+apache::vhost { $vhost_host:
   port    => '80',
-
-  # @TODO: Currently we're using static path for docroot, we need to find a way
-  # to pass SRCDIR environment variable into puppet.
-  docroot => '/var/www/ads',
-
+  docroot => $vhost_docroot,
   directories  => [
-    { path           => '/var/www/ads',
+    { path           => $vhost_docroot,
       allow_override => ['All'],
     },
   ],
 }
-
 
 mysql::db { 'travis_ads_test':
   user     => 'travis_ads_test',
@@ -36,4 +45,3 @@ mysql::db { 'travis_ads_test':
   collate  => 'utf8_general_ci',
   grant    => ['ALL'],
 }
-
