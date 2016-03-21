@@ -42,18 +42,6 @@ exec { 'smtp-sink' :
   require => Package['postfix'],
 }
 
-# Postfix: Disabling sendmail? (Fails on Travis)
-#exec { 'disable-sendmail' :
-#  command => "echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail",
-#  path    => ["/bin", "/usr/bin"],
-#}
-
-# Postfix: Configuring sendmail
-exec { 'configure-sendmail' :
-  command => "echo 'sendmail_path = \"/usr/sbin/sendmail -t -i \"' | sudo tee \"/home/travis/.phpenv/versions/`php -i | grep \"PHP Version\" | head -n 1 | grep -o -P '\\d+\\.\\d+\\.\\d+.*'`/etc/conf.d/sendmail.ini\"",
-  path    => ["/bin", "/usr/bin"],
-}
-
 # Postfix start.
 service { 'postfix' :
   ensure => running,
