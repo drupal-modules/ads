@@ -14,18 +14,17 @@ package { 'python-software-properties' :
 # PHP: Including custom php.ini
 exec { 'php-ini' :
   command => "phpenv config-add php.ini",
-  path => ["/bin", "/usr/bin"],
+  path    => ["/bin", "/usr/bin"],
 }
 
 #
 # Other packages.
 #
-# html2text
-#   HTML-to-text converter.
-package { 'html2text' : ensure => installed, }
-# tree
-#   Print directory structure in the form of a tree.
-package { 'tree' : ensure => installed, }
+# html2text - HTML-to-text converter.
+# tree - Print directory structure in the form of a tree.
+package { ['html2text','tree']:
+  ensure => installed,
+}
 
 #
 # Postfix.
@@ -39,19 +38,20 @@ package { 'postfix' :
 # Postfix: Smtp-sink.
 exec { 'smtp-sink' :
   command => "smtp-sink -d \"%d.%H.%M.%S\" localhost:2500 1000 &",
-  path => ["/bin", "/usr/bin", "/usr/sbin"],
+  path    => ["/bin", "/usr/bin", "/usr/sbin"],
+  require => Package['postfix'],
 }
 
-# Postfix: Disabling sendmail?
-exec { 'disable-sendmail' :
-  command => "echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail",
-  path => ["/bin", "/usr/bin"],
-}
+# Postfix: Disabling sendmail? (Fails on Travis)
+#exec { 'disable-sendmail' :
+#  command => "echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail",
+#  path    => ["/bin", "/usr/bin"],
+#}
 
-# Postfix: Configuring sendmail.
+# Postfix: Configuring sendmail
 exec { 'configure-sendmail' :
   command => "echo 'sendmail_path = \"/usr/sbin/sendmail -t -i \"' | sudo tee \"/home/travis/.phpenv/versions/`php -i | grep \"PHP Version\" | head -n 1 | grep -o -P '\\d+\\.\\d+\\.\\d+.*'`/etc/conf.d/sendmail.ini\"",
-  path => ["/bin", "/usr/bin"],
+  path    => ["/bin", "/usr/bin"],
 }
 
 # Postfix start.
