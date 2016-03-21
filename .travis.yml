@@ -18,7 +18,6 @@ install:
   - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3-tomcat.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/mta-postfix.pp puppet/php5-memcached.pp | sudo puppet apply
   - sudo ps aux | grep memcached
   - sudo puppet module list
-  - which composer;which phpenv;which drush
 
 # Before Script
 # Use this to prepare your build for testing (e.g. copy database configurations, environment variables, etc.).

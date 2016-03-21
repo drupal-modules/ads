@@ -14,7 +14,7 @@ package { 'python-software-properties' :
 # PHP: Including custom php.ini
 exec { 'php-ini' :
   command => "phpenv config-add php.ini",
-  path    => ["/bin", "/usr/bin"],
+  path    => ["/bin", "/usr/bin","/home/travis/.phpenv/bin"],
 }
 
 #
