@@ -69,19 +69,10 @@ class ads::mysql inherits ::mysql::server::config {
   }
 }
 
-class { 'ads::mysql':
-}
-
-# Apache
-# FiXME: Error: Duplicate declaration: Service[apache2] is already declared in file /etc/puppet/modules/apache/manifests/service.pp:34; cannot redeclare
-#service { 'apache2' :
-#  ensure  => running,
-#  enable  => true,
-#  require => Package['apache2'],
-#}
+class { 'ads::mysql': }
 
 # PHP packages
-$packages_php = [ 'libapache2-mod-geoip','libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', 'php5-geoip' ]
+$packages_php = [ 'libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', 'php5-geoip' ]
 
 file { [ "/usr/share/GeoIP" ]:
     ensure => "directory",
