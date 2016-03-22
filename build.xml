@@ -65,7 +65,7 @@
 
     <log message="Assigning drush properties...${line.separator}" level="debug"/>
       <property name="project.drush.args"         value="--verbose --yes"/>
-      <property name="project.drush.cmd"          value="drush ${project.drush.args}"/>
+      <property name="project.drush.cmd"          value="${phing.dir.build_ads}/vendor/drush/drush/drush ${project.drush.args}"/>
       <property name="project.drush.make.args"    value="-y --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
       <property name="project.drush.make.args2"   value="-y --no-core --prepare-install --working-copy --no-gitinfofile --verbose --concurrency=4"/>
 
@@ -415,4 +415,3 @@
   </target>
 
 </project>
-

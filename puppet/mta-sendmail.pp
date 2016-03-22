@@ -8,27 +8,27 @@
 
 class sendmail {
 
-  package { sendmail:
+  package { 'sendmail':
     ensure => present
   }
 
-  package { exim4:
+  package { 'exim4':
     ensure => purged
   }
 
-  package { exim4-base:
+  package { 'exim4-base':
     ensure => purged
   }
 
-  package { exim4-daemon-light:
+  package { 'exim4-daemon-light':
     ensure => purged
   }
 
-  package { exim4-config:
+  package { 'exim4-config':
     ensure => purged
   }
 
-  service { sendmail:
+  service { 'sendmail':
     ensure  => running,
     enable  => true,
     require => Package[sendmail]

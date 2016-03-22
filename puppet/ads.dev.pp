@@ -12,14 +12,9 @@
 #
 
 # Apache
-
-class apache-setup {
-  class { 'apache':
-    mpm_module => 'prefork',
-  }
+class { 'apache':
+  mpm_module => 'prefork',
 }
-
-include apache-setup
 
 include apache::mod::rewrite
 include apache::mod::expires
@@ -47,12 +42,12 @@ class { '::mysql::server':
   root_password    => 'root', # Sets MySQL root password.
   override_options => {
     'mysqld' => {
-      'max_connections' => '512',
+      'max_connections'    => '512',
       'max_allowed_packet' => '256M', # 12M fails on System tests, 32M on country import.
-      'log' => 'ON',
-      'log_slow_queries' => 'ON',
-      'general_log' => 'ON',
-      'wait_timeout' => '28800',
+      'log'                => 'ON',
+      'log_slow_queries'   => 'ON',
+      'general_log'        => 'ON',
+      'wait_timeout'       => '28800',
     }
   }
 }
@@ -74,50 +69,36 @@ class ads::mysql inherits ::mysql::server::config {
   }
 }
 
-class { 'ads::mysql':
-}
-
-# Apache
-# FiXME: Error: Duplicate declaration: Service[apache2] is already declared in file /etc/puppet/modules/apache/manifests/service.pp:34; cannot redeclare
-#service { 'apache2' :
-#  ensure  => running,
-#  enable  => true,
-#  require => Package['apache2'],
-#}
+class { 'ads::mysql': }
 
 # PHP packages
 $packages_php = [ 'libapache2-mod-php5', 'php5', 'php5-cli', 'php5-common', 'php5-curl', 'php5-gd', 'php5-mysql', 'php-pear', 'php5-geoip' ]
 
-# @fixme: Error: Could not find dependency Package[libapache2-mod-geoip] for Exec[unpack_geoip_db_gz] at /home/travis/ads/puppet/ads.dev.pp:109
-#file { [ "/usr/share/GeoIP" ]:
-#    ensure => "directory",
-#    before => Exec['retrieve_geoip_db_gz'],
-#}
-#
-#exec { 'retrieve_geoip_db_gz' :
-#  path => ['/bin', '/sbin', '/usr/bin'],
-#  command => "wget -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /usr/share/GeoIP/GeoIPCity.dat.gz",
-#  creates => "/usr/share/GeoIP/GeoIPCity.dat.gz",
-#  before => Exec['unpack_geoip_db_gz'],
-#}
-#
-#exec { 'unpack_geoip_db_gz' :
-#  cwd => "/usr/share/GeoIP/",
-#  path => ['/bin', '/sbin', '/usr/bin'],
-#  command => "gunzip GeoIPCity.dat.gz",
-#  unless => 'test -f /usr/share/GeoIP/GeoIPCity.dat',
-#  require => Package['libapache2-mod-geoip'],
-#}
-
-package { $packages_php :
-  ensure => installed,
-  require => Package['apache2'],
-  notify => Service['apache2']
+file { [ "/usr/share/GeoIP" ]:
+    ensure => "directory",
+    before => Exec['retrieve_geoip_db_gz'],
 }
 
-#
-# Mail
-package { "sendmail": ensure => present, }
+exec { 'retrieve_geoip_db_gz' :
+  path    => ['/bin', '/sbin', '/usr/bin'],
+  command => "wget -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /usr/share/GeoIP/GeoIPCity.dat.gz",
+  creates => "/usr/share/GeoIP/GeoIPCity.dat.gz",
+  before  => Exec['unpack_geoip_db_gz'],
+}
+
+exec { 'unpack_geoip_db_gz' :
+  cwd     => "/usr/share/GeoIP/",
+  path    => ['/bin', '/sbin', '/usr/bin'],
+  command => "gunzip GeoIPCity.dat.gz",
+  unless  => 'test -f /usr/share/GeoIP/GeoIPCity.dat',
+  require => Package['libapache2-mod-geoip'],
+}
+
+package { $packages_php :
+  ensure  => installed,
+  require => Package['apache2'],
+  notify  => Service['apache2']
+}
 
 #
 # PHP PEAR packages
@@ -138,18 +119,10 @@ pear::package { "Phing":
   require => Pear::Package["PEAR"],
 }
 
-# Drush
-pear::package { "drush":
-  version => "6.2.0.0",
-  repository => "pear.drush.org",
-  require => Pear::Package["PEAR"],
-}
-
 #
 # TOOLS
 #
 # development packages
-$packages_dev = [ 'git' ]
-package { $packages_dev :
+package { 'git':
   ensure => installed,
 }

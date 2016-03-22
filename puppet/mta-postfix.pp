@@ -8,7 +8,7 @@
 
 class postfix {
 
-  package { postfix:
+  package { 'postfix':
     ensure => installed
   }
 
@@ -16,23 +16,23 @@ class postfix {
     ensure => purged
   }
 
-  package { exim4:
+  package { 'exim4':
     ensure => purged
   }
 
-  package { exim4-base:
+  package { 'exim4-base':
     ensure => purged
   }
 
-  package { exim4-daemon-light:
+  package { 'exim4-daemon-light':
     ensure => purged
   }
 
-  package { exim4-config:
+  package { 'exim4-config':
     ensure => purged
   }
 
-  service { postfix:
+  service { 'postfix':
     ensure  => running,
     enable  => true,
     require => Package[postfix]

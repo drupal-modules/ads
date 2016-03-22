@@ -158,7 +158,7 @@ echo "${GREEN}Configuration successful.${NC}"
 
 if [ "x$1" = "xinstall" ]; then
   echo "Configuring puppet modules..."
-  puppet apply puppet/ads.dev.pp
+  cat puppet/ads.dev.pp puppet/apache-mod_geoip2.pp | puppet apply
   echo ""
   DONE=1
 else
@@ -179,4 +179,3 @@ else
   echo "  ${BLUE}make (or phing)${NC}"
   echo ""
 fi
-

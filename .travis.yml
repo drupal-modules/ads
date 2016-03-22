@@ -14,7 +14,8 @@ before_install:
 # Use this to install any prerequisites or dependencies necessary to run your build.
 install:
   - sudo sh ./configure install
-  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3-tomcat.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/php5-memcached.pp | sudo puppet apply
+  - composer require drush/drush:6.2.0
+  - cat puppet/travis.pp puppet/ads.dev.pp puppet/solr3-tomcat.pp puppet/apache-mod_geoip2.pp puppet/php5-xcache.pp puppet/mta-postfix.pp puppet/php5-memcached.pp | sudo puppet apply
   - sudo ps aux | grep memcached
   - sudo puppet module list
 
